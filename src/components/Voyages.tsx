@@ -112,6 +112,7 @@ const destinations: TravelDestination[] = [
     coordinates: [8.6833, 106.6167],
     description: "Un archipel préservé, plages désertes et nature sauvage 🌴",
     date: "2025",
+    slug: "con-dao",
   },
 ];
 

@@ -56,6 +56,12 @@ import canTho03 from '../assets/can-tho-03.jpg';
 import canTho04 from '../assets/can-tho-04.jpg';
 import canTho05 from '../assets/can-tho-05.jpg';
 
+import conDao01 from '../assets/con-dao-01.jpg';
+import conDao02 from '../assets/con-dao-02.jpg';
+import conDao03 from '../assets/con-dao-03.jpg';
+import conDao04 from '../assets/con-dao-04.jpg';
+import conDao05 from '../assets/con-dao-05.jpg';
+
 interface VoyageData {
   name: string;
   country: string;
@@ -120,6 +126,13 @@ const voyagesData: Record<string, VoyageData> = {
     date: '2025',
     description: 'Le cœur du delta du Mékong et ses marchés flottants.',
     photos: [canTho01, canTho02, canTho03, canTho04, canTho05],
+  },
+  'con-dao': {
+    name: 'Côn Đảo',
+    country: 'Vietnam',
+    date: '2025',
+    description: 'Un archipel préservé, plages désertes et nature sauvage.',
+    photos: [conDao01, conDao02, conDao03, conDao04, conDao05],
   },
 };
 
