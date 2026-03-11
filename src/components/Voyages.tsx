@@ -11,6 +11,16 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useLanguage } from '../i18n';
 
+import thumbHaNoi from '../assets/ha-noi-01.jpg';
+import thumbHaLong from '../assets/ha-long-01.jpg';
+import thumbHoiAn from '../assets/hoi-an-01.jpg';
+import thumbDaNang from '../assets/da-nang-01.jpg';
+import thumbDaLat from '../assets/da-lat-01.jpg';
+import thumbNhaTrang from '../assets/nha-trang-01.jpg';
+import thumbCanTho from '../assets/can-tho-01.jpg';
+import thumbSaigon from '../assets/saigon-01.jpg';
+import thumbConDao from '../assets/con-dao-01.jpg';
+
 // Custom marker icon
 const customIcon = new L.Icon({
   iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
@@ -31,6 +41,7 @@ interface TravelDestination {
   descriptionEn: string;
   date: string;
   slug?: string;
+  thumbnail?: string;
   image?: string;
 }
 
@@ -44,6 +55,7 @@ const destinations: TravelDestination[] = [
     descriptionEn: "The millennial capital, between the old town and peaceful lakes 🏛️",
     date: "2025",
     slug: "ha-noi",
+    thumbnail: thumbHaNoi,
   },
   {
     id: 2,
@@ -54,6 +66,7 @@ const destinations: TravelDestination[] = [
     descriptionEn: "Majestic limestone bays surrounded by emerald waters ⛵",
     date: "2025",
     slug: "ha-long",
+    thumbnail: thumbHaLong,
   },
   {
     id: 3,
@@ -64,6 +77,7 @@ const destinations: TravelDestination[] = [
     descriptionEn: "The lantern town, a timeless charm 🏮",
     date: "2025",
     slug: "hoi-an",
+    thumbnail: thumbHoiAn,
   },
   {
     id: 4,
@@ -74,6 +88,7 @@ const destinations: TravelDestination[] = [
     descriptionEn: "Stunning beaches and the Dragon Bridge, between sea and mountains 🌊",
     date: "2025",
     slug: "da-nang",
+    thumbnail: thumbDaNang,
   },
   {
     id: 5,
@@ -84,6 +99,7 @@ const destinations: TravelDestination[] = [
     descriptionEn: "The city of flowers and mist, cool mountain air 🌸",
     date: "2025",
     slug: "da-lat",
+    thumbnail: thumbDaLat,
   },
   {
     id: 6,
@@ -94,6 +110,7 @@ const destinations: TravelDestination[] = [
     descriptionEn: "Crystal-clear sea and lively beach life 🏖️",
     date: "2025",
     slug: "nha-trang",
+    thumbnail: thumbNhaTrang,
   },
   {
     id: 7,
@@ -104,6 +121,7 @@ const destinations: TravelDestination[] = [
     descriptionEn: "The heart of the Mekong Delta and its floating markets 🚤",
     date: "2025",
     slug: "can-tho",
+    thumbnail: thumbCanTho,
   },
   {
     id: 8,
@@ -114,6 +132,7 @@ const destinations: TravelDestination[] = [
     descriptionEn: "The wild energy of the southern megacity, always on the move 🛵",
     date: "2025",
     slug: "saigon",
+    thumbnail: thumbSaigon,
   },
   {
     id: 9,
@@ -124,6 +143,7 @@ const destinations: TravelDestination[] = [
     descriptionEn: "A preserved archipelago, deserted beaches and wild nature 🌴",
     date: "2025",
     slug: "con-dao",
+    thumbnail: thumbConDao,
   },
 ];
 
@@ -165,7 +185,7 @@ export default function Voyages() {
               <p className="text-stone-600 text-center">{v.mapDesc}</p>
             </div>
 
-            <div className="h-[600px] relative">
+            <div className="h-[400px] relative">
               <MapContainer
                 center={[16, 106]}
                 zoom={6}
@@ -183,14 +203,25 @@ export default function Voyages() {
                     icon={customIcon}
                   >
                     <Popup className="custom-popup">
-                      <div className="p-2 max-w-xs">
-                        <h3 className="font-bold text-lg mb-1">
-                          {destination.name}, {destination.country}
-                        </h3>
-                        <p className="text-sm text-stone-600 mb-2">{destination.date}</p>
-                        <p className="text-sm leading-relaxed">
-                          {lang === 'fr' ? destination.description : destination.descriptionEn}
-                        </p>
+                      <div className="max-w-[200px]">
+                        {destination.thumbnail && destination.slug && (
+                          <Link to={`/voyages/${destination.slug}`}>
+                            <img
+                              src={destination.thumbnail}
+                              alt={destination.name}
+                              className="w-full h-28 object-cover rounded-t-lg"
+                            />
+                          </Link>
+                        )}
+                        <div className="p-2">
+                          <h3 className="font-bold text-base mb-1">
+                            {destination.name}, {destination.country}
+                          </h3>
+                          <p className="text-xs text-stone-600 mb-1">{destination.date}</p>
+                          <p className="text-xs leading-relaxed">
+                            {lang === 'fr' ? destination.description : destination.descriptionEn}
+                          </p>
+                        </div>
                       </div>
                     </Popup>
                   </Marker>
