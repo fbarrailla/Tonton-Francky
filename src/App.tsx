@@ -10,6 +10,7 @@ import { Instagram, Heart, MapPin } from 'lucide-react';
 import Home from './components/Home';
 import Voyages from './components/Voyages';
 import VoyageDetail from './components/VoyageDetail';
+import About from './components/About';
 import { LanguageProvider, useLanguage, type Lang } from './i18n';
 
 function AppContent() {
@@ -36,6 +37,12 @@ function AppContent() {
             >
               <MapPin size={16} />
               <span>{t.nav.travels}</span>
+            </Link>
+            <Link
+              to="/a-propos"
+              className="glass-card px-4 py-2 hover:bg-white/60 transition-colors"
+            >
+              {t.nav.about}
             </Link>
             <a
               href="https://instagram.com/tonton__francky"
@@ -69,6 +76,7 @@ function AppContent() {
         <Route path="/" element={<Home />} />
         <Route path="/voyages" element={<Voyages />} />
         <Route path="/voyages/:ville" element={<VoyageDetail />} />
+          <Route path="/a-propos" element={<About />} />
       </Routes>
 
       {/* Footer */}

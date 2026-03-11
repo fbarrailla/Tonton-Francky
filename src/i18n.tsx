@@ -11,6 +11,7 @@ const translations = {
   fr: {
     nav: {
       travels: 'Voyages',
+      about: 'À propos',
     },
     footer: {
       tagline: 'Voyage, rencontres et bonnes vibes 🌍',
@@ -53,10 +54,24 @@ const translations = {
       back: 'Retour aux voyages',
       notFound: 'Voyage introuvable',
     },
+    about: {
+      title: 'À propos',
+      subtitle: 'Qui se cache derrière Tonton Francky ?',
+      description: "Tonton Francky, c'est le site personnel de François B., dédié aux voyages, à la culture, au digital et aux réflexions sur la vie moderne. À travers ses articles, il partage expériences, conseils et découvertes avec une approche accessible et authentique.",
+      topics: 'Thèmes explorés',
+      topic1: 'Voyages & aventures',
+      topic2: 'Culture & rencontres',
+      topic3: 'Digital & tech',
+      topic4: 'Vie moderne & réflexions',
+      ctaTitle: 'Envie d\'en savoir plus ?',
+      ctaDesc: 'Retrouve François sur Instagram pour suivre ses aventures en temps réel.',
+      ctaBtn: 'Suivre sur Instagram',
+    },
   },
   en: {
     nav: {
       travels: 'Travels',
+      about: 'About',
     },
     footer: {
       tagline: 'Travel, friends and good vibes 🌍',
@@ -98,6 +113,19 @@ const translations = {
     detail: {
       back: 'Back to travels',
       notFound: 'Travel not found',
+    },
+    about: {
+      title: 'About',
+      subtitle: 'Who is behind Tonton Francky?',
+      description: "Tonton Francky is the personal website of François B., dedicated to travel, culture, digital topics, and reflections on modern life. Through his articles, he shares experiences, tips and discoveries with an accessible and authentic approach.",
+      topics: 'Topics explored',
+      topic1: 'Travel & adventures',
+      topic2: 'Culture & encounters',
+      topic3: 'Digital & tech',
+      topic4: 'Modern life & reflections',
+      ctaTitle: 'Want to know more?',
+      ctaDesc: 'Follow François on Instagram to keep up with his adventures in real time.',
+      ctaBtn: 'Follow on Instagram',
     },
   },
 } as const;
