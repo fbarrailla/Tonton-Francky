@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, ArrowLeft } from 'lucide-react';
+import { useLanguage } from '../i18n';
 
 import haNoi01 from '../assets/ha-noi-01.jpg';
 import haNoi02 from '../assets/ha-noi-02.jpg';
@@ -66,6 +67,7 @@ interface VoyageData {
   name: string;
   country: string;
   description: string;
+  descriptionEn: string;
   date: string;
   photos: string[];
 }
@@ -76,6 +78,7 @@ const voyagesData: Record<string, VoyageData> = {
     country: 'Vietnam',
     date: '2025',
     description: 'La capitale millénaire, entre vieille ville et lacs paisibles.',
+    descriptionEn: 'The millennial capital, between the old town and peaceful lakes.',
     photos: [haNoi01, haNoi02, haNoi03, haNoi04, haNoi05],
   },
   'hoi-an': {
@@ -83,6 +86,7 @@ const voyagesData: Record<string, VoyageData> = {
     country: 'Vietnam',
     date: '2025',
     description: 'La ville aux lanternes, un charme hors du temps.',
+    descriptionEn: 'The lantern town, a timeless charm.',
     photos: [hoiAn01, hoiAn02, hoiAn03, hoiAn04, hoiAn05],
   },
   'da-nang': {
@@ -90,20 +94,23 @@ const voyagesData: Record<string, VoyageData> = {
     country: 'Vietnam',
     date: '2025',
     description: 'Plages superbes et pont du Dragon, entre mer et montagne.',
+    descriptionEn: 'Stunning beaches and the Dragon Bridge, between sea and mountains.',
     photos: [daNang01, daNang02, daNang03, daNang04, daNang05],
   },
   'ha-long': {
     name: 'Hạ Long',
     country: 'Vietnam',
     date: '2025',
-    description: 'Les majestueuses baies de calcaire au milieu de l\'eau émeraude.',
+    description: "Les majestueuses baies de calcaire au milieu de l'eau émeraude.",
+    descriptionEn: 'Majestic limestone bays surrounded by emerald waters.',
     photos: [haLong01, haLong02, haLong03, haLong04, haLong05],
   },
   'saigon': {
     name: 'Saigon',
     country: 'Vietnam',
     date: '2025',
-    description: 'L\'énergie folle de la mégapole du Sud, toujours en mouvement.',
+    description: "L'énergie folle de la mégapole du Sud, toujours en mouvement.",
+    descriptionEn: 'The wild energy of the southern megacity, always on the move.',
     photos: [saigon01, saigon02, saigon03, saigon04, saigon05],
   },
   'da-lat': {
@@ -111,6 +118,7 @@ const voyagesData: Record<string, VoyageData> = {
     country: 'Vietnam',
     date: '2025',
     description: 'La ville des fleurs et de la brume, fraîcheur en altitude.',
+    descriptionEn: 'The city of flowers and mist, cool mountain air.',
     photos: [daLat01, daLat02, daLat03, daLat04, daLat05],
   },
   'nha-trang': {
@@ -118,6 +126,7 @@ const voyagesData: Record<string, VoyageData> = {
     country: 'Vietnam',
     date: '2025',
     description: 'Mer cristalline et vie balnéaire animée.',
+    descriptionEn: 'Crystal-clear sea and lively beach life.',
     photos: [nhaTrang01, nhaTrang02, nhaTrang03, nhaTrang04, nhaTrang05],
   },
   'can-tho': {
@@ -125,6 +134,7 @@ const voyagesData: Record<string, VoyageData> = {
     country: 'Vietnam',
     date: '2025',
     description: 'Le cœur du delta du Mékong et ses marchés flottants.',
+    descriptionEn: 'The heart of the Mekong Delta and its floating markets.',
     photos: [canTho01, canTho02, canTho03, canTho04, canTho05],
   },
   'con-dao': {
@@ -132,6 +142,7 @@ const voyagesData: Record<string, VoyageData> = {
     country: 'Vietnam',
     date: '2025',
     description: 'Un archipel préservé, plages désertes et nature sauvage.',
+    descriptionEn: 'A preserved archipelago, deserted beaches and wild nature.',
     photos: [conDao01, conDao02, conDao03, conDao04, conDao05],
   },
 };
@@ -140,14 +151,16 @@ export default function VoyageDetail() {
   const { ville } = useParams<{ ville: string }>();
   const voyage = ville ? voyagesData[ville] : null;
   const [current, setCurrent] = useState(0);
+  const { lang, t } = useLanguage();
+  const d = t.detail;
 
   if (!voyage) {
     return (
       <main className="flex-grow pt-20 flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-3xl font-serif font-bold mb-4">Voyage introuvable</h1>
+          <h1 className="text-3xl font-serif font-bold mb-4">{d.notFound}</h1>
           <Link to="/voyages" className="text-stone-600 hover:underline flex items-center gap-2 justify-center">
-            <ArrowLeft size={16} /> Retour aux voyages
+            <ArrowLeft size={16} /> {d.back}
           </Link>
         </div>
       </main>
@@ -166,7 +179,7 @@ export default function VoyageDetail() {
             to="/voyages"
             className="inline-flex items-center gap-2 text-stone-600 hover:text-stone-900 transition-colors mb-6"
           >
-            <ArrowLeft size={16} /> Retour aux voyages
+            <ArrowLeft size={16} /> {d.back}
           </Link>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -177,7 +190,9 @@ export default function VoyageDetail() {
               {voyage.name}
             </h1>
             <p className="text-stone-500 text-lg mb-3">{voyage.country} — {voyage.date}</p>
-            <p className="text-stone-700 text-xl max-w-2xl">{voyage.description}</p>
+            <p className="text-stone-700 text-xl max-w-2xl">
+              {lang === 'fr' ? voyage.description : voyage.descriptionEn}
+            </p>
           </motion.div>
         </div>
       </section>

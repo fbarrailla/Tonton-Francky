@@ -6,16 +6,17 @@
 import React from 'react';
 import myFace from '../assets/me.png';
 import { motion } from 'motion/react';
-import { 
-  Instagram, 
-  MapPin, 
-  Globe, 
-  Users, 
-  Terminal, 
-  Zap, 
+import {
+  Instagram,
+  MapPin,
+  Globe,
+  Users,
+  Terminal,
+  Zap,
   ChevronRight,
   Heart
 } from 'lucide-react';
+import { useLanguage } from '../i18n';
 
 const EmojiAvatar = () => (
   <div className="w-full h-full bg-white flex items-center justify-center">
@@ -24,7 +25,7 @@ const EmojiAvatar = () => (
 );
 
 const InterestCard = ({ icon: Icon, text, delay }: { icon: any, text: string, delay: number }) => (
-  <motion.div 
+  <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
@@ -39,6 +40,9 @@ const InterestCard = ({ icon: Icon, text, delay }: { icon: any, text: string, de
 );
 
 export default function Home() {
+  const { t } = useLanguage();
+  const h = t.home;
+
   return (
     <main className="flex-grow">
       {/* Hero Section */}
@@ -54,26 +58,26 @@ export default function Home() {
                 <EmojiAvatar />
               </div>
               <span className="inline-block px-4 py-1.5 rounded-full bg-travel-blue text-stone-600 text-sm font-semibold">
-                Bonjour le monde ! 👋
+                {h.greeting}
               </span>
             </div>
             <h1 className="text-5xl md:text-7xl font-serif font-bold leading-tight mb-8">
-              François le <br />
-              <span className="italic text-stone-500 underline decoration-stone-300 underline-offset-8">Français 🥖</span>
+              {h.title1} <br />
+              <span className="italic text-stone-500 underline decoration-stone-300 underline-offset-8">{h.title2}</span>
             </h1>
             <div className="space-y-4 text-xl text-stone-600 max-w-lg mb-10">
-              <p>J'aime voyager et me faire des amis partout dans le monde 🤗</p>
-              <p>Geek du dimanche 👨🏻‍💻</p>
-              <p>Coach en devenir 💪</p>
-              <p className="italic">Schizo 🥴 mais toujours curieux de la vie</p>
+              <p>{h.desc1}</p>
+              <p>{h.desc2}</p>
+              <p>{h.desc3}</p>
+              <p className="italic">{h.desc4}</p>
             </div>
-            <motion.a 
+            <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href="#contact"
               className="btn-primary inline-flex items-center gap-2"
             >
-              Viens me dire bonjour <ChevronRight size={20} />
+              {h.cta} <ChevronRight size={20} />
             </motion.a>
           </motion.div>
 
@@ -84,14 +88,13 @@ export default function Home() {
             className="relative"
           >
             <div className="aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
-              <img 
-                src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=1000" 
-                alt="Traveler looking at mountains" 
+              <img
+                src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&q=80&w=1000"
+                alt="Traveler looking at mountains"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
             </div>
-            {/* Decorative elements */}
             <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-travel-blue rounded-full -z-10 blur-2xl opacity-60" />
             <div className="absolute -top-6 -right-6 w-48 h-48 bg-stone-200 rounded-full -z-10 blur-3xl opacity-40" />
           </motion.div>
@@ -107,14 +110,10 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl font-serif font-bold mb-8">Qui est Tonton Francky ?</h2>
+            <h2 className="text-4xl font-serif font-bold mb-8">{h.aboutTitle}</h2>
             <div className="space-y-6 text-xl text-stone-600 leading-relaxed">
-              <p>
-                François est un voyageur français curieux qui aime découvrir de nouvelles cultures et rencontrer des gens.
-              </p>
-              <p>
-                Entre geek du dimanche et aventurier, il croit beaucoup dans le partage, l'amitié et le développement personnel.
-              </p>
+              <p>{h.aboutP1}</p>
+              <p>{h.aboutP2}</p>
             </div>
           </motion.div>
         </div>
@@ -124,11 +123,11 @@ export default function Home() {
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            <InterestCard icon={Globe} text="Français à l'étranger" delay={0.1} />
-            <InterestCard icon={MapPin} text="Voyageur et explorateur" delay={0.2} />
-            <InterestCard icon={Users} text="J'aime rencontrer de nouvelles personnes" delay={0.3} />
-            <InterestCard icon={Terminal} text="Geek du dimanche" delay={0.4} />
-            <InterestCard icon={Zap} text="Coach en devenir" delay={0.5} />
+            <InterestCard icon={Globe} text={h.interest1} delay={0.1} />
+            <InterestCard icon={MapPin} text={h.interest2} delay={0.2} />
+            <InterestCard icon={Users} text={h.interest3} delay={0.3} />
+            <InterestCard icon={Terminal} text={h.interest4} delay={0.4} />
+            <InterestCard icon={Zap} text={h.interest5} delay={0.5} />
           </div>
         </div>
       </section>
@@ -136,23 +135,19 @@ export default function Home() {
       {/* CTA Section */}
       <section id="contact" className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             className="bg-stone-800 rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden"
           >
-            {/* Background pattern */}
             <div className="absolute inset-0 opacity-10 pointer-events-none">
               <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
             </div>
-
             <div className="relative z-10">
-              <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6">Viens me dire bonjour !</h2>
-              <p className="text-xl text-stone-300 mb-10 max-w-2xl mx-auto">
-                Si tu aimes voyager, rencontrer des gens et discuter simplement de la vie, viens me rejoindre sur Instagram.
-              </p>
-              <motion.a 
+              <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6">{h.ctaTitle}</h2>
+              <p className="text-xl text-stone-300 mb-10 max-w-2xl mx-auto">{h.ctaDesc}</p>
+              <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 href="https://instagram.com/tonton__francky"
@@ -161,7 +156,7 @@ export default function Home() {
                 className="inline-flex items-center gap-3 bg-white text-stone-900 px-10 py-5 rounded-full font-bold text-lg shadow-xl hover:bg-stone-100 transition-colors"
               >
                 <Instagram size={24} />
-                Ajouter sur Instagram
+                {h.ctaBtn}
               </motion.a>
             </div>
           </motion.div>
