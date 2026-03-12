@@ -54,7 +54,7 @@ export default function SplashScreen() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[9999] bg-white flex items-center justify-center"
+          className="fixed inset-0 z-[9999] bg-black flex items-center justify-center"
         >
           <video
             ref={videoRef}
@@ -64,7 +64,7 @@ export default function SplashScreen() {
             muted
             playsInline
             onLoadedMetadata={handleMetadata}
-            className="max-w-xs w-full mix-blend-multiply"
+            className="max-w-xs w-full"
           />
         </motion.div>
       )}
