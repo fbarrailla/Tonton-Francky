@@ -37,7 +37,7 @@ export default function SplashScreen() {
             loop
             muted
             playsInline
-            className="max-w-xs w-full"
+            className="max-w-xs w-full mix-blend-multiply"
           />
         </motion.div>
       )}
