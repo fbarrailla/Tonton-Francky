@@ -11,6 +11,7 @@ import Home from './components/Home';
 import Voyages from './components/Voyages';
 import VoyageDetail from './components/VoyageDetail';
 import About from './components/About';
+import SplashScreen from './components/SplashScreen';
 import { LanguageProvider, useLanguage, type Lang } from './i18n';
 
 function AppContent() {
@@ -23,6 +24,7 @@ function AppContent() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <SplashScreen />
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 px-6 py-4 bg-white shadow-sm">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
