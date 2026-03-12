@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { motion } from 'motion/react';
-import { Instagram, Heart, MapPin, Twitch } from 'lucide-react';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'motion/react';
+import { Instagram, Heart, MapPin, Twitch, Menu, X } from 'lucide-react';
 import Home from './components/Home';
 import Voyages from './components/Voyages';
 import VoyageDetail from './components/VoyageDetail';
@@ -15,6 +15,11 @@ import { LanguageProvider, useLanguage, type Lang } from './i18n';
 
 function AppContent() {
   const { lang, setLang, t } = useLanguage();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
+
+  // Close menu on navigation
+  React.useEffect(() => { setMenuOpen(false); }, [location]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -30,34 +35,20 @@ function AppContent() {
               Tonton Francky
             </motion.span>
           </Link>
-          <div className="flex items-center gap-4">
-            <Link
-              to="/voyages"
-              className="glass-card px-4 py-2 hover:bg-white/60 transition-colors flex items-center gap-2"
-            >
+
+          {/* Desktop nav */}
+          <div className="hidden md:flex items-center gap-4">
+            <Link to="/voyages" className="glass-card px-4 py-2 hover:bg-white/60 transition-colors flex items-center gap-2">
               <MapPin size={16} />
               <span>{t.nav.travels}</span>
             </Link>
-            <Link
-              to="/a-propos"
-              className="glass-card px-4 py-2 hover:bg-white/60 transition-colors"
-            >
+            <Link to="/a-propos" className="glass-card px-4 py-2 hover:bg-white/60 transition-colors">
               {t.nav.about}
             </Link>
-            <a
-              href="https://instagram.com/tonton__francky"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 glass-card hover:bg-white/60 transition-colors"
-            >
+            <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" className="p-2 glass-card hover:bg-white/60 transition-colors">
               <Instagram size={20} />
             </a>
-            <a
-              href="https://twitch.tv/tonton__francky"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 glass-card hover:bg-white/60 transition-colors"
-            >
+            <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" className="p-2 glass-card hover:bg-white/60 transition-colors">
               <Twitch size={20} />
             </a>
             {/* Language switcher */}
@@ -67,9 +58,7 @@ function AppContent() {
                   key={l}
                   onClick={() => setLang(l)}
                   className={`px-2 py-1 rounded text-sm font-semibold uppercase transition-colors ${
-                    lang === l
-                      ? 'bg-stone-800 text-white'
-                      : 'text-stone-500 hover:text-stone-800'
+                    lang === l ? 'bg-stone-800 text-white' : 'text-stone-500 hover:text-stone-800'
                   }`}
                 >
                   {l}
@@ -77,14 +66,64 @@ function AppContent() {
               ))}
             </div>
           </div>
+
+          {/* Mobile: lang switcher + burger */}
+          <div className="flex md:hidden items-center gap-3">
+            <div className="flex items-center gap-1 glass-card px-2 py-1">
+              {(['fr', 'en'] as Lang[]).map((l) => (
+                <button
+                  key={l}
+                  onClick={() => setLang(l)}
+                  className={`px-2 py-1 rounded text-sm font-semibold uppercase transition-colors ${
+                    lang === l ? 'bg-stone-800 text-white' : 'text-stone-500 hover:text-stone-800'
+                  }`}
+                >
+                  {l}
+                </button>
+              ))}
+            </div>
+            <button
+              onClick={() => setMenuOpen((o) => !o)}
+              className="p-2 glass-card hover:bg-white/60 transition-colors"
+              aria-label="Menu"
+            >
+              {menuOpen ? <X size={22} /> : <Menu size={22} />}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile menu */}
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden mt-4 flex flex-col gap-2 pb-2"
+            >
+              <Link to="/voyages" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+                <MapPin size={16} /> {t.nav.travels}
+              </Link>
+              <Link to="/a-propos" className="px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+                {t.nav.about}
+              </Link>
+              <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+                <Instagram size={18} /> Instagram
+              </a>
+              <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+                <Twitch size={18} /> Twitch
+              </a>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/voyages" element={<Voyages />} />
         <Route path="/voyages/:ville" element={<VoyageDetail />} />
-          <Route path="/a-propos" element={<About />} />
+        <Route path="/a-propos" element={<About />} />
       </Routes>
 
       {/* Footer */}
@@ -95,21 +134,11 @@ function AppContent() {
             <span className="font-medium">Tonton Francky — {t.footer.tagline}</span>
           </div>
           <div className="flex gap-8">
-            <a
-              href="https://instagram.com/tonton__francky"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-stone-400 hover:text-stone-800 transition-colors flex items-center gap-2"
-            >
+            <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-stone-800 transition-colors flex items-center gap-2">
               <Instagram size={18} />
               <span>Instagram</span>
             </a>
-            <a
-              href="https://twitch.tv/tonton__francky"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-stone-400 hover:text-stone-800 transition-colors flex items-center gap-2"
-            >
+            <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-stone-800 transition-colors flex items-center gap-2">
               <Twitch size={18} />
               <span>Twitch</span>
             </a>
