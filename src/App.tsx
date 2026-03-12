@@ -6,7 +6,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Instagram, Heart, MapPin } from 'lucide-react';
+import { Instagram, Heart, MapPin, Twitch } from 'lucide-react';
 import Home from './components/Home';
 import Voyages from './components/Voyages';
 import VoyageDetail from './components/VoyageDetail';
@@ -52,6 +52,14 @@ function AppContent() {
             >
               <Instagram size={20} />
             </a>
+            <a
+              href="https://twitch.tv/tonton__francky"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 glass-card hover:bg-white/60 transition-colors"
+            >
+              <Twitch size={20} />
+            </a>
             {/* Language switcher */}
             <div className="flex items-center gap-1 glass-card px-2 py-1">
               {(['fr', 'en'] as Lang[]).map((l) => (
@@ -95,6 +103,15 @@ function AppContent() {
             >
               <Instagram size={18} />
               <span>Instagram</span>
+            </a>
+            <a
+              href="https://twitch.tv/tonton__francky"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-stone-400 hover:text-stone-800 transition-colors flex items-center gap-2"
+            >
+              <Twitch size={18} />
+              <span>Twitch</span>
             </a>
           </div>
           <p>
