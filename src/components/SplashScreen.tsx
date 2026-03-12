@@ -3,23 +3,48 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import splashVideo from '../assets/splash.mp4';
 
 export default function SplashScreen() {
   const [visible, setVisible] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const pageLoaded = useRef(false);
+  const minTimeReached = useRef(false);
+
+  const tryHide = () => {
+    if (pageLoaded.current && minTimeReached.current) {
+      setVisible(false);
+    }
+  };
 
   useEffect(() => {
-    const hide = () => setVisible(false);
+    const onLoad = () => {
+      pageLoaded.current = true;
+      tryHide();
+    };
 
     if (document.readyState === 'complete') {
-      hide();
+      pageLoaded.current = true;
     } else {
-      window.addEventListener('load', hide);
-      return () => window.removeEventListener('load', hide);
+      window.addEventListener('load', onLoad);
     }
+
+    return () => window.removeEventListener('load', onLoad);
   }, []);
+
+  const handleMetadata = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    const duration = video.duration;
+    if (!duration || !isFinite(duration)) return;
+
+    setTimeout(() => {
+      minTimeReached.current = true;
+      tryHide();
+    }, duration * 2 * 1000);
+  };
 
   return (
     <AnimatePresence>
@@ -32,11 +57,13 @@ export default function SplashScreen() {
           className="fixed inset-0 z-[9999] bg-white flex items-center justify-center"
         >
           <video
+            ref={videoRef}
             src={splashVideo}
             autoPlay
             loop
             muted
             playsInline
+            onLoadedMetadata={handleMetadata}
             className="max-w-xs w-full mix-blend-multiply"
           />
         </motion.div>
