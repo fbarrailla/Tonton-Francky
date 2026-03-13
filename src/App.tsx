@@ -54,16 +54,16 @@ function AppContent() {
               <Twitch size={20} />
             </a>
             {/* Language switcher */}
-            <div className="flex items-center gap-1 glass-card px-2 py-1">
-              {(['fr', 'en'] as Lang[]).map((l) => (
+            <div className="flex items-center gap-1">
+              {([['fr', '🇫🇷'], ['en', '🇬🇧']] as [Lang, string][]).map(([l, flag]) => (
                 <button
                   key={l}
                   onClick={() => setLang(l)}
-                  className={`px-2 py-1 rounded text-sm font-semibold uppercase transition-colors ${
-                    lang === l ? 'bg-stone-800 text-white' : 'text-stone-500 hover:text-stone-800'
+                  className={`text-xl transition-all ${
+                    lang === l ? 'opacity-100 scale-110' : 'opacity-40 hover:opacity-70'
                   }`}
                 >
-                  {l}
+                  {flag}
                 </button>
               ))}
             </div>
