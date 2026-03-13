@@ -59,11 +59,12 @@ function AppContent() {
                 <button
                   key={l}
                   onClick={() => setLang(l)}
-                  className={`text-xl transition-all ${
-                    lang === l ? 'opacity-100 scale-110' : 'opacity-40 hover:opacity-70'
+                  className={`flex items-center gap-1 px-2 py-1 rounded text-sm font-bold uppercase transition-all ${
+                    lang === l ? 'text-stone-900' : 'text-stone-300 hover:text-stone-500'
                   }`}
                 >
-                  {flag}
+                  <span>{flag}</span>
+                  <span>{l}</span>
                 </button>
               ))}
             </div>
