@@ -23,3 +23,12 @@
 .btn-primary {
   @apply bg-stone-800 text-white px-8 py-4 rounded-full font-semibold transition-all hover:bg-stone-700 hover:scale-105 active:scale-95 shadow-md;
 }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
