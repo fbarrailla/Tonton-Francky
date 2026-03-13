@@ -53,21 +53,15 @@ function AppContent() {
             <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" className="p-2 glass-card hover:bg-white/60 transition-colors">
               <Twitch size={20} />
             </a>
-            {/* Language switcher */}
-            <div className="flex items-center gap-1">
-              {([['fr', '🇫🇷'], ['en', '🇬🇧']] as [Lang, string][]).map(([l, flag]) => (
-                <button
-                  key={l}
-                  onClick={() => setLang(l)}
-                  className={`flex items-center gap-1 px-2 py-1 rounded text-sm font-bold uppercase transition-all ${
-                    lang === l ? 'text-stone-900' : 'text-stone-300 hover:text-stone-500'
-                  }`}
-                >
-                  <span>{flag}</span>
-                  <span>{l}</span>
-                </button>
-              ))}
-            </div>
+            {/* Language picker */}
+            <select
+              value={lang}
+              onChange={(e) => setLang(e.target.value as Lang)}
+              className="text-sm font-semibold bg-transparent border-none outline-none cursor-pointer text-stone-700 hover:text-stone-900 transition-colors"
+            >
+              <option value="fr">🇫🇷 FR</option>
+              <option value="en">🇬🇧 EN</option>
+            </select>
           </div>
 
           {/* Mobile: lang switcher + burger */}
