@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import heroBg from '../assets/miniature.png';
+import heroBg from '../assets/hero.png';
 import { motion } from 'motion/react';
 import {
   Instagram,
@@ -40,14 +40,14 @@ export default function Home() {
   return (
     <main className="flex-grow">
       {/* Hero Banner */}
-      <section className="relative w-full h-screen min-h-[600px] overflow-hidden">
+      <section className="relative w-full h-[420px] overflow-hidden">
         <img
           src={heroBg}
           alt="Tonton Francky"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-        <div className="relative z-10 h-full flex flex-col items-center justify-end pb-20 text-center px-6">
+        <div className="relative z-10 h-full flex flex-col items-center justify-end pb-10 text-center px-6">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
