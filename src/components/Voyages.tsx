@@ -5,10 +5,13 @@
 
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import 'leaflet.markercluster/dist/MarkerCluster.css';
+import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
 import { useLanguage } from '../i18n';
 
 import thumbHaNoi from '../assets/ha-noi-01.jpg';
@@ -21,6 +24,7 @@ import thumbCanTho from '../assets/can-tho-01.jpg';
 import thumbSaigon from '../assets/saigon-01.jpg';
 import thumbConDao from '../assets/con-dao-01.jpg';
 import thumbDakLak from '../assets/dak-lak-01.jpg';
+import thumbBordeaux from '../assets/bordeaux-01.jpg';
 
 // Custom marker icon
 const customIcon = new L.Icon({
@@ -157,6 +161,17 @@ const destinations: TravelDestination[] = [
     slug: "dak-lak",
     thumbnail: thumbDakLak,
   },
+  {
+    id: 11,
+    name: "Bordeaux",
+    country: "France",
+    coordinates: [44.8378, -0.5792],
+    description: "La belle endormie éveillée, vins de légende et architecture classée 🍷",
+    descriptionEn: "The awakened sleeping beauty, legendary wines and listed architecture 🍷",
+    date: "2025",
+    slug: "bordeaux",
+    thumbnail: thumbBordeaux,
+  },
 ];
 
 export default function Voyages() {
@@ -199,8 +214,8 @@ export default function Voyages() {
 
             <div className="h-[400px] relative">
               <MapContainer
-                center={[16, 106]}
-                zoom={6}
+                center={[35, 50]}
+                zoom={3}
                 style={{ height: '100%', width: '100%' }}
                 className="z-10"
               >
@@ -208,36 +223,38 @@ export default function Voyages() {
                   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                {destinations.map((destination) => (
-                  <Marker
-                    key={destination.id}
-                    position={destination.coordinates}
-                    icon={customIcon}
-                  >
-                    <Popup className="custom-popup">
-                      <div className="max-w-[200px]">
-                        {destination.thumbnail && destination.slug && (
-                          <Link to={`/voyages/${destination.slug}`}>
-                            <img
-                              src={destination.thumbnail}
-                              alt={destination.name}
-                              className="w-full h-28 object-cover rounded-t-lg"
-                            />
-                          </Link>
-                        )}
-                        <div className="p-2">
-                          <h3 className="font-bold text-base mb-1">
-                            {destination.name}, {destination.country}
-                          </h3>
-                          <p className="text-xs text-stone-600 mb-1">{destination.date}</p>
-                          <p className="text-xs leading-relaxed">
-                            {lang === 'fr' ? destination.description : destination.descriptionEn}
-                          </p>
+                <MarkerClusterGroup>
+                  {destinations.map((destination) => (
+                    <Marker
+                      key={destination.id}
+                      position={destination.coordinates}
+                      icon={customIcon}
+                    >
+                      <Popup className="custom-popup">
+                        <div className="max-w-[200px]">
+                          {destination.thumbnail && destination.slug && (
+                            <Link to={`/voyages/${destination.slug}`}>
+                              <img
+                                src={destination.thumbnail}
+                                alt={destination.name}
+                                className="w-full h-28 object-cover rounded-t-lg"
+                              />
+                            </Link>
+                          )}
+                          <div className="p-2">
+                            <h3 className="font-bold text-base mb-1">
+                              {destination.name}, {destination.country}
+                            </h3>
+                            <p className="text-xs text-stone-600 mb-1">{destination.date}</p>
+                            <p className="text-xs leading-relaxed">
+                              {lang === 'fr' ? destination.description : destination.descriptionEn}
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    </Popup>
-                  </Marker>
-                ))}
+                      </Popup>
+                    </Marker>
+                  ))}
+                </MarkerClusterGroup>
               </MapContainer>
             </div>
           </motion.div>

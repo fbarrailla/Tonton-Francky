@@ -69,6 +69,12 @@ import dakLak03 from '../assets/dak-lak-03.jpg';
 import dakLak04 from '../assets/dak-lak-04.jpg';
 import dakLak05 from '../assets/dak-lak-05.jpg';
 
+import bordeaux01 from '../assets/bordeaux-01.jpg';
+import bordeaux02 from '../assets/bordeaux-02.jpg';
+import bordeaux03 from '../assets/bordeaux-03.jpg';
+import bordeaux04 from '../assets/bordeaux-04.jpg';
+import bordeaux05 from '../assets/bordeaux-05.jpg';
+
 interface VoyageData {
   name: string;
   country: string;
@@ -158,6 +164,14 @@ const voyagesData: Record<string, VoyageData> = {
     description: 'Les hauts plateaux du Centre, café robusta et éléphants sauvages.',
     descriptionEn: 'The Central Highlands, robusta coffee and wild elephants.',
     photos: [dakLak01, dakLak02, dakLak03, dakLak04, dakLak05],
+  },
+  'bordeaux': {
+    name: 'Bordeaux',
+    country: 'France',
+    date: '2025',
+    description: 'La belle endormie éveillée, vins de légende et architecture classée.',
+    descriptionEn: 'The awakened sleeping beauty, legendary wines and listed architecture.',
+    photos: [bordeaux01, bordeaux02, bordeaux03, bordeaux04, bordeaux05],
   },
 };
 
