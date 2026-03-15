@@ -31,6 +31,7 @@ export default function Contact() {
   const [form, setForm] = useState<FormData>({ name: '', email: '', subject: '', message: '' });
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [errorDetail, setErrorDetail] = useState<string>('');
 
   const validate = (): boolean => {
     const errs: FormErrors = {};
@@ -64,10 +65,12 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, captchaToken }),
       });
-      if (!res.ok) throw new Error();
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.detail || data.error);
       setStatus('success');
       setForm({ name: '', email: '', subject: '', message: '' });
-    } catch {
+    } catch (err: any) {
+      setErrorDetail(err?.message || '');
       setStatus('error');
     }
   }, [form, executeRecaptcha]);
@@ -190,7 +193,7 @@ export default function Contact() {
                 className="flex items-center gap-2 text-red-500 font-medium"
               >
                 <AlertCircle size={20} />
-                {c.error}
+                <span>{c.error}{errorDetail && <span className="block text-xs mt-1 opacity-70">{errorDetail}</span>}</span>
               </motion.div>
             )}
           </motion.form>

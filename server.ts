@@ -51,7 +51,9 @@ app.post('/api/contact', async (req, res) => {
   });
 
   if (!emailRes.ok) {
-    return res.status(500).json({ error: 'Failed to send email' });
+    const emailErr = await emailRes.text();
+    console.error('EmailJS error:', emailRes.status, emailErr);
+    return res.status(500).json({ error: 'Failed to send email', detail: emailErr });
   }
 
   return res.json({ success: true });
