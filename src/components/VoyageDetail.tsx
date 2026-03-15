@@ -199,7 +199,7 @@ export default function VoyageDetail() {
 
   if (!voyage) {
     return (
-      <main className="flex-grow pt-28 flex items-center justify-center">
+      <main className="flex-grow pt-20 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-3xl font-serif font-bold mb-4">{d.notFound}</h1>
           <Link to="/voyages" className="text-stone-600 hover:underline flex items-center gap-2 justify-center">
@@ -214,7 +214,7 @@ export default function VoyageDetail() {
   const next = () => setCurrent((c) => (c + 1) % voyage.photos.length);
 
   return (
-    <main className="flex-grow pt-28">
+    <main className="flex-grow pt-20">
       {/* Hero */}
       <section className="py-12 px-6 bg-gradient-to-br from-travel-blue to-stone-100">
         <div className="max-w-5xl mx-auto">

@@ -31,20 +31,8 @@ function AppContent() {
     <div className="min-h-screen flex flex-col">
       <SplashScreen />
 
-      {/* Announcement banner */}
-      <div className="fixed top-0 w-full z-50 bg-purple-600 text-white text-sm py-2 overflow-hidden">
-        <div className="animate-marquee whitespace-nowrap flex gap-24">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <span key={i} className="inline-flex items-center gap-2">
-              <Twitch size={14} />
-              {t.banner}
-            </span>
-          ))}
-        </div>
-      </div>
-
       {/* Navigation */}
-      <nav className="fixed top-8 w-full z-40 px-6 py-4 bg-white shadow-sm">
+      <nav className="fixed top-0 w-full z-40 px-6 py-4 bg-white shadow-sm">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link to="/">
             <motion.span
