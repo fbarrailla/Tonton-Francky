@@ -14,6 +14,7 @@ const translations = {
       about: 'À propos',
       contact: 'Contact',
     },
+    banner: 'Live Twitch ce dimanche à 12h (FR), venez nombreux et posez moi des questions ! 🎮',
     footer: {
       tagline: 'Voyage, rencontres et bonnes vibes 🌍',
       favicon: 'Favicon par',
@@ -89,6 +90,7 @@ const translations = {
       about: 'About',
       contact: 'Contact',
     },
+    banner: 'Twitch Live this Sunday at 12pm (FR), come join us and ask me anything! 🎮',
     footer: {
       tagline: 'Travel, friends and good vibes 🌍',
       favicon: 'Favicon by',

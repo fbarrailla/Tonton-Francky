@@ -33,7 +33,7 @@ function AppContent() {
           {Array.from({ length: 6 }).map((_, i) => (
             <span key={i} className="inline-flex items-center gap-2">
               <Twitch size={14} />
-              Live Twitch ce dimanche à 12h (FR), venez nombreux et posez moi des questions ! 🎮
+              {t.banner}
             </span>
           ))}
         </div>
