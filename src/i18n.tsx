@@ -69,6 +69,7 @@ const translations = {
       error: 'Une erreur est survenue. Réessaie ou contacte-moi directement sur Instagram.',
       required: 'Ce champ est requis',
       invalidEmail: 'Email invalide',
+      captchaRequired: 'Merci de valider le reCAPTCHA',
     },
     about: {
       title: 'À propos',
@@ -145,6 +146,7 @@ const translations = {
       error: 'Something went wrong. Try again or reach me directly on Instagram.',
       required: 'This field is required',
       invalidEmail: 'Invalid email',
+      captchaRequired: 'Please complete the reCAPTCHA',
     },
     about: {
       title: 'About',

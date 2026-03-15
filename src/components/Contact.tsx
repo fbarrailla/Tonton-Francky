@@ -3,10 +3,11 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { useLanguage } from '../i18n';
 
 interface FormData {
@@ -21,11 +22,13 @@ interface FormErrors {
   email?: string;
   subject?: string;
   message?: string;
+  captcha?: string;
 }
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -34,6 +37,7 @@ export default function Contact() {
   const [form, setForm] = useState<FormData>({ name: '', email: '', subject: '', message: '' });
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const validate = (): boolean => {
     const errs: FormErrors = {};
@@ -42,6 +46,7 @@ export default function Contact() {
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = c.invalidEmail;
     if (!form.subject.trim()) errs.subject = c.required;
     if (!form.message.trim()) errs.message = c.required;
+    if (!recaptchaRef.current?.getValue()) errs.captcha = c.captchaRequired;
     setErrors(errs);
     return Object.keys(errs).length === 0;
   };
@@ -52,6 +57,10 @@ export default function Contact() {
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
+  };
+
+  const handleCaptcha = () => {
+    setErrors((prev) => ({ ...prev, captcha: undefined }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -74,8 +83,10 @@ export default function Contact() {
       );
       setStatus('success');
       setForm({ name: '', email: '', subject: '', message: '' });
+      recaptchaRef.current?.reset();
     } catch {
       setStatus('error');
+      recaptchaRef.current?.reset();
     }
   };
 
@@ -165,6 +176,16 @@ export default function Contact() {
                 className={`${inputClass('message')} resize-none`}
               />
               {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message}</p>}
+            </div>
+
+            {/* reCAPTCHA */}
+            <div>
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={RECAPTCHA_SITE_KEY}
+                onChange={handleCaptcha}
+              />
+              {errors.captcha && <p className="mt-1 text-sm text-red-500">{errors.captcha}</p>}
             </div>
 
             {/* Submit */}
