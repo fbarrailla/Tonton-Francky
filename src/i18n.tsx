@@ -12,6 +12,7 @@ const translations = {
     nav: {
       travels: 'Voyages',
       about: 'À propos',
+      contact: 'Contact',
     },
     footer: {
       tagline: 'Voyage, rencontres et bonnes vibes 🌍',
@@ -54,6 +55,20 @@ const translations = {
       back: 'Retour aux voyages',
       notFound: 'Voyage introuvable',
     },
+    contact: {
+      title: 'Contact',
+      subtitle: 'Une question ? Un projet ? Dis-moi tout !',
+      name: 'Votre nom',
+      email: 'Votre email',
+      subject: 'Sujet',
+      message: 'Message',
+      send: 'Envoyer',
+      sending: 'Envoi en cours...',
+      success: 'Message envoyé ! Je te répondrai dès que possible. 🙏',
+      error: 'Une erreur est survenue. Réessaie ou contacte-moi directement sur Instagram.',
+      required: 'Ce champ est requis',
+      invalidEmail: 'Email invalide',
+    },
     about: {
       title: 'À propos',
       subtitle: 'Qui se cache derrière Tonton Francky ?',
@@ -72,6 +87,7 @@ const translations = {
     nav: {
       travels: 'Travels',
       about: 'About',
+      contact: 'Contact',
     },
     footer: {
       tagline: 'Travel, friends and good vibes 🌍',
@@ -113,6 +129,20 @@ const translations = {
     detail: {
       back: 'Back to travels',
       notFound: 'Travel not found',
+    },
+    contact: {
+      title: 'Contact',
+      subtitle: 'A question? A project? Tell me everything!',
+      name: 'Your name',
+      email: 'Your email',
+      subject: 'Subject',
+      message: 'Message',
+      send: 'Send',
+      sending: 'Sending...',
+      success: 'Message sent! I\'ll get back to you as soon as possible. 🙏',
+      error: 'Something went wrong. Try again or reach me directly on Instagram.',
+      required: 'This field is required',
+      invalidEmail: 'Invalid email',
     },
     about: {
       title: 'About',

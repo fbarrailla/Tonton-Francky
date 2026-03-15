@@ -12,6 +12,7 @@
     "publish": "cp ./favicon.png ./dist/favicon.png && cp ./robots.txt ./dist/robots.txt && cp ./sitemap.xml ./dist/sitemap.xml"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@google/genai": "^1.29.0",
     "@tailwindcss/vite": "^4.1.14",
     "@types/leaflet": "^1.9.21",

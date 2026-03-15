@@ -11,6 +11,7 @@ import Home from './components/Home';
 import Voyages from './components/Voyages';
 import VoyageDetail from './components/VoyageDetail';
 import About from './components/About';
+import Contact from './components/Contact';
 import SplashScreen from './components/SplashScreen';
 import { LanguageProvider, useLanguage, type Lang } from './i18n';
 
@@ -59,6 +60,9 @@ function AppContent() {
             </Link>
             <Link to="/a-propos" className="glass-card px-4 py-2 hover:bg-white/60 transition-colors">
               {t.nav.about}
+            </Link>
+            <Link to="/contact" className="glass-card px-4 py-2 hover:bg-white/60 transition-colors">
+              {t.nav.contact}
             </Link>
             <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" className="p-2 glass-card hover:bg-white/60 transition-colors">
               <Instagram size={20} />
@@ -118,6 +122,9 @@ function AppContent() {
               <Link to="/a-propos" className="px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
                 {t.nav.about}
               </Link>
+              <Link to="/contact" className="px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+                {t.nav.contact}
+              </Link>
               <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
                 <Instagram size={18} /> Instagram
               </a>
@@ -134,6 +141,7 @@ function AppContent() {
         <Route path="/voyages" element={<Voyages />} />
         <Route path="/voyages/:ville" element={<VoyageDetail />} />
         <Route path="/a-propos" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
 
       {/* Footer */}
