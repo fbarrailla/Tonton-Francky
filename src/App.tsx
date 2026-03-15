@@ -12,6 +12,7 @@ import Voyages from './components/Voyages';
 import VoyageDetail from './components/VoyageDetail';
 import About from './components/About';
 import Contact from './components/Contact';
+import Replays from './components/Replays';
 import SplashScreen from './components/SplashScreen';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { LanguageProvider, useLanguage, type Lang } from './i18n';
@@ -60,6 +61,10 @@ function AppContent() {
             <Link to="/voyages" className="glass-card px-4 py-2 hover:bg-white/60 transition-colors flex items-center gap-2">
               <MapPin size={16} />
               <span>{t.nav.travels}</span>
+            </Link>
+            <Link to="/replays" className="glass-card px-4 py-2 hover:bg-white/60 transition-colors flex items-center gap-2">
+              <Twitch size={16} />
+              <span>{t.nav.replays}</span>
             </Link>
             <Link to="/a-propos" className="glass-card px-4 py-2 hover:bg-white/60 transition-colors">
               {t.nav.about}
@@ -122,6 +127,9 @@ function AppContent() {
               <Link to="/voyages" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
                 <MapPin size={16} /> {t.nav.travels}
               </Link>
+              <Link to="/replays" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+                <Twitch size={16} /> {t.nav.replays}
+              </Link>
               <Link to="/a-propos" className="px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
                 {t.nav.about}
               </Link>
@@ -143,6 +151,7 @@ function AppContent() {
         <Route path="/" element={<Home />} />
         <Route path="/voyages" element={<Voyages />} />
         <Route path="/voyages/:ville" element={<VoyageDetail />} />
+        <Route path="/replays" element={<Replays />} />
         <Route path="/a-propos" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>

@@ -11,6 +11,7 @@ const translations = {
   fr: {
     nav: {
       travels: 'Voyages',
+      replays: 'Replays',
       about: 'À propos',
       contact: 'Contact',
     },
@@ -57,6 +58,10 @@ const translations = {
       back: 'Retour aux voyages',
       notFound: 'Voyage introuvable',
     },
+    replays: {
+      title: 'Replays',
+      subtitle: 'Retrouve ici tous les replays de mes lives Twitch 🎮',
+    },
     contact: {
       title: 'Contact',
       subtitle: 'Une question ? Un projet ? Dis-moi tout !',
@@ -88,6 +93,7 @@ const translations = {
   en: {
     nav: {
       travels: 'Travels',
+      replays: 'Replays',
       about: 'About',
       contact: 'Contact',
     },
@@ -133,6 +139,10 @@ const translations = {
     detail: {
       back: 'Back to travels',
       notFound: 'Travel not found',
+    },
+    replays: {
+      title: 'Replays',
+      subtitle: 'Find all my Twitch live replays here 🎮',
     },
     contact: {
       title: 'Contact',
