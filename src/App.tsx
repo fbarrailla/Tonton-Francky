@@ -13,7 +13,10 @@ import VoyageDetail from './components/VoyageDetail';
 import About from './components/About';
 import Contact from './components/Contact';
 import SplashScreen from './components/SplashScreen';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { LanguageProvider, useLanguage, type Lang } from './i18n';
+
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 function AppContent() {
   const { lang, setLang, t } = useLanguage();
@@ -172,10 +175,12 @@ function AppContent() {
 
 export default function App() {
   return (
-    <Router>
-      <LanguageProvider>
-        <AppContent />
-      </LanguageProvider>
-    </Router>
+    <GoogleReCaptchaProvider reCaptchaKey={RECAPTCHA_SITE_KEY}>
+      <Router>
+        <LanguageProvider>
+          <AppContent />
+        </LanguageProvider>
+      </Router>
+    </GoogleReCaptchaProvider>
   );
 }

@@ -26,9 +26,9 @@ app.post('/api/contact', async (req, res) => {
     }),
   });
 
-  const verifyData = await verifyRes.json() as { success: boolean };
+  const verifyData = await verifyRes.json() as { success: boolean; score: number };
 
-  if (!verifyData.success) {
+  if (!verifyData.success || verifyData.score < 0.5) {
     return res.status(400).json({ error: 'reCAPTCHA verification failed' });
   }
 

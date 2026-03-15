@@ -3,10 +3,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { motion } from 'motion/react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
-import ReCAPTCHA from 'react-google-recaptcha';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { useLanguage } from '../i18n';
 
 interface FormData {
@@ -21,19 +21,16 @@ interface FormErrors {
   email?: string;
   subject?: string;
   message?: string;
-  captcha?: string;
 }
-
-const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 export default function Contact() {
   const { t } = useLanguage();
   const c = t.contact;
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [form, setForm] = useState<FormData>({ name: '', email: '', subject: '', message: '' });
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const validate = (): boolean => {
     const errs: FormErrors = {};
@@ -42,7 +39,6 @@ export default function Contact() {
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = c.invalidEmail;
     if (!form.subject.trim()) errs.subject = c.required;
     if (!form.message.trim()) errs.message = c.required;
-    if (!recaptchaRef.current?.getValue()) errs.captcha = c.captchaRequired;
     setErrors(errs);
     return Object.keys(errs).length === 0;
   };
@@ -55,17 +51,14 @@ export default function Contact() {
     }
   };
 
-  const handleCaptcha = () => {
-    setErrors((prev) => ({ ...prev, captcha: undefined }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
+    if (!executeRecaptcha) return;
 
     setStatus('sending');
-    const captchaToken = recaptchaRef.current?.getValue();
     try {
+      const captchaToken = await executeRecaptcha('contact_form');
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -74,12 +67,10 @@ export default function Contact() {
       if (!res.ok) throw new Error();
       setStatus('success');
       setForm({ name: '', email: '', subject: '', message: '' });
-      recaptchaRef.current?.reset();
     } catch {
       setStatus('error');
-      recaptchaRef.current?.reset();
     }
-  };
+  }, [form, executeRecaptcha]);
 
   const inputClass = (field: keyof FormErrors) =>
     `w-full px-4 py-3 rounded-xl border transition-colors outline-none focus:ring-2 focus:ring-stone-400 bg-white ${
@@ -167,16 +158,6 @@ export default function Contact() {
                 className={`${inputClass('message')} resize-none`}
               />
               {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message}</p>}
-            </div>
-
-            {/* reCAPTCHA */}
-            <div>
-              <ReCAPTCHA
-                ref={recaptchaRef}
-                sitekey={RECAPTCHA_SITE_KEY}
-                onChange={handleCaptcha}
-              />
-              {errors.captcha && <p className="mt-1 text-sm text-red-500">{errors.captcha}</p>}
             </div>
 
             {/* Submit */}
