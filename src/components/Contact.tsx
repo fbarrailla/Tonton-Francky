@@ -6,7 +6,6 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useLanguage } from '../i18n';
 
@@ -25,9 +24,6 @@ interface FormErrors {
   captcha?: string;
 }
 
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 export default function Contact() {
@@ -68,19 +64,14 @@ export default function Contact() {
     if (!validate()) return;
 
     setStatus('sending');
+    const captchaToken = recaptchaRef.current?.getValue();
     try {
-      await emailjs.send(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        {
-          from_name: form.name,
-          from_email: form.email,
-          subject: form.subject,
-          message: form.message,
-          to_email: 'hello@tontonfrancky.com',
-        },
-        PUBLIC_KEY,
-      );
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, captchaToken }),
+      });
+      if (!res.ok) throw new Error();
       setStatus('success');
       setForm({ name: '', email: '', subject: '', message: '' });
       recaptchaRef.current?.reset();
