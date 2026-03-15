@@ -75,6 +75,13 @@ import bordeaux03 from '../assets/bordeaux-03.jpg';
 import bordeaux04 from '../assets/bordeaux-04.jpg';
 import bordeaux05 from '../assets/bordeaux-05.jpg';
 
+import paris01 from '../assets/paris-01.jpg';
+import paris02 from '../assets/paris-02.jpg';
+import paris03 from '../assets/paris-03.jpg';
+import paris04 from '../assets/paris-04.jpg';
+import paris05 from '../assets/paris-05.jpg';
+import paris06 from '../assets/paris-06.jpg';
+
 interface VoyageData {
   name: string;
   country: string;
@@ -172,6 +179,14 @@ const voyagesData: Record<string, VoyageData> = {
     description: 'La belle endormie éveillée, vins de légende et architecture classée.',
     descriptionEn: 'The awakened sleeping beauty, legendary wines and listed architecture.',
     photos: [bordeaux01, bordeaux02, bordeaux03, bordeaux04, bordeaux05],
+  },
+  'paris': {
+    name: 'Paris',
+    country: 'France',
+    date: '2025',
+    description: "La Ville Lumière, capitale de l'art, de la mode et de la gastronomie.",
+    descriptionEn: 'The City of Light, capital of art, fashion and gastronomy.',
+    photos: [paris01, paris02, paris03, paris04, paris05, paris06],
   },
 };
 

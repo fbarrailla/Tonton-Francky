@@ -25,6 +25,7 @@ import thumbSaigon from '../assets/saigon-01.jpg';
 import thumbConDao from '../assets/con-dao-01.jpg';
 import thumbDakLak from '../assets/dak-lak-01.jpg';
 import thumbBordeaux from '../assets/bordeaux-01.jpg';
+import thumbParis from '../assets/paris-01.jpg';
 
 // Custom marker icon
 const customIcon = new L.Icon({
@@ -171,6 +172,17 @@ const destinations: TravelDestination[] = [
     date: "2025",
     slug: "bordeaux",
     thumbnail: thumbBordeaux,
+  },
+  {
+    id: 12,
+    name: "Paris",
+    country: "France",
+    coordinates: [48.8566, 2.3522],
+    description: "La Ville Lumière, capitale de l'art, de la mode et de la gastronomie ✨",
+    descriptionEn: "The City of Light, capital of art, fashion and gastronomy ✨",
+    date: "2025",
+    slug: "paris",
+    thumbnail: thumbParis,
   },
 ];
 
