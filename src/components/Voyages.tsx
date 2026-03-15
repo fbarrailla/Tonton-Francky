@@ -20,6 +20,7 @@ import thumbNhaTrang from '../assets/nha-trang-01.jpg';
 import thumbCanTho from '../assets/can-tho-01.jpg';
 import thumbSaigon from '../assets/saigon-01.jpg';
 import thumbConDao from '../assets/con-dao-01.jpg';
+import thumbDakLak from '../assets/dak-lak-01.jpg';
 
 // Custom marker icon
 const customIcon = new L.Icon({
@@ -144,6 +145,17 @@ const destinations: TravelDestination[] = [
     date: "2025",
     slug: "con-dao",
     thumbnail: thumbConDao,
+  },
+  {
+    id: 10,
+    name: "Đắk Lắk",
+    country: "Vietnam",
+    coordinates: [12.6667, 108.0500],
+    description: "Les hauts plateaux du Centre, café robusta et éléphants sauvages 🐘",
+    descriptionEn: "The Central Highlands, robusta coffee and wild elephants 🐘",
+    date: "2025",
+    slug: "dak-lak",
+    thumbnail: thumbDakLak,
   },
 ];
 

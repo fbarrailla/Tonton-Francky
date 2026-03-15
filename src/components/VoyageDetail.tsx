@@ -63,6 +63,12 @@ import conDao03 from '../assets/con-dao-03.jpg';
 import conDao04 from '../assets/con-dao-04.jpg';
 import conDao05 from '../assets/con-dao-05.jpg';
 
+import dakLak01 from '../assets/dak-lak-01.jpg';
+import dakLak02 from '../assets/dak-lak-02.jpg';
+import dakLak03 from '../assets/dak-lak-03.jpg';
+import dakLak04 from '../assets/dak-lak-04.jpg';
+import dakLak05 from '../assets/dak-lak-05.jpg';
+
 interface VoyageData {
   name: string;
   country: string;
@@ -144,6 +150,14 @@ const voyagesData: Record<string, VoyageData> = {
     description: 'Un archipel préservé, plages désertes et nature sauvage.',
     descriptionEn: 'A preserved archipelago, deserted beaches and wild nature.',
     photos: [conDao01, conDao02, conDao03, conDao04, conDao05],
+  },
+  'dak-lak': {
+    name: 'Đắk Lắk',
+    country: 'Vietnam',
+    date: '2025',
+    description: 'Les hauts plateaux du Centre, café robusta et éléphants sauvages.',
+    descriptionEn: 'The Central Highlands, robusta coffee and wild elephants.',
+    photos: [dakLak01, dakLak02, dakLak03, dakLak04, dakLak05],
   },
 };
 
