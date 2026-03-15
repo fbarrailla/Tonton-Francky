@@ -40,12 +40,16 @@ export default function Home() {
   return (
     <main className="flex-grow">
       {/* Hero Banner */}
-      <section className="relative w-full h-[420px] overflow-hidden">
-        <img
-          src={heroBg}
-          alt="Tonton Francky"
-          className="absolute inset-0 w-full h-full object-cover object-center"
-        />
+      <section
+        className="relative w-full h-[420px] overflow-hidden"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          backgroundSize: '35%',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundColor: '#060d2e',
+        }}
+      >
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         <div className="relative z-10 h-full flex flex-col items-center justify-end pb-10 text-center px-6">
           <motion.h1
