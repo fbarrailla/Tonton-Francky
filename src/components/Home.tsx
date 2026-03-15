@@ -41,25 +41,17 @@ export default function Home() {
     <main className="flex-grow">
       {/* Hero Banner */}
       <section
-        className="relative w-full h-[420px] overflow-hidden"
+        className="relative w-full h-[520px] lg:h-[680px] overflow-hidden"
         style={{
           backgroundImage: `url(${heroBg})`,
-          backgroundSize: '35%',
+          backgroundSize: '100%',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          backgroundColor: '#060d2e',
+          backgroundColor: 'rgb(7 8 25)',
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-        <div className="relative z-10 h-full flex flex-col items-center justify-end pb-10 text-center px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-6xl md:text-8xl font-serif font-bold text-white drop-shadow-lg mb-6"
-          >
-            Tonton Francky
-          </motion.h1>
+        <div className="relative z-10 h-full flex flex-col items-center justify-end pb-10 text-center px-6">          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -75,8 +67,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Hero → white transition */}
+      <div style={{ height: '80px', background: 'linear-gradient(to bottom, rgb(7 8 25), white)' }} />
+
       {/* About Section */}
-      <section className="py-24 px-6 bg-white/30">
+      <section className="py-24 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
