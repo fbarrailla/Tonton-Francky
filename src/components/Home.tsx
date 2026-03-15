@@ -67,9 +67,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Hero → white transition */}
-      <div style={{ height: '80px', background: 'linear-gradient(to bottom, rgb(7 8 25), white)' }} />
-
       {/* About Section */}
       <section className="py-24 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
@@ -79,7 +76,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl font-serif font-bold mb-8">{h.aboutTitle}</h2>
+            <h2 className="text-3xl font-serif font-bold mb-8">{h.aboutTitle}</h2>
             <div className="space-y-6 text-xl text-stone-600 leading-relaxed">
               <p>{h.aboutP1}</p>
               <p>{h.aboutP2}</p>

@@ -91,7 +91,7 @@ function AppContent() {
                 <button
                   key={l}
                   onClick={() => setLang(l)}
-                  className={`px-2 py-1 rounded text-sm font-semibold uppercase transition-colors ${
+                  className={`px-2 py-1 rounded-3xl text-sm font-semibold uppercase transition-colors ${
                     lang === l ? 'bg-stone-800 text-white' : 'text-stone-500 hover:text-stone-800'
                   }`}
                 >
