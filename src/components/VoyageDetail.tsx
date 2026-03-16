@@ -69,6 +69,12 @@ import dakLak03 from '../assets/dak-lak-03.jpg';
 import dakLak04 from '../assets/dak-lak-04.jpg';
 import dakLak05 from '../assets/dak-lak-05.jpg';
 
+import cork01 from '../assets/cork-01.jpg';
+import cork02 from '../assets/cork-02.jpg';
+import cork03 from '../assets/cork-03.jpg';
+import cork04 from '../assets/cork-04.jpg';
+import cork05 from '../assets/cork-05.jpg';
+
 import prague01 from '../assets/prague-01.jpg';
 import prague02 from '../assets/prague-02.jpg';
 import prague03 from '../assets/prague-03.jpg';
@@ -184,6 +190,14 @@ const voyagesData: Record<string, VoyageData> = {
     description: 'Les hauts plateaux du Centre, café robusta et éléphants sauvages.',
     descriptionEn: 'The Central Highlands, robusta coffee and wild elephants.',
     photos: [dakLak01, dakLak02, dakLak03, dakLak04, dakLak05],
+  },
+  'cork': {
+    name: 'Cork',
+    country: 'Irlande',
+    date: '2026',
+    description: 'La vraie capitale irlandaise, pubs chaleureux et accents chantants.',
+    descriptionEn: 'The real Irish capital, cozy pubs and singing accents.',
+    photos: [cork01, cork02, cork03, cork04, cork05],
   },
   'prague': {
     name: 'Prague',

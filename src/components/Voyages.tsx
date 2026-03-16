@@ -28,6 +28,7 @@ import thumbBordeaux from '../assets/bordeaux-01.jpg';
 import thumbParis from '../assets/paris-01.jpg';
 import thumbVenice from '../assets/venice-01.jpg';
 import thumbPrague from '../assets/prague-01.jpg';
+import thumbCork from '../assets/cork-01.jpg';
 
 // Custom marker icon
 const customIcon = new L.Icon({
@@ -174,6 +175,17 @@ const destinations: TravelDestination[] = [
     date: "2025",
     slug: "bordeaux",
     thumbnail: thumbBordeaux,
+  },
+  {
+    id: 15,
+    name: "Cork",
+    country: "Irlande",
+    coordinates: [51.8985, -8.4756],
+    description: "La vraie capitale irlandaise, pubs chaleureux et accents chantants 🍀",
+    descriptionEn: "The real Irish capital, cozy pubs and singing accents 🍀",
+    date: "2026",
+    slug: "cork",
+    thumbnail: thumbCork,
   },
   {
     id: 14,
