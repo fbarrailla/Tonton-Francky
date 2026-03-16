@@ -69,6 +69,12 @@ import dakLak03 from '../assets/dak-lak-03.jpg';
 import dakLak04 from '../assets/dak-lak-04.jpg';
 import dakLak05 from '../assets/dak-lak-05.jpg';
 
+import prague01 from '../assets/prague-01.jpg';
+import prague02 from '../assets/prague-02.jpg';
+import prague03 from '../assets/prague-03.jpg';
+import prague04 from '../assets/prague-04.jpg';
+import prague05 from '../assets/prague-05.jpg';
+
 import venice01 from '../assets/venice-01.jpg';
 import venice02 from '../assets/venice-02.jpg';
 import venice03 from '../assets/venice-03.jpg';
@@ -178,6 +184,14 @@ const voyagesData: Record<string, VoyageData> = {
     description: 'Les hauts plateaux du Centre, café robusta et éléphants sauvages.',
     descriptionEn: 'The Central Highlands, robusta coffee and wild elephants.',
     photos: [dakLak01, dakLak02, dakLak03, dakLak04, dakLak05],
+  },
+  'prague': {
+    name: 'Prague',
+    country: 'République Tchèque',
+    date: '2026',
+    description: 'La ville aux cent clochers, magie médiévale et bière dorée.',
+    descriptionEn: 'The city of a hundred spires, medieval magic and golden beer.',
+    photos: [prague01, prague02, prague03, prague04, prague05],
   },
   'venice': {
     name: 'Venise',

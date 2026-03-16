@@ -27,6 +27,7 @@ import thumbDakLak from '../assets/dak-lak-01.jpg';
 import thumbBordeaux from '../assets/bordeaux-01.jpg';
 import thumbParis from '../assets/paris-01.jpg';
 import thumbVenice from '../assets/venice-01.jpg';
+import thumbPrague from '../assets/prague-01.jpg';
 
 // Custom marker icon
 const customIcon = new L.Icon({
@@ -173,6 +174,17 @@ const destinations: TravelDestination[] = [
     date: "2025",
     slug: "bordeaux",
     thumbnail: thumbBordeaux,
+  },
+  {
+    id: 14,
+    name: "Prague",
+    country: "République Tchèque",
+    coordinates: [50.0755, 14.4378],
+    description: "La ville aux cent clochers, magie médiévale et bière dorée 🍺",
+    descriptionEn: "The city of a hundred spires, medieval magic and golden beer 🍺",
+    date: "2026",
+    slug: "prague",
+    thumbnail: thumbPrague,
   },
   {
     id: 13,
