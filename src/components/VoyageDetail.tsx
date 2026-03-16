@@ -69,6 +69,13 @@ import dakLak03 from '../assets/dak-lak-03.jpg';
 import dakLak04 from '../assets/dak-lak-04.jpg';
 import dakLak05 from '../assets/dak-lak-05.jpg';
 
+import venice01 from '../assets/venice-01.jpg';
+import venice02 from '../assets/venice-02.jpg';
+import venice03 from '../assets/venice-03.jpg';
+import venice04 from '../assets/venice-04.jpg';
+import venice05 from '../assets/venice-05.jpg';
+import venice06 from '../assets/venice-06.jpg';
+
 import bordeaux01 from '../assets/bordeaux-01.jpg';
 import bordeaux02 from '../assets/bordeaux-02.jpg';
 import bordeaux03 from '../assets/bordeaux-03.jpg';
@@ -171,6 +178,14 @@ const voyagesData: Record<string, VoyageData> = {
     description: 'Les hauts plateaux du Centre, café robusta et éléphants sauvages.',
     descriptionEn: 'The Central Highlands, robusta coffee and wild elephants.',
     photos: [dakLak01, dakLak02, dakLak03, dakLak04, dakLak05],
+  },
+  'venice': {
+    name: 'Venise',
+    country: 'Italie',
+    date: '2026',
+    description: "La Sérénissime, canaux dorés et palais suspendus sur l'eau.",
+    descriptionEn: 'La Serenissima, golden canals and palaces suspended on water.',
+    photos: [venice01, venice02, venice03, venice04, venice05, venice06],
   },
   'bordeaux': {
     name: 'Bordeaux',

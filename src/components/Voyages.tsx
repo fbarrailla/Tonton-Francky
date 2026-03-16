@@ -26,6 +26,7 @@ import thumbConDao from '../assets/con-dao-01.jpg';
 import thumbDakLak from '../assets/dak-lak-01.jpg';
 import thumbBordeaux from '../assets/bordeaux-01.jpg';
 import thumbParis from '../assets/paris-01.jpg';
+import thumbVenice from '../assets/venice-01.jpg';
 
 // Custom marker icon
 const customIcon = new L.Icon({
@@ -172,6 +173,17 @@ const destinations: TravelDestination[] = [
     date: "2025",
     slug: "bordeaux",
     thumbnail: thumbBordeaux,
+  },
+  {
+    id: 13,
+    name: "Venise",
+    country: "Italie",
+    coordinates: [45.4408, 12.3155],
+    description: "La Sérénissime, canaux dorés et palais suspendus sur l'eau 🚣",
+    descriptionEn: "La Serenissima, golden canals and palaces suspended on water 🚣",
+    date: "2026",
+    slug: "venice",
+    thumbnail: thumbVenice,
   },
   {
     id: 12,
