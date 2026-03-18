@@ -30,15 +30,20 @@ import thumbVenice from '../assets/venice-01.jpg';
 import thumbPrague from '../assets/prague-01.jpg';
 import thumbCork from '../assets/cork-01.jpg';
 
-// Custom marker icon
-const customIcon = new L.Icon({
-  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-  iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
+// Custom SVG pin marker
+const customIcon = L.divIcon({
+  className: '',
+  html: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="36" viewBox="0 0 28 36">
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#00000040"/>
+    </filter>
+    <path d="M14 0C6.27 0 0 6.27 0 14c0 9.625 14 22 14 22s14-12.375 14-22C28 6.27 21.73 0 14 0z"
+      fill="#292524" filter="url(#shadow)"/>
+    <circle cx="14" cy="14" r="6" fill="#ffffff"/>
+  </svg>`,
+  iconSize: [28, 36],
+  iconAnchor: [14, 36],
+  popupAnchor: [0, -38],
 });
 
 interface TravelDestination {
@@ -268,8 +273,8 @@ export default function Voyages() {
                 className="z-10"
               >
                 <TileLayer
-                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+                  url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
                 />
                 <MarkerClusterGroup>
                   {destinations.map((destination) => (
@@ -278,23 +283,23 @@ export default function Voyages() {
                       position={destination.coordinates}
                       icon={customIcon}
                     >
-                      <Popup className="custom-popup">
-                        <div className="max-w-[200px]">
+                      <Popup className="custom-popup" minWidth={220} maxWidth={220}>
+                        <div style={{ margin: '-13px -20px -15px', borderRadius: '12px', overflow: 'hidden', fontFamily: 'inherit' }}>
                           {destination.thumbnail && destination.slug && (
                             <Link to={`/voyages/${destination.slug}`}>
                               <img
                                 src={destination.thumbnail}
                                 alt={destination.name}
-                                className="w-full h-28 object-cover rounded-t-lg"
+                                style={{ width: '100%', height: '120px', objectFit: 'cover', display: 'block' }}
                               />
                             </Link>
                           )}
-                          <div className="p-2">
-                            <h3 className="font-bold text-base mb-1">
-                              {destination.name}, {destination.country}
-                            </h3>
-                            <p className="text-xs text-stone-600 mb-1">{destination.date}</p>
-                            <p className="text-xs leading-relaxed">
+                          <div style={{ padding: '10px 12px 12px' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                              <span style={{ fontSize: '13px', fontWeight: 700, color: '#1c1917' }}>{destination.name}</span>
+                              <span style={{ fontSize: '11px', color: '#78716c', background: '#f5f5f4', padding: '1px 6px', borderRadius: '999px' }}>{destination.date}</span>
+                            </div>
+                            <p style={{ fontSize: '11px', color: '#57534e', margin: 0, lineHeight: '1.5' }}>
                               {lang === 'fr' ? destination.description : destination.descriptionEn}
                             </p>
                           </div>
