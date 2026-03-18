@@ -9,6 +9,7 @@ import { motion } from 'motion/react';
 import { useLanguage } from '../i18n';
 import phoThumb from '../assets/pho/thumbnail.png';
 import bunChaThumb from '../assets/bun-cha/thumbnail.png';
+import nemsThumb from '../assets/nems/thumbnail.png';
 
 interface RecipeCard {
   slug: string;
@@ -21,6 +22,15 @@ interface RecipeCard {
 }
 
 const recipes: RecipeCard[] = [
+  {
+    slug: 'nems',
+    title: 'Nems : les rouleaux frits emblématiques',
+    titleEn: "Nems: Vietnam's iconic fried spring rolls",
+    subtitle: 'Chả giò / Nem rán — croustillants, dorés, servis avec nuoc cham 🌯',
+    subtitleEn: 'Chả giò / Nem rán — crispy, golden, served with nuoc cham 🌯',
+    country: 'Vietnam',
+    thumbnail: nemsThumb,
+  },
   {
     slug: 'bun-cha',
     title: 'Bún chả : le plat emblématique de Hanoï',

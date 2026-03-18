@@ -12,6 +12,8 @@ import phoHero from '../assets/pho/hero.png';
 import phoThumb from '../assets/pho/thumbnail.png';
 import bunChaHero from '../assets/bun-cha/hero.png';
 import bunChaThumb from '../assets/bun-cha/thumbnail.png';
+import nemsHero from '../assets/nems/hero.png';
+import nemsThumb from '../assets/nems/thumbnail.png';
 
 /* ─── Types ─────────────────────────────────────────────── */
 
@@ -156,6 +158,119 @@ const entries: Record<string, CuisineEntry> = {
       '❄️ You can prepare the broth the day before → even better',
       "🌿 Fresh herbs make all the difference (don't skip them!)",
       '🥩 Slightly freeze the beef to slice it ultra-thin',
+    ],
+  },
+
+  'nems': {
+    type: 'article',
+    title: 'Nems : les rouleaux frits emblématiques du Vietnam',
+    titleEn: 'Nems: Vietnam\'s iconic fried spring rolls',
+    hero: nemsHero,
+    thumbnail: nemsThumb,
+    country: 'Vietnam',
+    description: "Les nems — appelés chả giò au Sud et nem rán au Nord — sont l'un des symboles les plus reconnaissables de la cuisine vietnamienne. Croustillants à l'extérieur, moelleux à l'intérieur, ils se déclinent en mille variantes selon les régions.",
+    descriptionEn: "Nems — called chả giò in the South and nem rán in the North — are one of the most recognizable symbols of Vietnamese cuisine. Crispy on the outside, tender on the inside, they come in countless regional variations.",
+    sections: [
+      {
+        title: "🥢 Qu'est-ce qu'un nem ?",
+        titleEn: "🥢 What is a nem?",
+        text: "Un nem est un rouleau frit composé d'une fine feuille de riz (ou de blé) garnie d'une farce savoureuse, puis plongé dans l'huile chaude jusqu'à obtenir une couleur dorée et une texture ultra croustillante.",
+        textEn: "A nem is a fried roll made of a thin rice (or wheat) wrapper filled with a savory stuffing, then deep-fried until golden and ultra-crispy.",
+        bullets: [
+          '🫘 Farce à base de porc haché, crevettes ou crabe',
+          '🥕 Vermicelles de riz, carottes, champignons noirs',
+          '🧄 Ail, échalotes, nuoc-mâm',
+          '🌯 Enroulé dans une galette de riz fine',
+        ],
+        bulletsEn: [
+          '🫘 Filling of minced pork, shrimp or crab',
+          '🥕 Rice vermicelli, carrots, wood ear mushrooms',
+          '🧄 Garlic, shallots, nuoc-mâm',
+          '🌯 Wrapped in a thin rice paper',
+        ],
+      },
+      {
+        title: '🌏 Nord vs Sud : deux versions distinctes',
+        titleEn: '🌏 North vs South: two distinct versions',
+        bullets: [
+          '🔴 Nem rán (Nord) — farce plus simple, galette de blé, friture légère',
+          '🟠 Chả giò (Sud) — galette de riz, farce plus riche, plus croustillant',
+          '🌿 Les deux se servent avec des herbes fraîches et du nuoc cham',
+        ],
+        bulletsEn: [
+          '🔴 Nem rán (North) — simpler filling, wheat wrapper, lighter fry',
+          '🟠 Chả giò (South) — rice paper wrapper, richer filling, extra crispy',
+          '🌿 Both are served with fresh herbs and nuoc cham',
+        ],
+      },
+      {
+        title: '🍽️ Comment ça se mange ?',
+        titleEn: '🍽️ How do you eat it?',
+        text: "La méthode traditionnelle est simple mais fait toute la différence :",
+        textEn: "The traditional method is simple but makes all the difference:",
+        steps: [
+          'Prendre une feuille de salade verte',
+          'Y déposer le nem chaud',
+          'Ajouter menthe, coriandre et pousses de soja',
+          'Rouler et tremper dans le nuoc cham',
+          'Manger en une bouchée pour garder le croustillant',
+        ],
+        stepsEn: [
+          'Take a lettuce leaf',
+          'Place the hot nem on it',
+          'Add mint, coriander and bean sprouts',
+          'Roll and dip in nuoc cham',
+          'Eat in one bite to keep the crunch',
+        ],
+        tip: "💡 L'enrouler dans la salade n'est pas obligatoire mais c'est la façon authentique — ça équilibre le gras et apporte fraîcheur.",
+        tipEn: "💡 Wrapping it in lettuce isn't mandatory but it's the authentic way — it balances the richness and adds freshness.",
+      },
+      {
+        title: '🔥 Le secret d\'un nem parfait',
+        titleEn: '🔥 The secret to a perfect nem',
+        bullets: [
+          '🌡️ Huile bien chaude (180°C) pour une cuisson rapide et croustillante',
+          '💧 La farce doit être bien essorée — l\'humidité ramollit la pâte',
+          '🔄 Frire en deux fois : une fois à feu moyen, une fois très chaud pour dorer',
+          '🧊 Ne pas couvrir après la friture — la vapeur ramollit le croustillant',
+        ],
+        bulletsEn: [
+          '🌡️ Very hot oil (180°C) for a quick, crispy fry',
+          '💧 The filling must be well-drained — moisture softens the wrapper',
+          '🔄 Fry in two stages: once on medium heat, once very hot to brown',
+          '🧊 Don\'t cover after frying — steam softens the crunch',
+        ],
+      },
+      {
+        title: '📍 Où en manger au Vietnam ?',
+        titleEn: '📍 Where to eat them in Vietnam?',
+        bullets: [
+          '🏙️ Hà Nội — les nem rán se trouvent dans tous les marchés du vieux quartier',
+          '🌆 Saigon — les chả giò sont incontournables dans les bún thịt nướng',
+          '🏖️ Hội An — version aux crevettes locales, particulièrement savoureuse',
+        ],
+        bulletsEn: [
+          '🏙️ Hà Nội — nem rán found in every Old Quarter market',
+          '🌆 Saigon — chả giò essential in bún thịt nướng dishes',
+          '🏖️ Hội An — local shrimp version, particularly flavorful',
+        ],
+      },
+      {
+        title: '💡 Pourquoi tu dois absolument en goûter',
+        titleEn: '💡 Why you absolutely must try them',
+        bullets: [
+          '✔️ Street food par excellence — partout et pas cher',
+          '✔️ Texture incomparable quand ils sortent de la friture',
+          '✔️ Parfaits en entrée ou en plat complet avec du riz',
+          '✔️ L\'une des recettes les plus emblématiques de la cuisine asiatique',
+        ],
+        bulletsEn: [
+          '✔️ Street food at its finest — everywhere and cheap',
+          '✔️ Unmatched texture straight out of the fryer',
+          '✔️ Perfect as a starter or full meal with rice',
+          "✔️ One of the most iconic recipes in Asian cuisine",
+        ],
+      },
     ],
   },
 
