@@ -14,6 +14,8 @@ import bunChaHero from '../assets/bun-cha/hero.png';
 import bunChaThumb from '../assets/bun-cha/thumbnail.png';
 import nemsHero from '../assets/nems/hero.png';
 import nemsThumb from '../assets/nems/thumbnail.png';
+import banhMiHero from '../assets/banh-mi/hero.png';
+import banhMiThumb from '../assets/banh-mi/thumbnail.png';
 
 /* ─── Types ─────────────────────────────────────────────── */
 
@@ -158,6 +160,127 @@ const entries: Record<string, CuisineEntry> = {
       '❄️ You can prepare the broth the day before → even better',
       "🌿 Fresh herbs make all the difference (don't skip them!)",
       '🥩 Slightly freeze the beef to slice it ultra-thin',
+    ],
+  },
+
+  'banh-mi': {
+    type: 'article',
+    title: 'Bánh mì : le sandwich vietnamien qui a conquis le monde',
+    titleEn: 'Bánh mì: the Vietnamese sandwich that conquered the world',
+    hero: banhMiHero,
+    thumbnail: banhMiThumb,
+    country: 'Vietnam',
+    description: "Le bánh mì est bien plus qu'un simple sandwich. C'est une rencontre parfaite entre héritage français et créativité vietnamienne. Croustillant, frais, parfumé… c'est l'un des symboles les plus forts de la street food au Vietnam.",
+    descriptionEn: "Bánh mì is much more than a simple sandwich. It's a perfect meeting of French heritage and Vietnamese creativity. Crispy, fresh, fragrant… it's one of the strongest symbols of street food in Vietnam.",
+    sections: [
+      {
+        title: '🌍 Une histoire entre deux cultures',
+        titleEn: '🌍 A story between two cultures',
+        text: "Le bánh mì trouve ses origines à l'époque de l'Indochine française. La baguette est importée… puis transformée. Aujourd'hui, le bánh mì est devenu un incontournable, notamment à Ho Chi Minh Ville (Saigon), où on en trouve à chaque coin de rue.",
+        textEn: "Bánh mì has its origins in the era of French Indochina. The baguette was imported… then transformed. Today, bánh mì has become a must, especially in Ho Chi Minh City (Saigon), where it can be found on every street corner.",
+        bullets: [
+          '🥖 Une baguette plus légère et croustillante',
+          '🇻🇳 Une garniture 100% vietnamienne',
+        ],
+        bulletsEn: [
+          '🥖 A lighter and crispier baguette',
+          '🇻🇳 A 100% Vietnamese filling',
+        ],
+      },
+      {
+        title: '🥪 De quoi est composé un bánh mì ?',
+        titleEn: '🥪 What is in a bánh mì?',
+        text: "Un bánh mì classique contient une combinaison d'ingrédients soigneusement équilibrés. Chaque vendeur a sa recette → c'est ça la magie.",
+        textEn: "A classic bánh mì contains a carefully balanced combination of ingredients. Every vendor has their own recipe → that's the magic.",
+        bullets: [
+          '🥖 Baguette croustillante',
+          '🥩 Viande (porc grillé, charcuterie, poulet…)',
+          '🥕 Légumes pickles (carotte, radis blanc)',
+          '🌿 Herbes fraîches (coriandre)',
+          '🌶️ Piment',
+          '🧂 Sauces (mayonnaise, sauce soja, parfois maggi)',
+        ],
+        bulletsEn: [
+          '🥖 Crispy baguette',
+          '🥩 Meat (grilled pork, cold cuts, chicken…)',
+          '🥕 Pickled vegetables (carrot, white radish)',
+          '🌿 Fresh herbs (coriander)',
+          '🌶️ Chili',
+          '🧂 Sauces (mayonnaise, soy sauce, sometimes maggi)',
+        ],
+      },
+      {
+        title: '🔥 Pourquoi c\'est aussi bon ?',
+        titleEn: '🔥 Why is it so good?',
+        text: "Le secret du bánh mì — un équilibre parfait entre gras + frais + croquant + acidulé :",
+        textEn: "The secret of bánh mì — a perfect balance of rich + fresh + crunchy + tangy:",
+        bullets: [
+          '🔥 Croustillant à l\'extérieur',
+          '🧈 Moelleux à l\'intérieur',
+          '🥗 Fraîcheur des herbes',
+          '🍋 Acidité des pickles',
+        ],
+        bulletsEn: [
+          '🔥 Crispy on the outside',
+          '🧈 Soft on the inside',
+          '🥗 Freshness of the herbs',
+          '🍋 Acidity from the pickles',
+        ],
+      },
+      {
+        title: '🍽️ Comment le manger comme un local ?',
+        titleEn: '🍽️ How to eat it like a local?',
+        bullets: [
+          '🕒 À toute heure (petit-déj, déjeuner, snack)',
+          '🚶‍♂️ Dans la rue, sur un tabouret en plastique',
+          '💸 Pour quelques euros seulement',
+        ],
+        bulletsEn: [
+          '🕒 Any time of day (breakfast, lunch, snack)',
+          '🚶‍♂️ In the street, on a plastic stool',
+          '💸 For just a few euros',
+        ],
+        tip: '💡 Astuce : demande "ít cay" (peu pimenté) si tu n\'aimes pas le spicy 😄',
+        tipEn: '💡 Tip: ask for "ít cay" (less spicy) if you don\'t like it hot 😄',
+      },
+      {
+        title: '📍 Où manger un excellent bánh mì ?',
+        titleEn: '📍 Where to eat a great bánh mì?',
+        text: 'Quelques adresses connues à Ho Chi Minh Ville :',
+        textEn: 'Some well-known spots in Ho Chi Minh City:',
+        bullets: [
+          '🏆 Bánh Mì Huỳnh Hoa — ultra généreux, très populaire',
+          '⭐ Bánh Mì 37 Nguyễn Trãi — street food authentique',
+        ],
+        bulletsEn: [
+          '🏆 Bánh Mì Huỳnh Hoa — ultra generous, very popular',
+          '⭐ Bánh Mì 37 Nguyễn Trãi — authentic street food',
+        ],
+      },
+      {
+        title: '💡 Pourquoi tu dois absolument tester',
+        titleEn: '💡 Why you absolutely must try it',
+        bullets: [
+          '✔️ Rapide',
+          '✔️ Pas cher',
+          '✔️ Ultra savoureux',
+          '✔️ Typiquement vietnamien',
+          '✔️ Probablement le meilleur rapport plaisir/prix du Vietnam',
+        ],
+        bulletsEn: [
+          '✔️ Quick',
+          '✔️ Cheap',
+          '✔️ Ultra flavorful',
+          '✔️ Typically Vietnamese',
+          '✔️ Probably the best value for money in Vietnam',
+        ],
+      },
+      {
+        title: '🎯 Le mot de Tonton Francky',
+        titleEn: '🎯 Tonton Francky\'s take',
+        text: '"Si tu viens au Vietnam et que tu ne manges pas de bánh mì… t\'as raté un truc."',
+        textEn: '"If you come to Vietnam and don\'t eat a bánh mì… you\'ve missed something."',
+      },
     ],
   },
 

@@ -10,6 +10,7 @@ import { useLanguage } from '../i18n';
 import phoThumb from '../assets/pho/thumbnail.png';
 import bunChaThumb from '../assets/bun-cha/thumbnail.png';
 import nemsThumb from '../assets/nems/thumbnail.png';
+import banhMiThumb from '../assets/banh-mi/thumbnail.png';
 
 interface RecipeCard {
   slug: string;
@@ -22,6 +23,15 @@ interface RecipeCard {
 }
 
 const recipes: RecipeCard[] = [
+  {
+    slug: 'banh-mi',
+    title: 'Bánh mì : le sandwich qui a conquis le monde',
+    titleEn: "Bánh mì: the sandwich that conquered the world",
+    subtitle: 'Baguette croustillante, pickles, herbes fraîches et viande grillée 🥖',
+    subtitleEn: 'Crispy baguette, pickles, fresh herbs and grilled meat 🥖',
+    country: 'Vietnam',
+    thumbnail: banhMiThumb,
+  },
   {
     slug: 'nems',
     title: 'Nems : les rouleaux frits emblématiques',
