@@ -38,7 +38,7 @@ export default function Replays() {
   const r = t.replays;
 
   return (
-    <main className="flex-grow pt-20">
+    <main className="flex-grow pt-10">
       {/* Hero */}
       <section className="py-16 px-6 bg-gradient-to-br from-purple-900 to-stone-900">
         <div className="max-w-4xl mx-auto text-center">

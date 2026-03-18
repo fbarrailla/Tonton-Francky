@@ -46,7 +46,7 @@ export default function Cuisine() {
   const c = t.cuisine;
 
   return (
-    <main className="flex-grow pt-20">
+    <main className="flex-grow pt-10">
       {/* Hero */}
       <section className="py-16 px-6 bg-gradient-to-br from-amber-50 to-stone-100">
         <div className="max-w-4xl mx-auto text-center">

@@ -81,7 +81,7 @@ export default function Contact() {
     }`;
 
   return (
-    <main className="flex-grow pt-20">
+    <main className="flex-grow pt-10">
       {/* Hero */}
       <section className="py-16 px-6 bg-gradient-to-br from-travel-blue to-stone-100">
         <div className="max-w-4xl mx-auto text-center">
