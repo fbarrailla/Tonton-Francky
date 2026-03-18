@@ -20,6 +20,7 @@ const translations = {
     footer: {
       tagline: 'Voyage, rencontres et bonnes vibes 🌍',
       favicon: 'Favicon par',
+      splash: 'Splash screen par',
     },
     home: {
       greeting: 'Bonjour le monde ! 👋',
@@ -110,6 +111,7 @@ const translations = {
     footer: {
       tagline: 'Travel, friends and good vibes 🌍',
       favicon: 'Favicon by',
+      splash: 'Splash screen by',
     },
     home: {
       greeting: 'Hello world! 👋',

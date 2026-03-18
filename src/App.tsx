@@ -171,9 +171,10 @@ function AppContent() {
               <span>Twitch</span>
             </a>
           </div>
-          <p>
-            {t.footer.favicon} <a href="https://www.flaticon.com/authors/photo3idea-studio" target="_blank">photo3idea_studio</a>
-          </p>
+          <div className="flex flex-col items-center gap-1 text-stone-400 text-sm">
+            <p>{t.footer.favicon} <a href="https://www.flaticon.com/authors/photo3idea-studio" target="_blank" rel="noopener noreferrer" className="hover:text-stone-700 transition-colors">photo3idea_studio</a></p>
+            <p>{t.footer.splash} <a href="https://flywithpunit.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-stone-700 transition-colors">Punit</a></p>
+          </div>
         </div>
       </footer>
     </div>
