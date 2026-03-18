@@ -34,7 +34,7 @@ function AppContent() {
       <SplashScreen />
 
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-40 px-6 py-4 bg-white shadow-sm">
+      <nav className="fixed top-0 w-full z-40 px-6 py-4 bg-white/80 backdrop-blur-md shadow-sm">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link to="/">
             <motion.span
