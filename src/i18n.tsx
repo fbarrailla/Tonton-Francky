@@ -12,6 +12,7 @@ const translations = {
     nav: {
       travels: 'Voyages',
       replays: 'Replays',
+      cuisine: 'Cuisine',
       about: 'À propos',
       contact: 'Contact',
     },
@@ -62,6 +63,13 @@ const translations = {
       title: 'Replays',
       subtitle: 'Retrouve ici tous les replays de mes lives Twitch 🎮',
     },
+    cuisine: {
+      title: 'Cuisine',
+      subtitle: 'Mes recettes du monde entier 🍜',
+      seeRecipe: 'Voir la recette',
+      back: 'Retour aux recettes',
+      notFound: 'Recette introuvable',
+    },
     contact: {
       title: 'Contact',
       subtitle: 'Une question ? Un projet ? Dis-moi tout !',
@@ -94,6 +102,7 @@ const translations = {
     nav: {
       travels: 'Travels',
       replays: 'Replays',
+      cuisine: 'Food',
       about: 'About',
       contact: 'Contact',
     },
@@ -143,6 +152,13 @@ const translations = {
     replays: {
       title: 'Replays',
       subtitle: 'Find all my Twitch live replays here 🎮',
+    },
+    cuisine: {
+      title: 'Food',
+      subtitle: 'My recipes from around the world 🍜',
+      seeRecipe: 'See recipe',
+      back: 'Back to recipes',
+      notFound: 'Recipe not found',
     },
     contact: {
       title: 'Contact',
