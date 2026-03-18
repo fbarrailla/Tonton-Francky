@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { useLanguage } from '../i18n';
 import phoThumb from '../assets/pho/thumbnail.png';
+import bunChaThumb from '../assets/bun-cha/thumbnail.png';
 
 interface RecipeCard {
   slug: string;
@@ -20,6 +21,15 @@ interface RecipeCard {
 }
 
 const recipes: RecipeCard[] = [
+  {
+    slug: 'bun-cha',
+    title: 'Bún chả : le plat emblématique de Hanoï',
+    titleEn: 'Bún chả: the iconic dish of Hanoi',
+    subtitle: 'Porc grillé au charbon, vermicelles de riz et herbes fraîches 🍖',
+    subtitleEn: 'Charcoal-grilled pork, rice vermicelli and fresh herbs 🍖',
+    country: 'Vietnam',
+    thumbnail: bunChaThumb,
+  },
   {
     slug: 'pho-bo',
     title: 'Phở traditionnel vietnamien',
