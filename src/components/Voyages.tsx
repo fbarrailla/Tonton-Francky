@@ -31,6 +31,7 @@ import thumbPrague from '../assets/prague-01.jpg';
 import thumbCork from '../assets/cork-01.jpg';
 import thumbPenang from '../assets/penang-01.jpg';
 import thumbKohRong from '../assets/koh-rong-01.jpg';
+import thumbTaipei from '../assets/taipei-01.jpg';
 
 // Custom SVG pin marker
 const customIcon = L.divIcon({
@@ -182,6 +183,17 @@ const destinations: TravelDestination[] = [
     date: "2025",
     slug: "bordeaux",
     thumbnail: thumbBordeaux,
+  },
+  {
+    id: 18,
+    name: "Taipei",
+    country: "Taïwan",
+    coordinates: [25.0330, 121.5654],
+    description: "La ville où la modernité rencontre la tradition, street food et temples 🏯",
+    descriptionEn: "The city where modernity meets tradition, street food and temples 🏯",
+    date: "2026",
+    slug: "taipei",
+    thumbnail: thumbTaipei,
   },
   {
     id: 17,

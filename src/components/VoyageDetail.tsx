@@ -69,6 +69,12 @@ import dakLak03 from '../assets/dak-lak-03.jpg';
 import dakLak04 from '../assets/dak-lak-04.jpg';
 import dakLak05 from '../assets/dak-lak-05.jpg';
 
+import taipei01 from '../assets/taipei-01.jpg';
+import taipei02 from '../assets/taipei-02.jpg';
+import taipei03 from '../assets/taipei-03.jpg';
+import taipei04 from '../assets/taipei-04.jpg';
+import taipei05 from '../assets/taipei-05.jpg';
+
 import kohRong01 from '../assets/koh-rong-01.jpg';
 import kohRong02 from '../assets/koh-rong-02.jpg';
 import kohRong03 from '../assets/koh-rong-03.jpg';
@@ -202,6 +208,14 @@ const voyagesData: Record<string, VoyageData> = {
     description: 'Les hauts plateaux du Centre, café robusta et éléphants sauvages.',
     descriptionEn: 'The Central Highlands, robusta coffee and wild elephants.',
     photos: [dakLak01, dakLak02, dakLak03, dakLak04, dakLak05],
+  },
+  'taipei': {
+    name: 'Taipei',
+    country: 'Taïwan',
+    date: '2026',
+    description: 'La ville où la modernité rencontre la tradition, street food et temples.',
+    descriptionEn: 'The city where modernity meets tradition, street food and temples.',
+    photos: [taipei01, taipei02, taipei03, taipei04, taipei05],
   },
   'koh-rong': {
     name: 'Koh Rong',
