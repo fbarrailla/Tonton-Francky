@@ -29,6 +29,7 @@ import thumbParis from '../assets/paris-01.jpg';
 import thumbVenice from '../assets/venice-01.jpg';
 import thumbPrague from '../assets/prague-01.jpg';
 import thumbCork from '../assets/cork-01.jpg';
+import thumbPenang from '../assets/penang-01.jpg';
 
 // Custom SVG pin marker
 const customIcon = L.divIcon({
@@ -180,6 +181,17 @@ const destinations: TravelDestination[] = [
     date: "2025",
     slug: "bordeaux",
     thumbnail: thumbBordeaux,
+  },
+  {
+    id: 16,
+    name: "Penang",
+    country: "Malaisie",
+    coordinates: [5.4141, 100.3288],
+    description: "L'île des saveurs, capitale de la street food asiatique et de l'art de rue 🍜",
+    descriptionEn: "The island of flavors, capital of Asian street food and street art 🍜",
+    date: "2026",
+    slug: "penang",
+    thumbnail: thumbPenang,
   },
   {
     id: 15,

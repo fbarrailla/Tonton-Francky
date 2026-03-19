@@ -69,6 +69,12 @@ import dakLak03 from '../assets/dak-lak-03.jpg';
 import dakLak04 from '../assets/dak-lak-04.jpg';
 import dakLak05 from '../assets/dak-lak-05.jpg';
 
+import penang01 from '../assets/penang-01.jpg';
+import penang02 from '../assets/penang-02.jpg';
+import penang03 from '../assets/penang-03.jpg';
+import penang04 from '../assets/penang-04.jpg';
+import penang05 from '../assets/penang-05.jpg';
+
 import cork01 from '../assets/cork-01.jpg';
 import cork02 from '../assets/cork-02.jpg';
 import cork03 from '../assets/cork-03.jpg';
@@ -190,6 +196,14 @@ const voyagesData: Record<string, VoyageData> = {
     description: 'Les hauts plateaux du Centre, café robusta et éléphants sauvages.',
     descriptionEn: 'The Central Highlands, robusta coffee and wild elephants.',
     photos: [dakLak01, dakLak02, dakLak03, dakLak04, dakLak05],
+  },
+  'penang': {
+    name: 'Penang',
+    country: 'Malaisie',
+    date: '2026',
+    description: "L'île des saveurs, capitale de la street food asiatique et de l'art de rue.",
+    descriptionEn: 'The island of flavors, capital of Asian street food and street art.',
+    photos: [penang01, penang02, penang03, penang04, penang05],
   },
   'cork': {
     name: 'Cork',
