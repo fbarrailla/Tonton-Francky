@@ -30,6 +30,7 @@ import thumbVenice from '../assets/venice-01.jpg';
 import thumbPrague from '../assets/prague-01.jpg';
 import thumbCork from '../assets/cork-01.jpg';
 import thumbPenang from '../assets/penang-01.jpg';
+import thumbKohRong from '../assets/koh-rong-01.jpg';
 
 // Custom SVG pin marker
 const customIcon = L.divIcon({
@@ -181,6 +182,17 @@ const destinations: TravelDestination[] = [
     date: "2025",
     slug: "bordeaux",
     thumbnail: thumbBordeaux,
+  },
+  {
+    id: 17,
+    name: "Koh Rong",
+    country: "Cambodge",
+    coordinates: [10.6167, 103.2333],
+    description: "Un paradis sauvage aux eaux turquoise, loin des foules et du bruit 🌴",
+    descriptionEn: "A wild paradise with turquoise waters, far from the crowds and noise 🌴",
+    date: "2026",
+    slug: "koh-rong",
+    thumbnail: thumbKohRong,
   },
   {
     id: 16,

@@ -69,6 +69,12 @@ import dakLak03 from '../assets/dak-lak-03.jpg';
 import dakLak04 from '../assets/dak-lak-04.jpg';
 import dakLak05 from '../assets/dak-lak-05.jpg';
 
+import kohRong01 from '../assets/koh-rong-01.jpg';
+import kohRong02 from '../assets/koh-rong-02.jpg';
+import kohRong03 from '../assets/koh-rong-03.jpg';
+import kohRong04 from '../assets/koh-rong-04.jpg';
+import kohRong05 from '../assets/koh-rong-05.jpg';
+
 import penang01 from '../assets/penang-01.jpg';
 import penang02 from '../assets/penang-02.jpg';
 import penang03 from '../assets/penang-03.jpg';
@@ -196,6 +202,14 @@ const voyagesData: Record<string, VoyageData> = {
     description: 'Les hauts plateaux du Centre, café robusta et éléphants sauvages.',
     descriptionEn: 'The Central Highlands, robusta coffee and wild elephants.',
     photos: [dakLak01, dakLak02, dakLak03, dakLak04, dakLak05],
+  },
+  'koh-rong': {
+    name: 'Koh Rong',
+    country: 'Cambodge',
+    date: '2026',
+    description: "Un paradis sauvage aux eaux turquoise, loin des foules et du bruit.",
+    descriptionEn: 'A wild paradise with turquoise waters, far from the crowds and noise.',
+    photos: [kohRong01, kohRong02, kohRong03, kohRong04, kohRong05],
   },
   'penang': {
     name: 'Penang',
