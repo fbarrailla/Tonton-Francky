@@ -43,7 +43,7 @@ export default function SplashScreen() {
     setTimeout(() => {
       minTimeReached.current = true;
       tryHide();
-    }, duration);
+    }, duration * 800);
   };
 
   return (
