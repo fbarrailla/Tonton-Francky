@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
     "server": "tsx server.ts",
-    "build": "NODE_OPTIONS=--max-old-space-size=4096 vite build && npm run publish",
+    "build": "NODE_OPTIONS=--max-old-space-size=8192 vite build && npm run publish",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
