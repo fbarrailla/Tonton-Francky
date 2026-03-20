@@ -93,7 +93,7 @@ function AppContent() {
                   key={l}
                   onClick={() => setLang(l)}
                   className={`px-2 py-1 rounded-3xl text-sm font-semibold uppercase transition-colors ${
-                    lang === l ? 'bg-stone-800 text-white' : 'text-stone-500 hover:text-stone-800'
+                    lang === l ? 'bg-stone-800 text-white' : 'text-stone-600 hover:text-stone-800'
                   }`}
                 >
                   {l}
@@ -165,7 +165,7 @@ function AppContent() {
               <Route path="/cuisine/:slug" element={<CuisineDetail />} />
               <Route path="/a-propos" element={<About />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<main className="flex-grow pt-10 flex items-center justify-center"><div className="text-center"><h1 className="text-4xl font-serif font-bold mb-4">404</h1><p className="text-stone-500 mb-6">Page introuvable</p><a href="/" className="text-stone-700 underline">Retour à l'accueil</a></div></main>} />
+              <Route path="*" element={<main className="flex-grow pt-10 flex items-center justify-center"><div className="text-center"><h1 className="text-4xl font-serif font-bold mb-4">404</h1><p className="text-stone-600 mb-6">Page introuvable</p><a href="/" className="text-stone-700 underline">Retour à l'accueil</a></div></main>} />
             </Routes>
           </Suspense>
         </motion.div>
@@ -188,7 +188,7 @@ function AppContent() {
               <span>Twitch</span>
             </a>
           </div>
-          <div className="flex flex-col items-center gap-1 text-stone-500 text-sm">
+          <div className="flex flex-col items-center gap-1 text-stone-600 text-sm">
             <p>{t.footer.favicon} <a href="https://www.flaticon.com/authors/photo3idea-studio" target="_blank" rel="noopener noreferrer" className="hover:text-stone-700 transition-colors">photo3idea_studio</a></p>
             <p>{t.footer.splash} <a href="https://flywithpunit.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-stone-700 transition-colors">Punit</a></p>
           </div>
