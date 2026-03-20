@@ -67,6 +67,12 @@ if (process.env.NODE_ENV === 'production') {
     immutable: true,
   }));
 
+  // Fonts are versioned by filename (from Google Fonts) → cache 1 year
+  app.use('/fonts', express.static(path.join(__dirname, 'dist/fonts'), {
+    maxAge: '1y',
+    immutable: true,
+  }));
+
   // Other static files (favicon, robots.txt, sitemap…) — cache 1 day
   app.use(express.static(path.join(__dirname, 'dist'), {
     setHeaders: (res, filePath) => {

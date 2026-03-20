@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit",
-    "publish": "cp ./favicon.png ./dist/favicon.png && cp ./robots.txt ./dist/robots.txt && cp ./sitemap.xml ./dist/sitemap.xml && cp ./src/assets/miniature.png ./dist/assets/miniature.png"
+    "publish": "cp ./favicon.png ./dist/favicon.png && cp ./robots.txt ./dist/robots.txt && cp ./sitemap.xml ./dist/sitemap.xml && cp ./src/assets/miniature.png ./dist/assets/miniature.png && cp -r ./public/fonts ./dist/fonts"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

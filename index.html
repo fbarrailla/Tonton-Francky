@@ -6,11 +6,10 @@
     <title>Tonton Francky</title>
     <meta name="description" content="Suis moi sur Insta pour découvrir mes voyages et amis..." />
     <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Non-blocking font load: render starts immediately, fonts swap in when ready -->
-    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" /></noscript>
+    <!-- Self-hosted fonts: no third-party requests, no FOUT, no layout shift -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/outfit-latin.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/cormorant-normal-latin.woff2" crossorigin />
+    <link rel="stylesheet" href="/fonts/fonts.css" />
     <meta property="og:title" content="Tonton Francky" />
     <meta property="og:description" content="Découvrez tontonfrancky.com" />
     <meta property="og:image" content="https://tontonfrancky.com/assets/miniature.png" />
