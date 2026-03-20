@@ -109,58 +109,70 @@ export default function Contact() {
           >
             {/* Name */}
             <div>
-              <label className="block text-sm font-semibold text-stone-700 mb-2">{c.name}</label>
+              <label htmlFor="field-name" className="block text-sm font-semibold text-stone-700 mb-2">{c.name}</label>
               <input
+                id="field-name"
                 type="text"
                 name="name"
                 value={form.name}
                 onChange={handleChange}
                 placeholder="François B."
+                aria-describedby={errors.name ? 'err-name' : undefined}
+                aria-invalid={!!errors.name}
                 className={inputClass('name')}
               />
-              {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
+              {errors.name && <p id="err-name" role="alert" className="mt-1 text-sm text-red-500 flex items-center gap-1"><AlertCircle size={14} />{errors.name}</p>}
             </div>
 
             {/* Email */}
             <div>
-              <label className="block text-sm font-semibold text-stone-700 mb-2">{c.email}</label>
+              <label htmlFor="field-email" className="block text-sm font-semibold text-stone-700 mb-2">{c.email}</label>
               <input
+                id="field-email"
                 type="email"
                 name="email"
                 value={form.email}
                 onChange={handleChange}
                 placeholder="toi@exemple.com"
+                aria-describedby={errors.email ? 'err-email' : undefined}
+                aria-invalid={!!errors.email}
                 className={inputClass('email')}
               />
-              {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
+              {errors.email && <p id="err-email" role="alert" className="mt-1 text-sm text-red-500 flex items-center gap-1"><AlertCircle size={14} />{errors.email}</p>}
             </div>
 
             {/* Subject */}
             <div>
-              <label className="block text-sm font-semibold text-stone-700 mb-2">{c.subject}</label>
+              <label htmlFor="field-subject" className="block text-sm font-semibold text-stone-700 mb-2">{c.subject}</label>
               <input
+                id="field-subject"
                 type="text"
                 name="subject"
                 value={form.subject}
                 onChange={handleChange}
                 placeholder="Voyage au Vietnam 🌏"
+                aria-describedby={errors.subject ? 'err-subject' : undefined}
+                aria-invalid={!!errors.subject}
                 className={inputClass('subject')}
               />
-              {errors.subject && <p className="mt-1 text-sm text-red-500">{errors.subject}</p>}
+              {errors.subject && <p id="err-subject" role="alert" className="mt-1 text-sm text-red-500 flex items-center gap-1"><AlertCircle size={14} />{errors.subject}</p>}
             </div>
 
             {/* Message */}
             <div>
-              <label className="block text-sm font-semibold text-stone-700 mb-2">{c.message}</label>
+              <label htmlFor="field-message" className="block text-sm font-semibold text-stone-700 mb-2">{c.message}</label>
               <textarea
+                id="field-message"
                 name="message"
                 value={form.message}
                 onChange={handleChange}
                 rows={5}
                 placeholder="..."
+                aria-describedby={errors.message ? 'err-message' : undefined}
+                aria-invalid={!!errors.message}
                 className={`${inputClass('message')} resize-none`}
               />
-              {errors.message && <p className="mt-1 text-sm text-red-500">{errors.message}</p>}
+              {errors.message && <p id="err-message" role="alert" className="mt-1 text-sm text-red-500 flex items-center gap-1"><AlertCircle size={14} />{errors.message}</p>}
             </div>
 
             {/* Submit */}

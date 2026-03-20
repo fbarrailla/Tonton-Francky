@@ -41,7 +41,7 @@ export default function Home() {
     <main className="flex-grow">
       {/* Hero Banner */}
       <section
-        className="relative w-full h-[520px] lg:h-[680px] overflow-hidden"
+        className="relative w-full h-[520px] md:h-[600px] lg:h-[680px] overflow-hidden"
         style={{
           backgroundImage: `url(${heroBg})`,
           backgroundSize: '100%',

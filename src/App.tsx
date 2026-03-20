@@ -65,10 +65,10 @@ function AppContent() {
             <Link to="/contact" className="glass-card px-4 py-2 hover:bg-white/60 transition-colors">
               {t.nav.contact}
             </Link>
-            <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" className="p-2 glass-card hover:bg-white/60 transition-colors">
+            <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-2 glass-card hover:bg-white/60 transition-colors">
               <Instagram size={20} />
             </a>
-            <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" className="p-2 glass-card hover:bg-white/60 transition-colors">
+            <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="Twitch" className="p-2 glass-card hover:bg-white/60 transition-colors">
               <Twitch size={20} />
             </a>
             {/* Language picker */}
@@ -152,11 +152,12 @@ function AppContent() {
         <Route path="/cuisine/:slug" element={<CuisineDetail />} />
         <Route path="/a-propos" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<main className="flex-grow pt-10 flex items-center justify-center"><div className="text-center"><h1 className="text-4xl font-serif font-bold mb-4">404</h1><p className="text-stone-500 mb-6">Page introuvable</p><a href="/" className="text-stone-700 underline">Retour à l'accueil</a></div></main>} />
       </Routes>
 
       {/* Footer */}
       <footer className="py-12 px-6 border-t border-stone-200">
-        <div className="max-w-7xl mx-auto flex flex-col md:row justify-between items-center gap-6">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2 text-stone-500">
             <Heart size={16} className="text-red-400" />
             <span className="font-medium">Tonton Francky — {t.footer.tagline}</span>
