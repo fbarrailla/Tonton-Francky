@@ -17,10 +17,7 @@ const Contact = lazy(() => import('./components/Contact'));
 const Replays = lazy(() => import('./components/Replays'));
 const Cuisine = lazy(() => import('./components/Cuisine'));
 const CuisineDetail = lazy(() => import('./components/CuisineDetail'));
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { LanguageProvider, useLanguage, type Lang } from './i18n';
-
-const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 function AppContent() {
   const { lang, setLang, t } = useLanguage();
@@ -200,13 +197,11 @@ function AppContent() {
 }
 
 export default function App() {
-  return (
-    <GoogleReCaptchaProvider reCaptchaKey={RECAPTCHA_SITE_KEY}>
-      <Router>
-        <LanguageProvider>
-          <AppContent />
-        </LanguageProvider>
-      </Router>
-    </GoogleReCaptchaProvider>
+  return (    
+    <Router>
+      <LanguageProvider>
+        <AppContent />
+      </LanguageProvider>
+    </Router>
   );
 }

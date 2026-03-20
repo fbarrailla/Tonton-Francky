@@ -6,8 +6,11 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { useLanguage } from '../i18n';
+
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 interface FormData {
   name: string;
@@ -23,7 +26,7 @@ interface FormErrors {
   message?: string;
 }
 
-export default function Contact() {
+export function Contact() {
   const { t } = useLanguage();
   const c = t.contact;
   const { executeRecaptcha } = useGoogleReCaptcha();
@@ -223,4 +226,12 @@ export default function Contact() {
       </section>
     </main>
   );
+}
+
+export default function WrappedContact() {
+  return (
+    <GoogleReCaptchaProvider reCaptchaKey={RECAPTCHA_SITE_KEY}>
+      <Contact />
+    </GoogleReCaptchaProvider>
+  )
 }
