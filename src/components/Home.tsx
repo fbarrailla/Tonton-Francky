@@ -24,6 +24,7 @@ const InterestCard = ({ icon: Icon, text, delay }: { icon: any, text: string, de
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ delay, duration: 0.5 }}
+    whileHover={{ y: -6, transition: { duration: 0.2, ease: [0.25, 1, 0.5, 1] } }}
     className="glass-card p-6 flex flex-col items-center text-center gap-4 hover:shadow-lg transition-shadow"
   >
     <div className="w-12 h-12 bg-travel-blue rounded-2xl flex items-center justify-center text-stone-700">

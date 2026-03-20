@@ -26,6 +26,9 @@ function AppContent() {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
+  const isActive = (path: string) =>
+    path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
+
   // Close menu on navigation
   React.useEffect(() => { setMenuOpen(false); }, [location]);
 
@@ -48,21 +51,21 @@ function AppContent() {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-4">
-            <Link to="/voyages" className="glass-card px-4 py-2 hover:bg-white/60 transition-colors flex items-center gap-2">
+            <Link to="/voyages" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/voyages') ? 'bg-white/70 shadow-md font-semibold' : 'hover:bg-white/60'}`}>
               <MapPin size={16} />
               <span>{t.nav.travels}</span>
             </Link>
-            <Link to="/replays" className="glass-card px-4 py-2 hover:bg-white/60 transition-colors flex items-center gap-2">
+            <Link to="/replays" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/replays') ? 'bg-white/70 shadow-md font-semibold' : 'hover:bg-white/60'}`}>
               <Twitch size={16} />
               <span>{t.nav.replays}</span>
             </Link>
-            <Link to="/cuisine" className="glass-card px-4 py-2 hover:bg-white/60 transition-colors">
+            <Link to="/cuisine" className={`glass-card px-4 py-2 transition-colors ${isActive('/cuisine') ? 'bg-white/70 shadow-md font-semibold' : 'hover:bg-white/60'}`}>
               {t.nav.cuisine}
             </Link>
-            <Link to="/a-propos" className="glass-card px-4 py-2 hover:bg-white/60 transition-colors">
+            <Link to="/a-propos" className={`glass-card px-4 py-2 transition-colors ${isActive('/a-propos') ? 'bg-white/70 shadow-md font-semibold' : 'hover:bg-white/60'}`}>
               {t.nav.about}
             </Link>
-            <Link to="/contact" className="glass-card px-4 py-2 hover:bg-white/60 transition-colors">
+            <Link to="/contact" className={`glass-card px-4 py-2 transition-colors ${isActive('/contact') ? 'bg-white/70 shadow-md font-semibold' : 'hover:bg-white/60'}`}>
               {t.nav.contact}
             </Link>
             <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-2 glass-card hover:bg-white/60 transition-colors">
@@ -143,17 +146,28 @@ function AppContent() {
         </AnimatePresence>
       </nav>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/voyages" element={<Voyages />} />
-        <Route path="/voyages/:ville" element={<VoyageDetail />} />
-        <Route path="/replays" element={<Replays />} />
-        <Route path="/cuisine" element={<Cuisine />} />
-        <Route path="/cuisine/:slug" element={<CuisineDetail />} />
-        <Route path="/a-propos" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<main className="flex-grow pt-10 flex items-center justify-center"><div className="text-center"><h1 className="text-4xl font-serif font-bold mb-4">404</h1><p className="text-stone-500 mb-6">Page introuvable</p><a href="/" className="text-stone-700 underline">Retour à l'accueil</a></div></main>} />
-      </Routes>
+      <AnimatePresence mode="wait" initial={false}>
+        <motion.div
+          key={location.pathname}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.18, ease: 'easeOut' }}
+          className="flex-grow flex flex-col"
+        >
+          <Routes location={location}>
+            <Route path="/" element={<Home />} />
+            <Route path="/voyages" element={<Voyages />} />
+            <Route path="/voyages/:ville" element={<VoyageDetail />} />
+            <Route path="/replays" element={<Replays />} />
+            <Route path="/cuisine" element={<Cuisine />} />
+            <Route path="/cuisine/:slug" element={<CuisineDetail />} />
+            <Route path="/a-propos" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<main className="flex-grow pt-10 flex items-center justify-center"><div className="text-center"><h1 className="text-4xl font-serif font-bold mb-4">404</h1><p className="text-stone-500 mb-6">Page introuvable</p><a href="/" className="text-stone-700 underline">Retour à l'accueil</a></div></main>} />
+          </Routes>
+        </motion.div>
+      </AnimatePresence>
 
       {/* Footer */}
       <footer className="py-12 px-6 border-t border-stone-200">

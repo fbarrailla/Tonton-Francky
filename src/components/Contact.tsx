@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
@@ -32,6 +32,8 @@ export default function Contact() {
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [errorDetail, setErrorDetail] = useState<string>('');
+  const [shakeFields, setShakeFields] = useState<Set<string>>(new Set());
+  const shakeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const validate = (): boolean => {
     const errs: FormErrors = {};
@@ -54,7 +56,15 @@ export default function Contact() {
 
   const handleSubmit = useCallback(async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validate()) return;
+    if (!validate()) {
+      const invalid = (['name', 'email', 'subject', 'message'] as const).filter(f =>
+        !form[f].trim() || (f === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
+      );
+      if (shakeTimerRef.current) clearTimeout(shakeTimerRef.current);
+      setShakeFields(new Set(invalid));
+      shakeTimerRef.current = setTimeout(() => setShakeFields(new Set()), 500);
+      return;
+    }
     if (!executeRecaptcha) return;
 
     setStatus('sending');
@@ -108,7 +118,7 @@ export default function Contact() {
             className="bg-white rounded-3xl shadow-lg p-8 md:p-12 flex flex-col gap-6"
           >
             {/* Name */}
-            <div>
+            <div className={shakeFields.has('name') ? 'shake' : ''}>
               <label htmlFor="field-name" className="block text-sm font-semibold text-stone-700 mb-2">{c.name}</label>
               <input
                 id="field-name"
@@ -125,7 +135,7 @@ export default function Contact() {
             </div>
 
             {/* Email */}
-            <div>
+            <div className={shakeFields.has('email') ? 'shake' : ''}>
               <label htmlFor="field-email" className="block text-sm font-semibold text-stone-700 mb-2">{c.email}</label>
               <input
                 id="field-email"
@@ -142,7 +152,7 @@ export default function Contact() {
             </div>
 
             {/* Subject */}
-            <div>
+            <div className={shakeFields.has('subject') ? 'shake' : ''}>
               <label htmlFor="field-subject" className="block text-sm font-semibold text-stone-700 mb-2">{c.subject}</label>
               <input
                 id="field-subject"
@@ -159,7 +169,7 @@ export default function Contact() {
             </div>
 
             {/* Message */}
-            <div>
+            <div className={shakeFields.has('message') ? 'shake' : ''}>
               <label htmlFor="field-message" className="block text-sm font-semibold text-stone-700 mb-2">{c.message}</label>
               <textarea
                 id="field-message"

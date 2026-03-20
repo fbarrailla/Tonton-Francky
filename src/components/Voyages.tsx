@@ -397,6 +397,7 @@ export default function Voyages() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: Math.min(index * 0.1, 0.5), duration: 0.5 }}
+                  whileHover={{ y: -5, transition: { duration: 0.2, ease: [0.25, 1, 0.5, 1] } }}
                   className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
                 >
                   {destination.thumbnail && (

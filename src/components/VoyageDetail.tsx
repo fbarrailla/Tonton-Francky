@@ -307,6 +307,7 @@ export default function VoyageDetail() {
   const { ville } = useParams<{ ville: string }>();
   const voyage = ville ? voyagesData[ville] : null;
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(1);
   const { lang, t } = useLanguage();
   const d = t.detail;
 
@@ -323,8 +324,14 @@ export default function VoyageDetail() {
     );
   }
 
-  const prev = () => setCurrent((c) => (c - 1 + voyage.photos.length) % voyage.photos.length);
-  const next = () => setCurrent((c) => (c + 1) % voyage.photos.length);
+  const prev = () => {
+    setDirection(-1);
+    setCurrent((c) => (c - 1 + voyage.photos.length) % voyage.photos.length);
+  };
+  const next = () => {
+    setDirection(1);
+    setCurrent((c) => (c + 1) % voyage.photos.length);
+  };
 
   return (
     <main className="flex-grow pt-10">
@@ -363,10 +370,10 @@ export default function VoyageDetail() {
                 src={voyage.photos[current]}
                 alt={`${voyage.name} ${current + 1}`}
                 className="w-full h-full object-cover"
-                initial={{ opacity: 0, x: 60 }}
+                initial={{ opacity: 0, x: direction * 60 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -60 }}
-                transition={{ duration: 0.4 }}
+                exit={{ opacity: 0, x: direction * -60 }}
+                transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
               />
             </AnimatePresence>
 
@@ -397,7 +404,7 @@ export default function VoyageDetail() {
             {voyage.photos.map((photo, i) => (
               <button
                 key={i}
-                onClick={() => setCurrent(i)}
+                onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
                 className={`w-20 h-14 rounded-xl overflow-hidden border-2 transition-all ${
                   i === current ? 'border-stone-800 scale-105' : 'border-transparent opacity-60 hover:opacity-100'
                 }`}
