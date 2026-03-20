@@ -41,16 +41,16 @@ export default function Home() {
   return (
     <main className="flex-grow">
       {/* Hero Banner */}
-      <section
-        className="relative w-full h-[520px] md:h-[600px] lg:h-[680px] overflow-hidden"
-        style={{
-          backgroundImage: `url(${heroBg})`,
-          backgroundSize: '100%',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundColor: 'rgb(7 8 25)',
-        }}
-      >
+      <section className="relative w-full h-[520px] md:h-[600px] lg:h-[680px] overflow-hidden bg-[rgb(7_8_25)]">
+        {/* img tag (not CSS background) so the browser discovers it during HTML parsing → LCP */}
+        <img
+          src={heroBg}
+          alt=""
+          fetchPriority="high"
+          loading="eager"
+          decoding="sync"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         <div className="relative z-10 h-full flex flex-col items-center justify-end pb-10 text-center px-6">          
           <motion.div

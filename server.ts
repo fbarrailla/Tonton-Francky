@@ -61,8 +61,26 @@ app.post('/api/contact', async (req, res) => {
 
 // Serve built frontend in production
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, 'dist')));
+  // Vite hashes asset filenames → safe to cache indefinitely
+  app.use('/assets', express.static(path.join(__dirname, 'dist/assets'), {
+    maxAge: '1y',
+    immutable: true,
+  }));
+
+  // Other static files (favicon, robots.txt, sitemap…) — cache 1 day
+  app.use(express.static(path.join(__dirname, 'dist'), {
+    setHeaders: (res, filePath) => {
+      if (filePath.endsWith('.html')) {
+        // index.html must never be cached so deploys propagate immediately
+        res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+      } else {
+        res.setHeader('Cache-Control', 'public, max-age=86400');
+      }
+    },
+  }));
+
   app.get('*', (_req, res) => {
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
     res.sendFile(path.join(__dirname, 'dist', 'index.html'));
   });
 }
