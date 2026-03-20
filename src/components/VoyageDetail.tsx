@@ -369,6 +369,8 @@ export default function VoyageDetail() {
                 key={current}
                 src={voyage.photos[current]}
                 alt={`${voyage.name} ${current + 1}`}
+                fetchPriority="high"
+                decoding="async"
                 className="w-full h-full object-cover"
                 initial={{ opacity: 0, x: direction * 60 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -409,7 +411,7 @@ export default function VoyageDetail() {
                   i === current ? 'border-stone-800 scale-105' : 'border-transparent opacity-60 hover:opacity-100'
                 }`}
               >
-                <img src={photo} alt={`thumb ${i + 1}`} className="w-full h-full object-cover" />
+                <img src={photo} alt={`thumb ${i + 1}`} loading="lazy" decoding="async" className="w-full h-full object-cover" />
               </button>
             ))}
           </div>

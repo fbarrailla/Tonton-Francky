@@ -3,19 +3,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Instagram, Heart, MapPin, Twitch, Menu, X } from 'lucide-react';
-import Home from './components/Home';
-import Voyages from './components/Voyages';
-import VoyageDetail from './components/VoyageDetail';
-import About from './components/About';
-import Contact from './components/Contact';
-import Replays from './components/Replays';
-import Cuisine from './components/Cuisine';
-import CuisineDetail from './components/CuisineDetail';
 import SplashScreen from './components/SplashScreen';
+
+const Home = lazy(() => import('./components/Home'));
+const Voyages = lazy(() => import('./components/Voyages'));
+const VoyageDetail = lazy(() => import('./components/VoyageDetail'));
+const About = lazy(() => import('./components/About'));
+const Contact = lazy(() => import('./components/Contact'));
+const Replays = lazy(() => import('./components/Replays'));
+const Cuisine = lazy(() => import('./components/Cuisine'));
+const CuisineDetail = lazy(() => import('./components/CuisineDetail'));
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { LanguageProvider, useLanguage, type Lang } from './i18n';
 
@@ -155,17 +156,19 @@ function AppContent() {
           transition={{ duration: 0.18, ease: 'easeOut' }}
           className="flex-grow flex flex-col"
         >
-          <Routes location={location}>
-            <Route path="/" element={<Home />} />
-            <Route path="/voyages" element={<Voyages />} />
-            <Route path="/voyages/:ville" element={<VoyageDetail />} />
-            <Route path="/replays" element={<Replays />} />
-            <Route path="/cuisine" element={<Cuisine />} />
-            <Route path="/cuisine/:slug" element={<CuisineDetail />} />
-            <Route path="/a-propos" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<main className="flex-grow pt-10 flex items-center justify-center"><div className="text-center"><h1 className="text-4xl font-serif font-bold mb-4">404</h1><p className="text-stone-500 mb-6">Page introuvable</p><a href="/" className="text-stone-700 underline">Retour à l'accueil</a></div></main>} />
-          </Routes>
+          <Suspense fallback={<div className="flex-grow" />}>
+            <Routes location={location}>
+              <Route path="/" element={<Home />} />
+              <Route path="/voyages" element={<Voyages />} />
+              <Route path="/voyages/:ville" element={<VoyageDetail />} />
+              <Route path="/replays" element={<Replays />} />
+              <Route path="/cuisine" element={<Cuisine />} />
+              <Route path="/cuisine/:slug" element={<CuisineDetail />} />
+              <Route path="/a-propos" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="*" element={<main className="flex-grow pt-10 flex items-center justify-center"><div className="text-center"><h1 className="text-4xl font-serif font-bold mb-4">404</h1><p className="text-stone-500 mb-6">Page introuvable</p><a href="/" className="text-stone-700 underline">Retour à l'accueil</a></div></main>} />
+            </Routes>
+          </Suspense>
         </motion.div>
       </AnimatePresence>
 

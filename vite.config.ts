@@ -21,5 +21,16 @@ export default defineConfig(({mode}) => {
         '/api': 'http://localhost:3001',
       },
     },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'vendor-react': ['react', 'react-dom', 'react-router-dom'],
+            'vendor-motion': ['motion/react'],
+            'vendor-leaflet': ['leaflet', 'react-leaflet', 'leaflet.markercluster', 'react-leaflet-markercluster'],
+          },
+        },
+      },
+    },
   };
 });

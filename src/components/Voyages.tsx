@@ -350,6 +350,8 @@ export default function Voyages() {
                               <img
                                 src={destination.thumbnail}
                                 alt={destination.name}
+                                loading="lazy"
+                                decoding="async"
                                 style={{ width: '100%', height: '120px', objectFit: 'cover', display: 'block' }}
                               />
                             </Link>
@@ -405,6 +407,8 @@ export default function Voyages() {
                       <img
                         src={destination.thumbnail}
                         alt={destination.name}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                       />
                     </div>
