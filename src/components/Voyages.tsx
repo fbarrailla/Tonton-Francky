@@ -301,7 +301,7 @@ export default function Voyages() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-7xl font-serif font-bold mb-6 text-stone-800">
+            <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6 text-stone-800">
               {v.heroTitle}
             </h1>
             <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
@@ -396,16 +396,15 @@ export default function Voyages() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
+                  transition={{ delay: Math.min(index * 0.1, 0.5), duration: 0.5 }}
                   className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
                 >
-                  {destination.image && (
+                  {destination.thumbnail && (
                     <div className="aspect-[4/3] overflow-hidden">
                       <img
-                        src={destination.image}
+                        src={destination.thumbnail}
                         alt={destination.name}
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                        referrerPolicy="no-referrer"
                       />
                     </div>
                   )}

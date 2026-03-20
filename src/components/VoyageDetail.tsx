@@ -329,7 +329,7 @@ export default function VoyageDetail() {
   return (
     <main className="flex-grow pt-10">
       {/* Hero */}
-      <section className="py-12 px-6 bg-gradient-to-br from-travel-blue to-stone-100">
+      <section className="py-16 px-6 bg-gradient-to-br from-travel-blue to-stone-100">
         <div className="max-w-5xl mx-auto">
           <Link
             to="/voyages"
