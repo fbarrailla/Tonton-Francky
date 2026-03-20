@@ -63,7 +63,7 @@ export default function SplashScreen() {
             loop
             muted
             playsInline
-            {...{ fetchpriority: 'high' } as any}
+            fetchPriority="high"
             onLoadedMetadata={handleMetadata}
             className="max-w-xs w-full"
           />
