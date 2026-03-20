@@ -69,6 +69,12 @@ import dakLak03 from '../assets/dak-lak-03.jpg';
 import dakLak04 from '../assets/dak-lak-04.jpg';
 import dakLak05 from '../assets/dak-lak-05.jpg';
 
+import phanThiet01 from '../assets/phan-thiet-01.jpg';
+import phanThiet02 from '../assets/phan-thiet-02.jpg';
+import phanThiet03 from '../assets/phan-thiet-03.jpg';
+import phanThiet04 from '../assets/phan-thiet-04.jpg';
+import phanThiet05 from '../assets/phan-thiet-05.jpg';
+
 import bienHoa01 from '../assets/bien-hoa-01.jpg';
 import bienHoa02 from '../assets/bien-hoa-02.jpg';
 import bienHoa03 from '../assets/bien-hoa-03.jpg';
@@ -214,6 +220,14 @@ const voyagesData: Record<string, VoyageData> = {
     description: 'Les hauts plateaux du Centre, café robusta et éléphants sauvages.',
     descriptionEn: 'The Central Highlands, robusta coffee and wild elephants.',
     photos: [dakLak01, dakLak02, dakLak03, dakLak04, dakLak05],
+  },
+  'phan-thiet': {
+    name: 'Phan Thiết',
+    country: 'Vietnam',
+    date: '2026',
+    description: 'Dunes de sable rouge, plages sauvages et sauce de poisson légendaire.',
+    descriptionEn: 'Red sand dunes, wild beaches and legendary fish sauce.',
+    photos: [phanThiet01, phanThiet02, phanThiet03, phanThiet04, phanThiet05],
   },
   'bien-hoa': {
     name: 'Biên Hòa',

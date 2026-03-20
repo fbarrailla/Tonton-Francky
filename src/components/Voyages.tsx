@@ -33,6 +33,7 @@ import thumbPenang from '../assets/penang-01.jpg';
 import thumbKohRong from '../assets/koh-rong-01.jpg';
 import thumbTaipei from '../assets/taipei-01.jpg';
 import thumbBienHoa from '../assets/bien-hoa-01.jpg';
+import thumbPhanThiet from '../assets/phan-thiet-01.jpg';
 
 // Custom SVG pin marker
 const customIcon = L.divIcon({
@@ -184,6 +185,17 @@ const destinations: TravelDestination[] = [
     date: "2025",
     slug: "bordeaux",
     thumbnail: thumbBordeaux,
+  },
+  {
+    id: 20,
+    name: "Phan Thiết",
+    country: "Vietnam",
+    coordinates: [10.9289, 108.1022],
+    description: "Dunes de sable rouge, plages sauvages et sauce de poisson légendaire 🏜️",
+    descriptionEn: "Red sand dunes, wild beaches and legendary fish sauce 🏜️",
+    date: "2026",
+    slug: "phan-thiet",
+    thumbnail: thumbPhanThiet,
   },
   {
     id: 19,
