@@ -69,6 +69,12 @@ import dakLak03 from '../assets/dak-lak-03.jpg';
 import dakLak04 from '../assets/dak-lak-04.jpg';
 import dakLak05 from '../assets/dak-lak-05.jpg';
 
+import bienHoa01 from '../assets/bien-hoa-01.jpg';
+import bienHoa02 from '../assets/bien-hoa-02.jpg';
+import bienHoa03 from '../assets/bien-hoa-03.jpg';
+import bienHoa04 from '../assets/bien-hoa-04.jpg';
+import bienHoa05 from '../assets/bien-hoa-05.jpg';
+
 import taipei01 from '../assets/taipei-01.jpg';
 import taipei02 from '../assets/taipei-02.jpg';
 import taipei03 from '../assets/taipei-03.jpg';
@@ -208,6 +214,14 @@ const voyagesData: Record<string, VoyageData> = {
     description: 'Les hauts plateaux du Centre, café robusta et éléphants sauvages.',
     descriptionEn: 'The Central Highlands, robusta coffee and wild elephants.',
     photos: [dakLak01, dakLak02, dakLak03, dakLak04, dakLak05],
+  },
+  'bien-hoa': {
+    name: 'Biên Hòa',
+    country: 'Vietnam',
+    date: '2026',
+    description: "La ville industrielle aux mille visages, à deux pas de Saigon.",
+    descriptionEn: "The city of a thousand faces, just a stone's throw from Saigon.",
+    photos: [bienHoa01, bienHoa02, bienHoa03, bienHoa04, bienHoa05],
   },
   'taipei': {
     name: 'Taipei',

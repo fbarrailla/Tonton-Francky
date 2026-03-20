@@ -32,6 +32,7 @@ import thumbCork from '../assets/cork-01.jpg';
 import thumbPenang from '../assets/penang-01.jpg';
 import thumbKohRong from '../assets/koh-rong-01.jpg';
 import thumbTaipei from '../assets/taipei-01.jpg';
+import thumbBienHoa from '../assets/bien-hoa-01.jpg';
 
 // Custom SVG pin marker
 const customIcon = L.divIcon({
@@ -183,6 +184,17 @@ const destinations: TravelDestination[] = [
     date: "2025",
     slug: "bordeaux",
     thumbnail: thumbBordeaux,
+  },
+  {
+    id: 19,
+    name: "Biên Hòa",
+    country: "Vietnam",
+    coordinates: [10.9574, 106.8426],
+    description: "La ville industrielle aux mille visages, à deux pas de Saigon 🏙️",
+    descriptionEn: "The city of a thousand faces, just a stone's throw from Saigon 🏙️",
+    date: "2026",
+    slug: "bien-hoa",
+    thumbnail: thumbBienHoa,
   },
   {
     id: 18,
