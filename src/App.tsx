@@ -8,8 +8,8 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react
 import { motion, AnimatePresence } from 'motion/react';
 import { Instagram, Heart, MapPin, Twitch, Menu, X } from 'lucide-react';
 import SplashScreen from './components/SplashScreen';
+import Home from './components/Home';
 
-const Home = lazy(() => import('./components/Home'));
 const Voyages = lazy(() => import('./components/Voyages'));
 const VoyageDetail = lazy(() => import('./components/VoyageDetail'));
 const About = lazy(() => import('./components/About'));
