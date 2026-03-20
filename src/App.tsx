@@ -73,7 +73,9 @@ function AppContent() {
               <Twitch size={20} />
             </a>
             {/* Language picker */}
+            <label htmlFor="lang-select" className="sr-only">Langue / Language</label>
             <select
+              id="lang-select"
               value={lang}
               onChange={(e) => setLang(e.target.value as Lang)}
               className="text-sm font-semibold bg-transparent border-none outline-none cursor-pointer text-stone-700 hover:text-stone-900 transition-colors"
@@ -172,21 +174,21 @@ function AppContent() {
       {/* Footer */}
       <footer className="py-12 px-6 border-t border-stone-200">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2 text-stone-500">
+          <div className="flex items-center gap-2 text-stone-600">
             <Heart size={16} className="text-red-400" />
             <span className="font-medium">Tonton Francky — {t.footer.tagline}</span>
           </div>
           <div className="flex gap-8">
-            <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-stone-800 transition-colors flex items-center gap-2">
+            <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-stone-900 transition-colors flex items-center gap-2">
               <Instagram size={18} />
               <span>Instagram</span>
             </a>
-            <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-stone-800 transition-colors flex items-center gap-2">
+            <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-stone-900 transition-colors flex items-center gap-2">
               <Twitch size={18} />
               <span>Twitch</span>
             </a>
           </div>
-          <div className="flex flex-col items-center gap-1 text-stone-400 text-sm">
+          <div className="flex flex-col items-center gap-1 text-stone-500 text-sm">
             <p>{t.footer.favicon} <a href="https://www.flaticon.com/authors/photo3idea-studio" target="_blank" rel="noopener noreferrer" className="hover:text-stone-700 transition-colors">photo3idea_studio</a></p>
             <p>{t.footer.splash} <a href="https://flywithpunit.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-stone-700 transition-colors">Punit</a></p>
           </div>

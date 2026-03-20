@@ -104,7 +104,7 @@ export function Contact() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-stone-800 mb-4">{c.title}</h1>
-            <p className="text-xl text-stone-500">{c.subtitle}</p>
+            <p className="text-xl text-stone-600">{c.subtitle}</p>
           </motion.div>
         </div>
       </section>

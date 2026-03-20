@@ -416,7 +416,7 @@ export default function Voyages() {
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-3">
                       <h3 className="text-xl font-bold">{destination.name}</h3>
-                      <span className="text-sm text-stone-500 bg-stone-100 px-2 py-1 rounded-full">
+                      <span className="text-sm text-stone-600 bg-stone-100 px-2 py-1 rounded-full">
                         {destination.date}
                       </span>
                     </div>
@@ -425,7 +425,7 @@ export default function Voyages() {
                       {lang === 'fr' ? destination.description : destination.descriptionEn}
                     </p>
                     {destination.slug && (
-                      <span className="mt-4 inline-block text-sm font-medium text-stone-500 hover:text-stone-900 transition-colors">
+                      <span className="mt-4 inline-block text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors">
                         {v.seePhotos}
                       </span>
                     )}

@@ -76,7 +76,7 @@ export default function Cuisine() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-stone-800 mb-4">{c.title}</h1>
-            <p className="text-xl text-stone-500">{c.subtitle}</p>
+            <p className="text-xl text-stone-600">{c.subtitle}</p>
           </motion.div>
         </div>
       </section>
@@ -107,7 +107,7 @@ export default function Cuisine() {
                   <p className="text-xs font-semibold text-amber-600 uppercase tracking-wide mb-2">{recipe.country}</p>
                   <h2 className="text-xl font-bold mb-2">{lang === 'fr' ? recipe.title : recipe.titleEn}</h2>
                   <p className="text-stone-600 text-sm leading-relaxed">{lang === 'fr' ? recipe.subtitle : recipe.subtitleEn}</p>
-                  <span className="mt-4 inline-block text-sm font-medium text-stone-500 hover:text-stone-900 transition-colors">
+                  <span className="mt-4 inline-block text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors">
                     {c.seeRecipe} →
                   </span>
                 </div>

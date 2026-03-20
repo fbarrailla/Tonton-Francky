@@ -352,7 +352,7 @@ export default function VoyageDetail() {
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-stone-800 mb-2">
               {voyage.name}
             </h1>
-            <p className="text-stone-500 text-lg mb-3">{voyage.country} — {voyage.date}</p>
+            <p className="text-stone-600 text-lg mb-3">{voyage.country} — {voyage.date}</p>
             <p className="text-stone-700 text-xl max-w-2xl">
               {lang === 'fr' ? voyage.description : voyage.descriptionEn}
             </p>
