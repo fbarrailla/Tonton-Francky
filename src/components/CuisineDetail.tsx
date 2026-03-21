@@ -782,8 +782,8 @@ export default function CuisineDetail() {
         <img src={entry.hero} alt={lang === 'fr' ? entry.title : entry.titleEn} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-end p-8 max-w-4xl mx-auto left-0 right-0">
-          <Link to="/cuisine" className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-4 text-sm">
-            <ArrowLeft size={16} /> {c.back}
+          <Link to="/cuisine" className="self-start inline-flex items-center gap-2 bg-white/20 hover:bg-white/35 backdrop-blur-sm text-white border border-white/30 rounded-full px-4 py-2 text-sm font-medium transition-colors mb-4">
+            <ArrowLeft size={15} /> {c.back}
           </Link>
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <p className="text-amber-300 text-sm font-semibold uppercase tracking-wide mb-2">{entry.country}</p>
