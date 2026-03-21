@@ -81,6 +81,13 @@ import bienHoa03 from '../assets/bien-hoa-03.jpg';
 import bienHoa04 from '../assets/bien-hoa-04.jpg';
 import bienHoa05 from '../assets/bien-hoa-05.jpg';
 
+import haNoi06 from '../assets/ha-noi-06.jpg';
+import haNoi07 from '../assets/ha-noi-07.jpg';
+import haNoi08 from '../assets/ha-noi-08.jpg';
+import haNoi09 from '../assets/ha-noi-09.jpg';
+import haNoi10 from '../assets/ha-noi-10.jpg';
+import haNoi11 from '../assets/ha-noi-11.jpg';
+
 import tamDao01 from '../assets/tam-dao-01.jpg';
 import tamDao02 from '../assets/tam-dao-02.jpg';
 import tamDao03 from '../assets/tam-dao-03.jpg';
@@ -153,7 +160,7 @@ const voyagesData: Record<string, VoyageData> = {
     date: '2025',
     description: 'La capitale millénaire, entre vieille ville et lacs paisibles.',
     descriptionEn: 'The millennial capital, between the old town and peaceful lakes.',
-    photos: [haNoi01, haNoi02, haNoi03, haNoi04, haNoi05],
+    photos: [haNoi01, haNoi02, haNoi03, haNoi04, haNoi05, haNoi06, haNoi07, haNoi08, haNoi09, haNoi10, haNoi11],
   },
   'hoi-an': {
     name: 'Hội An',
