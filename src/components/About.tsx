@@ -73,13 +73,17 @@ export default function About() {
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover="hover"
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 className="glass-card p-6 flex flex-col items-center text-center gap-3"
               >
-                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${color}`}>
+                <motion.div
+                  className={`w-12 h-12 rounded-2xl flex items-center justify-center ${color}`}
+                  variants={{ hover: { rotate: 12, scale: 1.15, transition: { duration: 0.25, ease: [0.25, 1, 0.5, 1] } } }}
+                >
                   <Icon size={22} />
-                </div>
+                </motion.div>
                 <p className="font-medium text-stone-700">{label}</p>
               </motion.div>
             ))}

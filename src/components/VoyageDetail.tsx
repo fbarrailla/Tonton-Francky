@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, ArrowLeft } from 'lucide-react';
@@ -324,14 +324,24 @@ export default function VoyageDetail() {
     );
   }
 
-  const prev = () => {
+  const prev = useCallback(() => {
     setDirection(-1);
     setCurrent((c) => (c - 1 + voyage.photos.length) % voyage.photos.length);
-  };
-  const next = () => {
+  }, [voyage.photos.length]);
+  const next = useCallback(() => {
     setDirection(1);
     setCurrent((c) => (c + 1) % voyage.photos.length);
-  };
+  }, [voyage.photos.length]);
+
+  // Keyboard navigation — left/right arrows
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') prev();
+      if (e.key === 'ArrowRight') next();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [prev, next]);
 
   return (
     <main className="flex-grow pt-10">
@@ -364,6 +374,15 @@ export default function VoyageDetail() {
       <section className="py-12 md:py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-black aspect-[16/9]">
+            {/* Photo progress bar */}
+            <div className="absolute top-0 inset-x-0 h-0.5 bg-white/20 z-20">
+              <motion.div
+                className="h-full bg-white/70"
+                animate={{ width: `${((current + 1) / voyage.photos.length) * 100}%` }}
+                transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
+              />
+            </div>
+
             <AnimatePresence mode="wait">
               <motion.img
                 key={current}

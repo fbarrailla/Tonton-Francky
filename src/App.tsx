@@ -30,6 +30,16 @@ function AppContent() {
   // Close menu on navigation
   React.useEffect(() => { setMenuOpen(false); }, [location]);
 
+  // Console easter egg for curious developers
+  React.useEffect(() => {
+    console.log(
+      '%c 🌏 Tonton Francky ',
+      'background: #9A6320; color: #FFF8E7; font-size: 14px; font-weight: bold; padding: 6px 14px; border-radius: 6px;',
+      '\n\nFait avec ❤️ par François — passionné de voyages & de tech.',
+      '\nStack: React 19 · TypeScript · Vite 6 · Tailwind CSS v4',
+    );
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       <SplashScreen />
@@ -165,7 +175,39 @@ function AppContent() {
               <Route path="/cuisine/:slug" element={<CuisineDetail />} />
               <Route path="/a-propos" element={<About />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="*" element={<main className="flex-grow pt-10 flex items-center justify-center"><div className="text-center"><h1 className="text-4xl font-serif font-bold mb-4">404</h1><p className="text-stone-600 mb-6">Page introuvable</p><a href="/" className="text-stone-700 underline">Retour à l'accueil</a></div></main>} />
+              <Route path="*" element={
+                <main className="flex-grow pt-10 flex items-center justify-center px-6">
+                  <div className="text-center max-w-sm mx-auto">
+                    <motion.div
+                      initial={{ y: -30, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ type: 'spring', bounce: 0.55, duration: 0.8 }}
+                      className="text-7xl mb-6 select-none"
+                    >🗺️</motion.div>
+                    <motion.h1
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.3, duration: 0.4 }}
+                      className="text-6xl font-serif font-bold mb-3"
+                    >404</motion.h1>
+                    <motion.p
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.45, duration: 0.4 }}
+                      className="text-stone-600 mb-8 text-lg leading-relaxed"
+                    >Cette page est en voyage…<br />et n'a pas laissé d'adresse.</motion.p>
+                    <motion.a
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.6 }}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      href="/"
+                      className="inline-flex items-center gap-2 bg-stone-800 text-white px-7 py-3 rounded-full font-semibold shadow-md hover:bg-stone-700 transition-colors"
+                    >Retour à l'accueil</motion.a>
+                  </div>
+                </main>
+              } />
             </Routes>
           </Suspense>
         </motion.div>
@@ -175,7 +217,7 @@ function AppContent() {
       <footer className="py-12 px-6 border-t border-stone-200">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-2 text-stone-600">
-            <Heart size={16} className="text-red-400" />
+            <Heart size={16} className="text-red-400 animate-heartbeat" />
             <span className="font-medium">Tonton Francky — {t.footer.tagline}</span>
           </div>
           <div className="flex gap-8">

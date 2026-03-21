@@ -14,22 +14,37 @@ import {
   Terminal,
   Zap,
   ChevronRight,
+  ChevronDown,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n';
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+  hover: { y: -6, transition: { duration: 0.2, ease: [0.25, 1, 0.5, 1] } },
+};
+const iconVariants = {
+  visible: { rotate: 0, scale: 1 },
+  hover: { rotate: 12, scale: 1.15, transition: { duration: 0.25, ease: [0.25, 1, 0.5, 1] } },
+};
+
 const InterestCard = ({ icon: Icon, text, delay, color = 'bg-travel-blue text-stone-700' }: { icon: any, text: string, delay: number, color?: string }) => (
   <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
+    initial="hidden"
+    whileInView="visible"
+    whileHover="hover"
     viewport={{ once: true }}
+    variants={cardVariants}
     transition={{ delay, duration: 0.5 }}
-    whileHover={{ y: -6, transition: { duration: 0.2, ease: [0.25, 1, 0.5, 1] } }}
     className="glass-card p-6 flex flex-col items-center text-center gap-4 hover:shadow-lg transition-shadow"
   >
-    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${color}`}>
+    <motion.div
+      variants={iconVariants}
+      className={`w-12 h-12 rounded-2xl flex items-center justify-center ${color}`}
+    >
       <Icon size={24} />
-    </div>
+    </motion.div>
     <p className="font-medium text-lg">{text}</p>
   </motion.div>
 );
@@ -52,7 +67,7 @@ export default function Home() {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-        <div className="relative z-10 h-full flex flex-col items-center justify-end pb-10 text-center px-6">          
+        <div className="relative z-10 h-full flex flex-col items-center justify-end pb-10 text-center px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -66,6 +81,16 @@ export default function Home() {
             </Link>
           </motion.div>
         </div>
+
+        {/* Scroll indicator */}
+        <motion.div
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/60 pointer-events-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, y: [0, 8, 0] }}
+          transition={{ opacity: { delay: 1.5, duration: 0.6 }, y: { repeat: Infinity, duration: 2, ease: 'easeInOut', delay: 1.5 } }}
+        >
+          <ChevronDown size={22} />
+        </motion.div>
       </section>
 
       {/* About Section */}

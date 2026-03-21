@@ -203,12 +203,19 @@ export function Contact() {
             {/* Feedback */}
             {status === 'success' && (
               <motion.div
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="flex items-center gap-2 text-green-600 font-medium"
+                initial={{ opacity: 0, scale: 0.85 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ type: 'spring', bounce: 0.45, duration: 0.6 }}
+                className="flex flex-col items-center gap-3 py-2 text-center"
               >
-                <CheckCircle size={20} />
-                {c.success}
+                <motion.div
+                  initial={{ scale: 0, rotate: -15 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ delay: 0.1, type: 'spring', bounce: 0.6, duration: 0.5 }}
+                >
+                  <CheckCircle size={48} className="text-emerald-500" />
+                </motion.div>
+                <p className="text-emerald-700 font-semibold text-lg">{c.success}</p>
               </motion.div>
             )}
             {status === 'error' && (
