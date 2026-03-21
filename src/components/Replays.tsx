@@ -81,7 +81,7 @@ export default function Replays() {
                 <h2 className="text-2xl font-serif font-bold mb-2">
                   {lang === 'fr' ? replay.title : replay.titleEn}
                 </h2>
-                <p className="text-stone-500 text-sm">{replay.date}</p>
+                <p className="text-stone-600 text-sm">{replay.date}</p>
               </div>
             </motion.article>
           ))}

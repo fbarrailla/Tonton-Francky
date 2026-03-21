@@ -107,7 +107,7 @@ export default function Cuisine() {
                   <p className="text-xs font-semibold text-amber-600 uppercase tracking-wide mb-2">{recipe.country}</p>
                   <h2 className="text-xl font-bold mb-2">{lang === 'fr' ? recipe.title : recipe.titleEn}</h2>
                   <p className="text-stone-600 text-sm leading-relaxed">{lang === 'fr' ? recipe.subtitle : recipe.subtitleEn}</p>
-                  <span className="mt-4 inline-block text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors">
+                  <span className="mt-4 inline-block text-sm font-medium text-amber-700 hover:text-amber-900 transition-colors">
                     {c.seeRecipe} →
                   </span>
                 </div>

@@ -14,10 +14,10 @@ export default function About() {
   const a = t.about;
 
   const topics = [
-    { icon: MapPin, label: a.topic1 },
-    { icon: Globe, label: a.topic2 },
-    { icon: Terminal, label: a.topic3 },
-    { icon: Zap, label: a.topic4 },
+    { icon: MapPin, label: a.topic1, color: 'bg-amber-100 text-amber-700' },
+    { icon: Globe, label: a.topic2, color: 'bg-sky-100 text-sky-700' },
+    { icon: Terminal, label: a.topic3, color: 'bg-indigo-100 text-indigo-700' },
+    { icon: Zap, label: a.topic4, color: 'bg-emerald-100 text-emerald-700' },
   ];
 
   return (
@@ -68,7 +68,7 @@ export default function About() {
             {a.topics}
           </motion.h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {topics.map(({ icon: Icon, label }, i) => (
+            {topics.map(({ icon: Icon, label, color }, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
@@ -77,7 +77,7 @@ export default function About() {
                 transition={{ delay: i * 0.1, duration: 0.5 }}
                 className="glass-card p-6 flex flex-col items-center text-center gap-3"
               >
-                <div className="w-12 h-12 bg-travel-blue rounded-2xl flex items-center justify-center text-stone-700">
+                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${color}`}>
                   <Icon size={22} />
                 </div>
                 <p className="font-medium text-stone-700">{label}</p>

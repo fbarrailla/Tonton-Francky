@@ -18,7 +18,7 @@ import {
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n';
 
-const InterestCard = ({ icon: Icon, text, delay }: { icon: any, text: string, delay: number }) => (
+const InterestCard = ({ icon: Icon, text, delay, color = 'bg-travel-blue text-stone-700' }: { icon: any, text: string, delay: number, color?: string }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -27,7 +27,7 @@ const InterestCard = ({ icon: Icon, text, delay }: { icon: any, text: string, de
     whileHover={{ y: -6, transition: { duration: 0.2, ease: [0.25, 1, 0.5, 1] } }}
     className="glass-card p-6 flex flex-col items-center text-center gap-4 hover:shadow-lg transition-shadow"
   >
-    <div className="w-12 h-12 bg-travel-blue rounded-2xl flex items-center justify-center text-stone-700">
+    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${color}`}>
       <Icon size={24} />
     </div>
     <p className="font-medium text-lg">{text}</p>
@@ -90,11 +90,11 @@ export default function Home() {
       <section className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            <InterestCard icon={Globe} text={h.interest1} delay={0.1} />
-            <InterestCard icon={MapPin} text={h.interest2} delay={0.2} />
-            <InterestCard icon={Users} text={h.interest3} delay={0.3} />
-            <InterestCard icon={Terminal} text={h.interest4} delay={0.4} />
-            <InterestCard icon={Zap} text={h.interest5} delay={0.5} />
+            <InterestCard icon={Globe} text={h.interest1} delay={0.1} color="bg-sky-100 text-sky-700" />
+            <InterestCard icon={MapPin} text={h.interest2} delay={0.2} color="bg-amber-100 text-amber-700" />
+            <InterestCard icon={Users} text={h.interest3} delay={0.3} color="bg-emerald-100 text-emerald-700" />
+            <InterestCard icon={Terminal} text={h.interest4} delay={0.4} color="bg-indigo-100 text-indigo-700" />
+            <InterestCard icon={Zap} text={h.interest5} delay={0.5} color="bg-orange-100 text-orange-700" />
           </div>
         </div>
       </section>
@@ -109,7 +109,7 @@ export default function Home() {
             className="bg-stone-800 rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden"
           >
             <div className="absolute inset-0 opacity-10 pointer-events-none">
-              <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
+              <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-300 via-transparent to-transparent" />
             </div>
             <div className="relative z-10">
               <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6">{h.ctaTitle}</h2>

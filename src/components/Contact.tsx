@@ -89,7 +89,7 @@ export function Contact() {
   }, [form, executeRecaptcha]);
 
   const inputClass = (field: keyof FormErrors) =>
-    `w-full px-4 py-3 rounded-xl border transition-colors outline-none focus:ring-2 focus:ring-stone-400 bg-white ${
+    `w-full px-4 py-3 rounded-xl border transition-colors outline-none focus:ring-2 focus:ring-amber-400 bg-white ${
       errors[field] ? 'border-red-400' : 'border-stone-200 hover:border-stone-300'
     }`;
 

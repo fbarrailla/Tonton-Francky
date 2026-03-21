@@ -3,10 +3,11 @@
 @theme {
   --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Cormorant Garamond", serif;
-  
+
   --color-travel-beige: #F5F2ED;
-  --color-travel-blue: #E3F2FD;
+  --color-travel-blue: #C8E8F8;
   --color-travel-accent: #5A5A40;
+  --color-travel-gold: #9A6320;
 }
 
 @layer base {

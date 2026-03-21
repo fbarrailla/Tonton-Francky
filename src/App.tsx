@@ -49,21 +49,21 @@ function AppContent() {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-4">
-            <Link to="/voyages" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/voyages') ? 'bg-white/70 shadow-md font-semibold' : 'hover:bg-white/60'}`}>
+            <Link to="/voyages" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/voyages') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
               <MapPin size={16} />
               <span>{t.nav.travels}</span>
             </Link>
-            <Link to="/replays" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/replays') ? 'bg-white/70 shadow-md font-semibold' : 'hover:bg-white/60'}`}>
+            <Link to="/replays" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/replays') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
               <Twitch size={16} />
               <span>{t.nav.replays}</span>
             </Link>
-            <Link to="/cuisine" className={`glass-card px-4 py-2 transition-colors ${isActive('/cuisine') ? 'bg-white/70 shadow-md font-semibold' : 'hover:bg-white/60'}`}>
+            <Link to="/cuisine" className={`glass-card px-4 py-2 transition-colors ${isActive('/cuisine') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
               {t.nav.cuisine}
             </Link>
-            <Link to="/a-propos" className={`glass-card px-4 py-2 transition-colors ${isActive('/a-propos') ? 'bg-white/70 shadow-md font-semibold' : 'hover:bg-white/60'}`}>
+            <Link to="/a-propos" className={`glass-card px-4 py-2 transition-colors ${isActive('/a-propos') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
               {t.nav.about}
             </Link>
-            <Link to="/contact" className={`glass-card px-4 py-2 transition-colors ${isActive('/contact') ? 'bg-white/70 shadow-md font-semibold' : 'hover:bg-white/60'}`}>
+            <Link to="/contact" className={`glass-card px-4 py-2 transition-colors ${isActive('/contact') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
               {t.nav.contact}
             </Link>
             <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-2 glass-card hover:bg-white/60 transition-colors">

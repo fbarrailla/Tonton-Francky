@@ -43,8 +43,8 @@ const customIcon = L.divIcon({
       <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#00000040"/>
     </filter>
     <path d="M14 0C6.27 0 0 6.27 0 14c0 9.625 14 22 14 22s14-12.375 14-22C28 6.27 21.73 0 14 0z"
-      fill="#292524" filter="url(#shadow)"/>
-    <circle cx="14" cy="14" r="6" fill="#ffffff"/>
+      fill="#9A6320" filter="url(#shadow)"/>
+    <circle cx="14" cy="14" r="6" fill="#FFF8E7"/>
   </svg>`,
   iconSize: [28, 36],
   iconAnchor: [14, 36],
@@ -287,6 +287,10 @@ const destinations: TravelDestination[] = [
   },
 ];
 
+const EUROPEAN_COUNTRIES = ['France', 'Irlande', 'République Tchèque', 'Italie', 'Espagne', 'Portugal', 'Allemagne', 'Belgique'];
+const regionColor = (country: string) =>
+  EUROPEAN_COUNTRIES.includes(country) ? 'text-indigo-700' : 'text-amber-700';
+
 export default function Voyages() {
   const { lang, t } = useLanguage();
   const v = t.voyages;
@@ -420,12 +424,12 @@ export default function Voyages() {
                         {destination.date}
                       </span>
                     </div>
-                    <p className="text-stone-600 mb-2 font-medium">{destination.country}</p>
+                    <p className={`mb-2 font-medium ${regionColor(destination.country)}`}>{destination.country}</p>
                     <p className="text-stone-700 leading-relaxed">
                       {lang === 'fr' ? destination.description : destination.descriptionEn}
                     </p>
                     {destination.slug && (
-                      <span className="mt-4 inline-block text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors">
+                      <span className="mt-4 inline-block text-sm font-medium text-amber-700 hover:text-amber-900 transition-colors">
                         {v.seePhotos}
                       </span>
                     )}
