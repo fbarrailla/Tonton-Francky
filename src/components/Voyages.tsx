@@ -34,6 +34,7 @@ import thumbKohRong from '../assets/koh-rong-01.jpg';
 import thumbTaipei from '../assets/taipei-01.jpg';
 import thumbBienHoa from '../assets/bien-hoa-01.jpg';
 import thumbPhanThiet from '../assets/phan-thiet-01.jpg';
+import thumbTamDao from '../assets/tam-dao-01.jpg';
 
 // Custom SVG pin marker
 const customIcon = L.divIcon({
@@ -185,6 +186,17 @@ const destinations: TravelDestination[] = [
     date: "2025",
     slug: "bordeaux",
     thumbnail: thumbBordeaux,
+  },
+  {
+    id: 21,
+    name: "Tam Đảo",
+    country: "Vietnam",
+    coordinates: [21.4667, 105.6500],
+    description: "Station de montagne mystérieuse perchée dans les nuages, à 85 km de Hanoï 🌫️",
+    descriptionEn: "A mysterious mountain resort nestled in the clouds, 85 km from Hanoi 🌫️",
+    date: "2026",
+    slug: "tam-dao",
+    thumbnail: thumbTamDao,
   },
   {
     id: 20,

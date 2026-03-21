@@ -81,6 +81,12 @@ import bienHoa03 from '../assets/bien-hoa-03.jpg';
 import bienHoa04 from '../assets/bien-hoa-04.jpg';
 import bienHoa05 from '../assets/bien-hoa-05.jpg';
 
+import tamDao01 from '../assets/tam-dao-01.jpg';
+import tamDao02 from '../assets/tam-dao-02.jpg';
+import tamDao03 from '../assets/tam-dao-03.jpg';
+import tamDao04 from '../assets/tam-dao-04.jpg';
+import tamDao05 from '../assets/tam-dao-05.jpg';
+
 import taipei01 from '../assets/taipei-01.jpg';
 import taipei02 from '../assets/taipei-02.jpg';
 import taipei03 from '../assets/taipei-03.jpg';
@@ -300,6 +306,14 @@ const voyagesData: Record<string, VoyageData> = {
     description: "La Ville Lumière, capitale de l'art, de la mode et de la gastronomie.",
     descriptionEn: 'The City of Light, capital of art, fashion and gastronomy.',
     photos: [paris01, paris02, paris03, paris04, paris05, paris06],
+  },
+  'tam-dao': {
+    name: 'Tam Đảo',
+    country: 'Vietnam',
+    date: '2026',
+    description: "Station de montagne mystérieuse perchée dans les nuages, à 85 km de Hanoï.",
+    descriptionEn: 'A mysterious mountain resort nestled in the clouds, 85 km from Hanoi.',
+    photos: [tamDao01, tamDao02, tamDao03, tamDao04, tamDao05],
   },
 };
 
