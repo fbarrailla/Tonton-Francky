@@ -11,8 +11,7 @@ import phoThumb from '../assets/pho/thumbnail.png';
 import bunChaThumb from '../assets/bun-cha/thumbnail.png';
 import nemsThumb from '../assets/nems/thumbnail.png';
 import banhMiThumb from '../assets/banh-mi/thumbnail.png';
-// TODO: replace with your own hot-pot photo in src/assets/hot-pot/
-import hotPotThumb from '../assets/bun-cha/thumbnail.png';
+import hotPotThumb from '../assets/hot-pot/thumbnail.png';
 
 interface RecipeCard {
   slug: string;

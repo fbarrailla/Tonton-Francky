@@ -16,9 +16,8 @@ import nemsHero from '../assets/nems/hero.png';
 import nemsThumb from '../assets/nems/thumbnail.png';
 import banhMiHero from '../assets/banh-mi/hero.png';
 import banhMiThumb from '../assets/banh-mi/thumbnail.png';
-// TODO: replace with your own hot-pot photos in src/assets/hot-pot/
-import hotPotHero from '../assets/bun-cha/hero.png';
-import hotPotThumb from '../assets/bun-cha/thumbnail.png';
+import hotPotHero from '../assets/hot-pot/hero.png';
+import hotPotThumb from '../assets/hot-pot/thumbnail.png';
 
 /* ─── Types ─────────────────────────────────────────────── */
 
