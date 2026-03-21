@@ -16,6 +16,9 @@ import nemsHero from '../assets/nems/hero.png';
 import nemsThumb from '../assets/nems/thumbnail.png';
 import banhMiHero from '../assets/banh-mi/hero.png';
 import banhMiThumb from '../assets/banh-mi/thumbnail.png';
+// TODO: replace with your own hot-pot photos in src/assets/hot-pot/
+import hotPotHero from '../assets/bun-cha/hero.png';
+import hotPotThumb from '../assets/bun-cha/thumbnail.png';
 
 /* ─── Types ─────────────────────────────────────────────── */
 
@@ -393,6 +396,139 @@ const entries: Record<string, CuisineEntry> = {
           '✔️ Perfect as a starter or full meal with rice',
           "✔️ One of the most iconic recipes in Asian cuisine",
         ],
+      },
+    ],
+  },
+
+  'hot-pot': {
+    type: 'article',
+    title: 'Hot Pot : le festin convivial d'Asie',
+    titleEn: 'Hot Pot: Asia's ultimate communal feast',
+    hero: hotPotHero,
+    thumbnail: hotPotThumb,
+    country: 'Asie',
+    description: "Le hot pot — appelé 火锅 (huǒguō) en Chine, 샤브샤브 (shabu-shabu) au Japon ou lẩu au Vietnam — est bien plus qu'un plat. C'est un rituel convivial autour d'un bouillon bouillonnant, où chacun cuit ses ingrédients à son rythme. Une expérience à la fois sociale, gourmande et infiniment personnalisable.",
+    descriptionEn: "Hot pot — known as 火锅 (huǒguō) in China, 샤브샤브 (shabu-shabu) in Japan, or lẩu in Vietnam — is far more than a dish. It's a communal ritual around a bubbling broth, where everyone cooks their ingredients at their own pace. A social, indulgent, and endlessly customizable experience.",
+    sections: [
+      {
+        title: '🌏 Un plat, mille versions',
+        titleEn: '🌏 One dish, a thousand versions',
+        text: "Le hot pot existe sous des formes différentes dans presque tous les pays d'Asie, chacun avec son caractère propre.",
+        textEn: "Hot pot exists in different forms across almost every Asian country, each with its own character.",
+        bullets: [
+          '🇨🇳 Sichuan (Chine) — bouillon rouge infernal aux piments et huile de sésame',
+          '🇨🇳 Pékin (Chine) — bouillon clair, viande d\'agneau ultra-fine, sauce sésame',
+          '🇯🇵 Shabu-shabu (Japon) — bouillon léger, bœuf marbré wagyu, sauce ponzu',
+          '🇯🇵 Sukiyaki (Japon) — sauce sucrée-salée, œuf cru pour tremper',
+          '🇰🇷 Jeongol (Corée) — bouillon épicé, légumes et fruits de mer',
+          '🇻🇳 Lẩu (Vietnam) — bouillon parfumé aux herbes, crevettes et vermicelles',
+          '🇹🇼 Mala (Taïwan) — mix sichuan ultra-épicé, very addictif',
+        ],
+        bulletsEn: [
+          '🇨🇳 Sichuan (China) — fiery red broth with chilies and sesame oil',
+          '🇨🇳 Beijing (China) — clear broth, ultra-thin lamb, sesame sauce',
+          '🇯🇵 Shabu-shabu (Japan) — light broth, marbled wagyu beef, ponzu sauce',
+          '🇯🇵 Sukiyaki (Japan) — sweet-savory sauce, raw egg for dipping',
+          '🇰🇷 Jeongol (Korea) — spicy broth, vegetables and seafood',
+          '🇻🇳 Lẩu (Vietnam) — herb-infused broth, shrimp and vermicelli',
+          '🇹🇼 Mala (Taiwan) — ultra-spicy Sichuan mix, highly addictive',
+        ],
+      },
+      {
+        title: '🍲 Qu\'est-ce qu\'il y a dans un hot pot ?',
+        titleEn: '🍲 What goes in a hot pot?',
+        text: "Un hot pot se compose d'un bouillon de base et d'une table couverte d'ingrédients à cuire — la sélection varie selon les régions mais suit toujours la même logique.",
+        textEn: "A hot pot consists of a base broth and a table covered with ingredients to cook — the selection varies by region but always follows the same logic.",
+        bullets: [
+          '🥩 Viandes : bœuf tranché fin, porc, agneau, poulet',
+          '🦐 Fruits de mer : crevettes, calamars, palourdes, boules de poisson',
+          '🥬 Légumes : chou napa, épinards, champignons enoki, champignons shiitake',
+          '🍜 Féculents : vermicelles, nouilles de riz, tofu, konjac',
+          '🧆 Garnitures : boulettes de poisson, tofu frit, coquilles de tofu',
+          '🥚 Œufs de caille crus (on les verse dans le bouillon)',
+        ],
+        bulletsEn: [
+          '🥩 Meats: thinly sliced beef, pork, lamb, chicken',
+          '🦐 Seafood: shrimp, squid, clams, fish balls',
+          '🥬 Vegetables: napa cabbage, spinach, enoki mushrooms, shiitake',
+          '🍜 Starches: vermicelli, rice noodles, tofu, konjac',
+          '🧆 Extras: fish balls, fried tofu, tofu skin rolls',
+          '🥚 Raw quail eggs (drop them into the broth)',
+        ],
+      },
+      {
+        title: '🔥 Les sauces : l\'âme du hot pot',
+        titleEn: '🔥 The dipping sauces: the soul of hot pot',
+        text: "La sauce de trempage est souvent ce qui différencie une expérience correcte d'une expérience mémorable. On la compose soi-même à partir d'ingrédients disposés sur la table.",
+        textEn: "The dipping sauce is often what separates a decent experience from a memorable one. You build it yourself from ingredients laid out on the table.",
+        bullets: [
+          '🥜 Beurre de sésame (base classique pékinoise)',
+          '🌶️ Huile de piment + ail haché',
+          '🧄 Sauce soja + échalotes + vinaigre',
+          '🍋 Ponzu (Japon) — citronné, léger, parfait avec le bœuf',
+          '🌿 Coriandre + oignons verts',
+          '🥚 Œuf cru (Japon, sukiyaki) — pour adoucir l\'intensité',
+        ],
+        bulletsEn: [
+          '🥜 Sesame paste (classic Beijing base)',
+          '🌶️ Chili oil + minced garlic',
+          '🧄 Soy sauce + shallots + vinegar',
+          '🍋 Ponzu (Japan) — citrusy, light, perfect with beef',
+          '🌿 Coriander + spring onions',
+          '🥚 Raw egg (Japan, sukiyaki) — to soften the intensity',
+        ],
+      },
+      {
+        title: '🍽️ Comment bien manger un hot pot ?',
+        titleEn: '🍽️ How to properly eat hot pot?',
+        text: "Il n'y a pas vraiment de règle stricte — l'essence du hot pot c'est la liberté. Mais quelques bonnes pratiques :",
+        textEn: "There's no strict rule — the essence of hot pot is freedom. But a few good practices:",
+        steps: [
+          'Commencer par les ingrédients qui cuisent le plus longtemps (racines, champignons durs)',
+          'Les viandes fines se cuisent en 10–30 secondes — ne pas trop cuire',
+          'Les fruits de mer demandent 1–2 minutes selon la taille',
+          'Garder ses baguettes ou un panier individuel pour ne pas mélanger',
+          'Vers la fin, ajouter des nouilles dans le bouillon enrichi — c\'est là que ça devient divin',
+        ],
+        stepsEn: [
+          'Start with ingredients that take longest (root vegetables, firm mushrooms)',
+          'Thin meats cook in 10–30 seconds — don\'t overcook',
+          'Seafood needs 1–2 minutes depending on size',
+          'Keep your own chopsticks or a personal basket to avoid mixing',
+          'Toward the end, add noodles to the enriched broth — this is where it gets divine',
+        ],
+        tip: '💡 Si tu as deux compartiments dans la marmite (yin-yang), commence par le bouillon clair — le pimenté devient plus puissant avec le temps.',
+        tipEn: '💡 If your pot has two compartments (yin-yang style), start with the clear broth — the spicy one intensifies as it simmers.',
+      },
+      {
+        title: '❤️ Le hot pot, c\'est avant tout un moment',
+        titleEn: '❤️ Hot pot is, above all, a moment',
+        text: "En Asie, on ne va pas manger un hot pot seul. C'est un repas qui dure 2 à 3 heures, autour duquel on parle, on rit, on refait le monde. Les groupes d'amis se retrouvent après le travail, les familles le partagent lors des grandes occasions. Le hot pot, c'est le repas de la connexion.",
+        textEn: "In Asia, you don't eat hot pot alone. It's a meal that lasts 2 to 3 hours, around which you talk, laugh, and put the world to rights. Friend groups meet up after work, families share it on special occasions. Hot pot is the meal of connection.",
+      },
+      {
+        title: '📍 Où en manger un excellent ?',
+        titleEn: '📍 Where to eat a great one?',
+        bullets: [
+          '🇨🇳 Chengdu / Chongqing — le berceau du hot pot sichuan, niveau épices imbattable',
+          '🇹🇼 Taipei — chaînes premium comme Mala Hot Pot ou Hai Di Lao',
+          '🇯🇵 Tokyo — les restaurants shabu-shabu de Ginza ou Shibuya',
+          '🇰🇷 Séoul — dans les ruelles de Hongdae et Myeongdong',
+          '🇻🇳 Hanoï / Saigon — le lẩu thaï ou lẩu hải sản en terrasse le soir',
+        ],
+        bulletsEn: [
+          '🇨🇳 Chengdu / Chongqing — the birthplace of Sichuan hot pot, unmatched spice level',
+          '🇹🇼 Taipei — premium chains like Mala Hot Pot or Hai Di Lao',
+          '🇯🇵 Tokyo — shabu-shabu restaurants in Ginza or Shibuya',
+          '🇰🇷 Seoul — in the alleys of Hongdae and Myeongdong',
+          '🇻🇳 Hanoi / Saigon — Thai lẩu or seafood lẩu on a terrace in the evening',
+        ],
+      },
+      {
+        title: '🎯 Le mot de Tonton Francky',
+        titleEn: '🎯 Tonton Francky\'s take',
+        text: '"Si tu n\'as jamais mangé un hot pot sichuan à Chengdu avec des locaux, tu n\'as pas encore compris ce que "épicé" veut dire. Et tu reviendras en redemander."',
+        textEn: '"If you\'ve never had a Sichuan hot pot in Chengdu with locals, you still don\'t know what "spicy" really means. And you\'ll come back for more."',
       },
     ],
   },

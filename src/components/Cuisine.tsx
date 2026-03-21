@@ -11,6 +11,8 @@ import phoThumb from '../assets/pho/thumbnail.png';
 import bunChaThumb from '../assets/bun-cha/thumbnail.png';
 import nemsThumb from '../assets/nems/thumbnail.png';
 import banhMiThumb from '../assets/banh-mi/thumbnail.png';
+// TODO: replace with your own hot-pot photo in src/assets/hot-pot/
+import hotPotThumb from '../assets/bun-cha/thumbnail.png';
 
 interface RecipeCard {
   slug: string;
@@ -23,6 +25,15 @@ interface RecipeCard {
 }
 
 const recipes: RecipeCard[] = [
+  {
+    slug: 'hot-pot',
+    title: 'Hot Pot : le festin convivial d'Asie',
+    titleEn: 'Hot Pot: Asia\'s ultimate communal feast',
+    subtitle: 'Bouillon bouillonnant, viandes fines, légumes et sauces maison 🍲',
+    subtitleEn: 'Bubbling broth, thinly sliced meats, vegetables and homemade dipping sauces 🍲',
+    country: 'Asie',
+    thumbnail: hotPotThumb,
+  },
   {
     slug: 'banh-mi',
     title: 'Bánh mì : le sandwich qui a conquis le monde',
