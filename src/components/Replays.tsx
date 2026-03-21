@@ -57,8 +57,8 @@ export default function Replays() {
       </section>
 
       {/* Replay list */}
-      <section className="py-16 px-6">
-        <div className="max-w-4xl mx-auto flex flex-col gap-12">
+      <section className="py-12 px-6">
+        <div className="max-w-4xl mx-auto flex flex-col gap-8">
           {replays.map((replay, index) => (
             <motion.article
               key={replay.id}

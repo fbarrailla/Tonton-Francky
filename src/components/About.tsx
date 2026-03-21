@@ -42,14 +42,14 @@ export default function About() {
       </section>
 
       {/* Description */}
-      <section className="py-16 px-6">
+      <section className="py-10 md:py-14 px-6">
         <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <p className="text-xl text-stone-700 leading-relaxed text-center">
+            <p className="text-xl md:text-2xl text-stone-700 leading-relaxed text-center">
               {a.description}
             </p>
           </motion.div>
@@ -57,17 +57,17 @@ export default function About() {
       </section>
 
       {/* Topics */}
-      <section className="py-16 px-6 bg-stone-50">
+      <section className="py-16 md:py-20 px-6 bg-stone-50">
         <div className="max-w-4xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl font-serif font-bold text-center mb-10"
+            className="text-3xl font-serif font-bold text-center mb-12"
           >
             {a.topics}
           </motion.h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {topics.map(({ icon: Icon, label, color }, i) => (
               <motion.div
                 key={i}
@@ -88,13 +88,13 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-6">
+      <section className="py-16 md:py-24 px-6">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-stone-800 rounded-3xl p-12 text-center text-white"
+            className="bg-stone-800 rounded-3xl p-12 md:p-16 text-center text-white"
           >
             <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">{a.ctaTitle}</h2>
             <p className="text-xl text-stone-300 mb-8 max-w-xl mx-auto">{a.ctaDesc}</p>

@@ -68,7 +68,7 @@ export default function Cuisine() {
   return (
     <main className="flex-grow pt-10">
       {/* Hero */}
-      <section className="py-16 px-6 bg-gradient-to-br from-amber-50 to-stone-100">
+      <section className="py-20 px-6 bg-gradient-to-br from-amber-50 to-stone-100">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -82,8 +82,8 @@ export default function Cuisine() {
       </section>
 
       {/* Recipe grid */}
-      <section className="py-16 px-6">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <section className="py-20 px-6">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {recipes.map((recipe, index) => (
             <motion.div
               key={recipe.slug}
@@ -92,9 +92,10 @@ export default function Cuisine() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ y: -5, transition: { duration: 0.2, ease: [0.25, 1, 0.5, 1] } }}
+              className={index === 0 ? 'md:col-span-2' : ''}
             >
               <Link to={`/cuisine/${recipe.slug}`} className="block bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <div className="aspect-[4/3] overflow-hidden">
+                <div className={`${index === 0 ? 'aspect-[16/9]' : 'aspect-[4/3]'} overflow-hidden`}>
                   <img
                     src={recipe.thumbnail}
                     alt={lang === 'fr' ? recipe.title : recipe.titleEn}
@@ -103,9 +104,9 @@ export default function Cuisine() {
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <div className="p-6">
+                <div className={index === 0 ? 'p-8' : 'p-6'}>
                   <p className="text-xs font-semibold text-amber-600 uppercase tracking-wide mb-2">{recipe.country}</p>
-                  <h2 className="text-xl font-bold mb-2">{lang === 'fr' ? recipe.title : recipe.titleEn}</h2>
+                  <h2 className={`font-bold mb-2 ${index === 0 ? 'text-2xl md:text-3xl' : 'text-xl'}`}>{lang === 'fr' ? recipe.title : recipe.titleEn}</h2>
                   <p className="text-stone-600 text-sm leading-relaxed">{lang === 'fr' ? recipe.subtitle : recipe.subtitleEn}</p>
                   <span className="mt-4 inline-block text-sm font-medium text-amber-700 hover:text-amber-900 transition-colors">
                     {c.seeRecipe} →

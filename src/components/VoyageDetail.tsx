@@ -361,7 +361,7 @@ export default function VoyageDetail() {
       </section>
 
       {/* Slideshow */}
-      <section className="py-16 px-6">
+      <section className="py-12 md:py-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-black aspect-[16/9]">
             <AnimatePresence mode="wait">
@@ -402,12 +402,12 @@ export default function VoyageDetail() {
           </div>
 
           {/* Thumbnails */}
-          <div className="flex gap-3 mt-6 justify-center flex-wrap">
+          <div className="flex gap-2 mt-8 overflow-x-auto pb-2 scroll-smooth [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {voyage.photos.map((photo, i) => (
               <button
                 key={i}
                 onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
-                className={`w-20 h-14 rounded-xl overflow-hidden border-2 transition-all ${
+                className={`flex-none w-20 h-14 rounded-xl overflow-hidden border-2 transition-all ${
                   i === current ? 'border-stone-800 scale-105' : 'border-transparent opacity-60 hover:opacity-100'
                 }`}
               >

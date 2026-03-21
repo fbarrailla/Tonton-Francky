@@ -298,7 +298,7 @@ export default function Voyages() {
   return (
     <main className="flex-grow pt-10">
       {/* Hero Section */}
-      <section className="py-16 px-6 bg-gradient-to-br from-travel-blue to-stone-100">
+      <section className="py-20 px-6 bg-gradient-to-br from-travel-blue to-stone-100">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -316,7 +316,7 @@ export default function Voyages() {
       </section>
 
       {/* Map Section */}
-      <section className="py-16 px-6">
+      <section className="py-12 px-6">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -381,21 +381,22 @@ export default function Voyages() {
       </section>
 
       {/* Destinations Grid */}
-      <section className="py-16 px-6 bg-stone-50">
+      <section className="py-20 px-6 bg-stone-50">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-14"
           >
             <h2 className="text-4xl font-serif font-bold mb-4">{v.gridTitle}</h2>
             <p className="text-xl text-stone-600">{v.gridDesc}</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {destinations.map((destination, index) => {
+              const isFeatured = index === 0;
               const card = (
                 <motion.div
                   key={destination.id}
@@ -404,10 +405,10 @@ export default function Voyages() {
                   viewport={{ once: true }}
                   transition={{ delay: Math.min(index * 0.1, 0.5), duration: 0.5 }}
                   whileHover={{ y: -5, transition: { duration: 0.2, ease: [0.25, 1, 0.5, 1] } }}
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full"
                 >
                   {destination.thumbnail && (
-                    <div className="aspect-[4/3] overflow-hidden">
+                    <div className={`${isFeatured ? 'aspect-[16/9]' : 'aspect-[4/3]'} overflow-hidden`}>
                       <img
                         src={destination.thumbnail}
                         alt={destination.name}
@@ -438,7 +439,7 @@ export default function Voyages() {
               );
 
               return destination.slug ? (
-                <Link key={destination.id} to={`/voyages/${destination.slug}`}>
+                <Link key={destination.id} to={`/voyages/${destination.slug}`} className={isFeatured ? 'lg:col-span-2' : undefined}>
                   {card}
                 </Link>
               ) : (

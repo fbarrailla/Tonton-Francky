@@ -69,7 +69,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-24 px-6 bg-white">
+      <section className="py-20 md:py-28 px-6 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -77,8 +77,8 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8">{h.aboutTitle}</h2>
-            <div className="space-y-6 text-xl text-stone-600 leading-relaxed">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8">{h.aboutTitle}</h2>
+            <div className="space-y-5 text-xl text-stone-600 leading-relaxed">
               <p>{h.aboutP1}</p>
               <p>{h.aboutP2}</p>
             </div>
@@ -87,9 +87,9 @@ export default function Home() {
       </section>
 
       {/* Interests Section */}
-      <section className="py-24 px-6">
+      <section className="py-12 md:py-16 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
             <InterestCard icon={Globe} text={h.interest1} delay={0.1} color="bg-sky-100 text-sky-700" />
             <InterestCard icon={MapPin} text={h.interest2} delay={0.2} color="bg-amber-100 text-amber-700" />
             <InterestCard icon={Users} text={h.interest3} delay={0.3} color="bg-emerald-100 text-emerald-700" />
@@ -100,13 +100,13 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section id="contact" className="py-24 px-6">
+      <section id="contact" className="py-16 md:py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-stone-800 rounded-[3rem] p-12 md:p-20 text-center text-white relative overflow-hidden"
+            className="bg-stone-800 rounded-[3rem] p-10 md:p-16 text-center text-white relative overflow-hidden"
           >
             <div className="absolute inset-0 opacity-10 pointer-events-none">
               <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-300 via-transparent to-transparent" />

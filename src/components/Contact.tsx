@@ -96,7 +96,7 @@ export function Contact() {
   return (
     <main className="flex-grow pt-10">
       {/* Hero */}
-      <section className="py-16 px-6 bg-gradient-to-br from-travel-blue to-stone-100">
+      <section className="py-14 px-6 bg-gradient-to-br from-travel-blue to-stone-100">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -118,7 +118,7 @@ export function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
             onSubmit={handleSubmit}
             noValidate
-            className="bg-white rounded-3xl shadow-lg p-8 md:p-12 flex flex-col gap-6"
+            className="bg-white rounded-3xl shadow-lg p-8 md:p-12 flex flex-col gap-7"
           >
             {/* Name */}
             <div className={shakeFields.has('name') ? 'shake' : ''}>
