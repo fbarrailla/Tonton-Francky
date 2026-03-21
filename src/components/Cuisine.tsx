@@ -26,7 +26,7 @@ interface RecipeCard {
 const recipes: RecipeCard[] = [
   {
     slug: 'hot-pot',
-    title: 'Hot Pot : le festin convivial d'Asie',
+    title: "Hot Pot : le festin convivial d'Asie",
     titleEn: 'Hot Pot: Asia\'s ultimate communal feast',
     subtitle: 'Bouillon bouillonnant, viandes fines, légumes et sauces maison 🍲',
     subtitleEn: 'Bubbling broth, thinly sliced meats, vegetables and homemade dipping sauces 🍲',
