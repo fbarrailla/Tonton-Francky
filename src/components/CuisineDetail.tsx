@@ -401,8 +401,8 @@ const entries: Record<string, CuisineEntry> = {
 
   'hot-pot': {
     type: 'article',
-    title: 'Hot Pot : le festin convivial d'Asie',
-    titleEn: 'Hot Pot: Asia's ultimate communal feast',
+    title: "Hot Pot : le festin convivial d'Asie",
+    titleEn: "Hot Pot: Asia's ultimate communal feast",
     hero: hotPotHero,
     thumbnail: hotPotThumb,
     country: 'Asie',
