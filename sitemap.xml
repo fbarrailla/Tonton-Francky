@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Pages principales -->
   <url>
     <loc>https://tontonfrancky.com/</loc>
     <priority>1.0</priority>
@@ -13,6 +14,19 @@
     <changefreq>monthly</changefreq>
   </url>
 
+  <url>
+    <loc>https://tontonfrancky.com/contact</loc>
+    <priority>0.6</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://tontonfrancky.com/replays</loc>
+    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Voyages -->
   <url>
     <loc>https://tontonfrancky.com/voyages</loc>
     <priority>0.9</priority>
@@ -69,6 +83,115 @@
 
   <url>
     <loc>https://tontonfrancky.com/voyages/con-dao</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://tontonfrancky.com/voyages/dak-lak</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://tontonfrancky.com/voyages/phan-thiet</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://tontonfrancky.com/voyages/bien-hoa</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://tontonfrancky.com/voyages/tam-dao</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://tontonfrancky.com/voyages/taipei</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://tontonfrancky.com/voyages/koh-rong</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://tontonfrancky.com/voyages/penang</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://tontonfrancky.com/voyages/cork</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://tontonfrancky.com/voyages/prague</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://tontonfrancky.com/voyages/venice</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://tontonfrancky.com/voyages/bordeaux</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://tontonfrancky.com/voyages/paris</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <!-- Cuisine -->
+  <url>
+    <loc>https://tontonfrancky.com/cuisine</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://tontonfrancky.com/cuisine/pho-bo</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://tontonfrancky.com/cuisine/bun-cha</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://tontonfrancky.com/cuisine/nems</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://tontonfrancky.com/cuisine/banh-mi</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://tontonfrancky.com/cuisine/hot-pot</loc>
     <priority>0.7</priority>
     <changefreq>yearly</changefreq>
   </url>
