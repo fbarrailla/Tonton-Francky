@@ -19,6 +19,12 @@ const Cuisine = lazy(() => import('./components/Cuisine'));
 const CuisineDetail = lazy(() => import('./components/CuisineDetail'));
 import { LanguageProvider, useLanguage, type Lang } from './i18n';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  React.useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
+
 function AppContent() {
   const { lang, setLang, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -42,6 +48,7 @@ function AppContent() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <ScrollToTop />
       <SplashScreen />
 
       {/* Navigation */}
