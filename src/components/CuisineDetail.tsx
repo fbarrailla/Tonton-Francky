@@ -646,9 +646,9 @@ function RecipeRenderer({ entry, lang }: { entry: RecipeEntry; lang: string }) {
 
       <section>
         <h2 className="text-2xl font-serif font-bold mb-6">🥣 {lang === 'fr' ? 'Résultat final' : 'Final result'}</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className={`grid gap-3 ${entry.resultImages.length <= 2 ? 'grid-cols-2' : 'grid-cols-2 md:grid-cols-4'}`}>
           {entry.resultImages.map((src, i) => (
-            <img key={i} src={src} alt={`result ${i + 1}`} className="w-full aspect-square object-cover rounded-xl" />
+            <img key={i} src={src} alt={`result ${i + 1}`} className={`w-full object-cover rounded-xl ${entry.resultImages.length <= 2 ? 'aspect-[4/3]' : 'aspect-square'}`} />
           ))}
         </div>
       </section>
