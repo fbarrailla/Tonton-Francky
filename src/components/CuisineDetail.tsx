@@ -18,6 +18,8 @@ import banhMiHero from '../assets/banh-mi/hero.png';
 import banhMiThumb from '../assets/banh-mi/thumbnail.png';
 import hotPotHero from '../assets/hot-pot/hero.png';
 import hotPotThumb from '../assets/hot-pot/thumbnail.png';
+import bunChaPhoto01 from '../assets/bun-cha/photo-01.jpg';
+import bunChaPhoto02 from '../assets/bun-cha/photo-02.jpg';
 
 /* ─── Types ─────────────────────────────────────────────── */
 
@@ -43,6 +45,7 @@ interface ArticleEntry {
   country: string;
   description: string;
   descriptionEn: string;
+  photos?: string[];
   sections: ArticleSection[];
 }
 
@@ -541,6 +544,7 @@ const entries: Record<string, CuisineEntry> = {
     country: 'Vietnam',
     description: "Le bún chả est l'un des plats les plus iconiques de la cuisine vietnamienne, originaire de Hanoï. À la fois simple et explosif en saveurs, il incarne parfaitement l'équilibre vietnamien entre fraîcheur, grillé et acidité.",
     descriptionEn: "Bún chả is one of the most iconic dishes of Vietnamese cuisine, originating from Hanoi. Both simple and explosive in flavor, it perfectly embodies the Vietnamese balance between freshness, grilled meat and acidity.",
+    photos: [bunChaPhoto01, bunChaPhoto02],
     sections: [
       {
         title: "🥢 Qu'est-ce que le bún chả ?",
@@ -707,6 +711,23 @@ function ArticleRenderer({ entry, lang }: { entry: ArticleEntry; lang: string })
       <p className="text-xl text-stone-600 leading-relaxed">
         {lang === 'fr' ? entry.description : entry.descriptionEn}
       </p>
+
+      {entry.photos && entry.photos.length > 0 && (
+        <div className={`grid gap-3 ${entry.photos.length === 1 ? 'grid-cols-1' : 'grid-cols-2'}`}>
+          {entry.photos.map((src, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+              className="overflow-hidden rounded-2xl aspect-[4/3]"
+            >
+              <img src={src} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+            </motion.div>
+          ))}
+        </div>
+      )}
 
       {entry.sections.map((section, si) => (
         <motion.section
