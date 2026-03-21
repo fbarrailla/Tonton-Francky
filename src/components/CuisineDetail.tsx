@@ -20,6 +20,8 @@ import hotPotHero from '../assets/hot-pot/hero.png';
 import hotPotThumb from '../assets/hot-pot/thumbnail.png';
 import bunChaPhoto01 from '../assets/bun-cha/photo-01.jpg';
 import bunChaPhoto02 from '../assets/bun-cha/photo-02.jpg';
+import phoPhoto01 from '../assets/pho/photo-01.jpg';
+import phoPhoto02 from '../assets/pho/photo-02.jpg';
 
 /* ─── Types ─────────────────────────────────────────────── */
 
@@ -83,12 +85,7 @@ const entries: Record<string, CuisineEntry> = {
     country: 'Vietnam',
     description: 'Le plat emblématique du Vietnam — un bouillon de bœuf parfumé aux épices, servi avec des nouilles de riz et des herbes fraîches.',
     descriptionEn: "Vietnam's iconic dish — a spiced beef broth served with rice noodles and fresh herbs.",
-    resultImages: [
-      'https://images.openai.com/static-rsc-3/3mjuOoB7LzpUZ8R4K4LEdg2cVQWSI3jM5C9H__HsKveOjoUSqtivYQ4cQ1s0Im77RYTzcOQmghLeqdoGy5IrE1nDtUcYCvhycA52wqAOfqs?purpose=fullsize&v=1',
-      'https://images.openai.com/static-rsc-3/xHA_yqZGX8MRVEWJNxFCUtRtWFsSCJMVG_dibVYTtYG8ozsEK8u8HS92hHO-88SfIyOTx8Z7qkf9nFi7_INozqXUS7gQVzaY0gOyJwbbzGk?purpose=fullsize&v=1',
-      'https://images.openai.com/static-rsc-3/QEmaHO-D7tpcui0hpGJiXvH0hu1v6TW-nN-iTya1dEHnKqei2ifM0Z0m-uu4j0a3TfJgU1k0GvytlrWpbAxQni4R-2bZgDTCFmvVpSWZaDU?purpose=fullsize&v=1',
-      'https://images.openai.com/static-rsc-3/8QKeZa4Qa4eHR58vAAxt4m3FLySNlYr-8nVAa8rgy5rDI0A-3Br9cn63QlfVKhZgmlCaPW0fiVVictziq1P1z2EGs-O-9iy2KXXtg5r3k44?purpose=fullsize&v=1',
-    ],
+    resultImages: [phoPhoto01, phoPhoto02],
     ingredientSections: [
       {
         title: '🍖 Base du bouillon',
