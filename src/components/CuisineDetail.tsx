@@ -23,6 +23,7 @@ import bunChaPhoto01 from '../assets/bun-cha/photo-01.jpg';
 import bunChaPhoto02 from '../assets/bun-cha/photo-02.jpg';
 import phoPhoto01 from '../assets/pho/photo-01.jpg';
 import phoPhoto02 from '../assets/pho/photo-02.jpg';
+import phoPhoto03 from '../assets/pho/photo-03.jpg';
 
 /* ─── Types ─────────────────────────────────────────────── */
 
@@ -86,7 +87,7 @@ const entries: Record<string, CuisineEntry> = {
     country: 'Vietnam',
     description: 'Le plat emblématique du Vietnam — un bouillon de bœuf parfumé aux épices, servi avec des nouilles de riz et des herbes fraîches.',
     descriptionEn: "Vietnam's iconic dish — a spiced beef broth served with rice noodles and fresh herbs.",
-    resultImages: [phoPhoto01, phoPhoto02],
+    resultImages: [phoPhoto01, phoPhoto02, phoPhoto03],
     ingredientSections: [
       {
         title: '🍖 Base du bouillon',
