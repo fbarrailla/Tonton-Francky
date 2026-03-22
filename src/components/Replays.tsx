@@ -70,7 +70,7 @@ export default function Replays() {
             >
               <div className="aspect-video w-full">
                 <iframe
-                  src={`https://www.youtube.com/embed/${replay.youtubeId}`}
+                  src={`https://www.youtube-nocookie.com/embed/${replay.youtubeId}`}
                   title={lang === 'fr' ? replay.title : replay.titleEn}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   referrerPolicy="strict-origin-when-cross-origin"
