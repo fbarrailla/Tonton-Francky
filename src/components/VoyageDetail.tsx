@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, ArrowLeft } from 'lucide-react';
@@ -331,6 +331,8 @@ export default function VoyageDetail() {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const thumbStripRef = useRef<HTMLDivElement>(null);
+  const thumbRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const { lang, t } = useLanguage();
   const d = t.detail;
 
@@ -365,6 +367,18 @@ export default function VoyageDetail() {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, [prev, next]);
+
+  // Keep active thumbnail visible in the strip
+  useEffect(() => {
+    const strip = thumbStripRef.current;
+    const thumb = thumbRefs.current[current];
+    if (!strip || !thumb) return;
+    const stripRect = strip.getBoundingClientRect();
+    const thumbRect = thumb.getBoundingClientRect();
+    const offset = thumbRect.left - stripRect.left + strip.scrollLeft;
+    const center = offset - stripRect.width / 2 + thumbRect.width / 2;
+    strip.scrollTo({ left: center, behavior: 'smooth' });
+  }, [current]);
 
   return (
     <main className="flex-grow pt-10">
@@ -457,10 +471,11 @@ export default function VoyageDetail() {
           </AnimatePresence>
 
           {/* Thumbnails */}
-          <div className="flex gap-2 mt-8 overflow-x-auto pb-2 scroll-smooth [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div ref={thumbStripRef} className="flex gap-2 mt-8 overflow-x-auto pb-2 [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {voyage.photos.map((photo, i) => (
               <button
                 key={i}
+                ref={(el) => { thumbRefs.current[i] = el; }}
                 onClick={() => { setDirection(i > current ? 1 : -1); setCurrent(i); }}
                 className={`flex-none w-20 h-14 rounded-xl overflow-hidden border-2 transition-all ${
                   i === current ? 'border-stone-800 scale-105' : 'border-transparent opacity-60 hover:opacity-100'
