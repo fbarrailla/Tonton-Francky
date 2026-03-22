@@ -650,7 +650,7 @@ function RecipeRenderer({ entry, lang }: { entry: RecipeEntry; lang: string }) {
         <h2 className="text-2xl font-serif font-bold mb-6">🥣 {lang === 'fr' ? 'Résultat final' : 'Final result'}</h2>
         <div className={`grid gap-3 ${entry.resultImages.length <= 2 ? 'grid-cols-2' : 'grid-cols-2 md:grid-cols-4'}`}>
           {entry.resultImages.map((src, i) => (
-            <img key={i} src={src} alt={`result ${i + 1}`} onClick={() => setLightboxIndex(i)} className={`w-full object-cover rounded-xl cursor-zoom-in ${entry.resultImages.length <= 2 ? 'aspect-[4/3]' : 'aspect-square'}`} />
+            <img key={i} src={src} alt={`result ${i + 1}`} onClick={() => setLightboxIndex(i)} className="w-full h-auto rounded-xl cursor-zoom-in hover:scale-105 transition-transform duration-300" />
           ))}
         </div>
         <AnimatePresence>
@@ -727,10 +727,10 @@ function ArticleRenderer({ entry, lang }: { entry: ArticleEntry; lang: string })
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="overflow-hidden rounded-2xl aspect-[4/3] cursor-zoom-in"
+                className="overflow-hidden rounded-2xl cursor-zoom-in"
                 onClick={() => setLightboxIndex(i)}
               >
-                <img src={src} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                <img src={src} alt="" loading="lazy" decoding="async" className="w-full h-auto hover:scale-105 transition-transform duration-500" />
               </motion.div>
             ))}
           </div>
