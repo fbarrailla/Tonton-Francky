@@ -72,7 +72,8 @@ export default function Replays() {
                 <iframe
                   src={`https://www.youtube.com/embed/${replay.youtubeId}`}
                   title={lang === 'fr' ? replay.title : replay.titleEn}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
                   allowFullScreen
                   className="w-full h-full"
                 />
