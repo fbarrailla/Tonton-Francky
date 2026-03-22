@@ -95,6 +95,12 @@ import tamDao03 from '../assets/tam-dao-03.jpg';
 import tamDao04 from '../assets/tam-dao-04.jpg';
 import tamDao05 from '../assets/tam-dao-05.jpg';
 
+import changMai01 from '../assets/chang-mai-01.jpg';
+import changMai02 from '../assets/chang-mai-02.jpg';
+import changMai03 from '../assets/chang-mai-03.jpg';
+import changMai04 from '../assets/chang-mai-04.jpg';
+import changMai05 from '../assets/chang-mai-05.jpg';
+
 import taipei01 from '../assets/taipei-01.jpg';
 import taipei02 from '../assets/taipei-02.jpg';
 import taipei03 from '../assets/taipei-03.jpg';
@@ -322,6 +328,14 @@ const voyagesData: Record<string, VoyageData> = {
     description: "Station de montagne mystérieuse perchée dans les nuages, à 85 km de Hanoï.",
     descriptionEn: 'A mysterious mountain resort nestled in the clouds, 85 km from Hanoi.',
     photos: [tamDao01, tamDao02, tamDao03, tamDao04, tamDao05],
+  },
+  'chang-mai': {
+    name: 'Chang Mai',
+    country: 'Thaïlande',
+    date: '2026',
+    description: "La rose du Nord, temples bouddhistes, éléphants et marchés nocturnes.",
+    descriptionEn: 'The Rose of the North, Buddhist temples, elephants and night markets.',
+    photos: [changMai01, changMai02, changMai03, changMai04, changMai05],
   },
 };
 

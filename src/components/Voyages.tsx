@@ -35,6 +35,7 @@ import thumbTaipei from '../assets/taipei-01.jpg';
 import thumbBienHoa from '../assets/bien-hoa-01.jpg';
 import thumbPhanThiet from '../assets/phan-thiet-01.jpg';
 import thumbTamDao from '../assets/tam-dao-01.jpg';
+import thumbChangMai from '../assets/chang-mai-01.jpg';
 
 // Custom SVG pin marker
 const customIcon = L.divIcon({
@@ -186,6 +187,17 @@ const destinations: TravelDestination[] = [
     date: "2025",
     slug: "bordeaux",
     thumbnail: thumbBordeaux,
+  },
+  {
+    id: 22,
+    name: "Chang Mai",
+    country: "Thaïlande",
+    coordinates: [18.7883, 98.9853],
+    description: "La rose du Nord, temples bouddhistes, éléphants et marchés nocturnes 🌸",
+    descriptionEn: "The Rose of the North, Buddhist temples, elephants and night markets 🌸",
+    date: "2026",
+    slug: "chang-mai",
+    thumbnail: thumbChangMai,
   },
   {
     id: 21,

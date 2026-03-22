@@ -112,6 +112,12 @@
   </url>
 
   <url>
+    <loc>https://tontonfrancky.com/voyages/chang-mai</loc>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+
+  <url>
     <loc>https://tontonfrancky.com/voyages/taipei</loc>
     <priority>0.7</priority>
     <changefreq>yearly</changefreq>
