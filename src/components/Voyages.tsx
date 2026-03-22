@@ -36,6 +36,7 @@ import thumbBienHoa from '../assets/bien-hoa-01.jpg';
 import thumbPhanThiet from '../assets/phan-thiet-01.jpg';
 import thumbTamDao from '../assets/tam-dao-01.jpg';
 import thumbChangMai from '../assets/chang-mai-01.jpg';
+import thumbSiemReap from '../assets/siem-reap-01.jpg';
 
 // Custom SVG pin marker
 const customIcon = L.divIcon({
@@ -187,6 +188,17 @@ const destinations: TravelDestination[] = [
     date: "2025",
     slug: "bordeaux",
     thumbnail: thumbBordeaux,
+  },
+  {
+    id: 23,
+    name: "Siem Reap",
+    country: "Cambodge",
+    coordinates: [13.3633, 103.8564],
+    description: "La porte d'Angkor, temples millénaires surgis de la jungle 🛕",
+    descriptionEn: "The gateway to Angkor, thousand-year-old temples rising from the jungle 🛕",
+    date: "2026",
+    slug: "siem-reap",
+    thumbnail: thumbSiemReap,
   },
   {
     id: 22,

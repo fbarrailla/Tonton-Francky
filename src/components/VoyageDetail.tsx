@@ -101,6 +101,12 @@ import changMai03 from '../assets/chang-mai-03.jpg';
 import changMai04 from '../assets/chang-mai-04.jpg';
 import changMai05 from '../assets/chang-mai-05.jpg';
 
+import siemReap01 from '../assets/siem-reap-01.jpg';
+import siemReap02 from '../assets/siem-reap-02.jpg';
+import siemReap03 from '../assets/siem-reap-03.jpg';
+import siemReap04 from '../assets/siem-reap-04.jpg';
+import siemReap05 from '../assets/siem-reap-05.jpg';
+
 import taipei01 from '../assets/taipei-01.jpg';
 import taipei02 from '../assets/taipei-02.jpg';
 import taipei03 from '../assets/taipei-03.jpg';
@@ -336,6 +342,14 @@ const voyagesData: Record<string, VoyageData> = {
     description: "La rose du Nord, temples bouddhistes, éléphants et marchés nocturnes.",
     descriptionEn: 'The Rose of the North, Buddhist temples, elephants and night markets.',
     photos: [changMai01, changMai02, changMai03, changMai04, changMai05],
+  },
+  'siem-reap': {
+    name: 'Siem Reap',
+    country: 'Cambodge',
+    date: '2026',
+    description: "La porte d'Angkor, temples millénaires surgis de la jungle.",
+    descriptionEn: 'The gateway to Angkor, thousand-year-old temples rising from the jungle.',
+    photos: [siemReap01, siemReap02, siemReap03, siemReap04, siemReap05],
   },
 };
 
