@@ -3,11 +3,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { ArrowLeft } from 'lucide-react';
 import { useLanguage } from '../i18n';
+import Lightbox from './Lightbox';
 import phoHero from '../assets/pho/hero.png';
 import phoThumb from '../assets/pho/thumbnail.png';
 import bunChaHero from '../assets/bun-cha/hero.png';
@@ -638,6 +639,7 @@ const entries: Record<string, CuisineEntry> = {
 /* ─── Renderers ─────────────────────────────────────────── */
 
 function RecipeRenderer({ entry, lang }: { entry: RecipeEntry; lang: string }) {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   return (
     <div className="max-w-4xl mx-auto px-6 py-12 flex flex-col gap-12">
       <p className="text-xl text-stone-600 leading-relaxed">
@@ -648,9 +650,14 @@ function RecipeRenderer({ entry, lang }: { entry: RecipeEntry; lang: string }) {
         <h2 className="text-2xl font-serif font-bold mb-6">🥣 {lang === 'fr' ? 'Résultat final' : 'Final result'}</h2>
         <div className={`grid gap-3 ${entry.resultImages.length <= 2 ? 'grid-cols-2' : 'grid-cols-2 md:grid-cols-4'}`}>
           {entry.resultImages.map((src, i) => (
-            <img key={i} src={src} alt={`result ${i + 1}`} className={`w-full object-cover rounded-xl ${entry.resultImages.length <= 2 ? 'aspect-[4/3]' : 'aspect-square'}`} />
+            <img key={i} src={src} alt={`result ${i + 1}`} onClick={() => setLightboxIndex(i)} className={`w-full object-cover rounded-xl cursor-zoom-in ${entry.resultImages.length <= 2 ? 'aspect-[4/3]' : 'aspect-square'}`} />
           ))}
         </div>
+        <AnimatePresence>
+          {lightboxIndex !== null && (
+            <Lightbox photos={entry.resultImages} initialIndex={lightboxIndex} alt={lang === 'fr' ? entry.title : entry.titleEn} onClose={() => setLightboxIndex(null)} />
+          )}
+        </AnimatePresence>
       </section>
 
       <section>
@@ -703,6 +710,7 @@ function RecipeRenderer({ entry, lang }: { entry: RecipeEntry; lang: string }) {
 }
 
 function ArticleRenderer({ entry, lang }: { entry: ArticleEntry; lang: string }) {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   return (
     <div className="max-w-4xl mx-auto px-6 py-12 flex flex-col gap-10">
       <p className="text-xl text-stone-600 leading-relaxed">
@@ -710,20 +718,28 @@ function ArticleRenderer({ entry, lang }: { entry: ArticleEntry; lang: string })
       </p>
 
       {entry.photos && entry.photos.length > 0 && (
-        <div className={`grid gap-3 ${entry.photos.length === 1 ? 'grid-cols-1' : 'grid-cols-2'}`}>
-          {entry.photos.map((src, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="overflow-hidden rounded-2xl aspect-[4/3]"
-            >
-              <img src={src} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-            </motion.div>
-          ))}
-        </div>
+        <>
+          <div className={`grid gap-3 ${entry.photos.length === 1 ? 'grid-cols-1' : 'grid-cols-2'}`}>
+            {entry.photos.map((src, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                className="overflow-hidden rounded-2xl aspect-[4/3] cursor-zoom-in"
+                onClick={() => setLightboxIndex(i)}
+              >
+                <img src={src} alt="" loading="lazy" decoding="async" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+              </motion.div>
+            ))}
+          </div>
+          <AnimatePresence>
+            {lightboxIndex !== null && (
+              <Lightbox photos={entry.photos} initialIndex={lightboxIndex} alt={lang === 'fr' ? entry.title : entry.titleEn} onClose={() => setLightboxIndex(null)} />
+            )}
+          </AnimatePresence>
+        </>
       )}
 
       {entry.sections.map((section, si) => (

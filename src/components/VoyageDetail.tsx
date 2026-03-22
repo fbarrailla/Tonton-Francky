@@ -8,6 +8,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronLeft, ChevronRight, ArrowLeft } from 'lucide-react';
 import { useLanguage } from '../i18n';
+import Lightbox from './Lightbox';
 
 import haNoi01 from '../assets/ha-noi-01.jpg';
 import haNoi02 from '../assets/ha-noi-02.jpg';
@@ -329,6 +330,7 @@ export default function VoyageDetail() {
   const voyage = ville ? voyagesData[ville] : null;
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const { lang, t } = useLanguage();
   const d = t.detail;
 
@@ -411,11 +413,12 @@ export default function VoyageDetail() {
                 alt={`${voyage.name} ${current + 1}`}
                 fetchPriority="high"
                 decoding="async"
-                className="block w-auto max-w-full max-h-[80vh] mx-auto md:w-full md:h-full md:max-h-none md:object-cover"
+                className="block w-auto max-w-full max-h-[80vh] mx-auto md:w-full md:h-full md:max-h-none md:object-cover cursor-zoom-in"
                 initial={{ opacity: 0, x: direction * 60 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: direction * -60 }}
                 transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
+                onClick={() => setLightboxOpen(true)}
               />
             </AnimatePresence>
 
@@ -440,6 +443,18 @@ export default function VoyageDetail() {
               {current + 1} / {voyage.photos.length}
             </div>
           </div>
+
+          {/* Lightbox */}
+          <AnimatePresence>
+            {lightboxOpen && (
+              <Lightbox
+                photos={voyage.photos}
+                initialIndex={current}
+                alt={voyage.name}
+                onClose={() => setLightboxOpen(false)}
+              />
+            )}
+          </AnimatePresence>
 
           {/* Thumbnails */}
           <div className="flex gap-2 mt-8 overflow-x-auto pb-2 scroll-smooth [-webkit-overflow-scrolling:touch] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
