@@ -93,7 +93,7 @@ export default function Cuisine() {
 
       {/* Recipe grid */}
       <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
           {recipes.map((recipe, index) => (
             <motion.div
               key={recipe.slug}
@@ -105,13 +105,13 @@ export default function Cuisine() {
               className={index === 0 ? 'md:col-span-2' : ''}
             >
               <Link to={`/cuisine/${recipe.slug}`} className="block bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                <div className={`${index === 0 ? 'aspect-[16/9]' : 'aspect-[4/3]'} overflow-hidden`}>
+                <div className="overflow-hidden">
                   <img
                     src={recipe.thumbnail}
                     alt={lang === 'fr' ? recipe.title : recipe.titleEn}
                     loading="lazy"
                     decoding="async"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    className="w-full h-auto hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className={index === 0 ? 'p-8' : 'p-6'}>

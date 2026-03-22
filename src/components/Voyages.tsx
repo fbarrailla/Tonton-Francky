@@ -406,7 +406,7 @@ export default function Voyages() {
             <p className="text-xl text-stone-600">{v.gridDesc}</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
             {destinations.map((destination, index) => {
               const isFeatured = index === 0;
               const card = (
@@ -417,16 +417,16 @@ export default function Voyages() {
                   viewport={{ once: true }}
                   transition={{ delay: Math.min(index * 0.1, 0.5), duration: 0.5 }}
                   whileHover={{ y: -5, transition: { duration: 0.2, ease: [0.25, 1, 0.5, 1] } }}
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full"
+                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
                 >
                   {destination.thumbnail && (
-                    <div className={`${isFeatured ? 'aspect-[16/9]' : 'aspect-[4/3]'} overflow-hidden`}>
+                    <div className="overflow-hidden">
                       <img
                         src={destination.thumbnail}
                         alt={destination.name}
                         loading="lazy"
                         decoding="async"
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        className="w-full h-auto hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                   )}
