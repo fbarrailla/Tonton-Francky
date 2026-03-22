@@ -13,7 +13,7 @@ export default defineConfig(({mode}) => {
       tailwindcss(),
       viteImagemin({
         gifsicle: { optimizationLevel: 7 },
-        mozjpeg: { quality: 80 },
+        mozjpeg: { quality: 80, autorotate: true },
         pngquant: { quality: [0.8, 0.9], speed: 4 },
         svgo: { plugins: [{ name: 'removeViewBox' }] },
         webp: { quality: 80 },
