@@ -394,7 +394,7 @@ export default function VoyageDetail() {
       {/* Slideshow */}
       <section className="py-12 md:py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-black aspect-[16/9]">
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-stone-950 md:aspect-video">
             {/* Photo progress bar */}
             <div className="absolute top-0 inset-x-0 h-0.5 bg-white/20 z-20">
               <motion.div
@@ -411,7 +411,7 @@ export default function VoyageDetail() {
                 alt={`${voyage.name} ${current + 1}`}
                 fetchPriority="high"
                 decoding="async"
-                className="w-full h-full object-cover"
+                className="block w-auto max-w-full max-h-[80vh] mx-auto md:w-full md:h-full md:max-h-none md:object-cover"
                 initial={{ opacity: 0, x: direction * 60 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: direction * -60 }}
