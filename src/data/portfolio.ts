@@ -4,6 +4,7 @@ import pokedexGif from '../assets/portfolio/pokedex.gif';
 import codesampleEditorGif from '../assets/portfolio/codesample-editor.gif';
 import vcTestVideo from '../assets/portfolio/vc-test.mov';
 import cashbotVideo from '../assets/portfolio/cashbot.mov';
+import giphyVideo from '../assets/portfolio/giphy.mov';
 
 export interface Project {
   slug: string;
@@ -92,6 +93,18 @@ export const projects: Project[] = [
     media: cashbotVideo,
     mediaType: 'video',
     tags: ['Node.js', 'TypeScript', 'React', 'Crypto API'],
+    year: '2024',
+  },
+  {
+    slug: 'giphy-app',
+    title: 'Giphy App',
+    descFr: 'Application de recherche de GIFs animés intégrée à l\'API Giphy — recherche en temps réel, navigation par tendances et partage facile.',
+    descEn: 'Animated GIF search app powered by the Giphy API — real-time search, trending browsing and easy sharing.',
+    clientFr: 'Projet personnel',
+    clientEn: 'Personal project',
+    media: giphyVideo,
+    mediaType: 'video',
+    tags: ['React', 'Giphy API', 'CSS'],
     year: '2024',
   },
 ];
