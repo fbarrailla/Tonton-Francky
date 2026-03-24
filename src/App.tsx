@@ -7,6 +7,13 @@ import React, { lazy, Suspense, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Instagram, Heart, MapPin, Twitch, Menu, X, Code2, UtensilsCrossed, User, Mail } from 'lucide-react';
+
+const TikTokIcon = ({ size = 20 }: { size?: number }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.75a4.85 4.85 0 01-1.01-.06z" />
+  </svg>
+);
+
 import SplashScreen from './components/SplashScreen';
 import Home from './components/Home';
 
@@ -95,6 +102,9 @@ function AppContent() {
             <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-2 glass-card hover:bg-white/60 transition-colors">
               <Instagram size={20} />
             </a>
+            <a href="https://www.tiktok.com/@tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="p-2 glass-card hover:bg-white/60 transition-colors">
+              <TikTokIcon size={20} />
+            </a>
             <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="Twitch" className="p-2 glass-card hover:bg-white/60 transition-colors">
               <Twitch size={20} />
             </a>
@@ -166,6 +176,9 @@ function AppContent() {
               </Link>
               <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
                 <Instagram size={18} /> Instagram
+              </a>
+              <a href="https://www.tiktok.com/@tonton__francky" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+                <TikTokIcon size={18} /> TikTok
               </a>
               <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
                 <Twitch size={18} /> Twitch
@@ -245,6 +258,10 @@ function AppContent() {
             <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-stone-900 transition-colors flex items-center gap-2">
               <Instagram size={18} />
               <span>Instagram</span>
+            </a>
+            <a href="https://www.tiktok.com/@tonton__francky" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-stone-900 transition-colors flex items-center gap-2">
+              <TikTokIcon size={18} />
+              <span>TikTok</span>
             </a>
             <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-stone-900 transition-colors flex items-center gap-2">
               <Twitch size={18} />
