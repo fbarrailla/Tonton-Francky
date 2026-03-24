@@ -6,7 +6,7 @@
 import React, { lazy, Suspense, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Instagram, Heart, MapPin, Twitch, Menu, X, Code2 } from 'lucide-react';
+import { Instagram, Heart, MapPin, Twitch, Menu, X, Code2, UtensilsCrossed, User, Mail } from 'lucide-react';
 import SplashScreen from './components/SplashScreen';
 import Home from './components/Home';
 
@@ -75,18 +75,21 @@ function AppContent() {
               <Twitch size={16} />
               <span>{t.nav.replays}</span>
             </Link>
-            <Link to="/cuisine" className={`glass-card px-4 py-2 transition-colors ${isActive('/cuisine') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
-              {t.nav.cuisine}
+            <Link to="/cuisine" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/cuisine') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
+              <UtensilsCrossed size={16} />
+              <span>{t.nav.cuisine}</span>
             </Link>
             <Link to="/portfolio" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/portfolio') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
               <Code2 size={16} />
               <span>{t.nav.portfolio}</span>
             </Link>
-            <Link to="/a-propos" className={`glass-card px-4 py-2 transition-colors ${isActive('/a-propos') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
-              {t.nav.about}
+            <Link to="/a-propos" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/a-propos') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
+              <User size={16} />
+              <span>{t.nav.about}</span>
             </Link>
-            <Link to="/contact" className={`glass-card px-4 py-2 transition-colors ${isActive('/contact') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
-              {t.nav.contact}
+            <Link to="/contact" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/contact') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
+              <Mail size={16} />
+              <span>{t.nav.contact}</span>
             </Link>
             <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-2 glass-card hover:bg-white/60 transition-colors">
               <Instagram size={20} />
@@ -148,17 +151,17 @@ function AppContent() {
               <Link to="/replays" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
                 <Twitch size={16} /> {t.nav.replays}
               </Link>
-              <Link to="/cuisine" className="px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
-                {t.nav.cuisine}
+              <Link to="/cuisine" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+                <UtensilsCrossed size={16} /> {t.nav.cuisine}
               </Link>
               <Link to="/portfolio" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
                 <Code2 size={16} /> {t.nav.portfolio}
               </Link>
-              <Link to="/a-propos" className="px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
-                {t.nav.about}
+              <Link to="/a-propos" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+                <User size={16} /> {t.nav.about}
               </Link>
-              <Link to="/contact" className="px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
-                {t.nav.contact}
+              <Link to="/contact" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+                <Mail size={16} /> {t.nav.contact}
               </Link>
               <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
                 <Instagram size={18} /> Instagram
