@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-markercluster';
 import { motion } from 'motion/react';
@@ -331,6 +331,14 @@ export default function Voyages() {
   const { lang, t } = useLanguage();
   const v = t.voyages;
 
+  useEffect(() => {
+    const saved = sessionStorage.getItem('voyages-scroll');
+    if (saved) {
+      window.scrollTo({ top: parseInt(saved, 10), behavior: 'instant' });
+      sessionStorage.removeItem('voyages-scroll');
+    }
+  }, []);
+
   return (
     <main className="flex-grow pt-10">
       {/* Hero Section */}
@@ -474,7 +482,11 @@ export default function Voyages() {
               );
 
               return destination.slug ? (
-                <Link key={destination.id} to={`/voyages/${destination.slug}`}>
+                <Link
+                  key={destination.id}
+                  to={`/voyages/${destination.slug}`}
+                  onClick={() => sessionStorage.setItem('voyages-scroll', String(window.scrollY))}
+                >
                   {card}
                 </Link>
               ) : (
