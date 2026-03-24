@@ -2,6 +2,7 @@ import reactChronometerVideo from '../assets/portfolio/react-chronometer.mov';
 import johnTranCodeVideo from '../assets/portfolio/johntran-code.mov';
 import pokedexGif from '../assets/portfolio/pokedex.gif';
 import codesampleEditorGif from '../assets/portfolio/codesample-editor.gif';
+import vcTestVideo from '../assets/portfolio/vc-test.mov';
 
 export interface Project {
   slug: string;
@@ -67,5 +68,17 @@ export const projects: Project[] = [
     tags: ['React', 'TypeScript', 'CodeMirror'],
     year: '2024',
     githubUrl: 'https://github.com/fbarrailla/codesample-editor',
+  },
+  {
+    slug: 'geek-and-chic',
+    title: 'Geek & Chic',
+    descFr: "Test technique réalisé pour Vestiaire Collective — application de mode alliant univers geek et chic, développée dans le cadre d'un processus de recrutement.",
+    descEn: 'Technical test for Vestiaire Collective — a fashion app blending geek and chic worlds, built as part of a recruitment process.',
+    clientFr: 'Vestiaire Collective — Test technique',
+    clientEn: 'Vestiaire Collective — Technical test',
+    media: vcTestVideo,
+    mediaType: 'video',
+    tags: ['React', 'TypeScript', 'CSS'],
+    year: '2024',
   },
 ];
