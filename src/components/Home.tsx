@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import heroBg from '../assets/hero.png';
-import { motion } from 'motion/react';
+import { motion, useInView } from 'motion/react';
 import {
   Instagram,
   MapPin,
@@ -18,6 +18,30 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n';
+
+// ← Update this number when your follower count changes
+const INSTAGRAM_FOLLOWERS = 129;
+
+function useCountUp(target: number, duration = 2200) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (!isInView) return;
+    const startTime = performance.now();
+    const tick = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+      setCount(Math.floor(eased * target));
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }, [isInView, target, duration]);
+
+  return { count, ref };
+}
 
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -52,6 +76,7 @@ const InterestCard = ({ icon: Icon, text, delay, color = 'bg-travel-blue text-st
 export default function Home() {
   const { t } = useLanguage();
   const h = t.home;
+  const { count, ref: counterRef } = useCountUp(INSTAGRAM_FOLLOWERS);
 
   return (
     <main className="flex-grow">
@@ -122,6 +147,51 @@ export default function Home() {
             <InterestCard icon={Zap} text={h.interest5} delay={0.5} color="bg-orange-100 text-orange-700" />
           </div>
         </div>
+      </section>
+
+      {/* Instagram Followers Counter */}
+      <section className="py-20 md:py-28 px-6 bg-white overflow-hidden">
+        <motion.div
+          ref={counterRef}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="max-w-2xl mx-auto text-center"
+        >
+          {/* Instagram badge */}
+          <div className="inline-flex items-center gap-2 bg-stone-100 rounded-full px-4 py-2 mb-8 text-stone-500 text-sm font-medium">
+            <div className="w-5 h-5 rounded-md bg-gradient-to-br from-pink-500 via-rose-500 to-purple-600 flex items-center justify-center">
+              <Instagram size={12} className="text-white" />
+            </div>
+            @tonton__francky
+          </div>
+
+          {/* Big number */}
+          <div className="relative">
+            <span className="text-[9rem] md:text-[13rem] font-black leading-none tabular-nums bg-gradient-to-br from-pink-500 via-rose-500 to-purple-600 bg-clip-text text-transparent select-none">
+              {count.toLocaleString('fr-FR')}
+            </span>
+            {/* Glow effect */}
+            <div className="absolute inset-0 blur-3xl opacity-20 bg-gradient-to-br from-pink-400 via-rose-400 to-purple-500 -z-10 scale-75" />
+          </div>
+
+          <p className="text-2xl md:text-3xl font-semibold text-stone-500 mt-2 tracking-wide">
+            {h.followersLabel}
+          </p>
+
+          <motion.a
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            href="https://instagram.com/tonton__francky"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-10 inline-flex items-center gap-3 bg-gradient-to-r from-pink-500 via-rose-500 to-purple-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-pink-200 transition-shadow"
+          >
+            <Instagram size={22} />
+            {h.ctaBtn}
+          </motion.a>
+        </motion.div>
       </section>
 
       {/* CTA Section */}
