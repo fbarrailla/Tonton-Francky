@@ -7,6 +7,7 @@ import cashbotVideo from '../assets/portfolio/cashbot.mov';
 import giphyVideo from '../assets/portfolio/giphy.mov';
 import freeboxRemoteGif from '../assets/portfolio/freebox-remote.gif';
 import feelityVideo from '../assets/portfolio/test-rn-feelity.mov';
+import gptMoodVideo from '../assets/portfolio/gpt-mood.mov';
 
 export interface Project {
   slug: string;
@@ -95,6 +96,18 @@ export const projects: Project[] = [
     media: cashbotVideo,
     mediaType: 'video',
     tags: ['Node.js', 'TypeScript', 'React', 'Crypto API'],
+    year: '2024',
+  },
+  {
+    slug: 'gpt-mood',
+    title: 'GPT Mood',
+    descFr: 'Application d\'analyse d\'humeur propulsée par GPT — saisie de texte libre, détection du sentiment et suggestions personnalisées selon votre état émotionnel.',
+    descEn: 'GPT-powered mood analysis app — free text input, sentiment detection and personalised suggestions based on your emotional state.',
+    clientFr: 'Projet personnel',
+    clientEn: 'Personal project',
+    media: gptMoodVideo,
+    mediaType: 'video',
+    tags: ['React', 'TypeScript', 'OpenAI API'],
     year: '2024',
   },
   {
