@@ -18,6 +18,7 @@ const Replays = lazy(() => import('./components/Replays'));
 const Cuisine = lazy(() => import('./components/Cuisine'));
 const CuisineDetail = lazy(() => import('./components/CuisineDetail'));
 const Portfolio = lazy(() => import('./components/Portfolio'));
+const PortfolioDetail = lazy(() => import('./components/PortfolioDetail'));
 import { LanguageProvider, useLanguage, type Lang } from './i18n';
 
 function ScrollToTop() {
@@ -192,6 +193,7 @@ function AppContent() {
               <Route path="/cuisine" element={<Cuisine />} />
               <Route path="/cuisine/:slug" element={<CuisineDetail />} />
               <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
               <Route path="/a-propos" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={

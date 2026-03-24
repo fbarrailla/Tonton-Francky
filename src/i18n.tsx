@@ -89,6 +89,11 @@ const translations = {
     portfolio: {
       title: 'Portfolio',
       subtitle: 'Quelques projets que j\'ai développés avec passion 👨🏻‍💻',
+      back: 'Retour au portfolio',
+      seeProject: 'Voir le projet',
+      about: 'À propos du projet',
+      techStack: 'Technologies',
+      client: 'Client',
     },
     about: {
       title: 'À propos',
@@ -185,6 +190,11 @@ const translations = {
     portfolio: {
       title: 'Portfolio',
       subtitle: 'A few projects I built with passion 👨🏻‍💻',
+      back: 'Back to portfolio',
+      seeProject: 'See project',
+      about: 'About the project',
+      techStack: 'Tech stack',
+      client: 'Client',
     },
     about: {
       title: 'About',

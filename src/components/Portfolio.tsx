@@ -4,38 +4,10 @@
  */
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { useLanguage } from '../i18n';
-import reactChronometerVideo from '../assets/portfolio/react-chronometer.mov';
-import johnTranCodeVideo from '../assets/portfolio/johntran-code.mov';
-
-interface Project {
-  slug: string;
-  title: string;
-  descFr: string;
-  descEn: string;
-  video: string;
-  tags: string[];
-}
-
-const projects: Project[] = [
-  {
-    slug: 'react-chronometer',
-    title: 'React Chronometer',
-    descFr: 'Un chronomètre interactif construit avec React — démarrage, pause, tour et réinitialisation en temps réel.',
-    descEn: 'An interactive chronometer built with React — start, pause, lap and reset in real time.',
-    video: reactChronometerVideo,
-    tags: ['React', 'TypeScript', 'CSS'],
-  },
-  {
-    slug: 'johntran-code',
-    title: 'John Tran Code',
-    descFr: 'Site personnel de John Tran — développeur passionné, vitrine de ses projets et compétences.',
-    descEn: "John Tran's personal website — passionate developer, showcasing his projects and skills.",
-    video: johnTranCodeVideo,
-    tags: ['React', 'Tailwind CSS', 'Vite'],
-  },
-];
+import { projects } from '../data/portfolio';
 
 export default function Portfolio() {
   const { lang, t } = useLanguage();
@@ -68,37 +40,45 @@ export default function Portfolio() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ y: -5, transition: { duration: 0.2, ease: [0.25, 1, 0.5, 1] } }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
-              {/* Video preview */}
-              <div className="aspect-video bg-stone-950 overflow-hidden">
-                <video
-                  src={project.video}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Info */}
-              <div className="p-6">
-                <h2 className="text-xl font-bold mb-2 text-stone-800">{project.title}</h2>
-                <p className="text-stone-600 text-sm leading-relaxed mb-4">
-                  {lang === 'fr' ? project.descFr : project.descEn}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-semibold bg-stone-100 text-stone-600 px-3 py-1 rounded-full"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+              <Link
+                to={`/portfolio/${project.slug}`}
+                className="block bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full"
+              >
+                {/* Video preview */}
+                <div className="aspect-video bg-stone-950 overflow-hidden">
+                  <video
+                    src={project.video}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-              </div>
+
+                {/* Info */}
+                <div className="p-6">
+                  <p className="text-xs font-semibold text-stone-400 uppercase tracking-wide mb-1">{project.year}</p>
+                  <h2 className="text-xl font-bold mb-2 text-stone-800">{project.title}</h2>
+                  <p className="text-stone-600 text-sm leading-relaxed mb-4 line-clamp-2">
+                    {lang === 'fr' ? project.descFr : project.descEn}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs font-semibold bg-stone-100 text-stone-600 px-3 py-1 rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="mt-4 inline-block text-sm font-medium text-stone-700 hover:text-stone-900 transition-colors">
+                    {p.seeProject} →
+                  </span>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>
