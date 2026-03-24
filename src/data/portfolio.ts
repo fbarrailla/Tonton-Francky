@@ -10,6 +10,7 @@ import feelityVideo from '../assets/portfolio/test-rn-feelity.mov';
 import gptMoodVideo from '../assets/portfolio/gpt-mood.mov';
 import todoVideo from '../assets/portfolio/todo.mov';
 import pigtokenVideo from '../assets/portfolio/pigtoken.mov';
+import asyncVideo from '../assets/portfolio/async.mov';
 
 export interface Project {
   slug: string;
@@ -99,6 +100,18 @@ export const projects: Project[] = [
     mediaType: 'video',
     tags: ['Node.js', 'TypeScript', 'React', 'Crypto API'],
     year: '2024',
+  },
+  {
+    slug: 'async-await',
+    title: 'Async/Await',
+    descFr: 'Présentation interactive sur la programmation asynchrone en JavaScript — explication des Promises, async/await et gestion des erreurs.',
+    descEn: 'Interactive presentation on asynchronous JavaScript — covering Promises, async/await and error handling.',
+    clientFr: 'Projet personnel',
+    clientEn: 'Personal project',
+    media: asyncVideo,
+    mediaType: 'video',
+    tags: ['JavaScript', 'React'],
+    year: '2023',
   },
   {
     slug: 'pig-token',
