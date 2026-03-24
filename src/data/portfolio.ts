@@ -3,6 +3,7 @@ import johnTranCodeVideo from '../assets/portfolio/johntran-code.mov';
 import pokedexGif from '../assets/portfolio/pokedex.gif';
 import codesampleEditorGif from '../assets/portfolio/codesample-editor.gif';
 import vcTestVideo from '../assets/portfolio/vc-test.mov';
+import cashbotVideo from '../assets/portfolio/cashbot.mov';
 
 export interface Project {
   slug: string;
@@ -79,6 +80,18 @@ export const projects: Project[] = [
     media: vcTestVideo,
     mediaType: 'video',
     tags: ['React', 'TypeScript', 'CSS'],
+    year: '2024',
+  },
+  {
+    slug: 'cashbot',
+    title: 'Cashbot',
+    descFr: 'Bot de trading crypto automatisé — analyse des marchés en temps réel, stratégies configurables et tableau de bord de suivi des performances.',
+    descEn: 'Automated crypto trading bot — real-time market analysis, configurable strategies and a performance tracking dashboard.',
+    clientFr: 'Projet personnel',
+    clientEn: 'Personal project',
+    media: cashbotVideo,
+    mediaType: 'video',
+    tags: ['Node.js', 'TypeScript', 'React', 'Crypto API'],
     year: '2024',
   },
 ];
