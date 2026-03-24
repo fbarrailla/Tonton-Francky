@@ -6,7 +6,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowLeft, Calendar, User, Github } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Github, ExternalLink } from 'lucide-react';
 import { useLanguage } from '../i18n';
 import { projects } from '../data/portfolio';
 
@@ -88,6 +88,16 @@ export default function PortfolioDetail() {
                 className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors"
               >
                 <Github size={16} /> Voir sur GitHub →
+              </a>
+            )}
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors"
+              >
+                <ExternalLink size={16} /> Voir en ligne →
               </a>
             )}
           </motion.div>

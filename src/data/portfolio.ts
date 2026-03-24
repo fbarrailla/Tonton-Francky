@@ -11,6 +11,7 @@ import gptMoodVideo from '../assets/portfolio/gpt-mood.mov';
 import todoVideo from '../assets/portfolio/todo.mov';
 import pigtokenVideo from '../assets/portfolio/pigtoken.mov';
 import asyncVideo from '../assets/portfolio/async.mov';
+import ticTacToeGif from '../assets/portfolio/tic-tac-toe.gif';
 
 export interface Project {
   slug: string;
@@ -24,6 +25,7 @@ export interface Project {
   tags: string[];
   year: string;
   githubUrl?: string;
+  liveUrl?: string;
 }
 
 export const projects: Project[] = [
@@ -100,6 +102,20 @@ export const projects: Project[] = [
     mediaType: 'video',
     tags: ['Node.js', 'TypeScript', 'React', 'Crypto API'],
     year: '2024',
+  },
+  {
+    slug: 'tic-tac-toe',
+    title: 'Tic Tac Toe',
+    descFr: 'Jeu de morpion en React — deux joueurs, détection de victoire, en moins de 50 lignes de code.',
+    descEn: 'Tic Tac Toe game in React — two players, win detection, in under 50 lines of code.',
+    clientFr: 'Projet personnel',
+    clientEn: 'Personal project',
+    media: ticTacToeGif,
+    mediaType: 'gif',
+    tags: ['React', 'JavaScript'],
+    year: '2023',
+    githubUrl: 'https://github.com/fbarrailla/React-TicTacToe',
+    liveUrl: 'https://fbarrailla.github.io/React-TicTacToe',
   },
   {
     slug: 'async-await',
