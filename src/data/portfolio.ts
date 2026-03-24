@@ -9,6 +9,7 @@ import freeboxRemoteGif from '../assets/portfolio/freebox-remote.gif';
 import feelityVideo from '../assets/portfolio/test-rn-feelity.mov';
 import gptMoodVideo from '../assets/portfolio/gpt-mood.mov';
 import todoVideo from '../assets/portfolio/todo.mov';
+import pigtokenVideo from '../assets/portfolio/pigtoken.mov';
 
 export interface Project {
   slug: string;
@@ -98,6 +99,18 @@ export const projects: Project[] = [
     mediaType: 'video',
     tags: ['Node.js', 'TypeScript', 'React', 'Crypto API'],
     year: '2024',
+  },
+  {
+    slug: 'pig-token',
+    title: 'Pig Token',
+    descFr: 'Meme coin déployé sur la Binance Smart Chain — site vitrine du token avec tokenomics, roadmap et intégration wallet.',
+    descEn: 'Meme coin deployed on the Binance Smart Chain — token showcase website with tokenomics, roadmap and wallet integration.',
+    clientFr: 'Projet personnel',
+    clientEn: 'Personal project',
+    media: pigtokenVideo,
+    mediaType: 'video',
+    tags: ['React', 'Solidity', 'BSC', 'Web3'],
+    year: '2023',
   },
   {
     slug: 'todo-list',
