@@ -5,6 +5,7 @@ import codesampleEditorGif from '../assets/portfolio/codesample-editor.gif';
 import vcTestVideo from '../assets/portfolio/vc-test.mov';
 import cashbotVideo from '../assets/portfolio/cashbot.mov';
 import giphyVideo from '../assets/portfolio/giphy.mov';
+import freeboxRemoteGif from '../assets/portfolio/freebox-remote.gif';
 
 export interface Project {
   slug: string;
@@ -94,6 +95,19 @@ export const projects: Project[] = [
     mediaType: 'video',
     tags: ['Node.js', 'TypeScript', 'React', 'Crypto API'],
     year: '2024',
+  },
+  {
+    slug: 'freebox-remote',
+    title: 'Freebox Remote',
+    descFr: 'Télécommande Android pour Freebox Player développée en React Native — contrôle complet de la navigation, du volume et des fonctions multimédias.',
+    descEn: 'Android remote control for Freebox Player built with React Native — full control of navigation, volume and media functions.',
+    clientFr: 'Projet personnel',
+    clientEn: 'Personal project',
+    media: freeboxRemoteGif,
+    mediaType: 'gif',
+    tags: ['React Native', 'Android', 'TypeScript'],
+    year: '2023',
+    githubUrl: 'https://github.com/fbarrailla/RNAndroidFreeboxRemote',
   },
   {
     slug: 'giphy-app',
