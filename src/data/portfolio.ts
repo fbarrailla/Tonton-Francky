@@ -1,6 +1,7 @@
 import reactChronometerVideo from '../assets/portfolio/react-chronometer.mov';
 import johnTranCodeVideo from '../assets/portfolio/johntran-code.mov';
 import pokedexGif from '../assets/portfolio/pokedex.gif';
+import codesampleEditorGif from '../assets/portfolio/codesample-editor.gif';
 
 export interface Project {
   slug: string;
@@ -53,5 +54,18 @@ export const projects: Project[] = [
     tags: ['React', 'PokéAPI', 'CSS'],
     year: '2023',
     githubUrl: 'https://github.com/fbarrailla/Pokedex',
+  },
+  {
+    slug: 'codesample-editor',
+    title: 'CodeSample Editor',
+    descFr: 'Un éditeur de code en ligne avec coloration syntaxique, thèmes personnalisables et export de snippets.',
+    descEn: 'An online code editor with syntax highlighting, customizable themes and snippet export.',
+    clientFr: 'Projet personnel',
+    clientEn: 'Personal project',
+    media: codesampleEditorGif,
+    mediaType: 'gif',
+    tags: ['React', 'TypeScript', 'CodeMirror'],
+    year: '2024',
+    githubUrl: 'https://github.com/fbarrailla/codesample-editor',
   },
 ];
