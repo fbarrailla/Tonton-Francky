@@ -6,19 +6,20 @@ import {defineConfig, loadEnv} from 'vite';
 
 export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
+  const compress = process.env.COMPRESS_IMAGES === 'true';
   return {
     base: '/',
     assetsInclude: ['**/*.mov'],
     plugins: [
       react(),
       tailwindcss(),
-      viteImagemin({
-        gifsicle: { optimizationLevel: 7 },
+      ...(compress ? [viteImagemin({
+        gifsicle: { optimizationLevel: 3 },
         mozjpeg: { quality: 80, autorotate: true } as any,
         pngquant: { quality: [0.8, 0.9], speed: 4 },
         svgo: { plugins: [{ name: 'removeViewBox' }] },
         webp: { quality: 80 },
-      }),
+      })] : []),
     ],
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),

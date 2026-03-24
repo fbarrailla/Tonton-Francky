@@ -8,6 +8,7 @@
     "server": "tsx server.ts",
     "prebuild": "node scripts/autorotate.mjs",
     "build": "NODE_OPTIONS=--max-old-space-size=8192 vite build && npm run publish",
+    "build:compress": "COMPRESS_IMAGES=true NODE_OPTIONS=--max-old-space-size=8192 vite build && npm run publish",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "test": "playwright test",
