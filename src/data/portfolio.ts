@@ -6,6 +6,7 @@ import vcTestVideo from '../assets/portfolio/vc-test.mov';
 import cashbotVideo from '../assets/portfolio/cashbot.mov';
 import giphyVideo from '../assets/portfolio/giphy.mov';
 import freeboxRemoteGif from '../assets/portfolio/freebox-remote.gif';
+import feelityVideo from '../assets/portfolio/test-rn-feelity.mov';
 
 export interface Project {
   slug: string;
@@ -94,6 +95,18 @@ export const projects: Project[] = [
     media: cashbotVideo,
     mediaType: 'video',
     tags: ['Node.js', 'TypeScript', 'React', 'Crypto API'],
+    year: '2024',
+  },
+  {
+    slug: 'feelity',
+    title: 'Feelity',
+    descFr: "Test technique réalisé pour Feelity — application mobile React Native développée dans le cadre d'un processus de recrutement.",
+    descEn: 'Technical test for Feelity — a React Native mobile app built as part of a recruitment process.',
+    clientFr: 'Feelity — Test technique',
+    clientEn: 'Feelity — Technical test',
+    media: feelityVideo,
+    mediaType: 'video',
+    tags: ['React Native', 'TypeScript'],
     year: '2024',
   },
   {
