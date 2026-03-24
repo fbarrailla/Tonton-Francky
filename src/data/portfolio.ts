@@ -8,6 +8,7 @@ import giphyVideo from '../assets/portfolio/giphy.mov';
 import freeboxRemoteGif from '../assets/portfolio/freebox-remote.gif';
 import feelityVideo from '../assets/portfolio/test-rn-feelity.mov';
 import gptMoodVideo from '../assets/portfolio/gpt-mood.mov';
+import todoVideo from '../assets/portfolio/todo.mov';
 
 export interface Project {
   slug: string;
@@ -97,6 +98,18 @@ export const projects: Project[] = [
     mediaType: 'video',
     tags: ['Node.js', 'TypeScript', 'React', 'Crypto API'],
     year: '2024',
+  },
+  {
+    slug: 'todo-list',
+    title: 'Todo List',
+    descFr: 'Application de gestion de tâches — ajout, suppression, marquage comme terminé et filtrage par statut.',
+    descEn: 'Task management app — add, delete, mark as done and filter by status.',
+    clientFr: 'Projet personnel',
+    clientEn: 'Personal project',
+    media: todoVideo,
+    mediaType: 'video',
+    tags: ['React', 'TypeScript', 'CSS'],
+    year: '2023',
   },
   {
     slug: 'gpt-mood',
