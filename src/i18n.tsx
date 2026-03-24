@@ -13,6 +13,7 @@ const translations = {
       travels: 'Voyages',
       replays: 'Replays',
       cuisine: 'Cuisine',
+      portfolio: 'Portfolio',
       about: 'À propos',
       contact: 'Contact',
     },
@@ -85,6 +86,10 @@ const translations = {
       required: 'Ce champ est requis',
       invalidEmail: 'Email invalide',
     },
+    portfolio: {
+      title: 'Portfolio',
+      subtitle: 'Quelques projets que j\'ai développés avec passion 👨🏻‍💻',
+    },
     about: {
       title: 'À propos',
       subtitle: 'Qui se cache derrière Tonton Francky ?',
@@ -104,6 +109,7 @@ const translations = {
       travels: 'Travels',
       replays: 'Replays',
       cuisine: 'Food',
+      portfolio: 'Portfolio',
       about: 'About',
       contact: 'Contact',
     },
@@ -175,6 +181,10 @@ const translations = {
       error: 'Something went wrong. Try again or reach me directly on Instagram.',
       required: 'This field is required',
       invalidEmail: 'Invalid email',
+    },
+    portfolio: {
+      title: 'Portfolio',
+      subtitle: 'A few projects I built with passion 👨🏻‍💻',
     },
     about: {
       title: 'About',

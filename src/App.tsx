@@ -6,7 +6,7 @@
 import React, { lazy, Suspense, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Instagram, Heart, MapPin, Twitch, Menu, X } from 'lucide-react';
+import { Instagram, Heart, MapPin, Twitch, Menu, X, Code2 } from 'lucide-react';
 import SplashScreen from './components/SplashScreen';
 import Home from './components/Home';
 
@@ -17,6 +17,7 @@ const Contact = lazy(() => import('./components/Contact'));
 const Replays = lazy(() => import('./components/Replays'));
 const Cuisine = lazy(() => import('./components/Cuisine'));
 const CuisineDetail = lazy(() => import('./components/CuisineDetail'));
+const Portfolio = lazy(() => import('./components/Portfolio'));
 import { LanguageProvider, useLanguage, type Lang } from './i18n';
 
 function ScrollToTop() {
@@ -76,6 +77,10 @@ function AppContent() {
             </Link>
             <Link to="/cuisine" className={`glass-card px-4 py-2 transition-colors ${isActive('/cuisine') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
               {t.nav.cuisine}
+            </Link>
+            <Link to="/portfolio" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/portfolio') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
+              <Code2 size={16} />
+              <span>{t.nav.portfolio}</span>
             </Link>
             <Link to="/a-propos" className={`glass-card px-4 py-2 transition-colors ${isActive('/a-propos') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
               {t.nav.about}
@@ -146,6 +151,9 @@ function AppContent() {
               <Link to="/cuisine" className="px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
                 {t.nav.cuisine}
               </Link>
+              <Link to="/portfolio" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+                <Code2 size={16} /> {t.nav.portfolio}
+              </Link>
               <Link to="/a-propos" className="px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
                 {t.nav.about}
               </Link>
@@ -180,6 +188,7 @@ function AppContent() {
               <Route path="/replays" element={<Replays />} />
               <Route path="/cuisine" element={<Cuisine />} />
               <Route path="/cuisine/:slug" element={<CuisineDetail />} />
+              <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/a-propos" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={
