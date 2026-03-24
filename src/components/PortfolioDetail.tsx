@@ -6,7 +6,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowLeft, Calendar, User } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Github } from 'lucide-react';
 import { useLanguage } from '../i18n';
 import { projects } from '../data/portfolio';
 
@@ -74,16 +74,22 @@ export default function PortfolioDetail() {
             className="md:col-span-2"
           >
             <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-stone-950">
-              <video
-                src={project.video}
-                autoPlay
-                muted
-                loop
-                playsInline
-                controls
-                className="w-full h-full object-cover"
-              />
+              {project.mediaType === 'gif' ? (
+                <img src={project.media} alt={project.title} className="w-full h-full object-contain" />
+              ) : (
+                <video src={project.media} autoPlay muted loop playsInline controls className="w-full h-full object-cover" />
+              )}
             </div>
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors"
+              >
+                <Github size={16} /> Voir sur GitHub →
+              </a>
+            )}
           </motion.div>
 
           {/* Sidebar — 1/3 */}

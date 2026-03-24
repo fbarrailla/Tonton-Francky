@@ -45,16 +45,13 @@ export default function Portfolio() {
                 to={`/portfolio/${project.slug}`}
                 className="block bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full"
               >
-                {/* Video preview */}
+                {/* Media preview */}
                 <div className="aspect-video bg-stone-950 overflow-hidden">
-                  <video
-                    src={project.video}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="w-full h-full object-cover"
-                  />
+                  {project.mediaType === 'gif' ? (
+                    <img src={project.media} alt={project.title} className="w-full h-full object-cover" />
+                  ) : (
+                    <video src={project.media} autoPlay muted loop playsInline className="w-full h-full object-cover" />
+                  )}
                 </div>
 
                 {/* Info */}
