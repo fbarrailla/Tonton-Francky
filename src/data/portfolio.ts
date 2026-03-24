@@ -52,6 +52,7 @@ export const projects: Project[] = [
     mediaType: 'video',
     tags: ['React', 'Tailwind CSS', 'Vite'],
     year: '2025',
+    liveUrl: 'https://johntran-code.com',
   },
   {
     slug: 'pokedex',
