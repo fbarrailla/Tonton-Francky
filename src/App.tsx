@@ -75,43 +75,43 @@ function AppContent() {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-4">
-            <Link to="/voyages" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/voyages') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
-              <MapPin size={16} />
+          <div className="hidden md:flex items-center gap-1">
+            <Link to="/voyages" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/voyages') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
+              <MapPin size={14} />
               <span>{t.nav.travels}</span>
             </Link>
-            <Link to="/replays" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/replays') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
-              <Twitch size={16} />
+            <Link to="/replays" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/replays') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
+              <Twitch size={14} />
               <span>{t.nav.replays}</span>
             </Link>
-            <Link to="/cuisine" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/cuisine') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
-              <UtensilsCrossed size={16} />
+            <Link to="/cuisine" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/cuisine') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
+              <UtensilsCrossed size={14} />
               <span>{t.nav.cuisine}</span>
             </Link>
-            <Link to="/portfolio" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/portfolio') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
-              <Code2 size={16} />
+            <Link to="/portfolio" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/portfolio') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
+              <Code2 size={14} />
               <span>{t.nav.portfolio}</span>
             </Link>
-            <Link to="/musique" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/musique') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
-              <Music size={16} />
+            <Link to="/musique" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/musique') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
+              <Music size={14} />
               <span>{t.nav.music}</span>
             </Link>
-            <Link to="/a-propos" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/a-propos') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
-              <User size={16} />
+            <Link to="/a-propos" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/a-propos') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
+              <User size={14} />
               <span>{t.nav.about}</span>
             </Link>
-            <Link to="/contact" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/contact') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
-              <Mail size={16} />
+            <Link to="/contact" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/contact') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
+              <Mail size={14} />
               <span>{t.nav.contact}</span>
             </Link>
-            <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-2 glass-card hover:bg-white/60 transition-colors">
-              <Instagram size={20} />
+            <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-1.5 glass-card hover:bg-white/60 transition-colors">
+              <Instagram size={16} />
             </a>
-            <a href="https://www.tiktok.com/@tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="p-2 glass-card hover:bg-white/60 transition-colors">
-              <TikTokIcon size={20} />
+            <a href="https://www.tiktok.com/@tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="p-1.5 glass-card hover:bg-white/60 transition-colors">
+              <TikTokIcon size={16} />
             </a>
-            <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="Twitch" className="p-2 glass-card hover:bg-white/60 transition-colors">
-              <Twitch size={20} />
+            <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="Twitch" className="p-1.5 glass-card hover:bg-white/60 transition-colors">
+              <Twitch size={16} />
             </a>
             {/* Language picker */}
             <label htmlFor="lang-select" className="sr-only">Langue / Language</label>
