@@ -5,6 +5,7 @@ import codesampleEditorGif from '../assets/portfolio/codesample-editor.gif';
 import vcTestVideo from '../assets/portfolio/vc-test.mov';
 import cashbotVideo from '../assets/portfolio/cashbot.mov';
 import giphyVideo from '../assets/portfolio/giphy.mov';
+import starbucksVideo from '../assets/portfolio/starbucks.mp4';
 import freeboxRemoteGif from '../assets/portfolio/freebox-remote.gif';
 import feelityVideo from '../assets/portfolio/test-rn-feelity.mov';
 import gptMoodVideo from '../assets/portfolio/gpt-mood.mov';
@@ -190,6 +191,18 @@ export const projects: Project[] = [
     tags: ['React Native', 'Android', 'TypeScript'],
     year: '2023',
     githubUrl: 'https://github.com/fbarrailla/RNAndroidFreeboxRemote',
+  },
+  {
+    slug: 'starbucks-shop',
+    title: 'Starbucks Shop',
+    descFr: 'Application e-commerce inspirée de Starbucks — catalogue de produits, personnalisation des commandes et panier interactif.',
+    descEn: 'E-commerce app inspired by Starbucks — product catalogue, order customisation and interactive cart.',
+    clientFr: 'Projet personnel',
+    clientEn: 'Personal project',
+    media: starbucksVideo,
+    mediaType: 'video',
+    tags: ['React', 'TypeScript', 'CSS'],
+    year: '2024',
   },
   {
     slug: 'giphy-app',

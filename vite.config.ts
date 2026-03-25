@@ -9,7 +9,7 @@ export default defineConfig(({mode}) => {
   const compress = process.env.COMPRESS_IMAGES === 'true';
   return {
     base: '/',
-    assetsInclude: ['**/*.mov'],
+    assetsInclude: ['**/*.mov', '**/*.mp4'],
     plugins: [
       react(),
       tailwindcss(),
