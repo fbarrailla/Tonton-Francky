@@ -56,7 +56,7 @@ export default function Portfolio() {
               >
                 {/* Media preview */}
                 <div className="aspect-video bg-stone-950 overflow-hidden">
-                  {project.mediaType === 'gif' ? (
+                  {project.mediaType !== 'video' ? (
                     <img src={project.media} alt={project.title} className="w-full h-full object-cover" />
                   ) : (
                     <video src={project.media} autoPlay muted loop playsInline className="w-full h-full object-cover" />

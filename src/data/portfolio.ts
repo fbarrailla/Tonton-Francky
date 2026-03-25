@@ -1,3 +1,4 @@
+import dsOneImg from '../assets/portfolio/ds-one.png';
 import reactChronometerVideo from '../assets/portfolio/react-chronometer.mov';
 import johnTranCodeVideo from '../assets/portfolio/johntran-code.mov';
 import pokedexGif from '../assets/portfolio/pokedex.gif';
@@ -22,7 +23,7 @@ export interface Project {
   clientFr: string;
   clientEn: string;
   media: string;
-  mediaType: 'video' | 'gif';
+  mediaType: 'video' | 'gif' | 'image';
   tags: string[];
   year: string;
   githubUrl?: string;
@@ -30,6 +31,18 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: 'ds-one',
+    title: 'DS-One',
+    descFr: 'Site fan dédié à la Nintendo DS — actualités, tests de jeux, forums et ressources pour les passionnés de la console portable de Nintendo.',
+    descEn: 'Fan website dedicated to the Nintendo DS — news, game reviews, forums and resources for fans of Nintendo\'s handheld console.',
+    clientFr: 'Projet personnel',
+    clientEn: 'Personal project',
+    media: dsOneImg,
+    mediaType: 'image',
+    tags: ['HTML', 'CSS', 'PHP'],
+    year: '2005',
+  },
   {
     slug: 'react-chronometer',
     title: 'React Chronometer',

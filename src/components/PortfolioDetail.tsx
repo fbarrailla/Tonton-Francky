@@ -74,7 +74,7 @@ export default function PortfolioDetail() {
             className="md:col-span-2"
           >
             <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl bg-stone-950">
-              {project.mediaType === 'gif' ? (
+              {project.mediaType !== 'video' ? (
                 <img src={project.media} alt={project.title} className="w-full h-full object-contain" />
               ) : (
                 <video src={project.media} autoPlay muted loop playsInline controls className="w-full h-full object-cover" />
