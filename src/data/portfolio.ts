@@ -1,4 +1,5 @@
 import dsOneImg from '../assets/portfolio/ds-one.png';
+import hanNguyenEducationVideo from '../assets/portfolio/han-nguyen-education.mov';
 import reactChronometerVideo from '../assets/portfolio/react-chronometer.mov';
 import johnTranCodeVideo from '../assets/portfolio/johntran-code.mov';
 import pokedexGif from '../assets/portfolio/pokedex.gif';
@@ -54,6 +55,19 @@ export const projects: Project[] = [
     mediaType: 'video',
     tags: ['React', 'TypeScript', 'CSS'],
     year: '2024',
+  },
+  {
+    slug: 'han-nguyen-education',
+    title: 'Han Nguyen Education',
+    descFr: "Site vitrine pour Han Nguyen Education — plateforme dédiée à l'accompagnement éducatif, mettant en avant les offres de formation et les ressources pédagogiques.",
+    descEn: 'Showcase website for Han Nguyen Education — a platform dedicated to educational support, highlighting training offers and learning resources.',
+    clientFr: 'Han Nguyen Education',
+    clientEn: 'Han Nguyen Education',
+    media: hanNguyenEducationVideo,
+    mediaType: 'video',
+    tags: ['React', 'Tailwind CSS', 'Vite'],
+    year: '2025',
+    liveUrl: 'https://han-nguyen-education.com',
   },
   {
     slug: 'johntran-code',
