@@ -14,6 +14,7 @@ const translations = {
       replays: 'Replays',
       cuisine: 'Cuisine',
       portfolio: 'Portfolio',
+      music: 'Musique',
       about: 'À propos',
       contact: 'Contact',
     },
@@ -87,6 +88,10 @@ const translations = {
       required: 'Ce champ est requis',
       invalidEmail: 'Email invalide',
     },
+    music: {
+      heroTitle: 'Ma Musique 🎵',
+      heroDesc: 'Les sons qui rythment mes voyages et mes journées.',
+    },
     portfolio: {
       title: 'Portfolio',
       subtitle: 'Quelques projets que j\'ai développés avec passion 👨🏻‍💻',
@@ -116,6 +121,7 @@ const translations = {
       replays: 'Replays',
       cuisine: 'Food',
       portfolio: 'Portfolio',
+      music: 'Music',
       about: 'About',
       contact: 'Contact',
     },
@@ -188,6 +194,10 @@ const translations = {
       error: 'Something went wrong. Try again or reach me directly on Instagram.',
       required: 'This field is required',
       invalidEmail: 'Invalid email',
+    },
+    music: {
+      heroTitle: 'My Music 🎵',
+      heroDesc: 'The sounds that fuel my travels and everyday life.',
     },
     portfolio: {
       title: 'Portfolio',

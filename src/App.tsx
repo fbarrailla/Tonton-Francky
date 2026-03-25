@@ -6,7 +6,7 @@
 import React, { lazy, Suspense, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Instagram, Heart, MapPin, Twitch, Menu, X, Code2, UtensilsCrossed, User, Mail } from 'lucide-react';
+import { Instagram, Heart, MapPin, Twitch, Menu, X, Code2, UtensilsCrossed, User, Mail, Music } from 'lucide-react';
 
 const TikTokIcon = ({ size = 20 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -26,6 +26,7 @@ const Cuisine = lazy(() => import('./components/Cuisine'));
 const CuisineDetail = lazy(() => import('./components/CuisineDetail'));
 const Portfolio = lazy(() => import('./components/Portfolio'));
 const PortfolioDetail = lazy(() => import('./components/PortfolioDetail'));
+const MusicPage = lazy(() => import('./components/Music'));
 import { LanguageProvider, useLanguage, type Lang } from './i18n';
 
 function ScrollToTop() {
@@ -90,6 +91,10 @@ function AppContent() {
             <Link to="/portfolio" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/portfolio') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
               <Code2 size={16} />
               <span>{t.nav.portfolio}</span>
+            </Link>
+            <Link to="/musique" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/musique') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
+              <Music size={16} />
+              <span>{t.nav.music}</span>
             </Link>
             <Link to="/a-propos" className={`glass-card px-4 py-2 transition-colors flex items-center gap-2 ${isActive('/a-propos') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
               <User size={16} />
@@ -168,6 +173,9 @@ function AppContent() {
               <Link to="/portfolio" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
                 <Code2 size={16} /> {t.nav.portfolio}
               </Link>
+              <Link to="/musique" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+                <Music size={16} /> {t.nav.music}
+              </Link>
               <Link to="/a-propos" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
                 <User size={16} /> {t.nav.about}
               </Link>
@@ -207,6 +215,7 @@ function AppContent() {
               <Route path="/cuisine/:slug" element={<CuisineDetail />} />
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
+              <Route path="/musique" element={<MusicPage />} />
               <Route path="/a-propos" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={
