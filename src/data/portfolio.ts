@@ -203,6 +203,7 @@ export const projects: Project[] = [
     mediaType: 'video',
     tags: ['React', 'TypeScript', 'CSS'],
     year: '2024',
+    liveUrl: 'https://shop.starbucks.com',
   },
   {
     slug: 'giphy-app',
