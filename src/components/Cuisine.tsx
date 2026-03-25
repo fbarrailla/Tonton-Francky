@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { useLanguage } from '../i18n';
@@ -75,6 +75,14 @@ export default function Cuisine() {
   const { lang, t } = useLanguage();
   const c = t.cuisine;
 
+  useEffect(() => {
+    const saved = sessionStorage.getItem('cuisine-scroll');
+    if (saved) {
+      window.scrollTo({ top: parseInt(saved, 10), behavior: 'instant' });
+      sessionStorage.removeItem('cuisine-scroll');
+    }
+  }, []);
+
   return (
     <main className="flex-grow pt-10">
       {/* Hero */}
@@ -103,7 +111,7 @@ export default function Cuisine() {
               transition={{ delay: index * 0.1, duration: 0.5 }}
               whileHover={{ y: -5, transition: { duration: 0.2, ease: [0.25, 1, 0.5, 1] } }}
             >
-              <Link to={`/cuisine/${recipe.slug}`} className="block bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full">
+              <Link to={`/cuisine/${recipe.slug}`} className="block bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full" onClick={() => sessionStorage.setItem('cuisine-scroll', String(window.scrollY))}>
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={recipe.thumbnail}

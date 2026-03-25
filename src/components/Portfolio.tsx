@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { useLanguage } from '../i18n';
@@ -12,6 +12,14 @@ import { projects } from '../data/portfolio';
 export default function Portfolio() {
   const { lang, t } = useLanguage();
   const p = t.portfolio;
+
+  useEffect(() => {
+    const saved = sessionStorage.getItem('portfolio-scroll');
+    if (saved) {
+      window.scrollTo({ top: parseInt(saved, 10), behavior: 'instant' });
+      sessionStorage.removeItem('portfolio-scroll');
+    }
+  }, []);
 
   return (
     <main className="flex-grow pt-10">
@@ -44,6 +52,7 @@ export default function Portfolio() {
               <Link
                 to={`/portfolio/${project.slug}`}
                 className="block bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full"
+                onClick={() => sessionStorage.setItem('portfolio-scroll', String(window.scrollY))}
               >
                 {/* Media preview */}
                 <div className="aspect-video bg-stone-950 overflow-hidden">
