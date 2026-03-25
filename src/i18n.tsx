@@ -100,6 +100,8 @@ const translations = {
       about: 'À propos du projet',
       techStack: 'Technologies',
       client: 'Client',
+      ctaTitle: 'Tu veux ton propre site web ?',
+      ctaBtn: 'Me contacter',
     },
     about: {
       title: 'À propos',
@@ -207,6 +209,8 @@ const translations = {
       about: 'About the project',
       techStack: 'Tech stack',
       client: 'Client',
+      ctaTitle: 'Wanna build your own website?',
+      ctaBtn: 'Contact me',
     },
     about: {
       title: 'About',

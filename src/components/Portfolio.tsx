@@ -89,6 +89,25 @@ export default function Portfolio() {
           ))}
         </div>
       </section>
+
+      {/* CTA */}
+      <section className="py-20 px-6 bg-gradient-to-br from-stone-100 to-slate-100">
+        <motion.div
+          className="max-w-2xl mx-auto text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-stone-800 mb-8">{p.ctaTitle}</h2>
+          <Link
+            to="/contact"
+            className="inline-block bg-stone-800 text-white font-semibold px-8 py-4 rounded-full hover:bg-stone-700 transition-colors duration-200"
+          >
+            {p.ctaBtn}
+          </Link>
+        </motion.div>
+      </section>
     </main>
   );
 }
