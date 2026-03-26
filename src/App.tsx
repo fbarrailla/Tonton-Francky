@@ -38,6 +38,7 @@ function ScrollToTop() {
 function AppContent() {
   const { lang, setLang, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [bannerVisible, setBannerVisible] = useState(true);
   const location = useLocation();
 
   const isActive = (path: string) =>
@@ -61,8 +62,40 @@ function AppContent() {
       <ScrollToTop />
       <SplashScreen />
 
+      {/* Promotional Banner */}
+      <AnimatePresence>
+        {bannerVisible && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed top-0 w-full z-50 overflow-hidden"
+          >
+            <a
+              href="https://www.instagram.com/p/DWUz78Dk22A/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 bg-amber-700 text-white text-sm font-semibold px-6 py-2.5 hover:bg-amber-800 transition-colors w-full text-center"
+            >
+              <span>🎉 {t.promoBanner.main}</span>
+              <span className="hidden sm:inline text-amber-200">—</span>
+              <span className="hidden sm:inline text-amber-100 font-normal">{t.promoBanner.sub}</span>
+              <span className="ml-1 underline underline-offset-2">{t.promoBanner.cta}</span>
+            </a>
+            <button
+              onClick={(e) => { e.stopPropagation(); setBannerVisible(false); }}
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-white/80 hover:text-white transition-colors"
+              aria-label="Fermer la bannière"
+            >
+              <X size={16} />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-40 px-6 py-4 bg-white/80 backdrop-blur-md shadow-sm">
+      <nav className={`fixed w-full z-40 px-6 py-4 bg-white/80 backdrop-blur-md shadow-sm transition-all duration-300 ${bannerVisible ? 'top-[42px]' : 'top-0'}`}>
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link to="/">
             <motion.span

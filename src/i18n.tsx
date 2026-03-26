@@ -19,6 +19,7 @@ const translations = {
       contact: 'Contact',
     },
     banner: 'Live Twitch ce dimanche à 12h (FR), venez nombreux et posez moi des questions ! 🎮',
+    promoBanner: { main: 'Gagnez un site web gratuit !', sub: 'Participez au concours sur Instagram', cta: 'Voir le post →' },
     footer: {
       tagline: 'Voyage, rencontres et bonnes vibes 🌍',
       favicon: 'Favicon par',
@@ -128,6 +129,7 @@ const translations = {
       contact: 'Contact',
     },
     banner: 'Twitch Live this Sunday at 12pm (FR), come join us and ask me anything! 🎮',
+    promoBanner: { main: 'Win a free website!', sub: 'Enter the giveaway on Instagram', cta: 'See the post →' },
     footer: {
       tagline: 'Travel, friends and good vibes 🌍',
       favicon: 'Favicon by',
