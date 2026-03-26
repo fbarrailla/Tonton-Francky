@@ -2,6 +2,7 @@ import dsOneImg from '../assets/portfolio/ds-one.png';
 import hanNguyenEducationVideo from '../assets/portfolio/han-nguyen-education.mov';
 import reactChronometerVideo from '../assets/portfolio/react-chronometer.mov';
 import johnTranCodeVideo from '../assets/portfolio/johntran-code.mov';
+import angeleFerrereVideo from '../assets/portfolio/angele-ferrere.mov';
 import pokedexGif from '../assets/portfolio/pokedex.gif';
 import codesampleEditorGif from '../assets/portfolio/codesample-editor.gif';
 import vcTestVideo from '../assets/portfolio/vc-test.mov';
@@ -68,6 +69,19 @@ export const projects: Project[] = [
     tags: ['React', 'Tailwind CSS', 'Vite'],
     year: '2025',
     liveUrl: 'https://han-nguyen-education.com',
+  },
+  {
+    slug: 'angele-ferrere',
+    title: 'Angèle Ferrere',
+    descFr: "Site personnel d'Angèle Ferrere — présentation de son univers, de ses projets et de son parcours.",
+    descEn: "Personal website for Angèle Ferrere — showcasing her world, projects and journey.",
+    clientFr: 'Angèle Ferrere',
+    clientEn: 'Angèle Ferrere',
+    media: angeleFerrereVideo,
+    mediaType: 'video',
+    tags: ['React', 'Tailwind CSS', 'Vite'],
+    year: '2025',
+    liveUrl: 'https://angele-ferrere.com',
   },
   {
     slug: 'johntran-code',
