@@ -3,6 +3,7 @@ import hanNguyenEducationVideo from '../assets/portfolio/han-nguyen-education.mo
 import reactChronometerVideo from '../assets/portfolio/react-chronometer.mov';
 import johnTranCodeVideo from '../assets/portfolio/johntran-code.mov';
 import angeleFerrereVideo from '../assets/portfolio/angele-ferrere.mov';
+import fortuneWheelVideo from '../assets/portfolio/fortune-wheel.mov';
 import pokedexGif from '../assets/portfolio/pokedex.gif';
 import codesampleEditorGif from '../assets/portfolio/codesample-editor.gif';
 import vcTestVideo from '../assets/portfolio/vc-test.mov';
@@ -69,6 +70,18 @@ export const projects: Project[] = [
     tags: ['React', 'Tailwind CSS', 'Vite'],
     year: '2025',
     liveUrl: 'https://han-nguyen-education.com',
+  },
+  {
+    slug: 'fortune-wheel',
+    title: 'Fortune Wheel',
+    descFr: 'Roue de la fortune interactive pour sélectionner un utilisateur aléatoirement — animation fluide et résultat en un spin.',
+    descEn: 'Interactive fortune wheel for randomly picking a user — smooth animation and result in one spin.',
+    clientFr: 'Projet personnel',
+    clientEn: 'Personal project',
+    media: fortuneWheelVideo,
+    mediaType: 'video',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    year: '2026',
   },
   {
     slug: 'angele-ferrere',
