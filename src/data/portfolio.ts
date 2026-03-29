@@ -82,6 +82,7 @@ export const projects: Project[] = [
     mediaType: 'video',
     tags: ['HTML', 'CSS', 'JavaScript'],
     year: '2026',
+    liveUrl: 'https://fbarrailla.github.io/fortune-wheel/',
   },
   {
     slug: 'angele-ferrere',
