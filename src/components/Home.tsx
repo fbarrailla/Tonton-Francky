@@ -337,7 +337,7 @@ export default function Home() {
             <div className="space-y-4">
               {/* PayPal */}
               <a
-                href="https://paypal.me/francoisbarrailla/9.99"
+                href="https://www.paypal.com/ncp/payment/6PA3DPBZBZS8A"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 border-2 border-[#003087] rounded-2xl hover:bg-[#003087]/5 transition-colors group"
@@ -349,7 +349,7 @@ export default function Home() {
                 </div>
                 <div>
                   <p className="font-bold text-[#003087] group-hover:underline">{h.paymentPaypal}</p>
-                  <p className="text-stone-500 text-sm">paypal.me/francoisbarrailla</p>
+                  <p className="text-stone-500 text-sm">paypal.com</p>
                 </div>
               </a>
 
