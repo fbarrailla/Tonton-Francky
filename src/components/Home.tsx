@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import heroBg from '../assets/hero.png';
 import { motion, useInView } from 'motion/react';
 import {
@@ -15,6 +15,8 @@ import {
   Zap,
   ChevronRight,
   ChevronDown,
+  BookOpen,
+  X,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n';
@@ -77,6 +79,24 @@ export default function Home() {
   const { t } = useLanguage();
   const h = t.home;
   const { count, ref: counterRef } = useCountUp(INSTAGRAM_FOLLOWERS);
+  const [ebookOpen, setEbookOpen] = useState(false);
+
+  const closeOnEsc = useCallback((e: KeyboardEvent) => {
+    if (e.key === 'Escape') setEbookOpen(false);
+  }, []);
+
+  useEffect(() => {
+    if (ebookOpen) {
+      document.addEventListener('keydown', closeOnEsc);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.removeEventListener('keydown', closeOnEsc);
+      document.body.style.overflow = '';
+    };
+  }, [ebookOpen, closeOnEsc]);
 
   return (
     <main className="flex-grow">
@@ -193,6 +213,80 @@ export default function Home() {
           </motion.a>
         </motion.div>
       </section>
+
+      {/* E-book Section */}
+      <section className="py-20 md:py-28 px-6 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="flex flex-col md:flex-row items-center gap-12 md:gap-16"
+          >
+            {/* Cover */}
+            <motion.div
+              whileHover={{ y: -8, rotate: 1 }}
+              transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
+              className="flex-shrink-0 cursor-pointer"
+              onClick={() => setEbookOpen(true)}
+            >
+              <div className="relative">
+                <div className="absolute -inset-2 bg-gradient-to-br from-amber-300 via-orange-400 to-rose-400 rounded-2xl blur-xl opacity-30" />
+                <img
+                  src="/ebook.png"
+                  alt="E-book cover"
+                  className="relative w-56 md:w-72 rounded-xl shadow-2xl"
+                />
+              </div>
+            </motion.div>
+
+            {/* Text */}
+            <div className="text-center md:text-left">
+              <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-700 rounded-full px-4 py-2 mb-6 text-sm font-medium">
+                <BookOpen size={16} />
+                {h.ebookTitle}
+              </div>
+              <p className="text-xl text-stone-600 leading-relaxed mb-8 max-w-md">
+                {h.ebookDesc}
+              </p>
+              <motion.button
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => setEbookOpen(true)}
+                className="inline-flex items-center gap-3 bg-stone-900 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-stone-700 transition-colors"
+              >
+                <BookOpen size={20} />
+                {h.ebookCta}
+              </motion.button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* E-book Fullscreen Modal */}
+      {ebookOpen && (
+        <div
+          className="fixed inset-0 z-50 bg-black/90 flex flex-col"
+          onClick={() => setEbookOpen(false)}
+        >
+          <div className="flex justify-end p-4">
+            <button
+              onClick={() => setEbookOpen(false)}
+              className="text-white bg-white/10 hover:bg-white/20 rounded-full p-2 transition-colors"
+            >
+              <X size={24} />
+            </button>
+          </div>
+          <div className="flex-1 px-4 pb-4" onClick={e => e.stopPropagation()}>
+            <iframe
+              src="/ebook.pdf"
+              className="w-full h-full rounded-xl"
+              title="E-book"
+            />
+          </div>
+        </div>
+      )}
 
       {/* CTA Section */}
       <section id="contact" className="py-16 md:py-24 px-6">

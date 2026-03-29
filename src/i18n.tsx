@@ -47,6 +47,9 @@ const translations = {
       ctaTitle: 'Viens me dire bonjour !',
       ctaDesc: "Si tu aimes voyager, rencontrer des gens et discuter simplement de la vie, viens me rejoindre sur Instagram.",
       ctaBtn: 'Ajouter sur Instagram',
+      ebookTitle: 'Mon e-book',
+      ebookDesc: 'Découvre mon guide pratique pour voyager malin et rencontrer des gens partout dans le monde.',
+      ebookCta: 'Lire l\'e-book',
     },
     voyages: {
       heroTitle: 'Mes Voyages 🌍',
@@ -157,6 +160,9 @@ const translations = {
       ctaTitle: 'Come say hello!',
       ctaDesc: "If you love traveling, meeting people, and simply talking about life, come join me on Instagram.",
       ctaBtn: 'Add on Instagram',
+      ebookTitle: 'My e-book',
+      ebookDesc: 'Discover my practical guide to traveling smart and meeting people all around the world.',
+      ebookCta: 'Read the e-book',
     },
     voyages: {
       heroTitle: 'My Travels 🌍',
