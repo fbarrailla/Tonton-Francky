@@ -48,7 +48,7 @@ const translations = {
       ctaDesc: "Si tu aimes voyager, rencontrer des gens et discuter simplement de la vie, viens me rejoindre sur Instagram.",
       ctaBtn: 'Ajouter sur Instagram',
       ebookTitle: 'Mon e-book',
-      ebookDesc: 'Découvre mon guide pratique pour voyager malin et rencontrer des gens partout dans le monde.',
+      ebookDesc: 'Un guide pratique pour créer ton site web avec Claude Code — du terminal à ta première mise en ligne, étape par étape. Parfait pour les débutants qui veulent se lancer.',
       ebookCta: 'Lire l\'e-book',
     },
     voyages: {
@@ -161,7 +161,7 @@ const translations = {
       ctaDesc: "If you love traveling, meeting people, and simply talking about life, come join me on Instagram.",
       ctaBtn: 'Add on Instagram',
       ebookTitle: 'My e-book',
-      ebookDesc: 'Discover my practical guide to traveling smart and meeting people all around the world.',
+      ebookDesc: 'A practical guide to building your website with Claude Code — from the terminal to your first live project, step by step. Perfect for beginners ready to get started.',
       ebookCta: 'Read the e-book',
     },
     voyages: {
