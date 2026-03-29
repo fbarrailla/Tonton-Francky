@@ -50,6 +50,8 @@ const translations = {
       ebookTitle: 'Mon e-book',
       ebookDesc: 'Un guide pratique pour créer ton site web avec Claude Code — du terminal à ta première mise en ligne, étape par étape. Parfait pour les débutants qui veulent se lancer.',
       ebookCta: 'Lire l\'e-book',
+      ebookPrice: '9,99$',
+      ebookOriginalPrice: '29,99$',
     },
     voyages: {
       heroTitle: 'Mes Voyages 🌍',
@@ -163,6 +165,8 @@ const translations = {
       ebookTitle: 'My e-book',
       ebookDesc: 'A practical guide to building your website with Claude Code — from the terminal to your first live project, step by step. Perfect for beginners ready to get started.',
       ebookCta: 'Read the e-book',
+      ebookPrice: '$9.99',
+      ebookOriginalPrice: '$29.99',
     },
     voyages: {
       heroTitle: 'My Travels 🌍',

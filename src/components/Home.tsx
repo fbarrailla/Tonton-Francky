@@ -247,9 +247,14 @@ export default function Home() {
                 <BookOpen size={16} />
                 {h.ebookTitle}
               </div>
-              <p className="text-xl text-stone-600 leading-relaxed mb-8 max-w-md">
+              <p className="text-xl text-stone-600 leading-relaxed mb-6 max-w-md">
                 {h.ebookDesc}
               </p>
+              <div className="flex items-center gap-3 mb-8">
+                <span className="text-3xl font-black text-stone-900">{h.ebookPrice}</span>
+                <span className="text-lg text-stone-400 line-through">{h.ebookOriginalPrice}</span>
+                <span className="bg-rose-100 text-rose-600 text-sm font-bold px-2 py-1 rounded-full">-67%</span>
+              </div>
               <motion.button
                 whileHover={{ scale: 1.04 }}
                 whileTap={{ scale: 0.97 }}
