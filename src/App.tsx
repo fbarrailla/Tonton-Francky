@@ -4,9 +4,9 @@
  */
 
 import React, { lazy, Suspense, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Instagram, Heart, MapPin, Twitch, Menu, X, Code2, UtensilsCrossed, User, Mail, Music } from 'lucide-react';
+import { Instagram, Heart, MapPin, Twitch, Menu, X, Code2, UtensilsCrossed, User, Mail, Music, BookOpen } from 'lucide-react';
 
 const TikTokIcon = ({ size = 20 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -40,6 +40,19 @@ function AppContent() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [bannerVisible, setBannerVisible] = useState(true);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const scrollToEbook = () => {
+    setMenuOpen(false);
+    if (location.pathname === '/') {
+      document.getElementById('ebook')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById('ebook')?.scrollIntoView({ behavior: 'smooth' });
+      }, 350);
+    }
+  };
 
   const isActive = (path: string) =>
     path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
@@ -129,6 +142,10 @@ function AppContent() {
               <Music size={14} />
               <span>{t.nav.music}</span>
             </Link>
+            <button onClick={scrollToEbook} className="glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 hover:bg-white/60">
+              <BookOpen size={14} />
+              <span>{t.nav.ebook}</span>
+            </button>
             <Link to="/a-propos" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/a-propos') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
               <User size={14} />
               <span>{t.nav.about}</span>
@@ -209,6 +226,9 @@ function AppContent() {
               <Link to="/musique" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
                 <Music size={16} /> {t.nav.music}
               </Link>
+              <button onClick={scrollToEbook} className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium w-full text-left">
+                <BookOpen size={16} /> {t.nav.ebook}
+              </button>
               <Link to="/a-propos" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
                 <User size={16} /> {t.nav.about}
               </Link>

@@ -17,6 +17,7 @@ const translations = {
       music: 'Musique',
       about: 'À propos',
       contact: 'Contact',
+      ebook: 'E-book',
     },
     banner: 'Live Twitch ce dimanche à 12h (FR), venez nombreux et posez moi des questions ! 🎮',
     promoBanner: { main: 'Gagnez un site web gratuit !', sub: 'Participez au concours sur Instagram', cta: 'Voir le post →' },
@@ -50,8 +51,16 @@ const translations = {
       ebookTitle: 'Mon e-book',
       ebookDesc: 'Un guide pratique pour créer ton site web avec Claude Code — du terminal à ta première mise en ligne, étape par étape. Parfait pour les débutants qui veulent se lancer.',
       ebookCta: 'Lire l\'e-book',
+      ebookBuy: 'Acheter l\'e-book',
       ebookPrice: '9,99$',
       ebookOriginalPrice: '29,99$',
+      paymentTitle: 'Choisir un moyen de paiement',
+      paymentSubtitle: 'Après paiement, envoie-moi ton reçu sur Instagram et je t\'envoie l\'e-book.',
+      paymentPaypal: 'Payer via PayPal',
+      paymentTransfer: 'Virement bancaire',
+      paymentTransferDesc: 'Effectue un virement de 9,99€ avec la référence "ebook" :',
+      paymentCopied: 'Copié !',
+      paymentCopy: 'Copier',
     },
     voyages: {
       heroTitle: 'Mes Voyages 🌍',
@@ -132,6 +141,7 @@ const translations = {
       music: 'Music',
       about: 'About',
       contact: 'Contact',
+      ebook: 'E-book',
     },
     banner: 'Twitch Live this Sunday at 12pm (FR), come join us and ask me anything! 🎮',
     promoBanner: { main: 'Win a free website!', sub: 'Enter the giveaway on Instagram', cta: 'See the post →' },
@@ -165,8 +175,16 @@ const translations = {
       ebookTitle: 'My e-book',
       ebookDesc: 'A practical guide to building your website with Claude Code — from the terminal to your first live project, step by step. Perfect for beginners ready to get started.',
       ebookCta: 'Read the e-book',
+      ebookBuy: 'Buy the e-book',
       ebookPrice: '$9.99',
       ebookOriginalPrice: '$29.99',
+      paymentTitle: 'Choose a payment method',
+      paymentSubtitle: 'After payment, send me your receipt on Instagram and I\'ll send you the e-book.',
+      paymentPaypal: 'Pay via PayPal',
+      paymentTransfer: 'Bank transfer',
+      paymentTransferDesc: 'Send $9.99 with reference "ebook" to:',
+      paymentCopied: 'Copied!',
+      paymentCopy: 'Copy',
     },
     voyages: {
       heroTitle: 'My Travels 🌍',
@@ -257,7 +275,7 @@ const LanguageContext = createContext<LanguageContextType>({
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLang] = useState<Lang>('fr');
   return (
-    <LanguageContext.Provider value={{ lang, setLang, t: translations[lang] }}>
+    <LanguageContext.Provider value={{ lang, setLang, t: translations[lang] as Translations }}>
       {children}
     </LanguageContext.Provider>
   );
