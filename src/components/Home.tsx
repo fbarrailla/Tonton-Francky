@@ -4,6 +4,7 @@
  */
 
 import React, { useEffect, useRef, useState, useCallback } from 'react';
+import emailjs from '@emailjs/browser';
 import heroBg from '../assets/hero.png';
 import { motion, useInView } from 'motion/react';
 import {
@@ -91,13 +92,18 @@ export default function Home() {
     e.preventDefault();
     setNewsletterStatus('sending');
     try {
-      const res = await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: newsletterEmail }),
-      });
-      if (res.status === 409) { setNewsletterStatus('duplicate'); return; }
-      if (!res.ok) throw new Error();
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          subject: 'Nouvel inscrit à la newsletter !',
+          message: `Nouvel inscrit à la newsletter ! ${newsletterEmail}`,
+          from_name: 'Newsletter',
+          from_email: newsletterEmail,
+          to_email: 'hello@tontonfrancky.com',
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      );
       setNewsletterStatus('success');
       setNewsletterEmail('');
     } catch {
