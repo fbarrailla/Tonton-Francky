@@ -22,7 +22,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n';
 
 // ← Update this number when your follower count changes
-const INSTAGRAM_FOLLOWERS = 240;
+const INSTAGRAM_FOLLOWERS = 247;
 
 function useCountUp(target: number, duration = 2200) {
   const [count, setCount] = useState(0);
