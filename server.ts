@@ -2,9 +2,33 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import 'dotenv/config';
+import Database from 'better-sqlite3';
 
 const app = express();
 app.use(express.json());
+
+const db = new Database('newsletter.db');
+db.exec(`CREATE TABLE IF NOT EXISTS subscribers (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  email TEXT UNIQUE NOT NULL,
+  created_at TEXT NOT NULL
+)`);
+
+app.post('/api/newsletter', (req, res) => {
+  const { email } = req.body as { email?: string };
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return res.status(400).json({ error: 'Invalid email' });
+  }
+  try {
+    db.prepare('INSERT INTO subscribers (email, created_at) VALUES (?, ?)').run(email, new Date().toISOString());
+    return res.json({ success: true });
+  } catch (e: any) {
+    if (e.code === 'SQLITE_CONSTRAINT_UNIQUE') {
+      return res.status(409).json({ error: 'Already subscribed' });
+    }
+    return res.status(500).json({ error: 'Failed to subscribe' });
+  }
+});
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 

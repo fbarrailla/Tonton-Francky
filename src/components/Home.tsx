@@ -17,6 +17,8 @@ import {
   ChevronDown,
   BookOpen,
   X,
+  Mail,
+  CheckCircle,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n';
@@ -82,6 +84,26 @@ export default function Home() {
   const [ebookOpen, setEbookOpen] = useState(false);
   const [paymentOpen, setPaymentOpen] = useState(false);
   const [copiedField, setCopiedField] = useState<string | null>(null);
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'sending' | 'success' | 'error' | 'duplicate'>('idle');
+
+  const handleNewsletter = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setNewsletterStatus('sending');
+    try {
+      const res = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: newsletterEmail }),
+      });
+      if (res.status === 409) { setNewsletterStatus('duplicate'); return; }
+      if (!res.ok) throw new Error();
+      setNewsletterStatus('success');
+      setNewsletterEmail('');
+    } catch {
+      setNewsletterStatus('error');
+    }
+  };
 
   const copyToClipboard = (text: string, field: string) => {
     navigator.clipboard.writeText(text);
@@ -381,6 +403,59 @@ export default function Home() {
           </motion.div>
         </div>
       )}
+
+      {/* Newsletter Section */}
+      <section className="py-20 md:py-28 px-6 bg-stone-50">
+        <div className="max-w-2xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-700 rounded-full px-4 py-2 mb-6 text-sm font-medium">
+              <Mail size={16} />
+              Newsletter
+            </div>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">{h.newsletterTitle}</h2>
+            <p className="text-xl text-stone-500 mb-10">{h.newsletterDesc}</p>
+
+            {newsletterStatus === 'success' ? (
+              <div className="inline-flex items-center gap-3 text-emerald-600 text-lg font-semibold">
+                <CheckCircle size={24} />
+                {h.newsletterSuccess}
+              </div>
+            ) : (
+              <form onSubmit={handleNewsletter} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <input
+                  type="email"
+                  value={newsletterEmail}
+                  onChange={e => { setNewsletterEmail(e.target.value); setNewsletterStatus('idle'); }}
+                  placeholder={h.newsletterPlaceholder}
+                  className="flex-1 px-5 py-4 rounded-full border border-stone-200 outline-none focus:ring-2 focus:ring-amber-400 text-stone-800 bg-white"
+                  required
+                />
+                <motion.button
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.97 }}
+                  type="submit"
+                  disabled={newsletterStatus === 'sending'}
+                  className="px-8 py-4 bg-amber-600 text-white rounded-full font-bold hover:bg-amber-700 transition-colors disabled:opacity-60"
+                >
+                  {newsletterStatus === 'sending' ? h.newsletterSending : h.newsletterBtn}
+                </motion.button>
+              </form>
+            )}
+
+            {newsletterStatus === 'error' && (
+              <p className="mt-4 text-rose-500 text-sm">{h.newsletterError}</p>
+            )}
+            {newsletterStatus === 'duplicate' && (
+              <p className="mt-4 text-amber-600 text-sm">{h.newsletterDuplicate}</p>
+            )}
+          </motion.div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section id="contact" className="py-16 md:py-24 px-6">
