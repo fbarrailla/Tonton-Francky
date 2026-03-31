@@ -1,4 +1,5 @@
 import dsOneImg from '../assets/portfolio/ds-one.png';
+import websiteVideo from '../assets/portfolio/website.mov';
 import hanNguyenEducationVideo from '../assets/portfolio/han-nguyen-education.mov';
 import reactChronometerVideo from '../assets/portfolio/react-chronometer.mov';
 import johnTranCodeVideo from '../assets/portfolio/johntran-code.mov';
@@ -83,6 +84,19 @@ export const projects: Project[] = [
     tags: ['HTML', 'CSS', 'JavaScript'],
     year: '2026',
     liveUrl: 'https://fbarrailla.github.io/fortune-wheel/',
+  },
+  {
+    slug: 'personal-website',
+    title: 'Personal Website',
+    descFr: 'Mon site portfolio personnel — présentation de mon parcours, de mes projets et de mes compétences en développement web.',
+    descEn: 'My personal portfolio website — showcasing my journey, projects and web development skills.',
+    clientFr: 'Projet personnel',
+    clientEn: 'Personal project',
+    media: websiteVideo,
+    mediaType: 'video',
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
+    year: '2026',
+    liveUrl: 'https://tonton-francky.com',
   },
   {
     slug: 'angele-ferrere',
