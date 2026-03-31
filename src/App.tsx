@@ -86,7 +86,7 @@ function AppContent() {
             className="fixed top-0 w-full z-50 overflow-hidden"
           >
             <a
-              href="https://www.instagram.com/p/DWUz78Dk22A/"
+              href="https://www.instagram.com/p/DWh5i3PE_CE/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 bg-amber-700 text-white text-sm font-semibold px-6 py-2.5 hover:bg-amber-800 transition-colors w-full text-center"
