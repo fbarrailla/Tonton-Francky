@@ -139,7 +139,7 @@ export default function Home() {
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         'template_3yov3hs',
-        { email: paypalEmail, userName: 'Tonton Francky' },
+        { from_email: paypalEmail, userName: 'Tonton Francky' },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       );
       setPaypalEmailStatus('sent');
