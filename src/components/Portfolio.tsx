@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { useLanguage } from '../i18n';
 import { projects } from '../data/portfolio';
+import GithubActivity from './GithubActivity';
 
 export default function Portfolio() {
   const { lang, t } = useLanguage();
@@ -89,6 +90,9 @@ export default function Portfolio() {
           ))}
         </div>
       </section>
+
+      {/* GitHub Activity */}
+      <GithubActivity />
 
       {/* CTA */}
       <section className="py-20 px-6 bg-gradient-to-br from-stone-100 to-slate-100">
