@@ -87,6 +87,9 @@ export default function Home() {
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'sending' | 'success' | 'error' | 'duplicate'>('idle');
+  const [paypalStep, setPaypalStep] = useState<'options' | 'confirm'>('options');
+  const [paypalEmail, setPaypalEmail] = useState('');
+  const [paypalEmailStatus, setPaypalEmailStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
 
   const handleNewsletter = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -119,6 +122,29 @@ export default function Home() {
       setNewsletterEmail('');
     } catch {
       setNewsletterStatus('error');
+    }
+  };
+
+  const closePayment = () => {
+    setPaymentOpen(false);
+    setPaypalStep('options');
+    setPaypalEmail('');
+    setPaypalEmailStatus('idle');
+  };
+
+  const handlePaypalConfirm = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setPaypalEmailStatus('sending');
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        'template_3yov3hs',
+        { email: paypalEmail, userName: 'Tonton Francky' },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      );
+      setPaypalEmailStatus('sent');
+    } catch {
+      setPaypalEmailStatus('error');
     }
   };
 
@@ -354,7 +380,7 @@ export default function Home() {
       {paymentOpen && (
         <div
           className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4"
-          onClick={() => setPaymentOpen(false)}
+          onClick={closePayment}
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -365,20 +391,58 @@ export default function Home() {
           >
             <div className="flex justify-between items-start mb-6">
               <div>
-                <h2 className="text-2xl font-bold text-stone-900">{h.paymentTitle}</h2>
-                <p className="text-stone-500 text-sm mt-1">{h.paymentSubtitle}</p>
+                <h2 className="text-2xl font-bold text-stone-900">
+                  {paypalStep === 'confirm' ? h.paypalConfirmTitle : h.paymentTitle}
+                </h2>
+                <p className="text-stone-500 text-sm mt-1">
+                  {paypalStep === 'confirm' ? h.paypalConfirmDesc : h.paymentSubtitle}
+                </p>
               </div>
-              <button onClick={() => setPaymentOpen(false)} className="text-stone-400 hover:text-stone-700 transition-colors ml-4">
+              <button onClick={closePayment} className="text-stone-400 hover:text-stone-700 transition-colors ml-4">
                 <X size={22} />
               </button>
             </div>
 
+            {paypalStep === 'confirm' ? (
+              <div>
+                {paypalEmailStatus === 'sent' ? (
+                  <div className="flex items-center gap-3 text-emerald-600 font-semibold">
+                    <CheckCircle size={22} />
+                    {h.paypalConfirmSuccess}
+                  </div>
+                ) : (
+                  <form onSubmit={handlePaypalConfirm} className="flex flex-col gap-3">
+                    <input
+                      type="email"
+                      value={paypalEmail}
+                      onChange={e => setPaypalEmail(e.target.value)}
+                      placeholder={h.paypalConfirmPlaceholder}
+                      className="w-full px-5 py-4 rounded-full border border-stone-200 outline-none focus:ring-2 focus:ring-amber-400 text-stone-800"
+                      required
+                    />
+                    <motion.button
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      type="submit"
+                      disabled={paypalEmailStatus === 'sending'}
+                      className="w-full py-4 bg-amber-600 text-white rounded-full font-bold hover:bg-amber-700 transition-colors disabled:opacity-60"
+                    >
+                      {paypalEmailStatus === 'sending' ? h.paypalConfirmSending : h.paypalConfirmBtn}
+                    </motion.button>
+                    {paypalEmailStatus === 'error' && (
+                      <p className="text-rose-500 text-sm text-center">{h.paypalConfirmError}</p>
+                    )}
+                  </form>
+                )}
+              </div>
+            ) : (
             <div className="space-y-4">
               {/* PayPal */}
               <a
                 href="https://www.paypal.com/ncp/payment/6PA3DPBZBZS8A"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => setPaypalStep('confirm')}
                 className="flex items-center gap-4 p-4 border-2 border-[#003087] rounded-2xl hover:bg-[#003087]/5 transition-colors group"
               >
                 <div className="w-12 h-12 bg-[#003087] rounded-xl flex items-center justify-center flex-shrink-0">
@@ -417,6 +481,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+            )}
           </motion.div>
         </div>
       )}
