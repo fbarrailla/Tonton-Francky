@@ -92,18 +92,29 @@ export default function Home() {
     e.preventDefault();
     setNewsletterStatus('sending');
     try {
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          subject: 'Nouvel inscrit à la newsletter !',
-          message: `Nouvel inscrit à la newsletter ! ${newsletterEmail}`,
-          from_name: 'Newsletter',
-          from_email: newsletterEmail,
-          to_email: 'hello@tontonfrancky.com',
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      );
+      await Promise.all([
+        emailjs.send(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          {
+            subject: 'Nouvel inscrit à la newsletter !',
+            message: `Nouvel inscrit à la newsletter ! ${newsletterEmail}`,
+            from_name: 'Newsletter',
+            from_email: newsletterEmail,
+            to_email: 'hello@tontonfrancky.com',
+          },
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+        ),
+        emailjs.send(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          'template_oj72mqh',
+          {
+            to_email: newsletterEmail,
+            userName: 'Tonton Francky',
+          },
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+        ),
+      ]);
       setNewsletterStatus('success');
       setNewsletterEmail('');
     } catch {
