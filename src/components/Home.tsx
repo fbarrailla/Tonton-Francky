@@ -101,7 +101,7 @@ export default function Home() {
             message: `Nouvel inscrit à la newsletter ! ${newsletterEmail}`,
             from_name: 'Newsletter',
             from_email: newsletterEmail,
-            to_email: 'hello@tontonfrancky.com',
+            email: 'hello@tontonfrancky.com',
           },
           import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
         ),
@@ -109,7 +109,7 @@ export default function Home() {
           import.meta.env.VITE_EMAILJS_SERVICE_ID,
           'template_oj72mqh',
           {
-            to_email: newsletterEmail,
+            email: newsletterEmail,
             userName: 'Tonton Francky',
           },
           import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
