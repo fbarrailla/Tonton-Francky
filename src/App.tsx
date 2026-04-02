@@ -6,7 +6,7 @@
 import React, { lazy, Suspense, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Instagram, Heart, MapPin, Twitch, Menu, X, Code2, UtensilsCrossed, User, Mail, Music, BookOpen } from 'lucide-react';
+import { Instagram, Heart, MapPin, Twitch, Menu, X, Code2, UtensilsCrossed, User, Mail, Music, BookOpen, Search } from 'lucide-react';
 
 const GithubIcon = ({ size = 20 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -21,6 +21,7 @@ const TikTokIcon = ({ size = 20 }: { size?: number }) => (
 );
 
 import SplashScreen from './components/SplashScreen';
+import SearchModal from './components/SearchModal';
 import Home from './components/Home';
 
 const Voyages = lazy(() => import('./components/Voyages'));
@@ -44,6 +45,7 @@ function ScrollToTop() {
 function AppContent() {
   const { lang, setLang, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const [bannerVisible, setBannerVisible] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
@@ -65,6 +67,18 @@ function AppContent() {
 
   // Close menu on navigation
   React.useEffect(() => { setMenuOpen(false); }, [location]);
+
+  // ⌘K / Ctrl+K to open search
+  React.useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        setSearchOpen((o) => !o);
+      }
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, []);
 
   // Console easter egg for curious developers
   React.useEffect(() => {
@@ -172,6 +186,14 @@ function AppContent() {
             <a href="https://github.com/fbarrailla" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-1.5 glass-card hover:bg-white/60 transition-colors">
               <GithubIcon size={16} />
             </a>
+            {/* Search button */}
+            <button
+              onClick={() => setSearchOpen(true)}
+              className="p-1.5 glass-card hover:bg-white/60 transition-colors flex items-center gap-1.5"
+              aria-label="Rechercher"
+            >
+              <Search size={16} />
+            </button>
             {/* Language picker */}
             <label htmlFor="lang-select" className="sr-only">Langue / Language</label>
             <select
@@ -185,7 +207,7 @@ function AppContent() {
             </select>
           </div>
 
-          {/* Mobile: lang switcher + burger */}
+          {/* Mobile: lang switcher + search + burger */}
           <div className="flex md:hidden items-center gap-3">
             <div className="flex items-center gap-1 glass-card px-2 py-1">
               {(['fr', 'en'] as Lang[]).map((l) => (
@@ -200,6 +222,13 @@ function AppContent() {
                 </button>
               ))}
             </div>
+            <button
+              onClick={() => setSearchOpen(true)}
+              className="p-2 glass-card hover:bg-white/60 transition-colors"
+              aria-label="Rechercher"
+            >
+              <Search size={20} />
+            </button>
             <button
               onClick={() => setMenuOpen((o) => !o)}
               className="p-2 glass-card hover:bg-white/60 transition-colors"
@@ -260,6 +289,8 @@ function AppContent() {
           )}
         </AnimatePresence>
       </nav>
+
+      <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
 
       <AnimatePresence mode="wait" initial={false}>
         <motion.div

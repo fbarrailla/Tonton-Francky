@@ -146,6 +146,13 @@ const translations = {
       ctaDesc: 'Retrouve François sur Instagram pour suivre ses aventures en temps réel.',
       ctaBtn: 'Suivre sur Instagram',
     },
+    search: {
+      placeholder: 'Chercher voyages, recettes, projets…',
+      noResults: 'Aucun résultat',
+      voyages: 'Voyages',
+      cuisine: 'Cuisine',
+      portfolio: 'Portfolio',
+    },
   },
   en: {
     nav: {
@@ -284,6 +291,13 @@ const translations = {
       ctaTitle: 'Want to know more?',
       ctaDesc: 'Follow François on Instagram to keep up with his adventures in real time.',
       ctaBtn: 'Follow on Instagram',
+    },
+    search: {
+      placeholder: 'Search travels, recipes, projects…',
+      noResults: 'No results',
+      voyages: 'Travels',
+      cuisine: 'Food',
+      portfolio: 'Portfolio',
     },
   },
 } as const;
