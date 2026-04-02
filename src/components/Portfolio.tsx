@@ -3,17 +3,20 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { LayoutGrid, GitCommitHorizontal } from 'lucide-react';
 import { useLanguage } from '../i18n';
 import { projects } from '../data/portfolio';
 import GithubActivity from './GithubActivity';
 import GithubStats from './GithubStats';
+import PortfolioTimeline from './PortfolioTimeline';
 
 export default function Portfolio() {
   const { lang, t } = useLanguage();
   const p = t.portfolio;
+  const [view, setView] = useState<'grid' | 'timeline'>('grid');
 
   useEffect(() => {
     const saved = sessionStorage.getItem('portfolio-scroll');
@@ -39,8 +42,31 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Projects grid */}
+      {/* Projects */}
       <section className="py-20 px-6">
+        {/* View toggle */}
+        <div className="max-w-5xl mx-auto flex justify-end mb-6">
+          <div className="inline-flex rounded-xl overflow-hidden border border-stone-200 dark:border-stone-700">
+            <button
+              onClick={() => setView('grid')}
+              className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium transition-colors ${view === 'grid' ? 'bg-stone-800 text-white dark:bg-stone-100 dark:text-stone-900' : 'bg-white text-stone-500 hover:text-stone-800 dark:bg-stone-900 dark:text-stone-400 dark:hover:text-stone-100'}`}
+            >
+              <LayoutGrid size={15} />
+              Grille
+            </button>
+            <button
+              onClick={() => setView('timeline')}
+              className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium transition-colors ${view === 'timeline' ? 'bg-stone-800 text-white dark:bg-stone-100 dark:text-stone-900' : 'bg-white text-stone-500 hover:text-stone-800 dark:bg-stone-900 dark:text-stone-400 dark:hover:text-stone-100'}`}
+            >
+              <GitCommitHorizontal size={15} />
+              Timeline
+            </button>
+          </div>
+        </div>
+
+        {view === 'timeline' ? (
+          <PortfolioTimeline />
+        ) : (
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <motion.div
@@ -90,6 +116,7 @@ export default function Portfolio() {
             </motion.div>
           ))}
         </div>
+        )}
       </section>
 
       {/* GitHub Stats */}
