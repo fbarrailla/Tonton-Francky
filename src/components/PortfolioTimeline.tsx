@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ExternalLink, Github } from 'lucide-react';
 import { useLanguage } from '../i18n';
-import { projects, type Project } from '../data/portfolio';
+import { projects as allProjects, type Project } from '../data/portfolio';
 
 // Group projects by year, sorted chronologically
 function groupByYear(items: Project[]): { year: string; projects: Project[] }[] {
@@ -32,10 +32,10 @@ const YEAR_COLORS: Record<string, string> = {
   '2026': 'bg-travel-gold',
 };
 
-export default function PortfolioTimeline() {
+export default function PortfolioTimeline({ projects }: { projects?: Project[] }) {
   const { lang, t } = useLanguage();
   const p = t.portfolio;
-  const groups = groupByYear(projects);
+  const groups = groupByYear(projects ?? allProjects);
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-12">
