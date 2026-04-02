@@ -14,7 +14,7 @@
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "lint": "tsc --noEmit",
-    "publish": "cp ./favicon.png ./dist/favicon.png && cp ./robots.txt ./dist/robots.txt && cp ./sitemap.xml ./dist/sitemap.xml && cp ./src/assets/miniature.png ./dist/assets/miniature.png && cp -r ./public/fonts ./dist/fonts"
+    "publish": "cp ./favicon.png ./dist/favicon.png && cp ./robots.txt ./dist/robots.txt && cp ./sitemap.xml ./dist/sitemap.xml && cp ./src/assets/miniature.png ./dist/assets/miniature.png && cp -r ./public/fonts ./dist/fonts && cp ./public/icon-192.png ./dist/icon-192.png && cp ./public/icon-512.png ./dist/icon-512.png"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -51,6 +51,7 @@
     "tsx": "^4.21.0",
     "typescript": "~5.8.2",
     "vite": "^6.2.0",
-    "vite-plugin-imagemin": "^0.4.0"
+    "vite-plugin-imagemin": "^0.4.0",
+    "vite-plugin-pwa": "^1.2.0"
   }
 }
