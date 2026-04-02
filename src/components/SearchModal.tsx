@@ -168,9 +168,9 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
             className="fixed left-1/2 top-[80px] z-[70] w-full max-w-xl -translate-x-1/2 px-4"
             onKeyDown={handleKeyDown}
           >
-            <div className="rounded-2xl bg-white shadow-2xl ring-1 ring-stone-200 overflow-hidden">
+            <div className="rounded-2xl bg-white dark:bg-stone-900 shadow-2xl ring-1 ring-stone-200 dark:ring-stone-700 overflow-hidden">
               {/* Input */}
-              <div className="flex items-center gap-3 px-4 py-3 border-b border-stone-100">
+              <div className="flex items-center gap-3 px-4 py-3 border-b border-stone-100 dark:border-stone-800">
                 <svg className="shrink-0 text-stone-400" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
                 </svg>
@@ -180,7 +180,7 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
                   placeholder={s.placeholder}
-                  className="flex-1 bg-transparent text-stone-800 placeholder-stone-400 outline-none text-base"
+                  className="flex-1 bg-transparent text-stone-800 dark:text-stone-100 placeholder-stone-400 dark:placeholder-stone-500 outline-none text-base"
                 />
                 {query && (
                   <button onClick={() => setQuery('')} className="text-stone-400 hover:text-stone-600 transition-colors">
@@ -215,7 +215,7 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
                           <li>
                             <button
                               className={`w-full flex items-center gap-3 px-4 py-2.5 text-left transition-colors ${
-                                activeIndex === index ? 'bg-amber-50' : 'hover:bg-stone-50'
+                                activeIndex === index ? 'bg-amber-50 dark:bg-amber-950/30' : 'hover:bg-stone-50 dark:hover:bg-stone-800'
                               }`}
                               onMouseEnter={() => setActiveIndex(index)}
                               onClick={() => select(item)}
@@ -227,13 +227,13 @@ export default function SearchModal({ open, onClose }: SearchModalProps) {
                                   className="w-10 h-10 rounded-lg object-cover shrink-0"
                                 />
                               ) : (
-                                <div className="w-10 h-10 rounded-lg bg-stone-100 flex items-center justify-center shrink-0">
+                                <div className="w-10 h-10 rounded-lg bg-stone-100 dark:bg-stone-800 flex items-center justify-center shrink-0">
                                   {typeIcon(item.type)}
                                 </div>
                               )}
                               <div className="min-w-0">
-                                <p className="text-sm font-semibold text-stone-800 truncate">{item.title}</p>
-                                <p className="text-xs text-stone-500 truncate">{item.subtitle}</p>
+                                <p className="text-sm font-semibold text-stone-800 dark:text-stone-100 truncate">{item.title}</p>
+                                <p className="text-xs text-stone-500 dark:text-stone-400 truncate">{item.subtitle}</p>
                               </div>
                             </button>
                           </li>

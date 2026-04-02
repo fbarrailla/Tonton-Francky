@@ -33,11 +33,11 @@ export default function PortfolioDetail() {
   return (
     <main className="flex-grow pt-10">
       {/* Hero */}
-      <section className="py-16 px-6 bg-gradient-to-br from-stone-100 to-slate-100">
+      <section className="py-16 px-6 bg-gradient-to-br from-stone-100 to-slate-100 dark:from-stone-900 dark:to-stone-900">
         <div className="max-w-4xl mx-auto">
           <Link
             to="/portfolio"
-            className="inline-flex items-center gap-2 text-stone-600 hover:text-stone-900 transition-colors mb-6"
+            className="inline-flex items-center gap-2 text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-stone-100 transition-colors mb-6"
           >
             <ArrowLeft size={16} /> {p.back}
           </Link>
@@ -46,7 +46,7 @@ export default function PortfolioDetail() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-stone-800 mb-4">
+            <h1 className="text-5xl md:text-6xl font-serif font-bold text-stone-800 dark:text-stone-100 mb-4">
               {project.title}
             </h1>
             <div className="flex flex-wrap gap-4 text-stone-600 text-sm">
@@ -111,24 +111,24 @@ export default function PortfolioDetail() {
           >
             {/* Description */}
             <div>
-              <h2 className="text-sm font-semibold text-stone-400 uppercase tracking-wide mb-3">
+              <h2 className="text-sm font-semibold text-stone-400 dark:text-stone-500 uppercase tracking-wide mb-3">
                 {p.about}
               </h2>
-              <p className="text-stone-700 leading-relaxed">
+              <p className="text-stone-700 dark:text-stone-200 leading-relaxed">
                 {lang === 'fr' ? project.descFr : project.descEn}
               </p>
             </div>
 
             {/* Tech stack */}
             <div>
-              <h2 className="text-sm font-semibold text-stone-400 uppercase tracking-wide mb-3">
+              <h2 className="text-sm font-semibold text-stone-400 dark:text-stone-500 uppercase tracking-wide mb-3">
                 {p.techStack}
               </h2>
               <div className="flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-sm font-medium bg-stone-100 text-stone-700 px-3 py-1.5 rounded-full"
+                    className="text-sm font-medium bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 px-3 py-1.5 rounded-full"
                   >
                     {tag}
                   </span>
@@ -138,13 +138,13 @@ export default function PortfolioDetail() {
 
             {/* Client */}
             <div>
-              <h2 className="text-sm font-semibold text-stone-400 uppercase tracking-wide mb-3">
+              <h2 className="text-sm font-semibold text-stone-400 dark:text-stone-500 uppercase tracking-wide mb-3">
                 {p.client}
               </h2>
-              <p className="text-stone-700 font-medium">
+              <p className="text-stone-700 dark:text-stone-200 font-medium">
                 {lang === 'fr' ? project.clientFr : project.clientEn}
               </p>
-              <p className="text-stone-500 text-sm mt-1">{project.year}</p>
+              <p className="text-stone-500 dark:text-stone-400 text-sm mt-1">{project.year}</p>
             </div>
           </motion.div>
         </div>

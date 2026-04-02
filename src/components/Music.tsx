@@ -14,15 +14,15 @@ export default function Music() {
   return (
     <main className="flex-grow pt-10">
       {/* Hero */}
-      <section className="py-20 px-6 bg-gradient-to-br from-rose-50 to-stone-100">
+      <section className="py-20 px-6 bg-gradient-to-br from-rose-50 to-stone-100 dark:from-stone-900 dark:to-stone-950">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6 text-stone-800">{m.heroTitle}</h1>
-            <p className="text-xl text-stone-600 max-w-2xl mx-auto">{m.heroDesc}</p>
+            <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6 text-stone-800 dark:text-stone-100">{m.heroTitle}</h1>
+            <p className="text-xl text-stone-600 dark:text-stone-300 max-w-2xl mx-auto">{m.heroDesc}</p>
           </motion.div>
         </div>
       </section>

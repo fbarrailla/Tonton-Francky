@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Lora", serif;
@@ -14,14 +16,23 @@
   body {
     @apply bg-travel-beige text-stone-800 font-sans antialiased;
   }
+  .dark body {
+    @apply bg-stone-950 text-stone-100;
+  }
 }
 
 .glass-card {
   @apply bg-white/40 backdrop-blur-md border border-white/20 rounded-3xl shadow-sm;
 }
+.dark .glass-card {
+  @apply bg-stone-800/50 border-stone-700/30;
+}
 
 .btn-primary {
   @apply bg-stone-800 text-white px-8 py-4 rounded-full font-semibold transition-all hover:bg-stone-700 hover:scale-105 active:scale-95 shadow-md;
+}
+.dark .btn-primary {
+  @apply bg-stone-100 text-stone-900 hover:bg-white;
 }
 
 @keyframes marquee {

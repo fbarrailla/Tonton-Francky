@@ -66,7 +66,7 @@ export default function Replays() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden"
+              className="bg-white dark:bg-stone-900 rounded-2xl shadow-lg overflow-hidden"
             >
               <div className="aspect-video w-full">
                 <iframe
@@ -82,7 +82,7 @@ export default function Replays() {
                 <h2 className="text-2xl font-serif font-bold mb-2">
                   {lang === 'fr' ? replay.title : replay.titleEn}
                 </h2>
-                <p className="text-stone-600 text-sm">{replay.date}</p>
+                <p className="text-stone-600 dark:text-stone-400 text-sm">{replay.date}</p>
               </div>
             </motion.article>
           ))}

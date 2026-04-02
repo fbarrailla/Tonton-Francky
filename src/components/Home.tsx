@@ -212,7 +212,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 md:py-28 px-6 bg-white">
+      <section className="py-20 md:py-28 px-6 bg-white dark:bg-stone-900">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -221,7 +221,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-5xl font-serif font-bold mb-8">{h.aboutTitle}</h2>
-            <div className="space-y-5 text-xl text-stone-600 leading-relaxed">
+            <div className="space-y-5 text-xl text-stone-600 dark:text-stone-300 leading-relaxed">
               <p>{h.aboutP1}</p>
               <p>{h.aboutP2}</p>
             </div>
@@ -243,7 +243,7 @@ export default function Home() {
       </section>
 
       {/* Instagram Followers Counter */}
-      <section className="py-20 md:py-28 px-6 bg-white overflow-hidden">
+      <section className="py-20 md:py-28 px-6 bg-white dark:bg-stone-900 overflow-hidden">
         <motion.div
           ref={counterRef}
           initial={{ opacity: 0, y: 40 }}
@@ -253,7 +253,7 @@ export default function Home() {
           className="max-w-2xl mx-auto text-center"
         >
           {/* Instagram badge */}
-          <div className="inline-flex items-center gap-2 bg-stone-100 rounded-full px-4 py-2 mb-8 text-stone-500 text-sm font-medium">
+          <div className="inline-flex items-center gap-2 bg-stone-100 dark:bg-stone-800 rounded-full px-4 py-2 mb-8 text-stone-500 dark:text-stone-400 text-sm font-medium">
             <div className="w-5 h-5 rounded-md bg-gradient-to-br from-pink-500 via-rose-500 to-purple-600 flex items-center justify-center">
               <Instagram size={12} className="text-white" />
             </div>
@@ -269,7 +269,7 @@ export default function Home() {
             <div className="absolute inset-0 blur-3xl opacity-20 bg-gradient-to-br from-pink-400 via-rose-400 to-purple-500 -z-10 scale-75" />
           </div>
 
-          <p className="text-2xl md:text-3xl font-semibold text-stone-500 mt-2 tracking-wide">
+          <p className="text-2xl md:text-3xl font-semibold text-stone-500 dark:text-stone-400 mt-2 tracking-wide">
             {h.followersLabel}
           </p>
 
@@ -288,7 +288,7 @@ export default function Home() {
       </section>
 
       {/* E-book Section */}
-      <section id="ebook" className="py-20 md:py-28 px-6 bg-white">
+      <section id="ebook" className="py-20 md:py-28 px-6 bg-white dark:bg-stone-900">
         <div className="max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -316,16 +316,16 @@ export default function Home() {
 
             {/* Text */}
             <div className="text-center md:text-left">
-              <div className="inline-flex items-center gap-2 bg-amber-50 text-amber-700 rounded-full px-4 py-2 mb-6 text-sm font-medium">
+              <div className="inline-flex items-center gap-2 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 rounded-full px-4 py-2 mb-6 text-sm font-medium">
                 <BookOpen size={16} />
                 {h.ebookTitle}
               </div>
-              <p className="text-xl text-stone-600 leading-relaxed mb-6 max-w-md">
+              <p className="text-xl text-stone-600 dark:text-stone-300 leading-relaxed mb-6 max-w-md">
                 {h.ebookDesc}
               </p>
               <div className="flex items-center gap-3 mb-8">
-                <span className="text-3xl font-black text-stone-900">{h.ebookPrice}</span>
-                <span className="text-lg text-stone-400 line-through">{h.ebookOriginalPrice}</span>
+                <span className="text-3xl font-black text-stone-900 dark:text-stone-100">{h.ebookPrice}</span>
+                <span className="text-lg text-stone-400 dark:text-stone-500 line-through">{h.ebookOriginalPrice}</span>
                 <span className="bg-rose-100 text-rose-600 text-sm font-bold px-2 py-1 rounded-full">-67%</span>
               </div>
               <div className="flex flex-wrap gap-3">
@@ -341,7 +341,7 @@ export default function Home() {
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => setEbookOpen(true)}
-                  className="inline-flex items-center gap-3 bg-stone-100 text-stone-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-stone-200 transition-colors"
+                  className="inline-flex items-center gap-3 bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 px-8 py-4 rounded-full font-bold text-lg hover:bg-stone-200 dark:hover:bg-stone-700 transition-colors"
                 >
                   <BookOpen size={20} />
                   {h.ebookCta}
@@ -386,19 +386,19 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.25 }}
-            className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl"
+            className="bg-white dark:bg-stone-900 rounded-3xl p-8 max-w-md w-full shadow-2xl"
             onClick={e => e.stopPropagation()}
           >
             <div className="flex justify-between items-start mb-6">
               <div>
-                <h2 className="text-2xl font-bold text-stone-900">
+                <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100">
                   {paypalStep === 'confirm' ? h.paypalConfirmTitle : h.paymentTitle}
                 </h2>
-                <p className="text-stone-500 text-sm mt-1">
+                <p className="text-stone-500 dark:text-stone-400 text-sm mt-1">
                   {paypalStep === 'confirm' ? h.paypalConfirmDesc : h.paymentSubtitle}
                 </p>
               </div>
-              <button onClick={closePayment} className="text-stone-400 hover:text-stone-700 transition-colors ml-4">
+              <button onClick={closePayment} className="text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 transition-colors ml-4">
                 <X size={22} />
               </button>
             </div>
@@ -417,7 +417,7 @@ export default function Home() {
                       value={paypalEmail}
                       onChange={e => setPaypalEmail(e.target.value)}
                       placeholder={h.paypalConfirmPlaceholder}
-                      className="w-full px-5 py-4 rounded-full border border-stone-200 outline-none focus:ring-2 focus:ring-amber-400 text-stone-800"
+                      className="w-full px-5 py-4 rounded-full border border-stone-200 dark:border-stone-700 outline-none focus:ring-2 focus:ring-amber-400 text-stone-800 dark:text-stone-100 bg-white dark:bg-stone-800"
                       required
                     />
                     <motion.button
@@ -457,18 +457,18 @@ export default function Home() {
               </a>
 
               {/* Bank transfer */}
-              <div className="p-4 border-2 border-stone-200 rounded-2xl">
-                <p className="font-bold text-stone-900 mb-1">{h.paymentTransfer}</p>
-                <p className="text-stone-500 text-sm mb-3">{h.paymentTransferDesc}</p>
+              <div className="p-4 border-2 border-stone-200 dark:border-stone-700 rounded-2xl">
+                <p className="font-bold text-stone-900 dark:text-stone-100 mb-1">{h.paymentTransfer}</p>
+                <p className="text-stone-500 dark:text-stone-400 text-sm mb-3">{h.paymentTransferDesc}</p>
                 <div className="space-y-2">
                   {[
                     { label: 'IBAN', value: 'FR76 1330 6001 2200 0435 3399 240' },
                     { label: 'BIC', value: 'AGRIFRPP833' },
                   ].map(({ label, value }) => (
-                    <div key={label} className="flex items-center justify-between bg-stone-50 rounded-xl px-3 py-2 gap-2">
+                    <div key={label} className="flex items-center justify-between bg-stone-50 dark:bg-stone-800 rounded-xl px-3 py-2 gap-2">
                       <div>
-                        <span className="text-xs text-stone-400 font-medium">{label}</span>
-                        <p className="font-mono text-sm text-stone-800 font-semibold">{value}</p>
+                        <span className="text-xs text-stone-400 dark:text-stone-500 font-medium">{label}</span>
+                        <p className="font-mono text-sm text-stone-800 dark:text-stone-100 font-semibold">{value}</p>
                       </div>
                       <button
                         onClick={() => copyToClipboard(value, label)}
@@ -487,7 +487,7 @@ export default function Home() {
       )}
 
       {/* Newsletter Section */}
-      <section className="py-20 md:py-28 px-6 bg-stone-50">
+      <section className="py-20 md:py-28 px-6 bg-stone-50 dark:bg-stone-950">
         <div className="max-w-2xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -500,7 +500,7 @@ export default function Home() {
               Newsletter
             </div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">{h.newsletterTitle}</h2>
-            <p className="text-xl text-stone-500 mb-10">{h.newsletterDesc}</p>
+            <p className="text-xl text-stone-500 dark:text-stone-400 mb-10">{h.newsletterDesc}</p>
 
             {newsletterStatus === 'success' ? (
               <div className="inline-flex items-center gap-3 text-emerald-600 text-lg font-semibold">
@@ -514,7 +514,7 @@ export default function Home() {
                   value={newsletterEmail}
                   onChange={e => { setNewsletterEmail(e.target.value); setNewsletterStatus('idle'); }}
                   placeholder={h.newsletterPlaceholder}
-                  className="flex-1 px-5 py-4 rounded-full border border-stone-200 outline-none focus:ring-2 focus:ring-amber-400 text-stone-800 bg-white"
+                  className="flex-1 px-5 py-4 rounded-full border border-stone-200 dark:border-stone-700 outline-none focus:ring-2 focus:ring-amber-400 text-stone-800 dark:text-stone-100 bg-white dark:bg-stone-800"
                   required
                 />
                 <motion.button
@@ -546,7 +546,7 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-stone-800 rounded-[3rem] p-10 md:p-16 text-center text-white relative overflow-hidden"
+            className="bg-stone-800 dark:bg-stone-700 rounded-[3rem] p-10 md:p-16 text-center text-white relative overflow-hidden"
           >
             <div className="absolute inset-0 opacity-10 pointer-events-none">
               <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-300 via-transparent to-transparent" />

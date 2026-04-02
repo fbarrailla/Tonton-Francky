@@ -23,7 +23,7 @@ export default function About() {
   return (
     <main className="flex-grow pt-10">
       {/* Hero */}
-      <section className="py-16 px-6 bg-gradient-to-br from-travel-blue to-stone-100">
+      <section className="py-16 px-6 bg-gradient-to-br from-travel-blue to-stone-100 dark:from-stone-800 dark:to-stone-900">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -33,10 +33,10 @@ export default function About() {
             <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white shadow-xl mx-auto mb-6">
               <img src={myFace} alt="François B." className="w-full h-full object-cover" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-stone-800 mb-4">
+            <h1 className="text-5xl md:text-6xl font-serif font-bold text-stone-800 dark:text-stone-100 mb-4">
               {a.title}
             </h1>
-            <p className="text-xl text-stone-600">{a.subtitle}</p>
+            <p className="text-xl text-stone-600 dark:text-stone-300">{a.subtitle}</p>
           </motion.div>
         </div>
       </section>
@@ -49,7 +49,7 @@ export default function About() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <p className="text-xl md:text-2xl text-stone-700 leading-relaxed text-center">
+            <p className="text-xl md:text-2xl text-stone-700 dark:text-stone-200 leading-relaxed text-center">
               {a.description}
             </p>
           </motion.div>
@@ -57,7 +57,7 @@ export default function About() {
       </section>
 
       {/* Topics */}
-      <section className="py-16 md:py-20 px-6 bg-stone-50">
+      <section className="py-16 md:py-20 px-6 bg-stone-50 dark:bg-stone-950">
         <div className="max-w-4xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -84,7 +84,7 @@ export default function About() {
                 >
                   <Icon size={22} />
                 </motion.div>
-                <p className="font-medium text-stone-700">{label}</p>
+                <p className="font-medium text-stone-700 dark:text-stone-200">{label}</p>
               </motion.div>
             ))}
           </div>
@@ -98,7 +98,7 @@ export default function About() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-stone-800 rounded-3xl p-12 md:p-16 text-center text-white"
+            className="bg-stone-800 dark:bg-stone-700 rounded-3xl p-12 md:p-16 text-center text-white"
           >
             <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">{a.ctaTitle}</h2>
             <p className="text-xl text-stone-300 mb-8 max-w-xl mx-auto">{a.ctaDesc}</p>

@@ -6,7 +6,7 @@
 import React, { lazy, Suspense, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Instagram, Heart, MapPin, Twitch, Menu, X, Code2, UtensilsCrossed, User, Mail, Music, BookOpen, Search } from 'lucide-react';
+import { Instagram, Heart, MapPin, Twitch, Menu, X, Code2, UtensilsCrossed, User, Mail, Music, BookOpen, Search, Sun, Moon } from 'lucide-react';
 
 const GithubIcon = ({ size = 20 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -35,6 +35,7 @@ const Portfolio = lazy(() => import('./components/Portfolio'));
 const PortfolioDetail = lazy(() => import('./components/PortfolioDetail'));
 const MusicPage = lazy(() => import('./components/Music'));
 import { LanguageProvider, useLanguage, type Lang } from './i18n';
+import { ThemeProvider, useTheme } from './theme';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -44,6 +45,7 @@ function ScrollToTop() {
 
 function AppContent() {
   const { lang, setLang, t } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [bannerVisible, setBannerVisible] = useState(true);
@@ -91,7 +93,7 @@ function AppContent() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-travel-beige dark:bg-stone-950 dark:text-stone-100 transition-colors duration-300">
       <ScrollToTop />
       <SplashScreen />
 
@@ -128,7 +130,7 @@ function AppContent() {
       </AnimatePresence>
 
       {/* Navigation */}
-      <nav className={`fixed w-full z-40 px-6 py-4 bg-white/80 backdrop-blur-md shadow-sm transition-all duration-300 ${bannerVisible ? 'top-[42px]' : 'top-0'}`}>
+      <nav className={`fixed w-full z-40 px-6 py-4 bg-white/80 dark:bg-stone-950/90 backdrop-blur-md shadow-sm dark:shadow-stone-900/50 transition-all duration-300 ${bannerVisible ? 'top-[42px]' : 'top-0'}`}>
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <Link to="/">
             <motion.span
@@ -142,23 +144,23 @@ function AppContent() {
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-1">
-            <Link to="/voyages" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/voyages') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
+            <Link to="/voyages" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/voyages') ? 'bg-white/70 dark:bg-stone-700/70 shadow-md font-semibold text-amber-800 dark:text-amber-400' : 'hover:bg-white/60 dark:hover:bg-stone-700/60'}`}>
               <MapPin size={14} />
               <span>{t.nav.travels}</span>
             </Link>
-            <Link to="/replays" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/replays') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
+            <Link to="/replays" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/replays') ? 'bg-white/70 dark:bg-stone-700/70 shadow-md font-semibold text-amber-800 dark:text-amber-400' : 'hover:bg-white/60 dark:hover:bg-stone-700/60'}`}>
               <Twitch size={14} />
               <span>{t.nav.replays}</span>
             </Link>
-            <Link to="/cuisine" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/cuisine') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
+            <Link to="/cuisine" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/cuisine') ? 'bg-white/70 dark:bg-stone-700/70 shadow-md font-semibold text-amber-800 dark:text-amber-400' : 'hover:bg-white/60 dark:hover:bg-stone-700/60'}`}>
               <UtensilsCrossed size={14} />
               <span>{t.nav.cuisine}</span>
             </Link>
-            <Link to="/portfolio" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/portfolio') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
+            <Link to="/portfolio" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/portfolio') ? 'bg-white/70 dark:bg-stone-700/70 shadow-md font-semibold text-amber-800 dark:text-amber-400' : 'hover:bg-white/60 dark:hover:bg-stone-700/60'}`}>
               <Code2 size={14} />
               <span>{t.nav.portfolio}</span>
             </Link>
-            <Link to="/musique" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/musique') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
+            <Link to="/musique" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/musique') ? 'bg-white/70 dark:bg-stone-700/70 shadow-md font-semibold text-amber-800 dark:text-amber-400' : 'hover:bg-white/60 dark:hover:bg-stone-700/60'}`}>
               <Music size={14} />
               <span>{t.nav.music}</span>
             </Link>
@@ -166,33 +168,41 @@ function AppContent() {
               <BookOpen size={14} />
               <span>{t.nav.ebook}</span>
             </button>
-            <Link to="/a-propos" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/a-propos') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
+            <Link to="/a-propos" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/a-propos') ? 'bg-white/70 dark:bg-stone-700/70 shadow-md font-semibold text-amber-800 dark:text-amber-400' : 'hover:bg-white/60 dark:hover:bg-stone-700/60'}`}>
               <User size={14} />
               <span>{t.nav.about}</span>
             </Link>
-            <Link to="/contact" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/contact') ? 'bg-white/70 shadow-md font-semibold text-amber-800' : 'hover:bg-white/60'}`}>
+            <Link to="/contact" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/contact') ? 'bg-white/70 dark:bg-stone-700/70 shadow-md font-semibold text-amber-800 dark:text-amber-400' : 'hover:bg-white/60 dark:hover:bg-stone-700/60'}`}>
               <Mail size={14} />
               <span>{t.nav.contact}</span>
             </Link>
-            <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-1.5 glass-card hover:bg-white/60 transition-colors">
+            <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-1.5 glass-card hover:bg-white/60 dark:hover:bg-stone-700/60 transition-colors">
               <Instagram size={16} />
             </a>
-            <a href="https://www.tiktok.com/@tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="p-1.5 glass-card hover:bg-white/60 transition-colors">
+            <a href="https://www.tiktok.com/@tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="p-1.5 glass-card hover:bg-white/60 dark:hover:bg-stone-700/60 transition-colors">
               <TikTokIcon size={16} />
             </a>
-            <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="Twitch" className="p-1.5 glass-card hover:bg-white/60 transition-colors">
+            <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="Twitch" className="p-1.5 glass-card hover:bg-white/60 dark:hover:bg-stone-700/60 transition-colors">
               <Twitch size={16} />
             </a>
-            <a href="https://github.com/fbarrailla" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-1.5 glass-card hover:bg-white/60 transition-colors">
+            <a href="https://github.com/fbarrailla" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-1.5 glass-card hover:bg-white/60 dark:hover:bg-stone-700/60 transition-colors">
               <GithubIcon size={16} />
             </a>
             {/* Search button */}
             <button
               onClick={() => setSearchOpen(true)}
-              className="p-1.5 glass-card hover:bg-white/60 transition-colors flex items-center gap-1.5"
+              className="p-1.5 glass-card hover:bg-white/60 dark:hover:bg-stone-700/60 transition-colors flex items-center gap-1.5"
               aria-label="Rechercher"
             >
               <Search size={16} />
+            </button>
+            {/* Theme toggle */}
+            <button
+              onClick={toggleTheme}
+              className="p-1.5 glass-card hover:bg-white/60 dark:hover:bg-stone-700/60 transition-colors"
+              aria-label="Changer le thème"
+            >
+              {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
             </button>
             {/* Language picker */}
             <label htmlFor="lang-select" className="sr-only">Langue / Language</label>
@@ -200,7 +210,7 @@ function AppContent() {
               id="lang-select"
               value={lang}
               onChange={(e) => setLang(e.target.value as Lang)}
-              className="text-sm font-semibold bg-transparent border-none outline-none cursor-pointer text-stone-700 hover:text-stone-900 transition-colors"
+              className="text-sm font-semibold bg-transparent border-none outline-none cursor-pointer text-stone-700 dark:text-stone-200 hover:text-stone-900 dark:hover:text-white transition-colors"
             >
               <option value="fr">🇫🇷 FR</option>
               <option value="en">🇬🇧 EN</option>
@@ -224,10 +234,17 @@ function AppContent() {
             </div>
             <button
               onClick={() => setSearchOpen(true)}
-              className="p-2 glass-card hover:bg-white/60 transition-colors"
+              className="p-2 glass-card hover:bg-white/60 dark:hover:bg-stone-700/60 transition-colors"
               aria-label="Rechercher"
             >
               <Search size={20} />
+            </button>
+            <button
+              onClick={toggleTheme}
+              className="p-2 glass-card hover:bg-white/60 dark:hover:bg-stone-700/60 transition-colors"
+              aria-label="Changer le thème"
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </button>
             <button
               onClick={() => setMenuOpen((o) => !o)}
@@ -249,40 +266,40 @@ function AppContent() {
               transition={{ duration: 0.2 }}
               className="md:hidden mt-4 flex flex-col gap-2 pb-2"
             >
-              <Link to="/voyages" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+              <Link to="/voyages" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
                 <MapPin size={16} /> {t.nav.travels}
               </Link>
-              <Link to="/replays" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+              <Link to="/replays" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
                 <Twitch size={16} /> {t.nav.replays}
               </Link>
-              <Link to="/cuisine" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+              <Link to="/cuisine" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
                 <UtensilsCrossed size={16} /> {t.nav.cuisine}
               </Link>
-              <Link to="/portfolio" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+              <Link to="/portfolio" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
                 <Code2 size={16} /> {t.nav.portfolio}
               </Link>
-              <Link to="/musique" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+              <Link to="/musique" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
                 <Music size={16} /> {t.nav.music}
               </Link>
-              <button onClick={scrollToEbook} className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium w-full text-left">
+              <button onClick={scrollToEbook} className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium w-full text-left">
                 <BookOpen size={16} /> {t.nav.ebook}
               </button>
-              <Link to="/a-propos" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+              <Link to="/a-propos" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
                 <User size={16} /> {t.nav.about}
               </Link>
-              <Link to="/contact" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+              <Link to="/contact" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
                 <Mail size={16} /> {t.nav.contact}
               </Link>
-              <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+              <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
                 <Instagram size={18} /> Instagram
               </a>
-              <a href="https://www.tiktok.com/@tonton__francky" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+              <a href="https://www.tiktok.com/@tonton__francky" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
                 <TikTokIcon size={18} /> TikTok
               </a>
-              <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+              <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
                 <Twitch size={18} /> Twitch
               </a>
-              <a href="https://github.com/fbarrailla" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 transition-colors font-medium">
+              <a href="https://github.com/fbarrailla" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
                 <GithubIcon size={18} /> GitHub
               </a>
             </motion.div>
@@ -353,33 +370,33 @@ function AppContent() {
       </AnimatePresence>
 
       {/* Footer */}
-      <footer className="py-12 px-6 border-t border-stone-200">
+      <footer className="py-12 px-6 border-t border-stone-200 dark:border-stone-800">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2 text-stone-600">
+          <div className="flex items-center gap-2 text-stone-600 dark:text-stone-400">
             <Heart size={16} className="text-red-400 animate-heartbeat" />
             <span className="font-medium">Tonton Francky — {t.footer.tagline}</span>
           </div>
           <div className="flex gap-8">
-            <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-stone-900 transition-colors flex items-center gap-2">
+            <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" className="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors flex items-center gap-2">
               <Instagram size={18} />
               <span>Instagram</span>
             </a>
-            <a href="https://www.tiktok.com/@tonton__francky" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-stone-900 transition-colors flex items-center gap-2">
+            <a href="https://www.tiktok.com/@tonton__francky" target="_blank" rel="noopener noreferrer" className="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors flex items-center gap-2">
               <TikTokIcon size={18} />
               <span>TikTok</span>
             </a>
-            <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-stone-900 transition-colors flex items-center gap-2">
+            <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" className="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors flex items-center gap-2">
               <Twitch size={18} />
               <span>Twitch</span>
             </a>
-            <a href="https://github.com/fbarrailla" target="_blank" rel="noopener noreferrer" className="text-stone-600 hover:text-stone-900 transition-colors flex items-center gap-2">
+            <a href="https://github.com/fbarrailla" target="_blank" rel="noopener noreferrer" className="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors flex items-center gap-2">
               <GithubIcon size={18} />
               <span>GitHub</span>
             </a>
           </div>
-          <div className="flex flex-col items-center gap-1 text-stone-600 text-sm">
-            <p>{t.footer.favicon} <a href="https://www.flaticon.com/authors/photo3idea-studio" target="_blank" rel="noopener noreferrer" className="hover:text-stone-700 transition-colors">photo3idea_studio</a></p>
-            <p>{t.footer.splash} <a href="https://flywithpunit.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-stone-700 transition-colors">Punit</a></p>
+          <div className="flex flex-col items-center gap-1 text-stone-600 dark:text-stone-400 text-sm">
+            <p>{t.footer.favicon} <a href="https://www.flaticon.com/authors/photo3idea-studio" target="_blank" rel="noopener noreferrer" className="hover:text-stone-700 dark:hover:text-stone-200 transition-colors">photo3idea_studio</a></p>
+            <p>{t.footer.splash} <a href="https://flywithpunit.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-stone-700 dark:hover:text-stone-200 transition-colors">Punit</a></p>
           </div>
         </div>
       </footer>
@@ -388,11 +405,13 @@ function AppContent() {
 }
 
 export default function App() {
-  return (    
+  return (
     <Router>
-      <LanguageProvider>
-        <AppContent />
-      </LanguageProvider>
+      <ThemeProvider>
+        <LanguageProvider>
+          <AppContent />
+        </LanguageProvider>
+      </ThemeProvider>
     </Router>
   );
 }

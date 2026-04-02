@@ -89,22 +89,22 @@ export function Contact() {
   }, [form, executeRecaptcha]);
 
   const inputClass = (field: keyof FormErrors) =>
-    `w-full px-4 py-3 rounded-xl border transition-colors outline-none focus:ring-2 focus:ring-amber-400 bg-white ${
-      errors[field] ? 'border-red-400' : 'border-stone-200 hover:border-stone-300'
+    `w-full px-4 py-3 rounded-xl border transition-colors outline-none focus:ring-2 focus:ring-amber-400 bg-white dark:bg-stone-800 text-stone-800 dark:text-stone-100 ${
+      errors[field] ? 'border-red-400' : 'border-stone-200 dark:border-stone-700 hover:border-stone-300 dark:hover:border-stone-600'
     }`;
 
   return (
     <main className="flex-grow pt-10">
       {/* Hero */}
-      <section className="py-14 px-6 bg-gradient-to-br from-travel-blue to-stone-100">
+      <section className="py-14 px-6 bg-gradient-to-br from-travel-blue to-stone-100 dark:from-stone-800 dark:to-stone-900">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-stone-800 mb-4">{c.title}</h1>
-            <p className="text-xl text-stone-600">{c.subtitle}</p>
+            <h1 className="text-5xl md:text-6xl font-serif font-bold text-stone-800 dark:text-stone-100 mb-4">{c.title}</h1>
+            <p className="text-xl text-stone-600 dark:text-stone-300">{c.subtitle}</p>
           </motion.div>
         </div>
       </section>
@@ -118,11 +118,11 @@ export function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
             onSubmit={handleSubmit}
             noValidate
-            className="bg-white rounded-3xl shadow-lg p-8 md:p-12 flex flex-col gap-7"
+            className="bg-white dark:bg-stone-900 rounded-3xl shadow-lg p-8 md:p-12 flex flex-col gap-7"
           >
             {/* Name */}
             <div className={shakeFields.has('name') ? 'shake' : ''}>
-              <label htmlFor="field-name" className="block text-sm font-semibold text-stone-700 mb-2">{c.name}</label>
+              <label htmlFor="field-name" className="block text-sm font-semibold text-stone-700 dark:text-stone-200 mb-2">{c.name}</label>
               <input
                 id="field-name"
                 type="text"
@@ -139,7 +139,7 @@ export function Contact() {
 
             {/* Email */}
             <div className={shakeFields.has('email') ? 'shake' : ''}>
-              <label htmlFor="field-email" className="block text-sm font-semibold text-stone-700 mb-2">{c.email}</label>
+              <label htmlFor="field-email" className="block text-sm font-semibold text-stone-700 dark:text-stone-200 mb-2">{c.email}</label>
               <input
                 id="field-email"
                 type="email"
@@ -156,7 +156,7 @@ export function Contact() {
 
             {/* Subject */}
             <div className={shakeFields.has('subject') ? 'shake' : ''}>
-              <label htmlFor="field-subject" className="block text-sm font-semibold text-stone-700 mb-2">{c.subject}</label>
+              <label htmlFor="field-subject" className="block text-sm font-semibold text-stone-700 dark:text-stone-200 mb-2">{c.subject}</label>
               <input
                 id="field-subject"
                 type="text"
@@ -173,7 +173,7 @@ export function Contact() {
 
             {/* Message */}
             <div className={shakeFields.has('message') ? 'shake' : ''}>
-              <label htmlFor="field-message" className="block text-sm font-semibold text-stone-700 mb-2">{c.message}</label>
+              <label htmlFor="field-message" className="block text-sm font-semibold text-stone-700 dark:text-stone-200 mb-2">{c.message}</label>
               <textarea
                 id="field-message"
                 name="message"

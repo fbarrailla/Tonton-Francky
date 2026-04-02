@@ -52,17 +52,17 @@ export default function Voyages() {
   return (
     <main className="flex-grow pt-10">
       {/* Hero Section */}
-      <section className="py-20 px-6 bg-gradient-to-br from-travel-blue to-stone-100">
+      <section className="py-20 px-6 bg-gradient-to-br from-travel-blue to-stone-100 dark:from-stone-800 dark:to-stone-900">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6 text-stone-800">
+            <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6 text-stone-800 dark:text-stone-100">
               {v.heroTitle}
             </h1>
-            <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-stone-600 dark:text-stone-300 max-w-3xl mx-auto leading-relaxed">
               {v.heroDesc}
             </p>
           </motion.div>
@@ -76,11 +76,11 @@ export default function Voyages() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-white rounded-3xl shadow-2xl overflow-hidden"
+            className="bg-white dark:bg-stone-900 rounded-3xl shadow-2xl overflow-hidden"
           >
-            <div className="p-8 bg-stone-50 border-b">
+            <div className="p-8 bg-stone-50 dark:bg-stone-950 border-b dark:border-stone-800">
               <h2 className="text-3xl font-serif font-bold text-center mb-4">{v.mapTitle}</h2>
-              <p className="text-stone-600 text-center">{v.mapDesc}</p>
+              <p className="text-stone-600 dark:text-stone-300 text-center">{v.mapDesc}</p>
             </div>
 
             <div className="h-[400px] relative">
@@ -135,7 +135,7 @@ export default function Voyages() {
       </section>
 
       {/* Destinations Grid */}
-      <section className="py-20 px-6 bg-stone-50">
+      <section className="py-20 px-6 bg-stone-50 dark:bg-stone-950">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -145,7 +145,7 @@ export default function Voyages() {
             className="text-center mb-14"
           >
             <h2 className="text-4xl font-serif font-bold mb-4">{v.gridTitle}</h2>
-            <p className="text-xl text-stone-600">{v.gridDesc}</p>
+            <p className="text-xl text-stone-600 dark:text-stone-300">{v.gridDesc}</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -158,7 +158,7 @@ export default function Voyages() {
                   viewport={{ once: true }}
                   transition={{ delay: Math.min(index * 0.1, 0.5), duration: 0.5 }}
                   whileHover={{ y: -5, transition: { duration: 0.2, ease: [0.25, 1, 0.5, 1] } }}
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full"
+                  className="bg-white dark:bg-stone-900 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full"
                 >
                   {destination.thumbnail && (
                     <div className="aspect-[4/3] overflow-hidden">
@@ -174,12 +174,12 @@ export default function Voyages() {
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-3">
                       <h3 className="text-xl font-bold">{destination.name}</h3>
-                      <span className="text-sm text-stone-600 bg-stone-100 px-2 py-1 rounded-full">
+                      <span className="text-sm text-stone-600 dark:text-stone-400 bg-stone-100 dark:bg-stone-800 px-2 py-1 rounded-full">
                         {destination.date}
                       </span>
                     </div>
                     <p className={`mb-2 font-medium ${regionColor(destination.country)}`}>{destination.country}</p>
-                    <p className="text-stone-700 leading-relaxed">
+                    <p className="text-stone-700 dark:text-stone-300 leading-relaxed">
                       {lang === 'fr' ? destination.description : destination.descriptionEn}
                     </p>
                     {destination.slug && (
@@ -214,7 +214,7 @@ export default function Voyages() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-stone-800 rounded-3xl p-12 text-center text-white relative overflow-hidden"
+            className="bg-stone-800 dark:bg-stone-700 rounded-3xl p-12 text-center text-white relative overflow-hidden"
           >
             <div className="relative z-10">
               <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">{v.ctaTitle}</h2>

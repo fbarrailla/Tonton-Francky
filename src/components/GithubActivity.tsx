@@ -62,7 +62,7 @@ function EventIcon({ type }: { type: string }) {
 }
 
 function heatColor(count: number): string {
-  if (count === 0) return 'bg-stone-100';
+  if (count === 0) return 'bg-stone-100 dark:bg-stone-800';
   if (count === 1) return 'bg-emerald-200';
   if (count <= 3) return 'bg-emerald-400';
   if (count <= 6) return 'bg-emerald-600';
@@ -124,7 +124,7 @@ export default function GithubActivity() {
   const WEEK_DAYS = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
 
   return (
-    <section className="py-16 px-6 bg-stone-50">
+    <section className="py-16 px-6 bg-stone-50 dark:bg-stone-950">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -139,7 +139,7 @@ export default function GithubActivity() {
               </svg>
             </div>
             <div>
-              <h2 className="text-2xl font-serif font-bold text-stone-800">Activité GitHub — Mars 2026</h2>
+              <h2 className="text-2xl font-serif font-bold text-stone-800 dark:text-stone-100">Activité GitHub — Mars 2026</h2>
               <a
                 href="https://github.com/fbarrailla"
                 target="_blank"
@@ -175,20 +175,20 @@ export default function GithubActivity() {
                   { label: 'Repos', value: reposSet.size },
                   { label: 'Jour le + actif', value: mostActive[1] > 0 ? `${mostActive[1]} ev. le ${mostActive[0]}` : '—' },
                 ].map(({ label, value }) => (
-                  <div key={label} className="bg-white rounded-2xl p-4 shadow-sm text-center">
-                    <p className="text-2xl font-bold text-stone-800">{value}</p>
-                    <p className="text-xs text-stone-500 mt-1">{label}</p>
+                  <div key={label} className="bg-white dark:bg-stone-900 rounded-2xl p-4 shadow-sm text-center">
+                    <p className="text-2xl font-bold text-stone-800 dark:text-stone-100">{value}</p>
+                    <p className="text-xs text-stone-500 dark:text-stone-400 mt-1">{label}</p>
                   </div>
                 ))}
               </div>
 
               {/* Heatmap calendar */}
-              <div className="bg-white rounded-2xl shadow-sm p-6">
-                <p className="text-xs font-semibold text-stone-400 uppercase tracking-wider mb-4">Contributions</p>
+              <div className="bg-white dark:bg-stone-900 rounded-2xl shadow-sm p-6">
+                <p className="text-xs font-semibold text-stone-400 dark:text-stone-500 uppercase tracking-wider mb-4">Contributions</p>
                 {/* Day labels */}
                 <div className="grid grid-cols-7 gap-1 mb-1">
                   {WEEK_DAYS.map(d => (
-                    <div key={d} className="text-center text-[10px] text-stone-400 font-medium">{d}</div>
+                    <div key={d} className="text-center text-[10px] text-stone-400 dark:text-stone-600 font-medium">{d}</div>
                   ))}
                 </div>
                 {/* Calendar grid */}
@@ -220,18 +220,18 @@ export default function GithubActivity() {
 
               {/* Recent activity */}
               {recent.length > 0 && (
-                <div className="bg-white rounded-2xl shadow-sm p-6">
-                  <p className="text-xs font-semibold text-stone-400 uppercase tracking-wider mb-4">Dernière activité</p>
-                  <ul className="flex flex-col divide-y divide-stone-50">
+                <div className="bg-white dark:bg-stone-900 rounded-2xl shadow-sm p-6">
+                  <p className="text-xs font-semibold text-stone-400 dark:text-stone-500 uppercase tracking-wider mb-4">Dernière activité</p>
+                  <ul className="flex flex-col divide-y divide-stone-50 dark:divide-stone-800">
                     {recent.map((ev) => {
                       const date = new Date(ev.created_at);
                       const day = date.getUTCDate();
                       const month = date.toLocaleString('fr-FR', { month: 'short', timeZone: 'UTC' });
                       return (
                         <li key={ev.id} className="flex items-center gap-3 py-2.5 text-sm">
-                          <span className="text-stone-400 w-14 shrink-0 text-xs">{day} {month}</span>
-                          <span className="text-stone-500"><EventIcon type={ev.type} /></span>
-                          <span className="text-stone-700 truncate">{getEventLabel(ev)}</span>
+                          <span className="text-stone-400 dark:text-stone-500 w-14 shrink-0 text-xs">{day} {month}</span>
+                          <span className="text-stone-500 dark:text-stone-400"><EventIcon type={ev.type} /></span>
+                          <span className="text-stone-700 dark:text-stone-200 truncate">{getEventLabel(ev)}</span>
                         </li>
                       );
                     })}
