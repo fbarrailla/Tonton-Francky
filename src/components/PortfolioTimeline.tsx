@@ -24,6 +24,8 @@ function groupByYear(items: Project[]): { year: string; projects: Project[] }[] 
 
 const YEAR_COLORS: Record<string, string> = {
   '2005': 'bg-stone-400 dark:bg-stone-600',
+  '2015': 'bg-stone-400 dark:bg-stone-600',
+  '2016': 'bg-stone-500 dark:bg-stone-500',
   '2023': 'bg-amber-500',
   '2024': 'bg-amber-600',
   '2025': 'bg-amber-700',

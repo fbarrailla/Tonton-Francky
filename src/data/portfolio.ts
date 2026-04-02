@@ -57,7 +57,7 @@ export const projects: Project[] = [
     media: reactChronometerVideo,
     mediaType: 'video',
     tags: ['React', 'TypeScript', 'CSS'],
-    year: '2024',
+    year: '2015',
   },
   {
     slug: 'han-nguyen-education',
@@ -69,7 +69,7 @@ export const projects: Project[] = [
     media: hanNguyenEducationVideo,
     mediaType: 'video',
     tags: ['React', 'Tailwind CSS', 'Vite'],
-    year: '2025',
+    year: '2026',
     liveUrl: 'https://han-nguyen-education.com',
   },
   {
@@ -108,7 +108,7 @@ export const projects: Project[] = [
     media: angeleFerrereVideo,
     mediaType: 'video',
     tags: ['React', 'Tailwind CSS', 'Vite'],
-    year: '2025',
+    year: '2026',
     liveUrl: 'https://angele-ferrere.com',
   },
   {
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     media: johnTranCodeVideo,
     mediaType: 'video',
     tags: ['React', 'Tailwind CSS', 'Vite'],
-    year: '2025',
+    year: '2026',
     liveUrl: 'https://johntran-code.com',
   },
   {
@@ -134,7 +134,7 @@ export const projects: Project[] = [
     media: pokedexGif,
     mediaType: 'gif',
     tags: ['React', 'PokéAPI', 'CSS'],
-    year: '2023',
+    year: '2016',
     githubUrl: 'https://github.com/fbarrailla/Pokedex',
   },
   {
@@ -184,7 +184,7 @@ export const projects: Project[] = [
     media: ticTacToeGif,
     mediaType: 'gif',
     tags: ['React', 'JavaScript'],
-    year: '2023',
+    year: '2016',
     githubUrl: 'https://github.com/fbarrailla/React-TicTacToe',
     liveUrl: 'https://fbarrailla.github.io/React-TicTacToe',
   },
@@ -258,7 +258,7 @@ export const projects: Project[] = [
     media: freeboxRemoteGif,
     mediaType: 'gif',
     tags: ['React Native', 'Android', 'TypeScript'],
-    year: '2023',
+    year: '2016',
     githubUrl: 'https://github.com/fbarrailla/RNAndroidFreeboxRemote',
   },
   {
