@@ -18,6 +18,7 @@ import todoVideo from '../assets/portfolio/todo.mov';
 import pigtokenVideo from '../assets/portfolio/pigtoken.mov';
 import asyncVideo from '../assets/portfolio/async.mov';
 import ticTacToeGif from '../assets/portfolio/tic-tac-toe.gif';
+import mentalSchemesVideo from '../assets/portfolio/mental-schemes.mov';
 
 export interface Project {
   slug: string;
@@ -58,6 +59,18 @@ export const projects: Project[] = [
     mediaType: 'video',
     tags: ['React', 'TypeScript', 'CSS'],
     year: '2015',
+  },
+  {
+    slug: 'mental-schemes',
+    title: 'Mental Schemes',
+    descFr: "Outil d'aide à la thérapie des schémas — saisie d'une situation déclenchante et génération d'un scénario de sortie structuré : pensées automatiques, émotions ressenties, comportements automatiques, analyse émotionnelle, schémas probables, désamorçage et phrase de sortie.",
+    descEn: 'Schema therapy support tool — describe a triggering situation and generate a structured exit scenario: automatic thoughts, felt emotions, automatic behaviors, emotional analysis, probable schemas, defusing and exit phrase.',
+    clientFr: 'Projet personnel',
+    clientEn: 'Personal project',
+    media: mentalSchemesVideo,
+    mediaType: 'video',
+    tags: ['React', 'TypeScript', 'Claude API', 'IA'],
+    year: '2026',
   },
   {
     slug: 'han-nguyen-education',
