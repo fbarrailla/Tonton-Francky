@@ -71,6 +71,7 @@ export const projects: Project[] = [
     mediaType: 'video',
     tags: ['React', 'TypeScript', 'Claude API', 'IA'],
     year: '2026',
+    liveUrl: 'https://mental-schemes.net',
   },
   {
     slug: 'han-nguyen-education',
