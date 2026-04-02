@@ -22,6 +22,7 @@ const TikTokIcon = ({ size = 20 }: { size?: number }) => (
 
 import SplashScreen from './components/SplashScreen';
 import SearchModal from './components/SearchModal';
+import ScrollProgressBar from './components/ScrollProgressBar';
 import Home from './components/Home';
 
 const Voyages = lazy(() => import('./components/Voyages'));
@@ -94,6 +95,7 @@ function AppContent() {
 
   return (
     <div className="min-h-screen flex flex-col bg-travel-beige dark:bg-stone-950 dark:text-stone-100 transition-colors duration-300">
+      <ScrollProgressBar />
       <ScrollToTop />
       <SplashScreen />
 
