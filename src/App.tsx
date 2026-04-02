@@ -373,12 +373,12 @@ function AppContent() {
 
       {/* Footer */}
       <footer className="py-12 px-6 border-t border-stone-200 dark:border-stone-800">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="max-w-7xl mx-auto flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
           <div className="flex items-center gap-2 text-stone-600 dark:text-stone-400">
             <Heart size={16} className="text-red-400 animate-heartbeat" />
             <span className="font-medium">Tonton Francky — {t.footer.tagline}</span>
           </div>
-          <div className="flex gap-8">
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8">
             <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" className="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors flex items-center gap-2">
               <Instagram size={18} />
               <span>Instagram</span>
@@ -396,7 +396,7 @@ function AppContent() {
               <span>GitHub</span>
             </a>
           </div>
-          <div className="flex flex-col items-center gap-1 text-stone-600 dark:text-stone-400 text-sm">
+          <div className="flex flex-col items-center md:items-end gap-1 text-stone-600 dark:text-stone-400 text-sm">
             <p>{t.footer.favicon} <a href="https://www.flaticon.com/authors/photo3idea-studio" target="_blank" rel="noopener noreferrer" className="hover:text-stone-700 dark:hover:text-stone-200 transition-colors">photo3idea_studio</a></p>
             <p>{t.footer.splash} <a href="https://flywithpunit.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-stone-700 dark:hover:text-stone-200 transition-colors">Punit</a></p>
           </div>
