@@ -397,10 +397,10 @@ export default function Home() {
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.25 }}
-            className="bg-white dark:bg-stone-900 rounded-3xl p-8 max-w-md w-full shadow-2xl"
+            className="bg-white dark:bg-stone-900 rounded-3xl max-w-md w-full shadow-2xl flex flex-col max-h-[90vh]"
             onClick={e => e.stopPropagation()}
           >
-            <div className="flex justify-between items-start mb-6">
+            <div className="flex justify-between items-start p-8 pb-6 flex-shrink-0">
               <div>
                 <h2 className="text-2xl font-bold text-stone-900 dark:text-stone-100">
                   {paypalStep === 'confirm' ? h.paypalConfirmTitle : h.paymentTitle}
@@ -413,6 +413,7 @@ export default function Home() {
                 <X size={22} />
               </button>
             </div>
+            <div className="overflow-y-auto px-8 pb-8 flex-1">
 
             {paypalStep === 'confirm' ? (
               <div>
@@ -518,6 +519,7 @@ export default function Home() {
               </div>
             </div>
             )}
+            </div>
           </motion.div>
         </div>
       )}
