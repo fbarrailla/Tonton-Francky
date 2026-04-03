@@ -6,17 +6,25 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { BookOpen, Check, ShieldCheck, Tag, X } from 'lucide-react';
+import { BookOpen, Check, Copy, ShieldCheck, Tag, X } from 'lucide-react';
 import { useLanguage } from '../i18n';
 
 const PROMO_CODE = 'TONTONFRANCKY50';
 const PAYPAL_PROMO_URL = 'https://www.paypal.com/ncp/payment/R7ZQ2BSCC6ZEG';
+const CRYPTO_ADDRESS = '0x55d398326f99059fF775485246999027B3197955';
 
 export default function EbookPromo() {
   const { t } = useLanguage();
   const p = t.ebookPromo;
   const [searchParams] = useSearchParams();
   const [previewOpen, setPreviewOpen] = useState(false);
+  const [cryptoCopied, setCryptoCopied] = useState(false);
+
+  function copyCryptoAddress() {
+    navigator.clipboard.writeText(CRYPTO_ADDRESS);
+    setCryptoCopied(true);
+    setTimeout(() => setCryptoCopied(false), 2000);
+  }
 
   const promoValid = searchParams.get('promo') === PROMO_CODE;
 
@@ -137,6 +145,24 @@ export default function EbookPromo() {
               <div className="flex items-center gap-2 text-stone-400 dark:text-stone-500 text-sm justify-center md:justify-start">
                 <ShieldCheck size={15} />
                 {p.guarantee}
+              </div>
+
+              {/* Crypto payment */}
+              <div className="mt-6 p-4 bg-stone-50 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700 rounded-2xl max-w-lg">
+                <p className="text-sm font-semibold text-stone-700 dark:text-stone-300 mb-2">{p.cryptoLabel}</p>
+                <div className="flex items-center gap-2">
+                  <code className="flex-1 text-xs bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-lg px-3 py-2 text-stone-600 dark:text-stone-400 font-mono truncate">
+                    {CRYPTO_ADDRESS}
+                  </code>
+                  <button
+                    onClick={copyCryptoAddress}
+                    className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold bg-amber-600 hover:bg-amber-700 text-white rounded-lg transition-colors flex-shrink-0"
+                  >
+                    <Copy size={13} />
+                    {cryptoCopied ? p.cryptoCopied : p.cryptoCopy}
+                  </button>
+                </div>
+                <p className="text-xs text-stone-400 dark:text-stone-500 mt-2">{p.cryptoNote}</p>
               </div>
             </motion.div>
           </div>
