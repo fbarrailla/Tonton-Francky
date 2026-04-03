@@ -8,6 +8,7 @@ import { useSearchParams } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { BookOpen, Check, Copy, ShieldCheck, Tag, X } from 'lucide-react';
 import { useLanguage } from '../i18n';
+import qrCode from '../assets/qr-code.png';
 
 const PROMO_CODE = 'TONTONFRANCKY50';
 const PAYPAL_PROMO_URL = 'https://www.paypal.com/ncp/payment/R7ZQ2BSCC6ZEG';
@@ -147,8 +148,15 @@ export default function EbookPromo() {
                 {p.guarantee}
               </div>
 
-              {/* Crypto payment */}
+              {/* QR Code payment */}
               <div className="mt-6 p-4 bg-stone-50 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700 rounded-2xl max-w-lg">
+                <p className="text-sm font-semibold text-stone-700 dark:text-stone-300 mb-1">{p.qrLabel}</p>
+                <p className="text-xs text-stone-400 dark:text-stone-500 mb-3">{p.qrNote}</p>
+                <img src={qrCode} alt="QR Code HSBC Vietnam" className="w-36 h-36 rounded-xl" />
+              </div>
+
+              {/* Crypto payment */}
+              <div className="mt-4 p-4 bg-stone-50 dark:bg-stone-800/60 border border-stone-200 dark:border-stone-700 rounded-2xl max-w-lg">
                 <p className="text-sm font-semibold text-stone-700 dark:text-stone-300 mb-2">{p.cryptoLabel}</p>
                 <div className="flex items-center gap-2">
                   <code className="flex-1 text-xs bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-lg px-3 py-2 text-stone-600 dark:text-stone-400 font-mono truncate">

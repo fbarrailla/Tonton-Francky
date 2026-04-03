@@ -6,6 +6,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import emailjs from '@emailjs/browser';
 import heroBg from '../assets/hero.png';
+import qrCode from '../assets/qr-code.png';
 import { motion, useInView } from 'motion/react';
 import {
   Instagram,
@@ -482,6 +483,13 @@ export default function Home() {
                     {cryptoCopied ? h.paymentCopied : h.paymentCopy}
                   </button>
                 </div>
+              </div>
+
+              {/* QR Code */}
+              <div className="p-4 border-2 border-stone-200 dark:border-stone-700 rounded-2xl">
+                <p className="font-bold text-stone-900 dark:text-stone-100 mb-1">{h.paymentQr}</p>
+                <p className="text-stone-500 dark:text-stone-400 text-sm mb-3">{h.paymentQrDesc}</p>
+                <img src={qrCode} alt="QR Code HSBC Vietnam" className="w-40 h-40 rounded-xl mx-auto" />
               </div>
 
               {/* Bank transfer */}
