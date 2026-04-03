@@ -20,12 +20,15 @@ import {
   X,
   Mail,
   CheckCircle,
+  Copy,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n';
 
 // ← Update this number when your follower count changes
 const INSTAGRAM_FOLLOWERS = 319;
+
+const CRYPTO_ADDRESS = '0x55d398326f99059fF775485246999027B3197955';
 
 function useCountUp(target: number, duration = 2200) {
   const [count, setCount] = useState(0);
@@ -90,6 +93,13 @@ export default function Home() {
   const [paypalStep, setPaypalStep] = useState<'options' | 'confirm'>('options');
   const [paypalEmail, setPaypalEmail] = useState('');
   const [paypalEmailStatus, setPaypalEmailStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [cryptoCopied, setCryptoCopied] = useState(false);
+
+  function copyCryptoAddress() {
+    navigator.clipboard.writeText(CRYPTO_ADDRESS);
+    setCryptoCopied(true);
+    setTimeout(() => setCryptoCopied(false), 2000);
+  }
 
   const handleNewsletter = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -455,6 +465,24 @@ export default function Home() {
                   <p className="text-stone-500 text-sm">paypal.com</p>
                 </div>
               </a>
+
+              {/* Crypto */}
+              <div className="p-4 border-2 border-stone-200 dark:border-stone-700 rounded-2xl">
+                <p className="font-bold text-stone-900 dark:text-stone-100 mb-1">{h.paymentCrypto}</p>
+                <p className="text-stone-500 dark:text-stone-400 text-sm mb-3">{h.paymentCryptoDesc}</p>
+                <div className="flex items-center gap-2">
+                  <code className="flex-1 text-xs bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-lg px-3 py-2 text-stone-600 dark:text-stone-400 font-mono truncate">
+                    {CRYPTO_ADDRESS}
+                  </code>
+                  <button
+                    onClick={copyCryptoAddress}
+                    className="flex items-center gap-1.5 text-xs font-semibold text-amber-700 hover:text-amber-900 transition-colors flex-shrink-0"
+                  >
+                    <Copy size={13} />
+                    {cryptoCopied ? h.paymentCopied : h.paymentCopy}
+                  </button>
+                </div>
+              </div>
 
               {/* Bank transfer */}
               <div className="p-4 border-2 border-stone-200 dark:border-stone-700 rounded-2xl">
