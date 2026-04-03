@@ -35,6 +35,7 @@ const CuisineDetail = lazy(() => import('./components/CuisineDetail'));
 const Portfolio = lazy(() => import('./components/Portfolio'));
 const PortfolioDetail = lazy(() => import('./components/PortfolioDetail'));
 const MusicPage = lazy(() => import('./components/Music'));
+const EbookPromo = lazy(() => import('./components/EbookPromo'));
 import { LanguageProvider, useLanguage, type Lang } from './i18n';
 import { ThemeProvider, useTheme } from './theme';
 
@@ -331,6 +332,7 @@ function AppContent() {
               <Route path="/portfolio" element={<Portfolio />} />
               <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
               <Route path="/musique" element={<MusicPage />} />
+              <Route path="/ebook" element={<EbookPromo />} />
               <Route path="/a-propos" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={
