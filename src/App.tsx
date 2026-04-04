@@ -140,7 +140,7 @@ function AppContent() {
       </AnimatePresence>
 
       {/* Navigation */}
-      <nav className={`fixed w-full z-40 transition-all duration-300 ${bannerVisible ? 'top-[42px]' : 'top-0'} ${scrolled ? 'bg-[#fefcf8]/97 dark:bg-[#0c0a09]/97 shadow-[0_1px_12px_rgba(120,53,15,0.08)]' : 'bg-[#fefcf8]/88 dark:bg-[#0c0a09]/88'} backdrop-blur-xl border-b border-amber-950/[0.07] dark:border-stone-800/70`}>
+      <nav className={`fixed w-full z-40 transition-all duration-300 ${bannerVisible ? 'top-[40px]' : 'top-0'} ${scrolled ? 'bg-[#fefcf8]/97 dark:bg-[#0c0a09]/97 shadow-[0_1px_12px_rgba(120,53,15,0.08)]' : 'bg-[#fefcf8]/88 dark:bg-[#0c0a09]/88'} backdrop-blur-xl border-b border-amber-950/[0.07] dark:border-stone-800/70`}>
         {/* Subtle amber accent line at top */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-600/30 to-transparent dark:via-amber-500/20" />
 
