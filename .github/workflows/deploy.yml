@@ -48,15 +48,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             set -e
-            cd ~/Tonton-Francky
-
-            # Pull latest code (server.ts, configs, etc.)
-            git pull origin main
-
-            # Install/update production dependencies
-            npm ci --omit=dev
-
-            # Reload app gracefully via PM2
-            pm2 reload ecosystem.config.cjs --env production
+            ~/deploy_francky.sh
 
             echo "Deploy complete"
