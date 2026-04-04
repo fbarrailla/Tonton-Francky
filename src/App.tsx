@@ -51,8 +51,15 @@ function AppContent() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [bannerVisible, setBannerVisible] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const scrollToEbook = () => {
     setMenuOpen(false);
@@ -133,102 +140,121 @@ function AppContent() {
       </AnimatePresence>
 
       {/* Navigation */}
-      <nav className={`fixed w-full z-40 px-6 py-4 bg-white/80 dark:bg-stone-950/90 backdrop-blur-md shadow-sm dark:shadow-stone-900/50 transition-all duration-300 ${bannerVisible ? 'top-[42px]' : 'top-0'}`}>
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <Link to="/">
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="font-serif text-2xl font-bold tracking-tight hover:text-stone-600 transition-colors"
-            >
-              Tonton Francky
-            </motion.span>
+      <nav className={`fixed w-full z-40 transition-all duration-300 ${bannerVisible ? 'top-[42px]' : 'top-0'} ${scrolled ? 'bg-[#fefcf8]/97 dark:bg-[#0c0a09]/97 shadow-[0_1px_12px_rgba(120,53,15,0.08)]' : 'bg-[#fefcf8]/88 dark:bg-[#0c0a09]/88'} backdrop-blur-xl border-b border-amber-950/[0.07] dark:border-stone-800/70`}>
+        {/* Subtle amber accent line at top */}
+        <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-600/30 to-transparent dark:via-amber-500/20" />
+
+        <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+
+          {/* Wordmark */}
+          <Link to="/" className="group flex flex-col items-start leading-none gap-0">
+            <motion.div initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }}>
+              <span className="block text-[0.58rem] uppercase tracking-[0.28em] font-semibold text-amber-700 dark:text-amber-500 mb-0.5 transition-colors group-hover:text-amber-600">
+                Tonton
+              </span>
+              <span className="block font-serif text-[1.3rem] font-bold tracking-tight text-stone-900 dark:text-stone-50 transition-colors group-hover:text-amber-900 dark:group-hover:text-amber-300">
+                Francky
+              </span>
+            </motion.div>
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1">
-            <Link to="/voyages" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/voyages') ? 'bg-white/70 dark:bg-stone-700/70 shadow-md font-semibold text-amber-800 dark:text-amber-400' : 'hover:bg-white/60 dark:hover:bg-stone-700/60'}`}>
-              <MapPin size={14} />
-              <span>{t.nav.travels}</span>
-            </Link>
-            <Link to="/replays" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/replays') ? 'bg-white/70 dark:bg-stone-700/70 shadow-md font-semibold text-amber-800 dark:text-amber-400' : 'hover:bg-white/60 dark:hover:bg-stone-700/60'}`}>
-              <Twitch size={14} />
-              <span>{t.nav.replays}</span>
-            </Link>
-            <Link to="/cuisine" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/cuisine') ? 'bg-white/70 dark:bg-stone-700/70 shadow-md font-semibold text-amber-800 dark:text-amber-400' : 'hover:bg-white/60 dark:hover:bg-stone-700/60'}`}>
-              <UtensilsCrossed size={14} />
-              <span>{t.nav.cuisine}</span>
-            </Link>
-            <Link to="/portfolio" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/portfolio') ? 'bg-white/70 dark:bg-stone-700/70 shadow-md font-semibold text-amber-800 dark:text-amber-400' : 'hover:bg-white/60 dark:hover:bg-stone-700/60'}`}>
-              <Code2 size={14} />
-              <span>{t.nav.portfolio}</span>
-            </Link>
-            <Link to="/musique" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/musique') ? 'bg-white/70 dark:bg-stone-700/70 shadow-md font-semibold text-amber-800 dark:text-amber-400' : 'hover:bg-white/60 dark:hover:bg-stone-700/60'}`}>
-              <Music size={14} />
-              <span>{t.nav.music}</span>
-            </Link>
-            <button onClick={scrollToEbook} className="glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 hover:bg-white/60">
-              <BookOpen size={14} />
+          <div className="hidden md:flex items-center gap-0.5">
+            {/* Primary links */}
+            {[
+              { to: '/voyages', icon: <MapPin size={13} />, label: t.nav.travels },
+              { to: '/replays', icon: <Twitch size={13} />, label: t.nav.replays },
+              { to: '/cuisine', icon: <UtensilsCrossed size={13} />, label: t.nav.cuisine },
+              { to: '/portfolio', icon: <Code2 size={13} />, label: t.nav.portfolio },
+              { to: '/musique', icon: <Music size={13} />, label: t.nav.music },
+              { to: '/a-propos', icon: <User size={13} />, label: t.nav.about },
+              { to: '/contact', icon: <Mail size={13} />, label: t.nav.contact },
+            ].map(({ to, icon, label }) => (
+              <Link
+                key={to}
+                to={to}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[0.8rem] font-medium transition-all duration-150 ${
+                  isActive(to)
+                    ? 'bg-amber-50 dark:bg-amber-950/50 text-amber-800 dark:text-amber-400 font-semibold'
+                    : 'text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/80 dark:hover:bg-stone-800/50'
+                }`}
+              >
+                {icon}
+                <span>{label}</span>
+              </Link>
+            ))}
+
+            <button
+              onClick={scrollToEbook}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[0.8rem] font-medium text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/80 dark:hover:bg-stone-800/50 transition-all duration-150"
+            >
+              <BookOpen size={13} />
               <span>{t.nav.ebook}</span>
             </button>
-            <Link to="/a-propos" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/a-propos') ? 'bg-white/70 dark:bg-stone-700/70 shadow-md font-semibold text-amber-800 dark:text-amber-400' : 'hover:bg-white/60 dark:hover:bg-stone-700/60'}`}>
-              <User size={14} />
-              <span>{t.nav.about}</span>
-            </Link>
-            <Link to="/contact" className={`glass-card px-3 py-1.5 text-sm transition-colors flex items-center gap-1.5 ${isActive('/contact') ? 'bg-white/70 dark:bg-stone-700/70 shadow-md font-semibold text-amber-800 dark:text-amber-400' : 'hover:bg-white/60 dark:hover:bg-stone-700/60'}`}>
-              <Mail size={14} />
-              <span>{t.nav.contact}</span>
-            </Link>
-            <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="p-1.5 glass-card hover:bg-white/60 dark:hover:bg-stone-700/60 transition-colors">
-              <Instagram size={16} />
-            </a>
-            <a href="https://www.tiktok.com/@tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="p-1.5 glass-card hover:bg-white/60 dark:hover:bg-stone-700/60 transition-colors">
-              <TikTokIcon size={16} />
-            </a>
-            <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" aria-label="Twitch" className="p-1.5 glass-card hover:bg-white/60 dark:hover:bg-stone-700/60 transition-colors">
-              <Twitch size={16} />
-            </a>
-            <a href="https://github.com/fbarrailla" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-1.5 glass-card hover:bg-white/60 dark:hover:bg-stone-700/60 transition-colors">
-              <GithubIcon size={16} />
-            </a>
-            {/* Search button */}
+
+            {/* Divider */}
+            <span className="mx-2 h-5 w-px bg-stone-200 dark:bg-stone-700/80 flex-shrink-0" aria-hidden="true" />
+
+            {/* Social icons */}
+            {[
+              { href: 'https://instagram.com/tonton__francky', label: 'Instagram', icon: <Instagram size={15} /> },
+              { href: 'https://www.tiktok.com/@tonton__francky', label: 'TikTok', icon: <TikTokIcon size={15} /> },
+              { href: 'https://twitch.tv/tonton__francky', label: 'Twitch', icon: <Twitch size={15} /> },
+              { href: 'https://github.com/fbarrailla', label: 'GitHub', icon: <GithubIcon size={15} /> },
+            ].map(({ href, label, icon }) => (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="p-1.5 rounded-md text-stone-400 dark:text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100/80 dark:hover:bg-stone-800/50 transition-all duration-150"
+              >
+                {icon}
+              </a>
+            ))}
+
+            {/* Divider */}
+            <span className="mx-2 h-5 w-px bg-stone-200 dark:bg-stone-700/80 flex-shrink-0" aria-hidden="true" />
+
+            {/* Utility: search, theme, lang */}
             <button
               onClick={() => setSearchOpen(true)}
-              className="p-1.5 glass-card hover:bg-white/60 dark:hover:bg-stone-700/60 transition-colors flex items-center gap-1.5"
               aria-label="Rechercher"
+              className="p-1.5 rounded-md text-stone-400 dark:text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100/80 dark:hover:bg-stone-800/50 transition-all duration-150"
             >
-              <Search size={16} />
+              <Search size={15} />
             </button>
-            {/* Theme toggle */}
             <button
               onClick={toggleTheme}
-              className="p-1.5 glass-card hover:bg-white/60 dark:hover:bg-stone-700/60 transition-colors"
               aria-label="Changer le thème"
+              className="p-1.5 rounded-md text-stone-400 dark:text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100/80 dark:hover:bg-stone-800/50 transition-all duration-150"
             >
-              {theme === 'dark' ? <Sun size={16} /> : <Moon size={16} />}
+              {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
             </button>
-            {/* Language picker */}
             <label htmlFor="lang-select" className="sr-only">Langue / Language</label>
             <select
               id="lang-select"
               value={lang}
               onChange={(e) => setLang(e.target.value as Lang)}
-              className="text-sm font-semibold bg-transparent border-none outline-none cursor-pointer text-stone-700 dark:text-stone-200 hover:text-stone-900 dark:hover:text-white transition-colors"
+              className="ml-1 text-[0.78rem] font-semibold bg-transparent border-none outline-none cursor-pointer text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors"
             >
               <option value="fr">🇫🇷 FR</option>
               <option value="en">🇬🇧 EN</option>
             </select>
           </div>
 
-          {/* Mobile: lang switcher + search + burger */}
-          <div className="flex md:hidden items-center gap-3">
-            <div className="flex items-center gap-1 glass-card px-2 py-1">
+          {/* Mobile controls */}
+          <div className="flex md:hidden items-center gap-2">
+            <div className="flex items-center gap-0.5 bg-stone-100/80 dark:bg-stone-800/60 rounded-lg px-1 py-1">
               {(['fr', 'en'] as Lang[]).map((l) => (
                 <button
                   key={l}
                   onClick={() => setLang(l)}
-                  className={`px-2 py-1 rounded-3xl text-sm font-semibold uppercase transition-colors ${
-                    lang === l ? 'bg-stone-800 text-white' : 'text-stone-600 hover:text-stone-800'
+                  className={`px-2.5 py-0.5 rounded-md text-xs font-bold uppercase transition-all ${
+                    lang === l
+                      ? 'bg-amber-700 text-white shadow-sm'
+                      : 'text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200'
                   }`}
                 >
                   {l}
@@ -237,24 +263,24 @@ function AppContent() {
             </div>
             <button
               onClick={() => setSearchOpen(true)}
-              className="p-2 glass-card hover:bg-white/60 dark:hover:bg-stone-700/60 transition-colors"
+              className="p-2 rounded-md text-stone-500 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
               aria-label="Rechercher"
             >
-              <Search size={20} />
+              <Search size={18} />
             </button>
             <button
               onClick={toggleTheme}
-              className="p-2 glass-card hover:bg-white/60 dark:hover:bg-stone-700/60 transition-colors"
+              className="p-2 rounded-md text-stone-500 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
               aria-label="Changer le thème"
             >
-              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
             <button
               onClick={() => setMenuOpen((o) => !o)}
-              className="p-2 glass-card hover:bg-white/60 transition-colors"
+              className="p-2 rounded-md text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
               aria-label="Menu"
             >
-              {menuOpen ? <X size={22} /> : <Menu size={22} />}
+              {menuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>
@@ -263,48 +289,61 @@ function AppContent() {
         <AnimatePresence>
           {menuOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
+              initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className="md:hidden mt-4 flex flex-col gap-2 pb-2"
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.18 }}
+              className="md:hidden border-t border-amber-950/[0.06] dark:border-stone-800 px-4 py-3 flex flex-col gap-0.5"
             >
-              <Link to="/voyages" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
-                <MapPin size={16} /> {t.nav.travels}
-              </Link>
-              <Link to="/replays" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
-                <Twitch size={16} /> {t.nav.replays}
-              </Link>
-              <Link to="/cuisine" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
-                <UtensilsCrossed size={16} /> {t.nav.cuisine}
-              </Link>
-              <Link to="/portfolio" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
-                <Code2 size={16} /> {t.nav.portfolio}
-              </Link>
-              <Link to="/musique" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
-                <Music size={16} /> {t.nav.music}
-              </Link>
-              <button onClick={scrollToEbook} className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium w-full text-left">
-                <BookOpen size={16} /> {t.nav.ebook}
+              {[
+                { to: '/voyages', icon: <MapPin size={15} />, label: t.nav.travels },
+                { to: '/replays', icon: <Twitch size={15} />, label: t.nav.replays },
+                { to: '/cuisine', icon: <UtensilsCrossed size={15} />, label: t.nav.cuisine },
+                { to: '/portfolio', icon: <Code2 size={15} />, label: t.nav.portfolio },
+                { to: '/musique', icon: <Music size={15} />, label: t.nav.music },
+                { to: '/a-propos', icon: <User size={15} />, label: t.nav.about },
+                { to: '/contact', icon: <Mail size={15} />, label: t.nav.contact },
+              ].map(({ to, icon, label }) => (
+                <Link
+                  key={to}
+                  to={to}
+                  className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                    isActive(to)
+                      ? 'bg-amber-50 dark:bg-amber-950/40 text-amber-800 dark:text-amber-400'
+                      : 'text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800'
+                  }`}
+                >
+                  {icon} {label}
+                </Link>
+              ))}
+              <button
+                onClick={scrollToEbook}
+                className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors w-full text-left"
+              >
+                <BookOpen size={15} /> {t.nav.ebook}
               </button>
-              <Link to="/a-propos" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
-                <User size={16} /> {t.nav.about}
-              </Link>
-              <Link to="/contact" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
-                <Mail size={16} /> {t.nav.contact}
-              </Link>
-              <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
-                <Instagram size={18} /> Instagram
-              </a>
-              <a href="https://www.tiktok.com/@tonton__francky" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
-                <TikTokIcon size={18} /> TikTok
-              </a>
-              <a href="https://twitch.tv/tonton__francky" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
-                <Twitch size={18} /> Twitch
-              </a>
-              <a href="https://github.com/fbarrailla" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-3 rounded-xl hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors font-medium">
-                <GithubIcon size={18} /> GitHub
-              </a>
+
+              <div className="my-1 h-px bg-stone-100 dark:bg-stone-800" />
+
+              <div className="flex gap-1 px-1">
+                {[
+                  { href: 'https://instagram.com/tonton__francky', label: 'Instagram', icon: <Instagram size={17} /> },
+                  { href: 'https://www.tiktok.com/@tonton__francky', label: 'TikTok', icon: <TikTokIcon size={17} /> },
+                  { href: 'https://twitch.tv/tonton__francky', label: 'Twitch', icon: <Twitch size={17} /> },
+                  { href: 'https://github.com/fbarrailla', label: 'GitHub', icon: <GithubIcon size={17} /> },
+                ].map(({ href, label, icon }) => (
+                  <a
+                    key={href}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="p-2.5 rounded-lg text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
+                  >
+                    {icon}
+                  </a>
+                ))}
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
