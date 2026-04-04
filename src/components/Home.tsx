@@ -29,7 +29,7 @@ import { useLanguage } from '../i18n';
 // ← Update this number when your follower count changes
 const INSTAGRAM_FOLLOWERS = 319;
 
-const CRYPTO_ADDRESS = '0x55d398326f99059fF775485246999027B3197955';
+const CRYPTO_ADDRESS = '0x49089DA6cA4752469ADc1A7BDA8eDf19925a073d';
 
 function useCountUp(target: number, duration = 2200) {
   const [count, setCount] = useState(0);

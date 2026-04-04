@@ -12,7 +12,7 @@ import qrCode from '../assets/qr-code.png';
 
 const PROMO_CODE = 'TONTONFRANCKY50';
 const PAYPAL_PROMO_URL = 'https://www.paypal.com/ncp/payment/R7ZQ2BSCC6ZEG';
-const CRYPTO_ADDRESS = '0x55d398326f99059fF775485246999027B3197955';
+const CRYPTO_ADDRESS = '0x49089DA6cA4752469ADc1A7BDA8eDf19925a073d';
 
 export default function EbookPromo() {
   const { t } = useLanguage();
