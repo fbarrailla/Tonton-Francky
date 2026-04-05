@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
     "server": "tsx server.ts",
-    "prebuild": "node scripts/autorotate.mjs",
+    "prebuild": "node scripts/autorotate.cjs",
     "build": "NODE_OPTIONS=--max-old-space-size=8192 vite build && npm run publish",
     "build:compress": "COMPRESS_IMAGES=true NODE_OPTIONS=--max-old-space-size=8192 vite build && npm run publish",
     "preview": "vite preview",
