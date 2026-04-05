@@ -241,7 +241,7 @@ export default function Home() {
       </section>
 
       {/* Interests Section */}
-      <section className="py-12 md:py-16 px-6">
+      <section className="py-12 md:pt-32 pb-16 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
             <InterestCard icon={Globe} text={h.interest1} delay={0.1} color="bg-sky-100 text-sky-700" />

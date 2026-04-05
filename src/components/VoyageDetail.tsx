@@ -411,7 +411,7 @@ export default function VoyageDetail() {
   return (
     <main className="flex-grow pt-24">
       {/* Hero */}
-      <section className="py-16 px-6 bg-gradient-to-br from-travel-blue to-stone-100">
+      <section className="pt-32 pb-16 px-6 bg-gradient-to-br from-travel-blue to-stone-100">
         <div className="max-w-5xl mx-auto">
           <Link
             to="/voyages"
@@ -436,7 +436,7 @@ export default function VoyageDetail() {
       </section>
 
       {/* Slideshow */}
-      <section className="py-12 md:py-16 px-6">
+      <section className="py-12 md:pt-32 pb-16 px-6">
         <div className="max-w-5xl mx-auto">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-stone-950 md:aspect-video">
             {/* Photo progress bar */}

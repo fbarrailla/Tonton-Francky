@@ -178,7 +178,7 @@ export default function EbookPromo() {
       </section>
 
       {/* Features */}
-      <section className="py-16 px-6 bg-white dark:bg-stone-900">
+      <section className="pt-32 pb-16 px-6 bg-white dark:bg-stone-900">
         <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

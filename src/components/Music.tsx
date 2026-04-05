@@ -28,7 +28,7 @@ export default function Music() {
       </section>
 
       {/* Playlist */}
-      <section className="py-16 px-6">
+      <section className="pt-32 pb-16 px-6">
         <div className="max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
