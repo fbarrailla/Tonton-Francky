@@ -7,6 +7,14 @@
 
 'use strict';
 
+// sharp requires Node 14.18+ (node: protocol). Skip gracefully on older servers
+// since CI (Node 22) already processes the images before deploying.
+const nodeMajor = parseInt(process.versions.node.split('.')[0], 10);
+if (nodeMajor < 14) {
+  console.log('autorotate: skipping (Node.js ' + process.version + ' too old, requires 14+)');
+  process.exit(0);
+}
+
 const { readdir, stat } = require('fs').promises;
 const { join, extname } = require('path');
 const sharp = require('sharp');
