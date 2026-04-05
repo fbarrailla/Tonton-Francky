@@ -58,6 +58,7 @@ jobs:
           script: |
             set -e
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash
+            source ./.bashrc
             nvm use --lts
             ~/deploy_francky.sh
 
