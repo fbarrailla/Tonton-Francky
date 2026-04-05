@@ -57,6 +57,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             set -e
+            nvm use --lts
             ~/deploy_francky.sh
 
             echo "Deploy complete"
