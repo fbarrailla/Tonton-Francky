@@ -23,7 +23,7 @@ export default function About() {
   return (
     <main className="flex-grow pt-24">
       {/* Hero */}
-      <section className="pt-32 pb-16 px-6 bg-gradient-to-br from-travel-blue to-stone-100 dark:from-stone-800 dark:to-stone-900">
+      <section className="pt-20 pb-16 px-6 bg-gradient-to-br from-travel-blue to-stone-100 dark:from-stone-800 dark:to-stone-900">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -57,7 +57,7 @@ export default function About() {
       </section>
 
       {/* Topics */}
-      <section className="pt-32 pb-16 md:pb-20 px-6 bg-stone-50 dark:bg-stone-950">
+      <section className="pt-20 pb-16 md:pb-20 px-6 bg-stone-50 dark:bg-stone-950">
         <div className="max-w-4xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}

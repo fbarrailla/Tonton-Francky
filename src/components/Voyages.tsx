@@ -208,7 +208,7 @@ export default function Voyages() {
       </section>
 
       {/* CTA Section */}
-      <section className="pt-32 pb-16 px-6">
+      <section className="pt-20 pb-16 px-6">
         <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}

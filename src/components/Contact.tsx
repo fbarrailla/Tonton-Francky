@@ -96,7 +96,7 @@ export function Contact() {
   return (
     <main className="flex-grow pt-24">
       {/* Hero */}
-      <section className="pt-32 pb-16 px-6 bg-gradient-to-br from-travel-blue to-stone-100 dark:from-stone-800 dark:to-stone-900">
+      <section className="pt-20 pb-16 px-6 bg-gradient-to-br from-travel-blue to-stone-100 dark:from-stone-800 dark:to-stone-900">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -110,7 +110,7 @@ export function Contact() {
       </section>
 
       {/* Form */}
-      <section className="pt-32 pb-16 px-6">
+      <section className="pt-20 pb-16 px-6">
         <div className="max-w-2xl mx-auto">
           <motion.form
             initial={{ opacity: 0, y: 20 }}

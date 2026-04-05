@@ -33,7 +33,7 @@ export default function PortfolioDetail() {
   return (
     <main className="flex-grow pt-24">
       {/* Hero */}
-      <section className="pt-32 pb-16 px-6 bg-gradient-to-br from-stone-100 to-slate-100 dark:from-stone-900 dark:to-stone-900">
+      <section className="pt-20 pb-16 px-6 bg-gradient-to-br from-stone-100 to-slate-100 dark:from-stone-900 dark:to-stone-900">
         <div className="max-w-4xl mx-auto">
           <Link
             to="/portfolio"
@@ -64,7 +64,7 @@ export default function PortfolioDetail() {
       </section>
 
       {/* Content */}
-      <section className="pt-32 pb-16 px-6">
+      <section className="pt-20 pb-16 px-6">
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Video — takes 2/3 */}
           <motion.div
