@@ -800,7 +800,7 @@ export default function CuisineDetail() {
 
   if (!entry) {
     return (
-      <main className="flex-grow pt-10 flex items-center justify-center">
+      <main className="flex-grow pt-24 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-3xl font-serif font-bold mb-4">{c.notFound}</h1>
           <Link to="/cuisine" className="text-stone-600 hover:underline flex items-center gap-2 justify-center">
@@ -812,7 +812,7 @@ export default function CuisineDetail() {
   }
 
   return (
-    <main className="flex-grow pt-10">
+    <main className="flex-grow pt-24">
       <section className="relative h-72 md:h-96 overflow-hidden">
         <img src={entry.hero} alt={lang === 'fr' ? entry.title : entry.titleEn} className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />

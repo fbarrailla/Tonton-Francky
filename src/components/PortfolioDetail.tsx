@@ -19,7 +19,7 @@ export default function PortfolioDetail() {
 
   if (!project) {
     return (
-      <main className="flex-grow pt-10 flex items-center justify-center">
+      <main className="flex-grow pt-24 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-3xl font-serif font-bold mb-4">Projet introuvable</h1>
           <Link to="/portfolio" className="text-stone-600 hover:underline flex items-center gap-2 justify-center">
@@ -31,7 +31,7 @@ export default function PortfolioDetail() {
   }
 
   return (
-    <main className="flex-grow pt-10">
+    <main className="flex-grow pt-24">
       {/* Hero */}
       <section className="py-16 px-6 bg-gradient-to-br from-stone-100 to-slate-100 dark:from-stone-900 dark:to-stone-900">
         <div className="max-w-4xl mx-auto">

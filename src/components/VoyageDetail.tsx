@@ -366,7 +366,7 @@ export default function VoyageDetail() {
 
   if (!voyage) {
     return (
-      <main className="flex-grow pt-10 flex items-center justify-center">
+      <main className="flex-grow pt-24 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-3xl font-serif font-bold mb-4">{d.notFound}</h1>
           <Link to="/voyages" className="text-stone-600 hover:underline flex items-center gap-2 justify-center">
@@ -409,7 +409,7 @@ export default function VoyageDetail() {
   }, [current]);
 
   return (
-    <main className="flex-grow pt-10">
+    <main className="flex-grow pt-24">
       {/* Hero */}
       <section className="py-16 px-6 bg-gradient-to-br from-travel-blue to-stone-100">
         <div className="max-w-5xl mx-auto">
