@@ -40,7 +40,7 @@ export default function Replays() {
   return (
     <main className="flex-grow pt-24">
       {/* Hero */}
-      <section className="py-16 px-6 bg-gradient-to-br from-purple-900 to-stone-900">
+      <section className="pt-32 pb-16 px-6 bg-gradient-to-br from-purple-900 to-stone-900">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

@@ -14,7 +14,7 @@ export default function Music() {
   return (
     <main className="flex-grow pt-24">
       {/* Hero */}
-      <section className="py-20 px-6 bg-gradient-to-br from-rose-50 to-stone-100 dark:from-stone-900 dark:to-stone-950">
+      <section className="pt-32 pb-20 px-6 bg-gradient-to-br from-rose-50 to-stone-100 dark:from-stone-900 dark:to-stone-950">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

@@ -52,7 +52,7 @@ export default function Voyages() {
   return (
     <main className="flex-grow pt-24">
       {/* Hero Section */}
-      <section className="py-20 px-6 bg-gradient-to-br from-travel-blue to-stone-100 dark:from-stone-800 dark:to-stone-900">
+      <section className="pt-32 pb-20 px-6 bg-gradient-to-br from-travel-blue to-stone-100 dark:from-stone-800 dark:to-stone-900">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

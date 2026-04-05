@@ -57,7 +57,7 @@ export default function About() {
       </section>
 
       {/* Topics */}
-      <section className="py-16 md:py-20 px-6 bg-stone-50 dark:bg-stone-950">
+      <section className="pt-32 pb-16 md:pb-20 px-6 bg-stone-50 dark:bg-stone-950">
         <div className="max-w-4xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
