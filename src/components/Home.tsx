@@ -206,11 +206,7 @@ export default function Home() {
           loading="eager"
           decoding="sync"
           className="absolute inset-0 w-full h-full object-cover opacity-75"
-        />
-
-        {/* Warm cinematic gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-amber-950/60 via-stone-900/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-stone-950/95 via-stone-900/30 to-transparent" />
+        />        
 
         {/* Sparkle layer */}
         {([
