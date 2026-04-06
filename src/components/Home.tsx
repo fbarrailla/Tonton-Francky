@@ -756,7 +756,7 @@ export default function Home() {
             className="bg-stone-800 dark:bg-stone-700 rounded-[3rem] p-10 md:p-16 text-center text-white relative overflow-hidden"
           >
             <div className="absolute inset-0 opacity-10 pointer-events-none">
-              <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-300 via-transparent to-transparent" />
+              <div className="absolute top-0 left-0 w-full h-full" />
             </div>
             <div className="relative z-10">
               <h2 className="text-4xl md:text-6xl font-serif font-bold mb-6">{h.ctaTitle}</h2>
