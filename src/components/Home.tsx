@@ -351,7 +351,7 @@ export default function Home() {
               {/* Portrait */}
               <div className="relative">
                 {/* Warm amber glow behind the photo */}
-                <div className="absolute -inset-2 rounded-3xl blur-2xl opacity-40 bg-gradient-to-t from-amber-500 via-amber-300 to-transparent" />
+                <div className="absolute -inset-2 rounded-3xl blur-2xl opacity-40" />
                 <img
                   src={heroMe}
                   alt="François"
