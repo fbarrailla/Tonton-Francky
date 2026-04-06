@@ -356,10 +356,6 @@ export default function Home() {
                   src={heroMe}
                   alt="François"
                   className="relative w-64 lg:w-80 xl:w-96 rounded-3xl object-cover object-top"
-                  style={{
-                    maskImage: 'linear-gradient(to bottom, black 55%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, black 55%, transparent 100%)',
-                  }}
                 />
                 {/* Glossy white overlay */}
                 <div className="absolute inset-0 rounded-3xl" />
