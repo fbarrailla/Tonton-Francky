@@ -27,7 +27,7 @@ import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n';
 
 // ← Update this number when your follower count changes
-const INSTAGRAM_FOLLOWERS = 319;
+const INSTAGRAM_FOLLOWERS = 343;
 
 const CRYPTO_ADDRESS = '0x49089DA6cA4752469ADc1A7BDA8eDf19925a073d';
 
