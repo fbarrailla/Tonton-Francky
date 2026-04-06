@@ -345,7 +345,7 @@ export default function Home() {
               className="hidden md:flex flex-shrink-0 items-end relative"
             >
               {/* Portrait */}
-              <div className="relative bg-white rounded-3xl overflow-hidden">
+              <div className="relative overflow-hidden">
                 <img
                   src={heroMe}
                   alt="François"
