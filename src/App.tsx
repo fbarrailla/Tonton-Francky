@@ -79,6 +79,16 @@ function AppContent() {
   // Close menu on navigation
   React.useEffect(() => { setMenuOpen(false); }, [location]);
 
+  // GTM page view on route change
+  React.useEffect(() => {
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    (window as any).dataLayer.push({
+      event: 'page_view',
+      page_path: location.pathname + location.search,
+      page_title: document.title,
+    });
+  }, [location.pathname, location.search]);
+
   // ⌘K / Ctrl+K to open search
   React.useEffect(() => {
     const handler = (e: KeyboardEvent) => {
