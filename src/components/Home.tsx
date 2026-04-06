@@ -6,6 +6,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import emailjs from '@emailjs/browser';
 import heroBg from '../assets/hero.png';
+import heroMe from '../assets/hero-me.jpeg';
 import qrCode from '../assets/qr-code.png';
 import { motion, useInView } from 'motion/react';
 import {
@@ -204,7 +205,7 @@ export default function Home() {
           fetchPriority="high"
           loading="eager"
           decoding="sync"
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          className="absolute inset-0 w-full h-full object-cover opacity-75"
         />
 
         {/* Warm cinematic gradient overlay */}
@@ -340,25 +341,50 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* Right: floating book cover (desktop only) */}
+            {/* Right: François photo + floating book cover (desktop only) */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="hidden md:block flex-shrink-0 cursor-pointer animate-float-book"
-              onClick={() => setEbookOpen(true)}
+              transition={{ duration: 0.9, delay: 0.35 }}
+              className="hidden md:flex flex-shrink-0 items-end relative"
             >
+              {/* Portrait */}
               <div className="relative">
-                <div className="absolute -inset-4 rounded-2xl blur-2xl opacity-50 bg-gradient-to-br from-amber-400 via-orange-400 to-amber-600" />
-                <div className="absolute -inset-1 rounded-xl opacity-60 bg-gradient-to-br from-amber-300/60 to-transparent" />
+                {/* Warm amber glow behind the photo */}
+                <div className="absolute -inset-2 rounded-3xl blur-2xl opacity-40 bg-gradient-to-t from-amber-500 via-amber-300 to-transparent" />
                 <img
-                  src="/ebook.png"
-                  alt="E-book cover"
-                  className="relative w-44 lg:w-52 rounded-xl shadow-2xl"
+                  src={heroMe}
+                  alt="François"
+                  className="relative w-64 lg:w-80 xl:w-96 rounded-3xl object-cover object-top"
+                  style={{
+                    maskImage: 'linear-gradient(to bottom, black 55%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, black 55%, transparent 100%)',
+                  }}
                 />
-                {/* Glint stripe */}
-                <div className="absolute top-0 left-4 right-4 h-px bg-white/50 rounded-full" />
+                {/* Edge fade to blend white bg left & right */}
+                <div className="absolute inset-0 rounded-3xl" style={{
+                  background: 'linear-gradient(to right, rgba(10,6,2,0.55) 0%, transparent 18%, transparent 82%, rgba(10,6,2,0.55) 100%)',
+                }} />
               </div>
+
+              {/* Book cover floating over the portrait */}
+              <motion.div
+                className="absolute -bottom-2 -left-12 cursor-pointer animate-float-book"
+                style={{ animationDelay: '0.5s' }}
+                whileHover={{ scale: 1.07, rotate: -1 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => setEbookOpen(true)}
+              >
+                <div className="relative">
+                  <div className="absolute -inset-3 rounded-xl blur-xl opacity-60 bg-gradient-to-br from-amber-400 to-orange-500" />
+                  <img
+                    src="/ebook.png"
+                    alt="E-book cover"
+                    className="relative w-28 lg:w-32 rounded-xl shadow-2xl"
+                  />
+                  <div className="absolute top-0 left-3 right-3 h-px bg-white/50 rounded-full" />
+                </div>
+              </motion.div>
             </motion.div>
 
           </div>
