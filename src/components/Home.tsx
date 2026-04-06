@@ -361,9 +361,9 @@ export default function Home() {
                     WebkitMaskImage: 'linear-gradient(to bottom, black 55%, transparent 100%)',
                   }}
                 />
-                {/* Edge fade to blend white bg left & right */}
+                {/* Glossy white overlay */}
                 <div className="absolute inset-0 rounded-3xl" style={{
-                  background: 'linear-gradient(to right, rgba(10,6,2,0.55) 0%, transparent 18%, transparent 82%, rgba(10,6,2,0.55) 100%)',
+                  background: 'linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.15) 35%, rgba(255,255,255,0.0) 60%, rgba(255,255,255,0.08) 100%)',
                 }} />
               </div>
 
