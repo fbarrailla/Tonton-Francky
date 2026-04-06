@@ -19,6 +19,7 @@ import pigtokenVideo from '../assets/portfolio/pigtoken.mov';
 import asyncVideo from '../assets/portfolio/async.mov';
 import ticTacToeGif from '../assets/portfolio/tic-tac-toe.gif';
 import mentalSchemesVideo from '../assets/portfolio/mental-schemes.mov';
+import blendHumanVideo from '../assets/portfolio/blendhuman.mov';
 
 export interface Project {
   slug: string;
@@ -137,6 +138,18 @@ export const projects: Project[] = [
     tags: ['React', 'Tailwind CSS', 'Vite'],
     year: '2026',
     liveUrl: 'https://johntran-code.com',
+  },
+  {
+    slug: 'blend-human',
+    title: 'Blend Human',
+    descFr: "Portfolio d'une jeune designer graphique et artiste 3D — présentation de ses créations visuelles, illustrations et rendus 3D.",
+    descEn: 'Portfolio of a young graphic designer and 3D artist — showcasing visual creations, illustrations and 3D renders.',
+    clientFr: 'Blend Human',
+    clientEn: 'Blend Human',
+    media: blendHumanVideo,
+    mediaType: 'video',
+    tags: ['React', 'Tailwind CSS', 'Vite'],
+    year: '2026',
   },
   {
     slug: 'pokedex',
