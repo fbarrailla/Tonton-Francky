@@ -150,6 +150,7 @@ export default function Home() {
     setPaypalStep('options');
     setPaypalEmail('');
     setPaypalEmailStatus('idle');
+    setSearchParams(prev => { const next = new URLSearchParams(prev); next.delete('thankyou'); return next; }, { replace: true });
   };
 
   const handlePaypalConfirm = async (e: React.FormEvent) => {
@@ -163,6 +164,7 @@ export default function Home() {
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       );
       setPaypalEmailStatus('sent');
+      setSearchParams(prev => { const next = new URLSearchParams(prev); next.set('thankyou', ''); return next; }, { replace: true });
     } catch {
       setPaypalEmailStatus('error');
     }
