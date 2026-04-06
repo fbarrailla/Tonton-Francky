@@ -362,9 +362,7 @@ export default function Home() {
                   }}
                 />
                 {/* Glossy white overlay */}
-                <div className="absolute inset-0 rounded-3xl" style={{
-                  background: 'linear-gradient(135deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.15) 35%, rgba(255,255,255,0.0) 60%, rgba(255,255,255,0.08) 100%)',
-                }} />
+                <div className="absolute inset-0 rounded-3xl" />
               </div>
 
               {/* Book cover floating over the portrait */}
