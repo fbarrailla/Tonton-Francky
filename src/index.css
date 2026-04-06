@@ -35,6 +35,33 @@
   @apply bg-stone-100 text-stone-900 hover:bg-white;
 }
 
+@keyframes sparkle-burst {
+  0%   { opacity: 0; transform: scale(0.15) rotate(-45deg); }
+  25%  { opacity: 1; transform: scale(1.15) rotate(15deg); }
+  50%  { opacity: 1; transform: scale(1)    rotate(0deg); }
+  75%  { opacity: 0.7; transform: scale(0.9) rotate(-10deg); }
+  100% { opacity: 0; transform: scale(0.2)  rotate(30deg); }
+}
+
+@keyframes sparkle-dot {
+  0%, 100% { opacity: 0; transform: scale(0); }
+  45%, 55%  { opacity: 0.85; transform: scale(1); }
+}
+
+@keyframes shimmer-sweep {
+  0%   { transform: translateX(-120%) skewX(-20deg); }
+  100% { transform: translateX(350%)  skewX(-20deg); }
+}
+
+@keyframes float-book {
+  0%, 100% { transform: translateY(0px) rotate(-2deg); }
+  50%       { transform: translateY(-10px) rotate(-2deg); }
+}
+
+.animate-float-book {
+  animation: float-book 5s ease-in-out infinite;
+}
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }

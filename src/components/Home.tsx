@@ -196,40 +196,182 @@ export default function Home() {
   return (
     <main className="flex-grow">
       {/* Hero Banner */}
-      <section className="relative w-full h-[520px] md:h-[600px] lg:h-[680px] overflow-hidden bg-[rgb(7_8_25)]">
-        {/* img tag (not CSS background) so the browser discovers it during HTML parsing → LCP */}
+      <section className="relative w-full min-h-[580px] md:min-h-[660px] lg:min-h-[740px] overflow-hidden bg-[rgb(12_8_4)]">
+        {/* Background photo */}
         <img
           src={heroBg}
           alt=""
           fetchPriority="high"
           loading="eager"
           decoding="sync"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover opacity-60"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-        <div className="relative z-10 h-full flex flex-col items-center justify-end pb-10 text-center px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+
+        {/* Warm cinematic gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-950/60 via-stone-900/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-stone-950/95 via-stone-900/30 to-transparent" />
+
+        {/* Sparkle layer */}
+        {([
+          { x: 6,  y: 14, size: 16, delay: 0,    dur: 2.5, star: true  },
+          { x: 13, y: 68, size: 8,  delay: 0.8,  dur: 3.2, star: false },
+          { x: 21, y: 28, size: 6,  delay: 1.5,  dur: 2.8, star: false },
+          { x: 29, y: 52, size: 20, delay: 0.3,  dur: 3.5, star: true  },
+          { x: 36, y: 9,  size: 10, delay: 1.1,  dur: 2.3, star: false },
+          { x: 43, y: 77, size: 12, delay: 0.6,  dur: 3.0, star: true  },
+          { x: 49, y: 22, size: 7,  delay: 1.8,  dur: 2.7, star: false },
+          { x: 56, y: 58, size: 17, delay: 0.4,  dur: 3.3, star: true  },
+          { x: 63, y: 16, size: 9,  delay: 1.3,  dur: 2.6, star: false },
+          { x: 69, y: 43, size: 13, delay: 0.9,  dur: 3.1, star: true  },
+          { x: 75, y: 72, size: 7,  delay: 2.0,  dur: 2.4, star: false },
+          { x: 81, y: 33, size: 18, delay: 0.2,  dur: 3.6, star: true  },
+          { x: 87, y: 62, size: 8,  delay: 1.4,  dur: 2.9, star: false },
+          { x: 93, y: 19, size: 14, delay: 0.7,  dur: 3.2, star: true  },
+          { x: 96, y: 48, size: 6,  delay: 1.6,  dur: 2.5, star: false },
+          { x: 16, y: 38, size: 11, delay: 1.2,  dur: 3.0, star: true  },
+          { x: 38, y: 63, size: 7,  delay: 0.5,  dur: 2.8, star: false },
+          { x: 52, y: 83, size: 15, delay: 1.7,  dur: 3.4, star: true  },
+          { x: 71, y: 86, size: 7,  delay: 0.1,  dur: 2.6, star: false },
+          { x: 84, y: 80, size: 12, delay: 1.9,  dur: 3.1, star: true  },
+          { x: 23, y: 84, size: 8,  delay: 0.35, dur: 2.9, star: false },
+          { x: 58, y: 40, size: 5,  delay: 1.0,  dur: 2.3, star: false },
+          { x: 77, y: 53, size: 15, delay: 0.85, dur: 3.5, star: true  },
+          { x: 44, y: 46, size: 7,  delay: 2.2,  dur: 2.7, star: false },
+          { x: 34, y: 20, size: 10, delay: 0.45, dur: 3.3, star: true  },
+          { x: 9,  y: 55, size: 9,  delay: 1.65, dur: 2.8, star: false },
+          { x: 90, y: 35, size: 11, delay: 0.55, dur: 3.0, star: true  },
+          { x: 47, y: 6,  size: 8,  delay: 1.25, dur: 2.5, star: false },
+        ] as const).map((s, i) => (
+          <span
+            key={i}
+            className="absolute pointer-events-none select-none"
+            style={{
+              left: `${s.x}%`,
+              top: `${s.y}%`,
+              fontSize: `${s.size}px`,
+              lineHeight: 1,
+              color: s.star ? '#fcd28a' : '#fff9ee',
+              animation: `${s.star ? 'sparkle-burst' : 'sparkle-dot'} ${s.dur}s ease-in-out ${s.delay}s infinite`,
+              opacity: 0,
+              textShadow: s.star ? '0 0 8px #f59e0b, 0 0 16px #f59e0b88' : '0 0 6px #fff',
+            }}
           >
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 bg-white text-stone-900 px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:bg-stone-100 transition-colors"
+            {s.star ? '✦' : '●'}
+          </span>
+        ))}
+
+        {/* Content */}
+        <div className="relative z-10 h-full flex items-end pb-14 md:pb-16 px-6 max-w-7xl mx-auto w-full">
+          <div className="flex flex-col md:flex-row items-end md:items-center justify-between w-full gap-8">
+
+            {/* Left: text */}
+            <div className="max-w-xl">
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="inline-flex items-center gap-2 mb-5"
+              >
+                <span className="flex items-center gap-2 bg-amber-400/15 backdrop-blur-sm border border-amber-400/30 text-amber-300 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full">
+                  <BookOpen size={13} />
+                  {h.ebookTitle}
+                  <span className="ml-1 bg-amber-400 text-amber-950 text-[10px] font-black px-2 py-0.5 rounded-full">-67%</span>
+                </span>
+              </motion.div>
+
+              {/* Headline */}
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.25 }}
+                className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-4"
+              >
+                {h.title1}{' '}
+                <span className="text-amber-300">{h.title2}</span>
+              </motion.h1>
+
+              {/* Description */}
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="text-stone-300 text-base md:text-lg leading-relaxed mb-7 max-w-md"
+              >
+                {h.ebookDesc}
+              </motion.p>
+
+              {/* CTAs */}
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.55 }}
+                className="flex flex-wrap items-center gap-3"
+              >
+                {/* Primary shiny CTA */}
+                <motion.button
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.97 }}
+                  onClick={() => setPaymentOpen(true)}
+                  className="relative inline-flex items-center gap-2 bg-amber-400 text-amber-950 px-7 py-3.5 rounded-full font-bold text-base shadow-lg overflow-hidden"
+                  style={{ boxShadow: '0 0 24px #f59e0b55, 0 4px 16px rgba(0,0,0,0.3)' }}
+                >
+                  {/* Shimmer sweep */}
+                  <span
+                    className="absolute inset-0 w-1/3 bg-white/40 blur-sm"
+                    style={{ animation: 'shimmer-sweep 2.8s ease-in-out 1.2s infinite' }}
+                  />
+                  <span className="relative flex items-center gap-2">
+                    ✦ {h.ebookBuy}
+                    <span className="text-amber-700 font-black">{h.ebookPrice}</span>
+                  </span>
+                </motion.button>
+
+                {/* Secondary CTA */}
+                <motion.button
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  onClick={() => setEbookOpen(true)}
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/25 text-white px-6 py-3.5 rounded-full font-semibold text-base hover:bg-white/20 transition-colors"
+                >
+                  <BookOpen size={16} />
+                  {h.ebookCta}
+                </motion.button>
+              </motion.div>
+            </div>
+
+            {/* Right: floating book cover (desktop only) */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="hidden md:block flex-shrink-0 cursor-pointer animate-float-book"
+              onClick={() => setEbookOpen(true)}
             >
-              {h.contactCta} <ChevronRight size={20} />
-            </Link>
-          </motion.div>
+              <div className="relative">
+                <div className="absolute -inset-4 rounded-2xl blur-2xl opacity-50 bg-gradient-to-br from-amber-400 via-orange-400 to-amber-600" />
+                <div className="absolute -inset-1 rounded-xl opacity-60 bg-gradient-to-br from-amber-300/60 to-transparent" />
+                <img
+                  src="/ebook.png"
+                  alt="E-book cover"
+                  className="relative w-44 lg:w-52 rounded-xl shadow-2xl"
+                />
+                {/* Glint stripe */}
+                <div className="absolute top-0 left-4 right-4 h-px bg-white/50 rounded-full" />
+              </div>
+            </motion.div>
+
+          </div>
         </div>
 
         {/* Scroll indicator */}
         <motion.div
-          className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/60 pointer-events-none"
+          className="absolute bottom-5 left-1/2 -translate-x-1/2 text-white/40 pointer-events-none"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, y: [0, 8, 0] }}
-          transition={{ opacity: { delay: 1.5, duration: 0.6 }, y: { repeat: Infinity, duration: 2, ease: 'easeInOut', delay: 1.5 } }}
+          transition={{ opacity: { delay: 1.8, duration: 0.6 }, y: { repeat: Infinity, duration: 2.2, ease: 'easeInOut', delay: 1.8 } }}
         >
-          <ChevronDown size={22} />
+          <ChevronDown size={20} />
         </motion.div>
       </section>
 
