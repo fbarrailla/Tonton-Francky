@@ -6,7 +6,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import emailjs from '@emailjs/browser';
 import heroBg from '../assets/hero.png';
-import heroMe from '../assets/hero-me.jpeg';
+import heroMe from '../assets/hero-me.png';
 import qrCode from '../assets/qr-code.png';
 import { motion, useInView } from 'motion/react';
 import {
