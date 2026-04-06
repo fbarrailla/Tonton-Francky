@@ -206,7 +206,8 @@ export default function Home() {
           loading="eager"
           decoding="sync"
           className="absolute inset-0 w-full h-full object-cover opacity-75"
-        />        
+        />
+        <div className="absolute inset-0 bg-black/50" />
 
         {/* Sparkle layer */}
         {([
