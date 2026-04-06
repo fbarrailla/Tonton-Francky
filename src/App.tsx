@@ -361,7 +361,7 @@ function AppContent() {
 
       <SearchModal open={searchOpen} onClose={() => setSearchOpen(false)} />
 
-      <AnimatePresence mode="wait" initial={false}>
+      <AnimatePresence mode="sync" initial={false}>
         <motion.div
           key={location.pathname}
           initial={{ opacity: 0 }}
@@ -370,7 +370,7 @@ function AppContent() {
           transition={{ duration: 0.18, ease: 'easeOut' }}
           className="flex-grow flex flex-col"
         >
-          <Suspense fallback={<div className="flex-grow" />}>
+          <Suspense fallback={<div className="flex-grow min-h-screen" />}>
             <Routes location={location}>
               <Route path="/" element={<Home />} />
               <Route path="/voyages" element={<Voyages />} />
