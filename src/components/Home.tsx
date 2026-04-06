@@ -87,11 +87,11 @@ export default function Home() {
   const h = t.home;
   const { count, ref: counterRef } = useCountUp(INSTAGRAM_FOLLOWERS);
   const [searchParams, setSearchParams] = useSearchParams();
-  const ebookOpen = searchParams.get('ebook') === '1';
+  const ebookOpen = searchParams.has('ebook');
   const setEbookOpen = (open: boolean) => {
     setSearchParams(prev => {
       const next = new URLSearchParams(prev);
-      if (open) next.set('ebook', '1');
+      if (open) next.set('ebook', '');
       else next.delete('ebook');
       return next;
     }, { replace: true });
