@@ -23,7 +23,7 @@ import {
   CheckCircle,
   Copy,
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useLanguage } from '../i18n';
 
 // ← Update this number when your follower count changes
@@ -86,7 +86,16 @@ export default function Home() {
   const { t } = useLanguage();
   const h = t.home;
   const { count, ref: counterRef } = useCountUp(INSTAGRAM_FOLLOWERS);
-  const [ebookOpen, setEbookOpen] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const ebookOpen = searchParams.get('ebook') === '1';
+  const setEbookOpen = (open: boolean) => {
+    setSearchParams(prev => {
+      const next = new URLSearchParams(prev);
+      if (open) next.set('ebook', '1');
+      else next.delete('ebook');
+      return next;
+    }, { replace: true });
+  };
   const [paymentOpen, setPaymentOpen] = useState(false);
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [newsletterEmail, setNewsletterEmail] = useState('');
