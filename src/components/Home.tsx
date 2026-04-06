@@ -345,15 +345,12 @@ export default function Home() {
               className="hidden md:flex flex-shrink-0 items-end relative"
             >
               {/* Portrait */}
-              <div className="relative">
-
+              <div className="relative bg-white rounded-3xl overflow-hidden">
                 <img
                   src={heroMe}
                   alt="François"
-                  className="relative w-64 lg:w-80 xl:w-96 rounded-3xl object-cover object-top"
+                  className="block w-64 lg:w-80 xl:w-96 object-cover object-top"
                 />
-                {/* Glossy white overlay */}
-                <div className="absolute inset-0 rounded-3xl" />
               </div>
 
               {/* Book cover floating over the portrait */}
