@@ -262,7 +262,7 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 h-full flex items-end pb-14 md:pb-16 px-6 max-w-7xl mx-auto w-full">
-          <div className="flex flex-col md:flex-row items-end md:items-center justify-between w-full gap-8">
+          <div className="flex flex-col md:flex-row items-end md:items-center py-32 justify-between w-full gap-8">
 
             {/* Left: text */}
             <div className="max-w-xl">
