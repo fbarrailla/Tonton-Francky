@@ -1,6 +1,8 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { existsSync } from 'fs';
+import { DatabaseSync } from 'node:sqlite';
 import 'dotenv/config';
 
 const app = express();
@@ -59,15 +61,17 @@ app.post('/api/contact', async (req, res) => {
   return res.json({ success: true });
 });
 
-// Public ebook sales count (reads from backoffice DB via its API)
-app.get('/api/ebook-sales', async (_req, res) => {
+// Public ebook sales count (reads directly from backoffice SQLite DB)
+const DB_PATH = path.join(__dirname, 'backoffice/orders.db');
+
+app.get('/api/ebook-sales', (_req, res) => {
   try {
-    console.log('access api/ebook-sales');
-    const r = await fetch('http://localhost:3002/api/stats');
-    if (!r.ok) throw new Error('backoffice unreachable');
-    const { total } = await r.json() as { total: number };
-    res.setHeader('Cache-Control', 'public, max-age=300'); // cache 5 min
-    res.json({ count: total });
+    if (!existsSync(DB_PATH)) throw new Error('DB not found');
+    const db = new DatabaseSync(DB_PATH, { open: true });
+    const row = db.prepare('SELECT COUNT(*) as total FROM orders').get() as { total: number };
+    db.close();
+    res.setHeader('Cache-Control', 'public, max-age=300');
+    res.json({ count: row.total });
   } catch {
     res.json({ count: null });
   }
