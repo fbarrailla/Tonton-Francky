@@ -62,6 +62,7 @@ app.post('/api/contact', async (req, res) => {
 // Public ebook sales count (reads from backoffice DB via its API)
 app.get('/api/ebook-sales', async (_req, res) => {
   try {
+    console.log('access api/ebook-sales');
     const r = await fetch('http://localhost:3002/api/stats');
     if (!r.ok) throw new Error('backoffice unreachable');
     const { total } = await r.json() as { total: number };
