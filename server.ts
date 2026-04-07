@@ -59,6 +59,19 @@ app.post('/api/contact', async (req, res) => {
   return res.json({ success: true });
 });
 
+// Public ebook sales count (reads from backoffice DB via its API)
+app.get('/api/ebook-sales', async (_req, res) => {
+  try {
+    const r = await fetch('http://localhost:3002/api/stats');
+    if (!r.ok) throw new Error('backoffice unreachable');
+    const { total } = await r.json() as { total: number };
+    res.setHeader('Cache-Control', 'public, max-age=300'); // cache 5 min
+    res.json({ count: total });
+  } catch {
+    res.json({ count: null });
+  }
+});
+
 // Serve built frontend in production
 if (process.env.NODE_ENV === 'production') {
   // Vite hashes asset filenames → safe to cache indefinitely

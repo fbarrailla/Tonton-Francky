@@ -83,9 +83,21 @@ const InterestCard = ({ icon: Icon, text, delay, color = 'bg-travel-blue text-st
   </motion.div>
 );
 
+function useSalesCount() {
+  const [count, setCount] = React.useState<number | null>(null);
+  React.useEffect(() => {
+    fetch('/api/ebook-sales')
+      .then(r => r.json())
+      .then(({ count }) => { if (count !== null) setCount(count); })
+      .catch(() => {});
+  }, []);
+  return count;
+}
+
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const h = t.home;
+  const salesCount = useSalesCount();
   const { count, ref: counterRef } = useCountUp(INSTAGRAM_FOLLOWERS);
   const [searchParams, setSearchParams] = useSearchParams();
   const ebookOpen = searchParams.has('ebook') && !searchParams.has('thankyou');
@@ -501,11 +513,21 @@ export default function Home() {
               <p className="text-xl text-stone-600 dark:text-stone-300 leading-relaxed mb-6 max-w-md">
                 {h.ebookDesc}
               </p>
-              <div className="flex items-center gap-3 mb-8">
+              <div className="flex items-center gap-3 mb-4">
                 <span className="text-3xl font-black text-stone-900 dark:text-stone-100">{h.ebookPrice}</span>
                 <span className="text-lg text-stone-400 dark:text-stone-500 line-through">{h.ebookOriginalPrice}</span>
                 <span className="bg-rose-100 text-rose-600 text-sm font-bold px-2 py-1 rounded-full">-67%</span>
               </div>
+              {salesCount !== null && salesCount > 0 && (
+                <div className="flex items-center gap-2 mb-8 text-sm text-stone-500 dark:text-stone-400">
+                  <span className="flex -space-x-1">
+                    {['🧑', '👩', '👨'].map((e, i) => (
+                      <span key={i} className="w-6 h-6 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center text-xs border-2 border-white dark:border-stone-900">{e}</span>
+                    ))}
+                  </span>
+                  <span><strong className="text-stone-700 dark:text-stone-200">{salesCount}</strong> {lang === 'fr' ? 'personnes ont déjà acheté cet e-book' : 'people have already bought this e-book'} ✅</span>
+                </div>
+              )}
               <div className="flex flex-wrap gap-3">
                 <motion.button
                   whileHover={{ scale: 1.04 }}
