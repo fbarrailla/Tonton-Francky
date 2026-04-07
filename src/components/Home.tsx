@@ -88,7 +88,7 @@ export default function Home() {
   const h = t.home;
   const { count, ref: counterRef } = useCountUp(INSTAGRAM_FOLLOWERS);
   const [searchParams, setSearchParams] = useSearchParams();
-  const ebookOpen = searchParams.has('ebook');
+  const ebookOpen = searchParams.has('ebook') && !searchParams.has('thankyou');
   const setEbookOpen = (open: boolean) => {
     setSearchParams(prev => {
       const next = new URLSearchParams(prev);
