@@ -9,5 +9,13 @@ module.exports = {
         PORT: 3001,
       },
     },
+    {
+      name: 'backoffice',
+      script: 'backoffice/server.js',
+      env_production: {
+        NODE_ENV: 'production',
+        PORT: 3002,
+      },
+    },
   ],
 };
