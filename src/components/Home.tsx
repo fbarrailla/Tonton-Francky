@@ -97,13 +97,14 @@ export default function Home() {
       return next;
     }, { replace: true });
   };
-  const [paymentOpen, setPaymentOpen] = useState(false);
+  const hasThankyou = searchParams.has('thankyou');
+  const [paymentOpen, setPaymentOpen] = useState(hasThankyou);
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'sending' | 'success' | 'error' | 'duplicate'>('idle');
-  const [paypalStep, setPaypalStep] = useState<'options' | 'confirm'>('options');
+  const [paypalStep, setPaypalStep] = useState<'options' | 'confirm'>(hasThankyou ? 'confirm' : 'options');
   const [paypalEmail, setPaypalEmail] = useState('');
-  const [paypalEmailStatus, setPaypalEmailStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [paypalEmailStatus, setPaypalEmailStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>(hasThankyou ? 'sent' : 'idle');
   const [cryptoCopied, setCryptoCopied] = useState(false);
 
   function copyCryptoAddress() {
