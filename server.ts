@@ -62,7 +62,7 @@ app.post('/api/contact', async (req, res) => {
 });
 
 // Public ebook sales count (reads directly from backoffice SQLite DB)
-const DB_PATH = path.join(__dirname, 'backoffice/orders.db');
+const DB_PATH = process.env.DB_PATH || path.join(__dirname, 'backoffice/orders.db');
 
 app.get('/api/ebook-sales', (_req, res) => {
   try {
