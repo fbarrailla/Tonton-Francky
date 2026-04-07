@@ -38,6 +38,7 @@ const MusicPage = lazy(() => import('./components/Music'));
 const EbookPromo = lazy(() => import('./components/EbookPromo'));
 import { LanguageProvider, useLanguage, type Lang } from './i18n';
 import { ThemeProvider, useTheme } from './theme';
+import { usePageMeta } from './usePageMeta';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -48,6 +49,7 @@ function ScrollToTop() {
 function AppContent() {
   const { lang, setLang, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
+  usePageMeta(lang);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [bannerVisible, setBannerVisible] = useState(true);
