@@ -4,7 +4,8 @@ import { ArrowLeft, Clock, BookOpen, ShoppingCart } from 'lucide-react';
 import { useLanguage } from '../i18n';
 import posts from '../data/blog';
 
-const PAYPAL_URL = 'https://www.paypal.com/ncp/payment/R7ZQ2BSCC6ZEG';
+const PAYPAL_CLAUDE = 'https://www.paypal.com/ncp/payment/R7ZQ2BSCC6ZEG';
+const PAYPAL_AI = 'https://www.paypal.com/ncp/payment/JBKRH44BDQS3Q';
 
 export default function BlogDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -121,46 +122,70 @@ export default function BlogDetail() {
         </div>
 
         {/* Ebook CTA */}
-        {post.ebookCta && (
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="mt-16 p-8 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-stone-800 dark:to-stone-800 rounded-3xl border border-amber-100 dark:border-stone-700 flex flex-col sm:flex-row items-center gap-6"
-          >
-            <img src={post.thumbnail} alt="" className="w-24 shrink-0 drop-shadow-xl" />
-            <div className="flex-1 text-center sm:text-left">
-              <p className="text-xs font-bold text-amber-700 dark:text-amber-400 uppercase tracking-wider mb-2">
-                {lang === 'fr' ? 'E-book disponible' : 'E-book available'}
-              </p>
-              <h3 className="font-serif font-bold text-xl text-stone-900 dark:text-stone-100 mb-2">
-                {lang === 'fr' ? 'Crée ton site web avec Claude Code' : 'Build your website with Claude Code'}
-              </h3>
-              <p className="text-stone-500 dark:text-stone-400 text-sm mb-4">
-                {lang === 'fr' ? 'Le guide pratique du terminal à la mise en ligne — 9,99$' : 'The practical guide from terminal to deployment — $9.99'}
-              </p>
-              <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
-                <a
-                  href={PAYPAL_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-full font-bold text-sm transition-colors shadow-md"
-                >
-                  <ShoppingCart size={15} />
-                  {lang === 'fr' ? 'Acheter — 9,99$' : 'Buy — $9.99'}
-                </a>
-                <Link
-                  to="/ebook"
-                  className="inline-flex items-center gap-2 bg-white dark:bg-stone-700 border border-stone-200 dark:border-stone-600 text-stone-700 dark:text-stone-200 px-6 py-3 rounded-full font-bold text-sm hover:bg-stone-50 dark:hover:bg-stone-600 transition-colors"
-                >
-                  <BookOpen size={15} />
-                  {lang === 'fr' ? 'En savoir plus' : 'Learn more'}
-                </Link>
+        {post.ebookCta && (() => {
+          const isAI = post.ebookType === 'ai';
+          const paypalUrl = isAI ? PAYPAL_AI : PAYPAL_CLAUDE;
+          const ebookAnchor = isAI ? '/ebook#ebook-ai' : '/ebook';
+          const accentColor = isAI
+            ? 'from-violet-50 to-purple-50 dark:from-stone-800 dark:to-stone-800 border-violet-100 dark:border-stone-700'
+            : 'from-amber-50 to-orange-50 dark:from-stone-800 dark:to-stone-800 border-amber-100 dark:border-stone-700';
+          const btnColor = isAI
+            ? 'bg-violet-600 hover:bg-violet-700'
+            : 'bg-amber-600 hover:bg-amber-700';
+          const badgeColor = isAI
+            ? 'text-violet-700 dark:text-violet-400'
+            : 'text-amber-700 dark:text-amber-400';
+          const ebookTitle = isAI
+            ? (lang === 'fr' ? "L'IA pour les débutants" : 'AI for Beginners')
+            : (lang === 'fr' ? 'Crée ton site web avec Claude Code' : 'Build your website with Claude Code');
+          const ebookDesc = isAI
+            ? (lang === 'fr' ? 'Maîtrise le prompt engineering et utilise l\'IA comme un pro — 9,99$' : 'Master prompt engineering and use AI like a pro — $9.99')
+            : (lang === 'fr' ? 'Le guide pratique du terminal à la mise en ligne — 9,99$' : 'The practical guide from terminal to deployment — $9.99');
+          const buyLabel = isAI
+            ? (lang === 'fr' ? 'Acheter — 9,99$' : 'Buy — $9.99')
+            : (lang === 'fr' ? 'Acheter — 9,99$' : 'Buy — $9.99');
+
+          return (
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className={`mt-16 p-8 bg-gradient-to-br ${accentColor} rounded-3xl border flex flex-col sm:flex-row items-center gap-6`}
+            >
+              <img src={post.thumbnail} alt="" className="w-24 shrink-0 drop-shadow-xl" />
+              <div className="flex-1 text-center sm:text-left">
+                <p className={`text-xs font-bold ${badgeColor} uppercase tracking-wider mb-2`}>
+                  {lang === 'fr' ? 'E-book disponible' : 'E-book available'}
+                </p>
+                <h3 className="font-serif font-bold text-xl text-stone-900 dark:text-stone-100 mb-2">
+                  {ebookTitle}
+                </h3>
+                <p className="text-stone-500 dark:text-stone-400 text-sm mb-4">
+                  {ebookDesc}
+                </p>
+                <div className="flex flex-wrap gap-3 justify-center sm:justify-start">
+                  <a
+                    href={paypalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-2 ${btnColor} text-white px-6 py-3 rounded-full font-bold text-sm transition-colors shadow-md`}
+                  >
+                    <ShoppingCart size={15} />
+                    {buyLabel}
+                  </a>
+                  <Link
+                    to={ebookAnchor}
+                    className="inline-flex items-center gap-2 bg-white dark:bg-stone-700 border border-stone-200 dark:border-stone-600 text-stone-700 dark:text-stone-200 px-6 py-3 rounded-full font-bold text-sm hover:bg-stone-50 dark:hover:bg-stone-600 transition-colors"
+                  >
+                    <BookOpen size={15} />
+                    {lang === 'fr' ? 'En savoir plus' : 'Learn more'}
+                  </Link>
+                </div>
               </div>
-            </div>
-          </motion.div>
-        )}
+            </motion.div>
+          );
+        })()}
       </motion.div>
     </main>
   );

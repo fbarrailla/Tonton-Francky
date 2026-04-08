@@ -16,6 +16,7 @@ export interface BlogPost {
   categoryEn: string;
   thumbnail: string;
   ebookCta?: boolean;
+  ebookType?: 'claude' | 'ai';
   content: BlogSection[];
   contentEn: BlogSection[];
 }
@@ -33,6 +34,7 @@ const posts: BlogPost[] = [
     categoryEn: 'Tech & AI',
     thumbnail: '/ebook.png',
     ebookCta: true,
+    ebookType: 'claude',
     content: [
       {
         type: 'paragraph',
@@ -275,6 +277,322 @@ const posts: BlogPost[] = [
       {
         type: 'paragraph',
         text: "Speed matters more than perfection. An imperfect site online is worth more than a perfect project that only exists in your head.",
+      },
+    ],
+  },
+  {
+    slug: 'maitriser-lia-prompt-engineering',
+    title: "L'IA ne te remplacera pas. Mais quelqu'un qui sait mieux te parler, oui.",
+    titleEn: "AI Won't Replace You. But Someone Who Knows How to Talk to It Better Will.",
+    excerpt: "La majorité des gens utilisent l'IA comme un moteur de recherche amélioré. Voici pourquoi c'est une erreur — et comment le prompt engineering change tout.",
+    excerptEn: "Most people use AI like a fancy search engine. Here's why that's a mistake — and how prompt engineering changes everything.",
+    date: '2026-04-09',
+    readTime: 6,
+    category: 'Tech & IA',
+    categoryEn: 'Tech & AI',
+    thumbnail: '/ebook-ai-thumb.png',
+    ebookCta: true,
+    ebookType: 'ai',
+    content: [
+      {
+        type: 'paragraph',
+        text: "L'IA n'est plus un concept futuriste. ChatGPT, Claude, Gemini — ces outils sont là, accessibles, gratuits pour la plupart.",
+      },
+      {
+        type: 'paragraph',
+        text: "Et pourtant, la majorité des gens les utilisent mal.",
+      },
+      {
+        type: 'paragraph',
+        text: "Ils posent des questions vagues. Ils obtiennent des réponses génériques. Ils concluent que \"l'IA, c'est overrated\".",
+      },
+      {
+        type: 'quote',
+        text: "L'IA est aussi bonne que le prompt que tu lui donnes.",
+      },
+      {
+        type: 'heading',
+        text: "Ce que l'IA fait vraiment",
+      },
+      {
+        type: 'paragraph',
+        text: "Voilà ce que personne ne t'explique clairement : l'IA ne \"pense\" pas. Elle ne comprend pas. Elle prédit.",
+      },
+      {
+        type: 'paragraph',
+        text: "Pense à l'autocomplete de ton téléphone — mais entraîné sur des milliards de textes, avec une puissance de calcul astronomique. C'est ça, l'IA.",
+      },
+      {
+        type: 'list',
+        items: [
+          'Elle prédit les mots les plus probables selon ton contexte',
+          'Elle imite des tonnes et des tons différents',
+          'Elle structure des idées avec une fluidité impressionnante',
+          'Elle peut se tromper avec une confiance absolue',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Donc si ton prompt est flou, l'IA remplit les blancs avec des suppositions. Et ces suppositions sont rarement les bonnes.",
+      },
+      {
+        type: 'heading',
+        text: "Le prompt engineering, c'est quoi exactement ?",
+      },
+      {
+        type: 'paragraph',
+        text: "C'est l'art de poser les bonnes questions pour obtenir les meilleurs résultats.",
+      },
+      {
+        type: 'paragraph',
+        text: "Regarde la différence :",
+      },
+      {
+        type: 'list',
+        items: [
+          'Prompt faible : "Écris quelque chose sur le marketing"',
+          'Prompt fort : "Écris un guide de 500 mots sur le marketing digital pour débutants, avec 3 conseils actionnables et des exemples concrets"',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Même IA. Résultat complètement différent.",
+      },
+      {
+        type: 'heading',
+        text: "La structure d'un prompt parfait",
+      },
+      {
+        type: 'paragraph',
+        text: "Un bon prompt a 4 éléments clés :",
+      },
+      {
+        type: 'list',
+        items: [
+          'Rôle — dis à l\'IA qui elle est : "Tu es un copywriter professionnel"',
+          'Tâche — ce qu\'elle doit faire : "Écris une page de vente percutante"',
+          'Contexte — donne des détails : "Le produit est un e-book sur l\'IA pour débutants"',
+          'Format — définis le résultat : "Utilise des bullet points et un ton persuasif"',
+        ],
+      },
+      {
+        type: 'quote',
+        text: "Tu n'apprends pas à coder. Tu apprends à commander. C'est un superpouvoir différent — et tout aussi puissant.",
+      },
+      {
+        type: 'heading',
+        text: "Deux types de personnes",
+      },
+      {
+        type: 'paragraph',
+        text: "Il y a maintenant deux catégories de personnes dans le monde du travail :",
+      },
+      {
+        type: 'list',
+        items: [
+          'Ceux qui utilisent l\'IA au hasard → questions basiques, résultats moyens, facilement remplaçables',
+          'Ceux qui maîtrisent les prompts → contrôlent les outputs, automatisent, construisent des systèmes, avancent 10x plus vite',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "La bonne nouvelle : la plupart des gens sont encore dans la première catégorie. L'opportunité est immense.",
+      },
+      {
+        type: 'heading',
+        text: "Le changement de mindset essentiel",
+      },
+      {
+        type: 'paragraph',
+        text: "Avant l'IA, tu étais l'exécutant. Tu faisais le travail.",
+      },
+      {
+        type: 'paragraph',
+        text: "Maintenant, tu es le directeur. L'IA est l'exécutant.",
+      },
+      {
+        type: 'paragraph',
+        text: "Au lieu de penser \"qu'est-ce que je dois faire ?\", tu penses \"qu'est-ce que je dois demander ?\"",
+      },
+      {
+        type: 'quote',
+        text: "Meilleurs prompts = meilleurs résultats. Il n'y a pas de raccourci.",
+      },
+      {
+        type: 'heading',
+        text: "Ce que couvre l'e-book",
+      },
+      {
+        type: 'paragraph',
+        text: "J'ai condensé tout ça dans un guide pratique en 11 chapitres :",
+      },
+      {
+        type: 'list',
+        items: [
+          'Ce qu\'est vraiment l\'IA (sans le jargon)',
+          'Le prompt engineering de zéro',
+          'L\'anatomie d\'un prompt parfait',
+          'Les techniques avancées (Chain of Thought, Role Stacking, Prompt Chaining)',
+          'Les cas d\'usage concrets : business, dev, contenu, freelance',
+          'Les erreurs classiques et comment les corriger',
+          'Les outils IA à connaître absolument',
+          '10 prompts prêts à l\'emploi en bonus',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Pas de théorie inutile. Chaque chapitre est fait pour être appliqué immédiatement.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "AI is no longer a futuristic concept. ChatGPT, Claude, Gemini — these tools are here, accessible, mostly free.",
+      },
+      {
+        type: 'paragraph',
+        text: "And yet, most people are using them wrong.",
+      },
+      {
+        type: 'paragraph',
+        text: "They ask vague questions. They get generic answers. They conclude that \"AI is overrated.\"",
+      },
+      {
+        type: 'quote',
+        text: "AI is only as good as the prompt you give it.",
+      },
+      {
+        type: 'heading',
+        text: "What AI actually does",
+      },
+      {
+        type: 'paragraph',
+        text: "Here's what nobody clearly explains: AI doesn't \"think.\" It doesn't understand. It predicts.",
+      },
+      {
+        type: 'paragraph',
+        text: "Think of your phone's autocomplete — but trained on billions of texts with astronomical computing power. That's AI.",
+      },
+      {
+        type: 'list',
+        items: [
+          'It predicts the most likely words based on your context',
+          'It mimics countless tones and styles',
+          'It structures ideas with impressive fluency',
+          'It can be completely wrong with absolute confidence',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "So if your prompt is vague, AI fills the gaps with assumptions. And those assumptions are rarely right.",
+      },
+      {
+        type: 'heading',
+        text: "What is prompt engineering, exactly?",
+      },
+      {
+        type: 'paragraph',
+        text: "It's the art of asking the right questions to get the best results.",
+      },
+      {
+        type: 'paragraph',
+        text: "Look at the difference:",
+      },
+      {
+        type: 'list',
+        items: [
+          'Weak prompt: "Write something about marketing"',
+          'Strong prompt: "Write a 500-word beginner-friendly guide on digital marketing, including 3 actionable tips and real-world examples"',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Same AI. Completely different result.",
+      },
+      {
+        type: 'heading',
+        text: "The anatomy of a perfect prompt",
+      },
+      {
+        type: 'paragraph',
+        text: "A great prompt has 4 key elements:",
+      },
+      {
+        type: 'list',
+        items: [
+          'Role — tell AI who it is: "You are a professional copywriter"',
+          'Task — what it should do: "Write an engaging landing page"',
+          'Context — give background: "The product is an AI ebook for beginners"',
+          'Format — define the output: "Use bullet points and a persuasive tone"',
+        ],
+      },
+      {
+        type: 'quote',
+        text: "You're not learning to code. You're learning to direct. It's a different superpower — and just as powerful.",
+      },
+      {
+        type: 'heading',
+        text: "Two types of people",
+      },
+      {
+        type: 'paragraph',
+        text: "There are now two categories of people in the workforce:",
+      },
+      {
+        type: 'list',
+        items: [
+          'Those who use AI casually → basic questions, average results, easily replaceable',
+          'Those who master prompts → control the output, automate, build systems, move 10x faster',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "The good news: most people are still in the first category. The opportunity is massive.",
+      },
+      {
+        type: 'heading',
+        text: "The essential mindset shift",
+      },
+      {
+        type: 'paragraph',
+        text: "Before AI, you were the executor. You did the work.",
+      },
+      {
+        type: 'paragraph',
+        text: "Now, you are the director. AI is the executor.",
+      },
+      {
+        type: 'paragraph',
+        text: "Instead of thinking \"what should I do?\", you think \"what should I ask?\"",
+      },
+      {
+        type: 'quote',
+        text: "Better prompts = better results. There is no shortcut.",
+      },
+      {
+        type: 'heading',
+        text: "What the e-book covers",
+      },
+      {
+        type: 'paragraph',
+        text: "I packed all of this into a practical 11-chapter guide:",
+      },
+      {
+        type: 'list',
+        items: [
+          'What AI really is (without the jargon)',
+          'Prompt engineering from scratch',
+          'The anatomy of a perfect prompt',
+          'Advanced techniques (Chain of Thought, Role Stacking, Prompt Chaining)',
+          'Real-world use cases: business, dev, content creation, freelancing',
+          'Common mistakes and how to fix them',
+          'The AI tools you need to know',
+          '10 ready-to-use bonus prompts',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "No useless theory. Every chapter is designed to be applied immediately.",
       },
     ],
   },
