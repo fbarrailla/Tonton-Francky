@@ -9,7 +9,7 @@ import { motion } from 'motion/react';
 import { BookOpen, Check, Copy, ShieldCheck, Sparkles, Tag, X } from 'lucide-react';
 import { useLanguage } from '../i18n';
 import qrCode from '../assets/qr-code.png';
-import ebookAiCover from '../assets/ebook-ai.png';
+import ebookAiThumb from '../assets/ebook-ai-thumb.png';
 import ebookAiPdf from '../assets/ebook-ai.pdf';
 import EbookPickerModal, { type EbookChoice } from './EbookPickerModal';
 
@@ -239,15 +239,21 @@ export default function EbookPromo() {
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-br from-violet-400 via-indigo-400 to-blue-400 rounded-3xl blur-2xl opacity-30 dark:opacity-20" />
                 <img
-                  src={ebookAiCover}
+                  src={ebookAiThumb}
                   alt="AI for Beginners cover"
                   className="relative w-52 md:w-64 rounded-2xl shadow-2xl cursor-pointer hover:scale-[1.02] transition-transform duration-300"
                   onClick={() => setPreviewAIOpen(true)}
                 />
-                <div className="absolute -top-3 -right-3 bg-violet-600 text-white text-sm font-black px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1">
-                  <Sparkles size={13} />
-                  {ai.badge}
-                </div>
+                {promoValid ? (
+                  <div className="absolute -top-3 -right-3 bg-rose-500 text-white text-sm font-black px-3 py-1.5 rounded-full shadow-lg">
+                    {ai.discount}
+                  </div>
+                ) : (
+                  <div className="absolute -top-3 -right-3 bg-violet-600 text-white text-sm font-black px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1">
+                    <Sparkles size={13} />
+                    {ai.badge}
+                  </div>
+                )}
               </div>
             </motion.div>
 
@@ -259,10 +265,17 @@ export default function EbookPromo() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="flex-1 text-center md:text-left"
             >
-              <div className="inline-flex items-center gap-2 bg-violet-50 dark:bg-violet-950/40 text-violet-700 dark:text-violet-400 rounded-full px-4 py-2 mb-5 text-sm font-semibold">
-                <BookOpen size={14} />
-                {ai.badge}
-              </div>
+              {promoValid ? (
+                <div className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 rounded-full px-4 py-2 mb-5 text-sm font-semibold border border-emerald-200 dark:border-emerald-800">
+                  <Tag size={14} />
+                  {ai.promoApplied} — {PROMO_CODE}
+                </div>
+              ) : (
+                <div className="inline-flex items-center gap-2 bg-violet-50 dark:bg-violet-950/40 text-violet-700 dark:text-violet-400 rounded-full px-4 py-2 mb-5 text-sm font-semibold">
+                  <BookOpen size={14} />
+                  {ai.badge}
+                </div>
+              )}
 
               <h2 className="text-4xl md:text-5xl font-serif font-bold leading-tight mb-4 text-stone-900 dark:text-stone-100">
                 {ai.title}{' '}
@@ -274,7 +287,17 @@ export default function EbookPromo() {
               </p>
 
               <div className="flex items-baseline gap-3 mb-8 justify-center md:justify-start">
-                <span className="text-5xl font-black text-stone-900 dark:text-stone-100">{ai.originalPrice}</span>
+                {promoValid ? (
+                  <>
+                    <span className="text-5xl font-black text-stone-900 dark:text-stone-100">{ai.discountedPrice}</span>
+                    <span className="text-2xl text-stone-400 dark:text-stone-500 line-through">{ai.originalPrice}</span>
+                    <span className="bg-rose-100 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 text-sm font-bold px-3 py-1 rounded-full">
+                      {ai.discount}
+                    </span>
+                  </>
+                ) : (
+                  <span className="text-5xl font-black text-stone-900 dark:text-stone-100">{ai.originalPrice}</span>
+                )}
               </div>
 
               <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-6">
@@ -284,7 +307,7 @@ export default function EbookPromo() {
                   onClick={() => openPicker('ai')}
                   className="inline-flex items-center gap-3 bg-violet-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-violet-700 transition-colors"
                 >
-                  {ai.buyNow}
+                  {promoValid ? ai.buyNowPromo : ai.buyNow}
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.04 }}
