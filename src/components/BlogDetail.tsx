@@ -115,6 +115,21 @@ export default function BlogDetail() {
                     </p>
                   </blockquote>
                 );
+              case 'gallery':
+                return (
+                  <div key={i} className={`my-8 grid gap-3 ${section.images?.length === 1 ? 'grid-cols-1' : 'grid-cols-2'}`}>
+                    {section.images?.map((src, j) => (
+                      <div key={j} className="rounded-2xl overflow-hidden bg-stone-100 dark:bg-stone-800 aspect-[4/3]">
+                        <img
+                          src={src}
+                          alt=""
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                );
               default:
                 return null;
             }
