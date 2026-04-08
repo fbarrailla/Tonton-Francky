@@ -672,7 +672,7 @@ export default function Home() {
             </button>
           </div>
           <div className="flex-1 px-4 pb-4" onClick={e => e.stopPropagation()}>
-            <iframe src="/assets/ebook-ai.pdf" className="w-full h-full rounded-xl" title="AI for Beginners preview" />
+            <iframe src="/ebook-ai.pdf" className="w-full h-full rounded-xl" title="AI for Beginners preview" />
           </div>
         </div>
       )}
