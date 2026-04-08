@@ -10,6 +10,7 @@ import { BookOpen, Check, Copy, ShieldCheck, Sparkles, Tag, X } from 'lucide-rea
 import { useLanguage } from '../i18n';
 import qrCode from '../assets/qr-code.png';
 import ebookAiCover from '../assets/ebook-ai.png';
+import ebookAiPdf from '../assets/ebook-ai.pdf';
 import EbookPickerModal, { type EbookChoice } from './EbookPickerModal';
 
 const PROMO_CODE = 'TONTONFRANCKY50';
@@ -402,7 +403,7 @@ export default function EbookPromo() {
           </div>
           <div className="flex-1 px-4 pb-4" onClick={e => e.stopPropagation()}>
             <iframe
-              src="/assets/ebook-ai.pdf"
+              src={ebookAiPdf}
               className="w-full h-full rounded-xl"
               title="AI for Beginners preview"
             />
