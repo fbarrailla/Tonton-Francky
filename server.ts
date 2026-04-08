@@ -41,7 +41,8 @@ app.post('/api/contact', async (req, res) => {
     body: JSON.stringify({
       service_id: process.env.VITE_EMAILJS_SERVICE_ID,
       template_id: process.env.VITE_EMAILJS_TEMPLATE_ID,
-      publicKey: process.env.VITE_EMAILJS_PUBLIC_KEY,
+      user_id: process.env.VITE_EMAILJS_PUBLIC_KEY,
+      accessToken: process.env.EMAILJS_PRIVATE_KEY,
       template_params: {
         from_name: name,
         from_email: email,
@@ -77,22 +78,23 @@ app.get('/api/ebook-sales', (_req, res) => {
   }
 });
 
-// Serve built frontend in production
-if (process.env.NODE_ENV === 'production') {
+// Serve built frontend when dist/ is available
+const distPath = path.join(__dirname, 'dist');
+if (existsSync(distPath)) {
   // Vite hashes asset filenames → safe to cache indefinitely
-  app.use('/assets', express.static(path.join(__dirname, 'dist/assets'), {
+  app.use('/assets', express.static(path.join(distPath, 'assets'), {
     maxAge: '1y',
     immutable: true,
   }));
 
   // Fonts are versioned by filename (from Google Fonts) → cache 1 year
-  app.use('/fonts', express.static(path.join(__dirname, 'dist/fonts'), {
+  app.use('/fonts', express.static(path.join(distPath, 'fonts'), {
     maxAge: '1y',
     immutable: true,
   }));
 
   // Other static files (favicon, robots.txt, sitemap…) — cache 1 day
-  app.use(express.static(path.join(__dirname, 'dist'), {
+  app.use(express.static(distPath, {
     setHeaders: (res, filePath) => {
       if (filePath.endsWith('.html')) {
         // index.html must never be cached so deploys propagate immediately
@@ -105,7 +107,7 @@ if (process.env.NODE_ENV === 'production') {
 
   app.get('*', (_req, res) => {
     res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-    res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+    res.sendFile(path.join(distPath, 'index.html'));
   });
 }
 

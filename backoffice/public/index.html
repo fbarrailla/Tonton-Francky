@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tonton Francky — Backoffice</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.snow.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -102,6 +103,19 @@
     .delete-modal p { color: var(--muted); font-size: .9rem; margin-bottom: 20px; }
     .delete-modal .name { font-weight: 700; color: var(--text); }
 
+    /* Compose card */
+    .compose-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 28px; box-shadow: var(--shadow); }
+    .compose-card h2 { font-size: 1rem; font-weight: 600; margin-bottom: 20px; }
+    .compose-card .form-group input { background: var(--bg); }
+    .compose-actions { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+    .compose-actions .send-info { font-size: .8rem; color: var(--muted); }
+
+    /* Quill overrides */
+    .ql-toolbar.ql-snow { border: 1px solid var(--border); border-radius: 8px 8px 0 0; background: var(--bg); font-family: inherit; }
+    .ql-container.ql-snow { border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; font-family: inherit; font-size: .9rem; }
+    .ql-editor { min-height: 200px; }
+    .ql-editor.ql-blank::before { color: var(--muted); font-style: normal; }
+
     /* Toast */
     .toast { position: fixed; bottom: 24px; right: 24px; z-index: 200; background: var(--text); color: #fff; padding: 12px 20px; border-radius: 10px; font-size: .875rem; font-weight: 500; opacity: 0; transform: translateY(8px); transition: all .25s; pointer-events: none; }
     .toast.show { opacity: 1; transform: translateY(0); }
@@ -162,6 +176,24 @@
 
   <!-- Newsletter tab -->
   <div class="tab-panel" id="tab-newsletter">
+
+    <!-- Compose -->
+    <div class="compose-card">
+      <h2>Send newsletter</h2>
+      <div class="form-group">
+        <label>Subject</label>
+        <input type="text" id="newsletter-subject" placeholder="Your newsletter subject…" />
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <div id="newsletter-editor"></div>
+      </div>
+      <div class="compose-actions">
+        <button class="btn btn-primary" id="send-btn" onclick="sendNewsletter()">Send to all subscribers</button>
+        <span class="send-info" id="send-info"></span>
+      </div>
+    </div>
+
     <div class="toolbar">
       <h2 id="sub-count-label">Subscribers</h2>
       <div style="display:flex;gap:8px">
@@ -227,7 +259,31 @@
 <!-- Toast -->
 <div class="toast" id="toast"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
+  // ── EmailJS config ────────────────────────────────────────────
+  const EMAILJS_PUBLIC_KEY  = '-BGhKDSFxI8D8E1hT';
+  const EMAILJS_SERVICE_ID  = 'service_nop1bn9';
+  const EMAILJS_TEMPLATE_ID = 'template_tr5eo3d';
+  // Template variables: {{subject}}, {{message}}, {{bcc}}
+  emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+  // ── Quill ─────────────────────────────────────────────────────
+  const quill = new Quill('#newsletter-editor', {
+    theme: 'snow',
+    placeholder: 'Write your newsletter…',
+    modules: {
+      toolbar: [
+        [{ header: [1, 2, 3, false] }],
+        ['bold', 'italic', 'underline', 'strike'],
+        [{ list: 'ordered' }, { list: 'bullet' }],
+        ['link', 'blockquote'],
+        ['clean'],
+      ],
+    },
+  });
+
   let deleteTargetId = null;
   let deleteTargetType = null;
 
@@ -334,6 +390,8 @@
     const tbody = document.getElementById('subscribers-body');
     document.getElementById('sub-count-label').textContent =
       `Subscribers (${subscribersCache.length})`;
+    document.getElementById('send-info').textContent =
+      subscribersCache.length ? `Will be sent to ${subscribersCache.length} subscriber${subscribersCache.length > 1 ? 's' : ''} via BCC` : '';
 
     if (!subscribersCache.length) {
       tbody.innerHTML = '<tr><td colspan="4" class="empty">No subscribers yet.</td></tr>';
@@ -382,6 +440,36 @@
     cancelAddRow();
     toast('Subscriber added.', 'success');
     loadSubscribers(); loadStats();
+  }
+
+  // ── Newsletter send ───────────────────────────────────────────
+  async function sendNewsletter() {
+    const subject = document.getElementById('newsletter-subject').value.trim();
+    const html = quill.root.innerHTML;
+    const isEmpty = quill.getText().trim().length === 0;
+
+    if (!subject) { toast('Please enter a subject.', 'error'); return; }
+    if (isEmpty)  { toast('Please write a message.', 'error'); return; }
+    if (!subscribersCache.length) { toast('No subscribers to send to.', 'error'); return; }
+
+    const btn = document.getElementById('send-btn');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        subject,
+        email: html,
+        bcc: subscribersCache.map(s => s.email).join(','),
+      });
+      toast(`Newsletter sent to ${subscribersCache.length} subscribers!`, 'success');
+    } catch (err) {
+      console.error(err);
+      toast('Failed to send newsletter.', 'error');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send to all subscribers';
+    }
   }
 
   function copyAllEmails() {

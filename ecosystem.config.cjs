@@ -11,7 +11,7 @@ module.exports = {
     },
     {
       name: 'backoffice',
-      script: 'backoffice/server.js',
+      script: 'backoffice/run.cjs',
       env_production: {
         NODE_ENV: 'production',
         PORT: 3002,
