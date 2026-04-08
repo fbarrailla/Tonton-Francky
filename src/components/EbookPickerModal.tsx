@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { BookOpen, Check, Sparkles, X } from 'lucide-react';
 import { useLanguage } from '../i18n';
+import ebookAiCover from '../assets/ebook-ai.png';
 
 export type EbookChoice = 'claude' | 'ai' | 'bundle';
 
@@ -41,7 +42,7 @@ export default function EbookPickerModal({ open, defaultChoice = 'claude', onClo
     {
       id: 'ai',
       title: pk.ebook2Title,
-      cover: '/assets/ebook-ai.png',
+      cover: ebookAiCover,
       accent: 'from-violet-50 to-indigo-50 dark:from-violet-950/30 dark:to-indigo-950/30',
       ring: 'ring-violet-500',
     },
@@ -97,7 +98,7 @@ export default function EbookPickerModal({ open, defaultChoice = 'claude', onClo
                     <div className="relative flex-shrink-0 h-16">
                       {isBundle ? (
                         <div className="relative h-16 w-14">
-                          <img src="/assets/ebook-ai.png" alt="" className="absolute right-0 top-1 h-14 w-10 object-cover rounded-md shadow-md" />
+                          <img src={ebookAiCover} alt="" className="absolute right-0 top-1 h-14 w-10 object-cover rounded-md shadow-md" />
                           <img src="/ebook.png" alt="" className="absolute left-0 bottom-0 h-14 w-10 object-cover rounded-md shadow-md" />
                         </div>
                       ) : (

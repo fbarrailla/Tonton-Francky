@@ -8,6 +8,7 @@ import emailjs from '@emailjs/browser';
 import heroBg from '../assets/hero.png';
 import heroMe from '../assets/hero-me.png';
 import qrCode from '../assets/qr-code.png';
+import ebookAiCover from '../assets/ebook-ai.png';
 import { motion, useInView } from 'motion/react';
 import {
   Instagram,
@@ -23,6 +24,7 @@ import {
   Mail,
   CheckCircle,
   Copy,
+  Sparkles,
 } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useLanguage } from '../i18n';
@@ -114,6 +116,7 @@ export default function Home() {
   const [paymentOpen, setPaymentOpen] = useState(hasThankyou);
   const [pickerOpen, setPickerOpen] = useState(false);
   const [ebookChoice, setEbookChoice] = useState<EbookChoice>('claude');
+  const [previewAIOpen, setPreviewAIOpen] = useState(false);
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'sending' | 'success' | 'error' | 'duplicate'>('idle');
@@ -495,77 +498,184 @@ export default function Home() {
       {/* E-book Section */}
       <section id="ebook" className="py-20 md:py-28 px-6 bg-white dark:bg-stone-900">
         <div className="max-w-5xl mx-auto">
+          {/* Section header */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-col md:flex-row items-center gap-12 md:gap-16"
+            transition={{ duration: 0.5 }}
+            className="text-center mb-14"
           >
-            {/* Cover */}
-            <motion.div
-              whileHover={{ y: -8, rotate: 1 }}
-              transition={{ duration: 0.3, ease: [0.25, 1, 0.5, 1] }}
-              className="flex-shrink-0 cursor-pointer"
-              onClick={() => setEbookOpen(true)}
-            >
-              <div className="relative">
-                <div className="absolute -inset-2 bg-gradient-to-br from-amber-300 via-orange-400 to-rose-400 rounded-2xl blur-xl opacity-30" />
-                <img
-                  src="/ebook.png"
-                  alt="E-book cover"
-                  className="relative w-56 md:w-72 rounded-xl shadow-2xl"
-                />
-              </div>
-            </motion.div>
+            <div className="inline-flex items-center gap-2 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 rounded-full px-4 py-2 mb-4 text-sm font-medium">
+              <BookOpen size={15} />
+              {h.ebookTitle}
+            </div>
+            <h2 className="text-3xl md:text-4xl font-serif font-bold text-stone-900 dark:text-stone-100">
+              {lang === 'fr' ? 'Mes e-books' : 'My e-books'}
+            </h2>
+          </motion.div>
 
-            {/* Text */}
-            <div className="text-center md:text-left">
-              <div className="inline-flex items-center gap-2 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 rounded-full px-4 py-2 mb-6 text-sm font-medium">
-                <BookOpen size={16} />
-                {h.ebookTitle}
-              </div>
-              <p className="text-xl text-stone-600 dark:text-stone-300 leading-relaxed mb-6 max-w-md">
-                {h.ebookDesc}
-              </p>
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-3xl font-black text-stone-900 dark:text-stone-100">{h.ebookPrice}</span>
-                <span className="text-lg text-stone-400 dark:text-stone-500 line-through">{h.ebookOriginalPrice}</span>
-                <span className="bg-rose-100 text-rose-600 text-sm font-bold px-2 py-1 rounded-full">-67%</span>
+          {/* Two ebook cards */}
+          <div className="grid md:grid-cols-2 gap-8 mb-10">
+            {/* Claude Code ebook */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col bg-gradient-to-br from-amber-50 to-orange-50 dark:from-stone-800 dark:to-stone-800 rounded-3xl p-7 border border-amber-100 dark:border-stone-700"
+            >
+              <div className="flex gap-6 mb-6">
+                <motion.div
+                  whileHover={{ y: -4, rotate: 1 }}
+                  transition={{ duration: 0.25 }}
+                  className="cursor-pointer shrink-0"
+                  onClick={() => setEbookOpen(true)}
+                >
+                  <div className="relative">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-amber-300 to-orange-400 rounded-xl blur-lg opacity-30" />
+                    <img src="/ebook.png" alt="E-book cover" className="relative w-24 rounded-xl shadow-xl" />
+                  </div>
+                </motion.div>
+                <div>
+                  <p className="text-xs font-semibold text-amber-700 dark:text-amber-400 uppercase tracking-wider mb-1">{h.ebookTitle}</p>
+                  <h3 className="font-serif font-bold text-lg text-stone-900 dark:text-stone-100 leading-snug mb-2">{h.ebookDesc.split('—')[0].trim()}</h3>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-2xl font-black text-stone-900 dark:text-stone-100">{h.ebookPrice}</span>
+                    <span className="text-sm text-stone-400 line-through">{h.ebookOriginalPrice}</span>
+                  </div>
+                </div>
               </div>
               {salesCount !== null && salesCount > 0 && (
-                <div className="flex items-center gap-2 mb-8 text-sm text-stone-500 dark:text-stone-400">
-                  <span className="flex -space-x-1">
-                    {['🧑', '👩', '👨'].map((e, i) => (
-                      <span key={i} className="w-6 h-6 rounded-full bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center text-xs border-2 border-white dark:border-stone-900">{e}</span>
-                    ))}
-                  </span>
-                  <span><strong className="text-stone-700 dark:text-stone-200">{salesCount}</strong> {lang === 'fr' ? 'personnes ont déjà acheté cet e-book' : 'people have already bought this e-book'} ✅</span>
-                </div>
+                <p className="text-xs text-stone-500 dark:text-stone-400 mb-4">
+                  <strong className="text-stone-700 dark:text-stone-200">{salesCount}</strong> {lang === 'fr' ? 'achats' : 'purchases'} ✅
+                </p>
               )}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex gap-2 mt-auto">
                 <motion.button
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.97 }}
-                  onClick={() => setPickerOpen(true)}
-                  className="inline-flex items-center gap-3 bg-amber-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-amber-700 transition-colors"
+                  whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
+                  onClick={() => { setPickerOpen(true); setEbookChoice('claude'); }}
+                  className="flex-1 py-3 bg-amber-600 hover:bg-amber-700 text-white rounded-full font-bold text-sm transition-colors"
                 >
                   {h.ebookBuy}
                 </motion.button>
                 <motion.button
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.97 }}
+                  whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
                   onClick={() => setEbookOpen(true)}
-                  className="inline-flex items-center gap-3 bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 px-8 py-4 rounded-full font-bold text-lg hover:bg-stone-200 dark:hover:bg-stone-700 transition-colors"
+                  className="px-4 py-3 bg-white dark:bg-stone-700 text-stone-700 dark:text-stone-200 rounded-full font-bold text-sm hover:bg-stone-100 dark:hover:bg-stone-600 transition-colors border border-stone-200 dark:border-stone-600"
                 >
-                  <BookOpen size={20} />
-                  {h.ebookCta}
+                  <BookOpen size={16} />
                 </motion.button>
               </div>
+            </motion.div>
+
+            {/* AI ebook */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex flex-col bg-gradient-to-br from-violet-50 to-indigo-50 dark:from-stone-800 dark:to-stone-800 rounded-3xl p-7 border border-violet-100 dark:border-stone-700"
+            >
+              <div className="flex gap-6 mb-6">
+                <motion.div
+                  whileHover={{ y: -4, rotate: -1 }}
+                  transition={{ duration: 0.25 }}
+                  className="cursor-pointer shrink-0"
+                  onClick={() => setPreviewAIOpen(true)}
+                >
+                  <div className="relative">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-violet-400 to-indigo-400 rounded-xl blur-lg opacity-30" />
+                    <img src={ebookAiCover} alt="AI for Beginners cover" className="relative w-24 rounded-xl shadow-xl" />
+                    <div className="absolute -top-2 -right-2 bg-violet-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full">
+                      {lang === 'fr' ? 'Nouveau' : 'New'}
+                    </div>
+                  </div>
+                </motion.div>
+                <div>
+                  <p className="text-xs font-semibold text-violet-700 dark:text-violet-400 uppercase tracking-wider mb-1">{t.ebookAI.badge}</p>
+                  <h3 className="font-serif font-bold text-lg text-stone-900 dark:text-stone-100 leading-snug mb-2">{t.ebookAI.title} {t.ebookAI.titleHighlight}</h3>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-2xl font-black text-stone-900 dark:text-stone-100">{t.ebookAI.originalPrice}</span>
+                  </div>
+                </div>
+              </div>
+              <p className="text-sm text-stone-600 dark:text-stone-300 mb-4 leading-relaxed">{t.ebookAI.desc}</p>
+              <div className="flex gap-2 mt-auto">
+                <motion.button
+                  whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
+                  onClick={() => { setPickerOpen(true); setEbookChoice('ai'); }}
+                  className="flex-1 py-3 bg-violet-600 hover:bg-violet-700 text-white rounded-full font-bold text-sm transition-colors"
+                >
+                  {t.ebookAI.buyNow}
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
+                  onClick={() => setPreviewAIOpen(true)}
+                  className="px-4 py-3 bg-white dark:bg-stone-700 text-stone-700 dark:text-stone-200 rounded-full font-bold text-sm hover:bg-stone-100 dark:hover:bg-stone-600 transition-colors border border-stone-200 dark:border-stone-600"
+                >
+                  <BookOpen size={16} />
+                </motion.button>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Bundle offer */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="relative bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 dark:from-stone-800 dark:to-stone-800 rounded-3xl p-7 border-2 border-emerald-200 dark:border-emerald-800 flex flex-col sm:flex-row items-center gap-6"
+          >
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span className="inline-flex items-center gap-1.5 bg-emerald-600 text-white text-xs font-black px-4 py-1.5 rounded-full shadow-md">
+                <Sparkles size={12} />
+                {lang === 'fr' ? 'Meilleure offre' : 'Best deal'}
+              </span>
+            </div>
+            {/* Stacked covers */}
+            <div className="relative h-20 w-20 shrink-0">
+              <img src={ebookAiCover} alt="" className="absolute right-0 top-1 h-16 w-12 object-cover rounded-lg shadow-md" />
+              <img src="/ebook.png" alt="" className="absolute left-0 bottom-0 h-16 w-12 object-cover rounded-lg shadow-md" />
+            </div>
+            <div className="flex-1 text-center sm:text-left">
+              <p className="font-serif font-bold text-lg text-stone-900 dark:text-stone-100">
+                {lang === 'fr' ? 'Pack 2 e-books' : '2 e-books bundle'}
+              </p>
+              <p className="text-stone-500 dark:text-stone-400 text-sm mt-0.5">
+                {lang === 'fr' ? 'Les deux e-books réunis' : 'Both e-books together'}
+                {' · '}
+                <span className="line-through text-stone-400">{lang === 'fr' ? '19,98$' : '$19.98'}</span>
+              </p>
+            </div>
+            <div className="flex items-center gap-4">
+              <span className="text-3xl font-black text-emerald-700 dark:text-emerald-400">{lang === 'fr' ? '7,99$' : '$7.99'}</span>
+              <motion.button
+                whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}
+                onClick={() => { setPickerOpen(true); setEbookChoice('bundle'); }}
+                className="py-3 px-7 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold text-sm transition-colors shadow-lg"
+              >
+                {lang === 'fr' ? 'Acheter le pack' : 'Buy the bundle'}
+              </motion.button>
             </div>
           </motion.div>
         </div>
       </section>
+
+      {/* AI E-book preview modal */}
+      {previewAIOpen && (
+        <div className="fixed inset-0 z-50 bg-black/90 flex flex-col" onClick={() => setPreviewAIOpen(false)}>
+          <div className="flex justify-end p-4">
+            <button onClick={() => setPreviewAIOpen(false)} className="text-white bg-white/10 hover:bg-white/20 rounded-full p-2">
+              <X size={24} />
+            </button>
+          </div>
+          <div className="flex-1 px-4 pb-4" onClick={e => e.stopPropagation()}>
+            <iframe src="/assets/ebook-ai.pdf" className="w-full h-full rounded-xl" title="AI for Beginners preview" />
+          </div>
+        </div>
+      )}
 
       {/* E-book Fullscreen Modal */}
       {ebookOpen && (
