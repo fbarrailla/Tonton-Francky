@@ -6,7 +6,7 @@
 import React, { lazy, Suspense, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Instagram, Heart, MapPin, Twitch, Menu, X, Code2, UtensilsCrossed, User, Mail, Music, BookOpen, Search, Sun, Moon } from 'lucide-react';
+import { Instagram, Heart, MapPin, Twitch, Menu, X, Code2, UtensilsCrossed, User, Mail, Music, BookOpen, Search, Sun, Moon, Newspaper } from 'lucide-react';
 
 const GithubIcon = ({ size = 20 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -36,6 +36,8 @@ const Portfolio = lazy(() => import('./components/Portfolio'));
 const PortfolioDetail = lazy(() => import('./components/PortfolioDetail'));
 const MusicPage = lazy(() => import('./components/Music'));
 const EbookPromo = lazy(() => import('./components/EbookPromo'));
+const Blog = lazy(() => import('./components/Blog'));
+const BlogDetail = lazy(() => import('./components/BlogDetail'));
 import { LanguageProvider, useLanguage, type Lang } from './i18n';
 import { ThemeProvider, useTheme } from './theme';
 import { usePageMeta } from './usePageMeta';
@@ -181,6 +183,7 @@ function AppContent() {
               { to: '/musique', icon: <Music size={13} />, label: t.nav.music },
               { to: '/a-propos', icon: <User size={13} />, label: t.nav.about },
               { to: '/contact', icon: <Mail size={13} />, label: t.nav.contact },
+              { to: '/blog', icon: <Newspaper size={13} />, label: t.nav.blog },
             ].map(({ to, icon, label }) => (
               <Link
                 key={to}
@@ -315,6 +318,7 @@ function AppContent() {
                 { to: '/musique', icon: <Music size={15} />, label: t.nav.music },
                 { to: '/a-propos', icon: <User size={15} />, label: t.nav.about },
                 { to: '/contact', icon: <Mail size={15} />, label: t.nav.contact },
+                { to: '/blog', icon: <Newspaper size={15} />, label: t.nav.blog },
               ].map(({ to, icon, label }) => (
                 <Link
                   key={to}
@@ -384,6 +388,8 @@ function AppContent() {
               <Route path="/portfolio/:slug" element={<PortfolioDetail />} />
               <Route path="/musique" element={<MusicPage />} />
               <Route path="/ebook" element={<EbookPromo />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog/:slug" element={<BlogDetail />} />
               <Route path="/a-propos" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={
