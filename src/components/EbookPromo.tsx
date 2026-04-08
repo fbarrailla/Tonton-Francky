@@ -9,17 +9,37 @@ import { motion } from 'motion/react';
 import { BookOpen, Check, Copy, ShieldCheck, Tag, X } from 'lucide-react';
 import { useLanguage } from '../i18n';
 import qrCode from '../assets/qr-code.png';
+import EbookPickerModal, { type EbookChoice } from './EbookPickerModal';
 
 const PROMO_CODE = 'TONTONFRANCKY50';
-const PAYPAL_PROMO_URL = 'https://www.paypal.com/ncp/payment/R7ZQ2BSCC6ZEG';
 const CRYPTO_ADDRESS = '0x49089DA6cA4752469ADc1A7BDA8eDf19925a073d';
+
+const PAYPAL_URLS: Record<EbookChoice, string> = {
+  claude: 'https://www.paypal.com/ncp/payment/R7ZQ2BSCC6ZEG',
+  ai: 'https://www.paypal.com/ncp/payment/JBKRH44BDQS3Q',
+  bundle: 'https://www.paypal.com/ncp/payment/X2MVQVN7NEWPG',
+};
 
 export default function EbookPromo() {
   const { t } = useLanguage();
   const p = t.ebookPromo;
+  const ai = t.ebookAI;
   const [searchParams] = useSearchParams();
   const [previewOpen, setPreviewOpen] = useState(false);
+  const [previewAIOpen, setPreviewAIOpen] = useState(false);
+  const [pickerOpen, setPickerOpen] = useState(false);
+  const [pickerDefault, setPickerDefault] = useState<EbookChoice>('claude');
   const [cryptoCopied, setCryptoCopied] = useState(false);
+
+  function openPicker(defaultChoice: EbookChoice) {
+    setPickerDefault(defaultChoice);
+    setPickerOpen(true);
+  }
+
+  function handlePickerConfirm(choice: EbookChoice) {
+    setPickerOpen(false);
+    window.open(PAYPAL_URLS[choice], '_blank', 'noopener,noreferrer');
+  }
 
   function copyCryptoAddress() {
     navigator.clipboard.writeText(CRYPTO_ADDRESS);
@@ -122,16 +142,14 @@ export default function EbookPromo() {
 
               {/* CTAs */}
               <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-6">
-                <motion.a
-                  href={PAYPAL_PROMO_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
+                  onClick={() => openPicker('claude')}
                   className="inline-flex items-center gap-3 bg-amber-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-amber-700 transition-colors"
                 >
                   {promoValid ? p.buyNow : t.home.ebookBuy}
-                </motion.a>
+                </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
@@ -201,6 +219,102 @@ export default function EbookPromo() {
         </div>
       </section>
 
+      {/* AI Ebook Section */}
+      <section className="py-20 px-6 bg-gradient-to-br from-violet-50 via-white to-indigo-50 dark:from-stone-950 dark:via-stone-900 dark:to-stone-950">
+        <div className="relative max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+            {/* Book cover */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="flex-shrink-0"
+            >
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-violet-400 via-indigo-400 to-blue-400 rounded-3xl blur-2xl opacity-30 dark:opacity-20" />
+                <img
+                  src="/assets/ebook-ai.png"
+                  alt="AI for Beginners cover"
+                  className="relative w-52 md:w-64 rounded-2xl shadow-2xl cursor-pointer hover:scale-[1.02] transition-transform duration-300"
+                  onClick={() => setPreviewAIOpen(true)}
+                />
+              </div>
+            </motion.div>
+
+            {/* Content */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex-1 text-center md:text-left"
+            >
+              <div className="inline-flex items-center gap-2 bg-violet-50 dark:bg-violet-950/40 text-violet-700 dark:text-violet-400 rounded-full px-4 py-2 mb-5 text-sm font-semibold">
+                <BookOpen size={14} />
+                {ai.badge}
+              </div>
+
+              <h2 className="text-4xl md:text-5xl font-serif font-bold leading-tight mb-4 text-stone-900 dark:text-stone-100">
+                {ai.title}{' '}
+                <span className="text-violet-700 dark:text-violet-400">{ai.titleHighlight}</span>
+              </h2>
+
+              <p className="text-lg text-stone-600 dark:text-stone-300 leading-relaxed mb-8 max-w-lg">
+                {ai.desc}
+              </p>
+
+              <div className="flex items-baseline gap-3 mb-8 justify-center md:justify-start">
+                <span className="text-5xl font-black text-stone-900 dark:text-stone-100">{ai.originalPrice}</span>
+              </div>
+
+              <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-6">
+                <motion.button
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.97 }}
+                  onClick={() => openPicker('ai')}
+                  className="inline-flex items-center gap-3 bg-violet-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-violet-700 transition-colors"
+                >
+                  {ai.buyNow}
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.97 }}
+                  onClick={() => setPreviewAIOpen(true)}
+                  className="inline-flex items-center gap-3 bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-200 px-8 py-4 rounded-full font-bold text-lg hover:bg-stone-200 dark:hover:bg-stone-700 transition-colors"
+                >
+                  <BookOpen size={20} />
+                  {ai.preview}
+                </motion.button>
+              </div>
+
+              <div className="flex items-center gap-2 text-stone-400 dark:text-stone-500 text-sm justify-center md:justify-start">
+                <ShieldCheck size={15} />
+                {ai.guarantee}
+              </div>
+
+              <div className="mt-8 grid sm:grid-cols-2 gap-3 max-w-lg">
+                {[ai.feature1, ai.feature2, ai.feature3, ai.feature4].map((feature) => (
+                  <div key={feature} className="flex items-center gap-3 p-3 bg-white/70 dark:bg-stone-800/60 rounded-xl border border-violet-100 dark:border-violet-900/40">
+                    <div className="w-6 h-6 bg-violet-100 dark:bg-violet-900/40 rounded-full flex items-center justify-center flex-shrink-0">
+                      <Check size={13} className="text-violet-700 dark:text-violet-400" />
+                    </div>
+                    <span className="text-sm font-medium text-stone-800 dark:text-stone-200">{feature}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <EbookPickerModal
+        open={pickerOpen}
+        defaultChoice={pickerDefault}
+        onClose={() => setPickerOpen(false)}
+        onConfirm={handlePickerConfirm}
+      />
+
       {/* PDF Preview Modal */}
       {previewOpen && (
         <div
@@ -221,6 +335,30 @@ export default function EbookPromo() {
               src="/ebook.pdf"
               className="w-full h-full rounded-xl"
               title="E-book preview"
+            />
+          </div>
+        </div>
+      )}
+      {/* AI PDF Preview Modal */}
+      {previewAIOpen && (
+        <div
+          className="fixed inset-0 z-50 bg-black/90 flex flex-col"
+          onClick={() => setPreviewAIOpen(false)}
+        >
+          <div className="flex justify-end p-4">
+            <button
+              onClick={() => setPreviewAIOpen(false)}
+              className="text-white bg-white/10 hover:bg-white/20 transition-colors rounded-full p-2"
+              aria-label="Fermer"
+            >
+              <X size={24} />
+            </button>
+          </div>
+          <div className="flex-1 px-4 pb-4" onClick={e => e.stopPropagation()}>
+            <iframe
+              src="/assets/ebook-ai.pdf"
+              className="w-full h-full rounded-xl"
+              title="AI for Beginners preview"
             />
           </div>
         </div>

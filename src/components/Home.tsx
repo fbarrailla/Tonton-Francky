@@ -26,6 +26,7 @@ import {
 } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useLanguage } from '../i18n';
+import EbookPickerModal, { type EbookChoice } from './EbookPickerModal';
 
 // ← Update this number when your follower count changes
 const INSTAGRAM_FOLLOWERS = 343;
@@ -111,6 +112,8 @@ export default function Home() {
   };
   const hasThankyou = searchParams.has('thankyou');
   const [paymentOpen, setPaymentOpen] = useState(hasThankyou);
+  const [pickerOpen, setPickerOpen] = useState(false);
+  const [ebookChoice, setEbookChoice] = useState<EbookChoice>('claude');
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'sending' | 'success' | 'error' | 'duplicate'>('idle');
@@ -157,6 +160,18 @@ export default function Home() {
     } catch {
       setNewsletterStatus('error');
     }
+  };
+
+  const PAYPAL_URLS: Record<EbookChoice, string> = {
+    claude: 'https://www.paypal.com/ncp/payment/6PA3DPBZBZS8A',
+    ai: 'https://www.paypal.com/ncp/payment/JBKRH44BDQS3Q',
+    bundle: 'https://www.paypal.com/ncp/payment/X2MVQVN7NEWPG',
+  };
+
+  const handlePickerConfirm = (choice: EbookChoice) => {
+    setEbookChoice(choice);
+    setPickerOpen(false);
+    setPaymentOpen(true);
   };
 
   const closePayment = () => {
@@ -323,7 +338,7 @@ export default function Home() {
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
-                  onClick={() => setPaymentOpen(true)}
+                  onClick={() => setPickerOpen(true)}
                   className="relative inline-flex items-center gap-2 bg-amber-400 text-amber-950 px-7 py-3.5 rounded-full font-bold text-base shadow-lg overflow-hidden"
                   style={{ boxShadow: '0 0 24px #f59e0b55, 0 4px 16px rgba(0,0,0,0.3)' }}
                 >
@@ -532,7 +547,7 @@ export default function Home() {
                 <motion.button
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
-                  onClick={() => setPaymentOpen(true)}
+                  onClick={() => setPickerOpen(true)}
                   className="inline-flex items-center gap-3 bg-amber-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-amber-700 transition-colors"
                 >
                   {h.ebookBuy}
@@ -577,6 +592,13 @@ export default function Home() {
       )}
 
       {/* Payment Modal */}
+      <EbookPickerModal
+        open={pickerOpen}
+        defaultChoice={ebookChoice}
+        onClose={() => setPickerOpen(false)}
+        onConfirm={handlePickerConfirm}
+      />
+
       {paymentOpen && (
         <div
           className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4"
@@ -640,7 +662,7 @@ export default function Home() {
             <div className="space-y-4">
               {/* PayPal */}
               <a
-                href="https://www.paypal.com/ncp/payment/6PA3DPBZBZS8A"
+                href={PAYPAL_URLS[ebookChoice]}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setPaypalStep('confirm')}
