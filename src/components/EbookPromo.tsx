@@ -6,9 +6,10 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { BookOpen, Check, Copy, ShieldCheck, Tag, X } from 'lucide-react';
+import { BookOpen, Check, Copy, ShieldCheck, Sparkles, Tag, X } from 'lucide-react';
 import { useLanguage } from '../i18n';
 import qrCode from '../assets/qr-code.png';
+import ebookAiCover from '../assets/ebook-ai.png';
 import EbookPickerModal, { type EbookChoice } from './EbookPickerModal';
 
 const PROMO_CODE = 'TONTONFRANCKY50';
@@ -219,8 +220,11 @@ export default function EbookPromo() {
         </div>
       </section>
 
-      {/* AI Ebook Section */}
-      <section className="py-20 px-6 bg-gradient-to-br from-violet-50 via-white to-indigo-50 dark:from-stone-950 dark:via-stone-900 dark:to-stone-950">
+      {/* AI Ebook — Hero */}
+      <section id="ebook-ai" className="relative overflow-hidden bg-gradient-to-br from-violet-50 via-white to-indigo-50 dark:from-stone-950 dark:via-stone-900 dark:to-stone-950 py-20 px-6">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-violet-300/20 dark:bg-violet-900/10 rounded-full -translate-y-1/2 translate-x-1/3 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-300/20 dark:bg-indigo-900/10 rounded-full translate-y-1/2 -translate-x-1/3 blur-3xl pointer-events-none" />
+
         <div className="relative max-w-5xl mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
             {/* Book cover */}
@@ -234,11 +238,15 @@ export default function EbookPromo() {
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-br from-violet-400 via-indigo-400 to-blue-400 rounded-3xl blur-2xl opacity-30 dark:opacity-20" />
                 <img
-                  src="/assets/ebook-ai.png"
+                  src={ebookAiCover}
                   alt="AI for Beginners cover"
                   className="relative w-52 md:w-64 rounded-2xl shadow-2xl cursor-pointer hover:scale-[1.02] transition-transform duration-300"
                   onClick={() => setPreviewAIOpen(true)}
                 />
+                <div className="absolute -top-3 -right-3 bg-violet-600 text-white text-sm font-black px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1">
+                  <Sparkles size={13} />
+                  {ai.badge}
+                </div>
               </div>
             </motion.div>
 
@@ -288,23 +296,61 @@ export default function EbookPromo() {
                 </motion.button>
               </div>
 
-              <div className="flex items-center gap-2 text-stone-400 dark:text-stone-500 text-sm justify-center md:justify-start">
+              <div className="flex items-center gap-2 text-stone-400 dark:text-stone-500 text-sm justify-center md:justify-start mb-6">
                 <ShieldCheck size={15} />
                 {ai.guarantee}
               </div>
 
-              <div className="mt-8 grid sm:grid-cols-2 gap-3 max-w-lg">
-                {[ai.feature1, ai.feature2, ai.feature3, ai.feature4].map((feature) => (
-                  <div key={feature} className="flex items-center gap-3 p-3 bg-white/70 dark:bg-stone-800/60 rounded-xl border border-violet-100 dark:border-violet-900/40">
-                    <div className="w-6 h-6 bg-violet-100 dark:bg-violet-900/40 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Check size={13} className="text-violet-700 dark:text-violet-400" />
-                    </div>
-                    <span className="text-sm font-medium text-stone-800 dark:text-stone-200">{feature}</span>
-                  </div>
-                ))}
+              {/* QR Code payment */}
+              <div className="p-4 bg-white/80 dark:bg-stone-800/60 border border-violet-100 dark:border-stone-700 rounded-2xl max-w-lg mb-4">
+                <p className="text-sm font-semibold text-stone-700 dark:text-stone-300 mb-1">{p.qrLabel}</p>
+                <p className="text-xs text-stone-400 dark:text-stone-500 mb-3">{p.qrNote}</p>
+                <img src={qrCode} alt="QR Code HSBC Vietnam" className="w-36 h-36 rounded-xl" />
+              </div>
+
+              {/* Crypto payment */}
+              <div className="p-4 bg-white/80 dark:bg-stone-800/60 border border-violet-100 dark:border-stone-700 rounded-2xl max-w-lg">
+                <p className="text-sm font-semibold text-stone-700 dark:text-stone-300 mb-2">{p.cryptoLabel}</p>
+                <div className="flex items-center gap-2">
+                  <code className="flex-1 text-xs bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-lg px-3 py-2 text-stone-600 dark:text-stone-400 font-mono truncate">
+                    {CRYPTO_ADDRESS}
+                  </code>
+                  <button
+                    onClick={copyCryptoAddress}
+                    className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors flex-shrink-0"
+                  >
+                    <Copy size={13} />
+                    {cryptoCopied ? p.cryptoCopied : p.cryptoCopy}
+                  </button>
+                </div>
+                <p className="text-xs text-stone-400 dark:text-stone-500 mt-2">{p.cryptoNote}</p>
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* AI Ebook — Features */}
+      <section className="pt-20 pb-16 px-6 bg-white dark:bg-stone-900">
+        <div className="max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-2xl font-serif font-bold text-center mb-10 text-stone-900 dark:text-stone-100">{ai.includes}</h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {[ai.feature1, ai.feature2, ai.feature3, ai.feature4].map((feature) => (
+                <div key={feature} className="flex items-center gap-3 p-4 bg-stone-50 dark:bg-stone-800 rounded-2xl">
+                  <div className="w-8 h-8 bg-violet-100 dark:bg-violet-900/40 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Check size={16} className="text-violet-700 dark:text-violet-400" />
+                  </div>
+                  <span className="font-medium text-stone-800 dark:text-stone-200">{feature}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
