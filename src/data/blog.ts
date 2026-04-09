@@ -1607,6 +1607,276 @@ const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'comment-jai-code-johntran-code',
+    title: 'Comment j\'ai codé johntran-code.com',
+    titleEn: 'How I Built johntran-code.com',
+    excerpt: 'Un site vitrine pour un coach de vie — du brief au déploiement, avec React, Tailwind et Claude Code. Voici exactement comment j\'ai travaillé.',
+    excerptEn: 'A showcase website for a lifestyle coach — from brief to deployment, with React, Tailwind and Claude Code. Here\'s exactly how I worked.',
+    date: '2026-04-10',
+    readTime: 5,
+    category: 'Tech & IA',
+    categoryEn: 'Tech & AI',
+    thumbnail: '/blog/johntran-code.jpg',
+    content: [
+      {
+        type: 'paragraph',
+        text: "John Tran est coach de vie. Spécialisé en santé physique et mentale, il accompagne ses clients vers des transformations concrètes. Il avait une histoire à raconter, une offre claire — mais pas de site.",
+      },
+      {
+        type: 'paragraph',
+        text: "Il m'a contacté avec une demande simple : quelque chose de propre, de professionnel, qui inspire confiance dès la première seconde. Pas de fioriture. Pas de page inutile. Un site qui travaille pour lui.",
+      },
+      {
+        type: 'heading',
+        text: 'Le brief en 10 minutes',
+      },
+      {
+        type: 'paragraph',
+        text: "On a passé une heure ensemble. Lui m'explique qui il est, ce qu'il propose, à qui il s'adresse. Moi je prends des notes, je pose des questions sur le ton, les couleurs, les sensations qu'il veut transmettre.",
+      },
+      {
+        type: 'paragraph',
+        text: "Ce qui ressort : sobriété, force, authenticité. Pas un site \"wellness\" avec des photos de coucher de soleil et des citations en italique. Un site d'un professionnel sérieux.",
+      },
+      {
+        type: 'quote',
+        text: "Je veux que les gens comprennent en 5 secondes ce que je fais et pourquoi ça peut les aider.",
+      },
+      {
+        type: 'paragraph',
+        text: "C'est la meilleure façon de démarrer un projet. Un objectif clair, une contrainte simple. Le reste découle naturellement.",
+      },
+      {
+        type: 'heading',
+        text: 'Le stack : React, Tailwind, Vite',
+      },
+      {
+        type: 'paragraph',
+        text: "Pour un site vitrine de cette nature, le choix du stack est vite fait. Pas besoin d'un CMS lourd, pas besoin d'une base de données. Juste du HTML rendu côté client, rapide, déployable partout.",
+      },
+      {
+        type: 'list',
+        items: [
+          'React — pour la structure des composants et la réutilisabilité',
+          'Tailwind CSS — pour le design rapide et cohérent sans écrire de CSS custom',
+          'Vite — pour le dev server instantané et le build optimisé',
+          'Claude Code — pour accélérer la génération de code répétitif',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Ce combo, je le connais bien. Je l'utilise sur tous mes projets récents. La vitesse d'itération est incomparable.",
+      },
+      {
+        type: 'heading',
+        text: 'Claude Code dans le workflow',
+      },
+      {
+        type: 'paragraph',
+        text: "Sur ce projet, j'ai utilisé Claude Code différemment qu'un simple assistant. Je lui ai décrit l'architecture complète du site au départ — les sections, le style visuel, les composants attendus — et on a construit ensemble, section par section.",
+      },
+      {
+        type: 'paragraph',
+        text: "La hero section ? Décrite en deux phrases, générée en 30 secondes, ajustée en 5 minutes. Les cards d'offres ? Idem. Ce qui aurait pris une heure à coder manuellement a pris 10 minutes.",
+      },
+      {
+        type: 'paragraph',
+        text: "Mais l'IA ne remplace pas le goût. C'est moi qui décide si la typographie est juste, si les espacements respirent bien, si le ton visuel colle avec ce que John m'a décrit.",
+      },
+      {
+        type: 'quote',
+        text: "L'IA génère. Toi tu juges, tu ajustes, tu livres. La vitesse est dans la génération. La qualité est dans le regard.",
+      },
+      {
+        type: 'heading',
+        text: 'Les décisions de design',
+      },
+      {
+        type: 'paragraph',
+        text: "Palette sobre : noir, blanc, une couleur d'accent chaude pour les call-to-actions. Police sans serif, lisible, moderne sans être froide.",
+      },
+      {
+        type: 'paragraph',
+        text: "La structure du site suit une logique narrative : qui est John → ce qu'il propose → pourquoi lui → comment le contacter. Chaque section répond à une question implicite du visiteur.",
+      },
+      {
+        type: 'list',
+        items: [
+          'Hero — accroche immédiate, proposition de valeur en une ligne',
+          'À propos — histoire personnelle, crédibilité, humanité',
+          'Offres — ce que tu peux obtenir concrètement',
+          'Témoignages — preuve sociale',
+          'Contact — friction minimale, action claire',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Rien d'original dans cette structure. Mais elle fonctionne parce qu'elle est pensée du point de vue du visiteur, pas du client.",
+      },
+      {
+        type: 'heading',
+        text: 'Du code au déploiement',
+      },
+      {
+        type: 'paragraph',
+        text: "Une fois le site validé visuellement, le déploiement est quasi instantané. Build Vite, upload sur le serveur, configuration du domaine. Moins d'une heure.",
+      },
+      {
+        type: 'paragraph',
+        text: "Le résultat : un site performant, léger, avec un score Lighthouse proche de 100. Pas parce que j'ai passé des heures à optimiser — mais parce que le stack choisi est naturellement efficace.",
+      },
+      {
+        type: 'paragraph',
+        text: "John a eu son site en quelques jours. Pas des semaines. C'est ça, travailler avec les bons outils.",
+      },
+      {
+        type: 'heading',
+        text: 'Ce que ce projet m\'a confirmé',
+      },
+      {
+        type: 'paragraph',
+        text: "Les meilleurs sites vitrines ne sont pas les plus complexes. Ils sont les plus clairs. Une belle typographie, un message fort, une structure logique — et tout le reste s'efface.",
+      },
+      {
+        type: 'paragraph',
+        text: "Et avec Claude Code dans le workflow, ce genre de projet devient fluide. Moins de friction technique, plus de temps pour les vraies décisions — le design, le message, l'expérience utilisateur.",
+      },
+      {
+        type: 'paragraph',
+        text: "Tu veux voir le résultat ? johntran-code.com",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "John Tran is a lifestyle coach. Specialised in physical and mental health, he helps his clients achieve real transformations. He had a story to tell, a clear offer — but no website.",
+      },
+      {
+        type: 'paragraph',
+        text: "He reached out with a simple request: something clean, professional, that builds trust from the first second. No fluff. No unnecessary pages. A site that works for him.",
+      },
+      {
+        type: 'heading',
+        text: 'The brief in 10 minutes',
+      },
+      {
+        type: 'paragraph',
+        text: "We spent an hour together. He explained who he is, what he offers, who he works with. I took notes and asked questions about tone, colours, and the feeling he wanted to convey.",
+      },
+      {
+        type: 'paragraph',
+        text: "What came through: sobriety, strength, authenticity. Not a wellness site with sunset photos and italic quotes. A serious professional's site.",
+      },
+      {
+        type: 'quote',
+        text: "I want people to understand in 5 seconds what I do and why it could help them.",
+      },
+      {
+        type: 'paragraph',
+        text: "That's the best way to start a project. A clear goal, a simple constraint. Everything else follows naturally.",
+      },
+      {
+        type: 'heading',
+        text: 'The stack: React, Tailwind, Vite',
+      },
+      {
+        type: 'paragraph',
+        text: "For a showcase site like this, the stack choice is straightforward. No need for a heavy CMS, no need for a database. Just client-side rendered HTML, fast, deployable anywhere.",
+      },
+      {
+        type: 'list',
+        items: [
+          'React — for component structure and reusability',
+          'Tailwind CSS — for fast, consistent design without writing custom CSS',
+          'Vite — for an instant dev server and optimised build',
+          'Claude Code — to accelerate repetitive code generation',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "I know this stack well. I use it on all my recent projects. The iteration speed is unmatched.",
+      },
+      {
+        type: 'heading',
+        text: 'Claude Code in the workflow',
+      },
+      {
+        type: 'paragraph',
+        text: "On this project, I used Claude Code differently from a simple assistant. I described the full site architecture upfront — the sections, visual style, expected components — and we built together, section by section.",
+      },
+      {
+        type: 'paragraph',
+        text: "The hero section? Described in two sentences, generated in 30 seconds, adjusted in 5 minutes. The offer cards? Same. What would have taken an hour to code manually took 10 minutes.",
+      },
+      {
+        type: 'paragraph',
+        text: "But AI doesn't replace taste. I'm the one who decides whether the typography is right, whether the spacing breathes well, whether the visual tone matches what John described.",
+      },
+      {
+        type: 'quote',
+        text: "AI generates. You judge, adjust, and deliver. Speed is in the generation. Quality is in the eye.",
+      },
+      {
+        type: 'heading',
+        text: 'Design decisions',
+      },
+      {
+        type: 'paragraph',
+        text: "Sober palette: black, white, a warm accent colour for call-to-actions. Sans-serif font, readable, modern without being cold.",
+      },
+      {
+        type: 'paragraph',
+        text: "The site structure follows a narrative logic: who John is → what he offers → why him → how to reach him. Each section answers an implicit visitor question.",
+      },
+      {
+        type: 'list',
+        items: [
+          'Hero — immediate hook, value proposition in one line',
+          'About — personal story, credibility, humanity',
+          'Offers — what you can concretely get',
+          'Testimonials — social proof',
+          'Contact — minimal friction, clear action',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Nothing original in this structure. But it works because it's designed from the visitor's perspective, not the client's.",
+      },
+      {
+        type: 'heading',
+        text: 'From code to deployment',
+      },
+      {
+        type: 'paragraph',
+        text: "Once the site was visually validated, deployment was almost instant. Vite build, upload to server, domain configuration. Under an hour.",
+      },
+      {
+        type: 'paragraph',
+        text: "The result: a fast, lightweight site with a Lighthouse score close to 100. Not because I spent hours optimising — but because the chosen stack is naturally efficient.",
+      },
+      {
+        type: 'paragraph',
+        text: "John had his site in a few days. Not weeks. That's what working with the right tools looks like.",
+      },
+      {
+        type: 'heading',
+        text: 'What this project confirmed',
+      },
+      {
+        type: 'paragraph',
+        text: "The best showcase sites aren't the most complex. They're the clearest. Good typography, a strong message, a logical structure — and everything else fades away.",
+      },
+      {
+        type: 'paragraph',
+        text: "And with Claude Code in the workflow, this kind of project becomes fluid. Less technical friction, more time for the real decisions — design, messaging, user experience.",
+      },
+      {
+        type: 'paragraph',
+        text: "Want to see the result? johntran-code.com",
+      },
+    ],
+  },
 ];
 
 export default posts;
