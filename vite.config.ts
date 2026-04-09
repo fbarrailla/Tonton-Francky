@@ -32,7 +32,13 @@ export default defineConfig(({mode}) => {
         },
         workbox: {
           // Cache pages & assets, fall back to network
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2,pdf}'],
           runtimeCaching: [
+            {
+              urlPattern: /\.pdf$/i,
+              handler: 'NetworkFirst',
+              options: { cacheName: 'pdfs', networkTimeoutSeconds: 10 },
+            },
             {
               urlPattern: /^https:\/\/api\.github\.com\/.*/i,
               handler: 'NetworkFirst',
