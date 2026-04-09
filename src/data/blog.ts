@@ -1519,6 +1519,94 @@ const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'premiere-bouchee-banh-mi',
+    title: 'La première bouchée de bánh mì',
+    titleEn: 'The First Bite of Bánh Mì',
+    excerpt: 'Il y a quelque chose dans la façon dont on le tient d\'abord. Pas encore mangé, mais déjà là, dans la main — et déjà on sait que ça va être bien.',
+    excerptEn: 'There is something in the way you hold it first. Not yet eaten, but already there, in your hand — and you already know it\'s going to be good.',
+    date: '2026-04-09',
+    readTime: 3,
+    category: 'Voyages',
+    categoryEn: 'Travels',
+    thumbnail: '/blog/ha-noi-05.jpg',
+    content: [
+      {
+        type: 'paragraph',
+        text: "Il y a quelque chose dans la façon dont on le tient d'abord. Pas encore mangé, mais déjà là, dans la main — la baguette vietnamienne, plus légère que la française, la croûte qui chante quand on la presse légèrement. Le papier blanc qui l'enveloppe à moitié. L'odeur qui monte : la coriandre fraîche, le pâté chaud, le vinaigre doux des carottes marinées. On sait déjà que ça va être bien.",
+      },
+      {
+        type: 'paragraph',
+        text: "La vendeuse l'a assemblé devant toi, gestes sûrs et rapides. Le couteau qui fend la baguette sans jamais la séparer tout à fait. La pâte de piment étalée d'un trait. Les tranches de jambon blanc, le pâté de foie crémeux. Puis les légumes — cette explosion de couleurs, le blanc du daïkon, l'orange des carottes, le vert tendre de la coriandre. Quelques rondelles de piment vert. Tout ça dans un geste.",
+      },
+      {
+        type: 'paragraph',
+        text: "Et maintenant tu tiens le bánh mì, debout au bord du trottoir, le scooter qui passe trop près, le soleil déjà lourd à neuf heures du matin. Il fait chaud. Le bitume chauffe. Mais tu tiens ce truc dans les mains et tu n'es nulle part ailleurs.",
+      },
+      {
+        type: 'heading',
+        text: 'La première bouchée.',
+      },
+      {
+        type: 'paragraph',
+        text: "Il y a d'abord le son. Ce craquement sec, presque violent, qui te surprend à chaque fois. La croûte cède, craque, et déjà les saveurs arrivent ensemble — pas l'une après l'autre, toutes en même temps : le gras du pâté, l'acidité vive des légumes marinés, le poivré de la coriandre, la chaleur ronde du piment. Le pain lui-même, alvéolé, léger, absorbe et tient à la fois. Rien ne tombe. Tout reste.",
+      },
+      {
+        type: 'paragraph',
+        text: "On ne s'y attendait pas — à cette précision. Un bánh mì, ça a l'air simple. Un sandwich au bord d'une rue. Et puis cette première bouchée te rappelle que les meilleures choses ont souvent cet air-là.",
+      },
+      {
+        type: 'quote',
+        text: "Tu mâches lentement malgré tout. Pas parce que tu veux prolonger. Plutôt parce que quelque chose en toi résiste à aller trop vite.",
+      },
+      {
+        type: 'paragraph',
+        text: "C'est la même chose avec les couchers de soleil, avec les fins de livre, avec les bonnes conversations qui tournent en rond avant de trouver leur vraie direction.",
+      },
+      {
+        type: 'paragraph',
+        text: "Le reste du bánh mì, tu le sais, sera bon aussi. Mais pas comme ça. Jamais comme cette première seconde où tout existe encore en entier.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "There is something in the way you hold it first. Not yet eaten, but already there, in your hand — the Vietnamese baguette, lighter than the French one, the crust that sings when you press it gently. The white paper half-wrapping it. The smell rising: fresh coriander, warm pâté, the soft vinegar of pickled carrots. You already know it's going to be good.",
+      },
+      {
+        type: 'paragraph',
+        text: "The woman assembled it in front of you, gestures sure and swift. A knife splitting the baguette without ever fully separating it. A streak of chili paste. Slices of white ham, creamy liver pâté. Then the vegetables — that burst of colour, white daikon, orange carrots, the tender green of coriander. A few rounds of green chili. All of it in one motion.",
+      },
+      {
+        type: 'paragraph',
+        text: "And now you're holding the bánh mì, standing at the edge of the pavement, a scooter passing too close, the sun already heavy at nine in the morning. It's hot. The asphalt is warming. But you're holding this thing in your hands and you are nowhere else.",
+      },
+      {
+        type: 'heading',
+        text: 'The first bite.',
+      },
+      {
+        type: 'paragraph',
+        text: "First comes the sound. That sharp crack, almost violent, that surprises you every time. The crust gives, snaps, and already the flavours arrive together — not one after another, all at once: the richness of the pâté, the bright acidity of the pickled vegetables, the peppery bite of coriander, the round heat of chili. The bread itself, airy and light, absorbs and holds at the same time. Nothing falls. Everything stays.",
+      },
+      {
+        type: 'paragraph',
+        text: "You didn't expect it — that precision. A bánh mì looks simple. A sandwich by the side of a road. And then that first bite reminds you that the best things often look exactly like that.",
+      },
+      {
+        type: 'quote',
+        text: "You chew slowly despite yourself. Not because you want to stretch it out. More because something in you resists going too fast.",
+      },
+      {
+        type: 'paragraph',
+        text: "It's the same with sunsets, with the ends of books, with good conversations that circle around before finding their real direction.",
+      },
+      {
+        type: 'paragraph',
+        text: "The rest of the bánh mì, you know, will be good too. But not like this. Never like that first second when everything still exists whole.",
+      },
+    ],
+  },
 ];
 
 export default posts;
