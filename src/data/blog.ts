@@ -1257,6 +1257,268 @@ const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'planifier-voyage-avec-ia',
+    title: "J'ai planifié tout mon voyage au Vietnam avec l'IA — voici comment",
+    titleEn: "I Planned My Entire Vietnam Trip with AI — Here's How",
+    excerpt: "Fini les heures perdues sur des forums TripAdvisor. En 20 minutes et quelques prompts bien écrits, j'avais un itinéraire complet, réaliste et personnalisé.",
+    excerptEn: "No more hours lost on TripAdvisor forums. In 20 minutes and a few well-written prompts, I had a complete, realistic and personalised itinerary.",
+    date: '2026-04-09',
+    readTime: 6,
+    category: 'Tech & IA',
+    categoryEn: 'Tech & AI',
+    thumbnail: '/ebook-ai-thumb.png',
+    ebookCta: true,
+    ebookType: 'ai',
+    content: [
+      {
+        type: 'paragraph',
+        text: "Avant, planifier un voyage, ça me prenait des heures. Des onglets ouverts partout. Des forums Reddit contradictoires. Des articles de blog datés de 2019. Et au final, un itinéraire bricolé à la va-vite la veille du départ.",
+      },
+      {
+        type: 'paragraph',
+        text: "Depuis que j'utilise l'IA pour ça, tout a changé. Mon dernier voyage au Vietnam — 3 semaines, 8 villes, budget serré — a été planifié en moins de 30 minutes. Et c'était le mieux organisé que j'aie jamais fait.",
+      },
+      {
+        type: 'quote',
+        text: "L'IA ne remplace pas l'expérience du voyageur. Elle remplace les 4 heures perdues à chercher des infos éparpillées partout.",
+      },
+      {
+        type: 'heading',
+        text: "Le prompt de base : donne du contexte, reçois un plan",
+      },
+      {
+        type: 'paragraph',
+        text: "La première erreur que font la plupart des gens, c'est de demander juste : \"Planifie-moi un voyage au Vietnam.\" L'IA va te sortir quelque chose de générique, bon pour tout le monde, donc parfait pour personne.",
+      },
+      {
+        type: 'paragraph',
+        text: "La bonne approche : lui donner du contexte, des contraintes, et un style de voyage. Voici le prompt que j'utilise :",
+      },
+      {
+        type: 'quote',
+        text: "Tu es un expert en voyages en Asie du Sud-Est. Je pars 3 semaines au Vietnam en solo, budget moyen (30-50$/jour tout compris). J'arrive à Hanoï et repars de Ho Chi Minh City. J'aime les lieux authentiques loin des touristes, la nature, la street food et les rencontres locales. Je ne veux pas passer plus de 2h dans les transports par étape. Propose-moi un itinéraire jour par jour réaliste avec les transports entre chaque ville.",
+      },
+      {
+        type: 'paragraph',
+        text: "Résultat : un itinéraire complet, cohérent géographiquement, avec des durées de trajet réelles et des suggestions adaptées à mon profil. En 10 secondes.",
+      },
+      {
+        type: 'heading',
+        text: "Affiner : le vrai secret du prompt engineering",
+      },
+      {
+        type: 'paragraph',
+        text: "Le premier résultat est rarement parfait. Mais c'est là que le jeu commence. Tu affines, tu poses des questions, tu corriges.",
+      },
+      {
+        type: 'list',
+        items: [
+          '"Je ne veux pas aller à Hoi An, remplace par une alternative moins touristique"',
+          '"Ajoute une nuit à Tam Dao entre Hanoï et Ninh Binh"',
+          '"Donne-moi les 3 meilleures adresses street food à chaque étape"',
+          '"Quel est le meilleur moyen de transport entre Da Nang et Hoi An ? Bus ou scooter ?"',
+          '"Crée-moi un budget détaillé pour cet itinéraire"',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "C'est une conversation, pas une requête unique. Tu itères jusqu'à avoir exactement ce que tu veux.",
+      },
+      {
+        type: 'heading',
+        text: "Le prompt pour les imprévus",
+      },
+      {
+        type: 'paragraph',
+        text: "Une fois sur place, l'IA devient ton guide de poche. Quelques prompts qui m'ont sauvé la mise :",
+      },
+      {
+        type: 'list',
+        items: [
+          '"Je suis à Con Dao, il pleut, que faire en intérieur ?"',
+          '"J\'ai raté mon bus pour Hue. Quelles alternatives depuis Da Nang aujourd\'hui ?"',
+          '"Traduis cette phrase en vietnamien : \'Je suis allergique aux cacahuètes\'"',
+          '"Négocie en vietnamien pour moi : je veux louer un scooter pour 2 jours à Da Lat"',
+        ],
+      },
+      {
+        type: 'quote',
+        text: "L'IA ne connaît pas les horaires en temps réel. Vérifie toujours les transports et les prix sur place. Mais pour le reste, elle est imbattable.",
+      },
+      {
+        type: 'heading',
+        text: "Le prompt pour le budget",
+      },
+      {
+        type: 'paragraph',
+        text: "Un truc que j'adore faire avant de partir : demander à l'IA de me générer un tableau de budget complet.",
+      },
+      {
+        type: 'quote',
+        text: "Crée-moi un tableau de budget pour 21 jours au Vietnam en voyage solo, style backpacker+. Inclus : hébergement (dortoir ou guesthouse), transports internes, nourriture (street food + un resto correct le soir), activités et visites, imprévus (10%). Budget cible : 1 200€ total. Dis-moi si c'est réaliste et où couper si nécessaire.",
+      },
+      {
+        type: 'paragraph',
+        text: "Tu récupères un budget poste par poste, avec des ajustements possibles selon tes priorités. Ça t'évite les mauvaises surprises à mi-voyage.",
+      },
+      {
+        type: 'heading',
+        text: "Ce que l'IA fait très bien — et ce qu'elle ne remplace pas",
+      },
+      {
+        type: 'list',
+        items: [
+          '✅ Organiser une logistique complexe rapidement',
+          '✅ Suggérer des alternatives hors des sentiers battus',
+          '✅ Répondre à tes questions en temps réel depuis ton téléphone',
+          '✅ T\'aider à communiquer dans la langue locale',
+          '❌ Connaître les conditions actuelles (météo, fermetures, prix du moment)',
+          '❌ Remplacer le ressenti humain et les recommandations de gens sur place',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "L'IA est un outil de planification surpuissant. Pas un oracle. Utilise-la pour gagner du temps, pas pour déléguer ton voyage en entier.",
+      },
+      {
+        type: 'heading',
+        text: "Par où commencer ?",
+      },
+      {
+        type: 'paragraph',
+        text: "Si tu n'as jamais utilisé l'IA pour planifier un voyage, commence simple : ouvre ChatGPT ou Claude, colle le premier prompt de cet article en remplaçant la destination et les détails par les tiens. Tu vas être surpris du résultat.",
+      },
+      {
+        type: 'paragraph',
+        text: "Et si tu veux vraiment maîtriser l'art du prompt pour en tirer le maximum — pas juste pour les voyages, mais pour tout — j'ai écrit un guide complet là-dessus.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "Before, planning a trip used to take me hours. Tabs open everywhere. Contradictory Reddit threads. Blog posts from 2019. And in the end, a last-minute itinerary cobbled together the night before departure.",
+      },
+      {
+        type: 'paragraph',
+        text: "Since I started using AI for this, everything changed. My last Vietnam trip — 3 weeks, 8 cities, tight budget — was planned in under 30 minutes. And it was the best-organised trip I've ever done.",
+      },
+      {
+        type: 'quote',
+        text: "AI doesn't replace the traveller's experience. It replaces the 4 hours lost hunting for scattered information.",
+      },
+      {
+        type: 'heading',
+        text: "The base prompt: give context, get a plan",
+      },
+      {
+        type: 'paragraph',
+        text: "The first mistake most people make is just asking: \"Plan me a trip to Vietnam.\" AI will give you something generic, good for everyone, perfect for no one.",
+      },
+      {
+        type: 'paragraph',
+        text: "The right approach: give it context, constraints, and your travel style. Here's the prompt I use:",
+      },
+      {
+        type: 'quote',
+        text: "You are an expert in Southeast Asia travel. I'm going solo to Vietnam for 3 weeks, mid-range budget ($30-50/day all in). I arrive in Hanoi and leave from Ho Chi Minh City. I love authentic spots away from tourists, nature, street food and local encounters. I don't want more than 2 hours of transport per leg. Give me a realistic day-by-day itinerary including transport between each city.",
+      },
+      {
+        type: 'paragraph',
+        text: "Result: a complete itinerary, geographically coherent, with realistic journey times and suggestions tailored to my profile. In 10 seconds.",
+      },
+      {
+        type: 'heading',
+        text: "Refining: the real secret of prompt engineering",
+      },
+      {
+        type: 'paragraph',
+        text: "The first result is rarely perfect. But that's where the game begins. You refine, ask questions, correct.",
+      },
+      {
+        type: 'list',
+        items: [
+          '"I don\'t want to go to Hoi An, replace it with a less touristy alternative"',
+          '"Add a night in Tam Dao between Hanoi and Ninh Binh"',
+          '"Give me the 3 best street food spots at each stop"',
+          '"What\'s the best way to get from Da Nang to Hoi An? Bus or scooter?"',
+          '"Build me a detailed budget for this itinerary"',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "It's a conversation, not a single request. You iterate until you have exactly what you want.",
+      },
+      {
+        type: 'heading',
+        text: "The prompt for the unexpected",
+      },
+      {
+        type: 'paragraph',
+        text: "Once you're on the ground, AI becomes your pocket guide. A few prompts that saved me:",
+      },
+      {
+        type: 'list',
+        items: [
+          '"I\'m in Con Dao and it\'s raining, what can I do indoors?"',
+          '"I missed my bus to Hue. What are my options from Da Nang today?"',
+          '"Translate this into Vietnamese: \'I\'m allergic to peanuts\'"',
+          '"Help me negotiate in Vietnamese: I want to rent a scooter in Da Lat for 2 days"',
+        ],
+      },
+      {
+        type: 'quote',
+        text: "AI doesn't know real-time schedules. Always verify transport and prices on the ground. But for everything else, it's unbeatable.",
+      },
+      {
+        type: 'heading',
+        text: "The budget prompt",
+      },
+      {
+        type: 'paragraph',
+        text: "Something I love doing before any trip: asking AI to generate a complete budget breakdown.",
+      },
+      {
+        type: 'quote',
+        text: "Build me a budget breakdown for 21 days in Vietnam as a solo backpacker+. Include: accommodation (dorms or guesthouses), internal transport, food (street food + one decent restaurant per evening), activities and entry fees, contingency (10%). Target budget: $1,300 total. Tell me if it's realistic and where to cut if needed.",
+      },
+      {
+        type: 'paragraph',
+        text: "You get a line-by-line budget with adjustments possible based on your priorities. No more nasty surprises halfway through the trip.",
+      },
+      {
+        type: 'heading',
+        text: "What AI does brilliantly — and what it doesn't replace",
+      },
+      {
+        type: 'list',
+        items: [
+          '✅ Organising complex logistics quickly',
+          '✅ Suggesting off-the-beaten-path alternatives',
+          '✅ Answering your questions in real time from your phone',
+          '✅ Helping you communicate in the local language',
+          '❌ Knowing current conditions (weather, closures, today\'s prices)',
+          '❌ Replacing the human feel and recommendations from people on the ground',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "AI is a powerfully efficient planning tool. Not an oracle. Use it to save time, not to outsource your entire trip.",
+      },
+      {
+        type: 'heading',
+        text: "Where to start?",
+      },
+      {
+        type: 'paragraph',
+        text: "If you've never used AI to plan a trip, start simple: open ChatGPT or Claude, paste the first prompt from this article with your own destination and details. You'll be surprised by the result.",
+      },
+      {
+        type: 'paragraph',
+        text: "And if you want to truly master the art of prompting to get the most out of it — not just for travel, but for everything — I wrote a complete guide on exactly that.",
+      },
+    ],
+  },
 ];
 
 export default posts;
