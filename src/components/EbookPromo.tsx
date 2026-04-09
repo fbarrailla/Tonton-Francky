@@ -260,6 +260,9 @@ export default function EbookPromo() {
                     {ai.badge}
                   </div>
                 )}
+                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-stone-600 dark:text-stone-300 text-xs font-semibold px-3 py-1 rounded-full shadow-sm whitespace-nowrap">
+                  🇫🇷 FR · 🇬🇧 EN
+                </div>
               </div>
             </motion.div>
 

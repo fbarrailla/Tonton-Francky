@@ -590,6 +590,9 @@ export default function Home() {
                     <div className="absolute -top-2 -right-2 bg-violet-600 text-white text-[10px] font-black px-2 py-0.5 rounded-full">
                       {lang === 'fr' ? 'Nouveau' : 'New'}
                     </div>
+                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-stone-500 dark:text-stone-400 text-[10px] font-semibold px-2 py-0.5 rounded-full shadow-sm whitespace-nowrap">
+                      🇫🇷 · 🇬🇧
+                    </div>
                   </div>
                 </motion.div>
                 <div>

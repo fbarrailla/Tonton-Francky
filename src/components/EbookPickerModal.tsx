@@ -139,6 +139,9 @@ export default function EbookPickerModal({ open, defaultChoice = 'claude', promo
                           </span>
                         )}
                       </div>
+                      {opt.id === 'ai' && (
+                        <p className="text-[11px] text-stone-400 dark:text-stone-500 mt-0.5">🇫🇷 FR · 🇬🇧 EN</p>
+                      )}
                       {isBundle && (
                         <p className="text-xs text-stone-500 dark:text-stone-400 mt-0.5">{pk.bundleSaving}</p>
                       )}
