@@ -32,7 +32,7 @@ export default defineConfig(({mode}) => {
         },
         workbox: {
           // Cache pages & assets, fall back to network
-          globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2,pdf}'],
+          maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5 MB
           runtimeCaching: [
             {
               urlPattern: /\.pdf$/i,
