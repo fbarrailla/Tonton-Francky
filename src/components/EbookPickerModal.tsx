@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { BookOpen, Check, Sparkles, X } from 'lucide-react';
+import { BookOpen, Check, Sparkles, Tag, X } from 'lucide-react';
 import { useLanguage } from '../i18n';
 import ebookAiCover from '../assets/ebook-ai.png';
 
@@ -9,6 +9,7 @@ export type EbookChoice = 'claude' | 'ai' | 'bundle';
 interface Props {
   open: boolean;
   defaultChoice?: EbookChoice;
+  promoValid?: boolean;
   onClose: () => void;
   onConfirm: (choice: EbookChoice) => void;
 }
@@ -25,11 +26,26 @@ const PRICES_FR: Record<EbookChoice, string> = {
   bundle: '7,99$',
 };
 
-export default function EbookPickerModal({ open, defaultChoice = 'claude', onClose, onConfirm }: Props) {
+const PROMO_PRICES: Record<EbookChoice, string> = {
+  claude: '$4.99',
+  ai: '$4.99',
+  bundle: '$7.99',
+};
+
+const PROMO_PRICES_FR: Record<EbookChoice, string> = {
+  claude: '4,99$',
+  ai: '4,99$',
+  bundle: '7,99$',
+};
+
+export default function EbookPickerModal({ open, defaultChoice = 'claude', promoValid = false, onClose, onConfirm }: Props) {
   const { t, lang } = useLanguage();
   const pk = t.home.ebookPicker;
   const [selected, setSelected] = useState<EbookChoice>(defaultChoice);
-  const prices = lang === 'fr' ? PRICES_FR : PRICES;
+  const prices = promoValid
+    ? (lang === 'fr' ? PROMO_PRICES_FR : PROMO_PRICES)
+    : (lang === 'fr' ? PRICES_FR : PRICES);
+  const originalPrices = lang === 'fr' ? PRICES_FR : PRICES;
 
   const options: { id: EbookChoice; title: string; cover: string; accent: string; ring: string }[] = [
     {
@@ -75,6 +91,12 @@ export default function EbookPickerModal({ open, defaultChoice = 'claude', onClo
               <div>
                 <h2 className="text-xl font-bold text-stone-900 dark:text-stone-100">{pk.title}</h2>
                 <p className="text-stone-500 dark:text-stone-400 text-sm mt-1">{pk.subtitle}</p>
+                {promoValid && (
+                  <div className="inline-flex items-center gap-1.5 mt-2 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 text-xs font-semibold px-3 py-1 rounded-full border border-emerald-200 dark:border-emerald-800">
+                    <Tag size={11} />
+                    -50% appliqué
+                  </div>
+                )}
               </div>
               <button onClick={onClose} className="text-stone-400 hover:text-stone-700 dark:hover:text-stone-200 transition-colors ml-4 mt-0.5">
                 <X size={20} />
@@ -124,9 +146,16 @@ export default function EbookPickerModal({ open, defaultChoice = 'claude', onClo
 
                     {/* Price + check */}
                     <div className="flex items-center gap-3 flex-shrink-0">
-                      <span className={`font-black text-lg ${isBundle ? 'text-emerald-700 dark:text-emerald-400' : 'text-stone-900 dark:text-stone-100'}`}>
-                        {prices[opt.id]}
-                      </span>
+                      <div className="text-right">
+                        <span className={`font-black text-lg block leading-none ${isBundle ? 'text-emerald-700 dark:text-emerald-400' : 'text-stone-900 dark:text-stone-100'}`}>
+                          {prices[opt.id]}
+                        </span>
+                        {promoValid && opt.id !== 'bundle' && (
+                          <span className="text-xs text-stone-400 dark:text-stone-500 line-through">
+                            {originalPrices[opt.id]}
+                          </span>
+                        )}
+                      </div>
                       <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${
                         isSelected ? `${opt.ring} bg-current border-transparent` : 'border-stone-300 dark:border-stone-600'
                       }`}>

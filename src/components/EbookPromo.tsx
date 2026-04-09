@@ -21,6 +21,12 @@ const PAYPAL_URLS: Record<EbookChoice, string> = {
   bundle: 'https://www.paypal.com/ncp/payment/X2MVQVN7NEWPG',
 };
 
+const PAYPAL_PROMO_URLS: Record<EbookChoice, string> = {
+  claude: 'https://www.paypal.com/ncp/payment/6PA3DPBZBZS8A',
+  ai: 'https://www.paypal.com/ncp/payment/JBKRH44BDQS3Q', // TODO: replace with $4.99 AI promo link
+  bundle: 'https://www.paypal.com/ncp/payment/X2MVQVN7NEWPG',
+};
+
 export default function EbookPromo() {
   const { t } = useLanguage();
   const p = t.ebookPromo;
@@ -39,7 +45,8 @@ export default function EbookPromo() {
 
   function handlePickerConfirm(choice: EbookChoice) {
     setPickerOpen(false);
-    window.open(PAYPAL_URLS[choice], '_blank', 'noopener,noreferrer');
+    const urls = promoValid ? PAYPAL_PROMO_URLS : PAYPAL_URLS;
+    window.open(urls[choice], '_blank', 'noopener,noreferrer');
   }
 
   function copyCryptoAddress() {
@@ -380,6 +387,7 @@ export default function EbookPromo() {
       <EbookPickerModal
         open={pickerOpen}
         defaultChoice={pickerDefault}
+        promoValid={promoValid}
         onClose={() => setPickerOpen(false)}
         onConfirm={handlePickerConfirm}
       />
