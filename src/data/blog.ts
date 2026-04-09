@@ -959,6 +959,304 @@ const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'con-dao-paradis-cache-vietnam',
+    title: "Con Dao — Le paradis caché que peu de voyageurs connaissent",
+    titleEn: "Con Dao — The Hidden Paradise Few Travellers Know About",
+    excerpt: "Loin de l'agitation du sud du Vietnam, Con Dao cache des plages quasi désertes, une jungle intacte et un passé historique intense. Une île qui te marque.",
+    excerptEn: "Far from the bustle of southern Vietnam, Con Dao hides near-deserted beaches, untouched jungle and an intense historical past. An island that stays with you.",
+    date: '2026-04-09',
+    readTime: 6,
+    category: 'Voyages',
+    categoryEn: 'Travels',
+    thumbnail: '/blog/con-dao-01.jpg',
+    content: [
+      {
+        type: 'paragraph',
+        text: "Située au large du sud du Vietnam, l'archipel de Côn Đảo est l'une des destinations les plus fascinantes — et encore relativement secrètes — du pays. Peu de gens en parlent. Encore moins y vont.",
+      },
+      {
+        type: 'paragraph',
+        text: "Loin de l'agitation de Ho Chi Minh City, Con Dao offre une expérience unique : un mélange rare de plages paradisiaques, de jungle intacte et d'une histoire qui pèse.",
+      },
+      {
+        type: 'heading',
+        text: "Arriver sur l'île : déjà une aventure",
+      },
+      {
+        type: 'paragraph',
+        text: "On y accède en avion depuis Ho Chi Minh City — une quarantaine de minutes sur un petit ATR de la compagnie VASCO. L'atterrissage sur cette minuscule piste entourée de mer et de montagnes donne déjà le ton.",
+      },
+      {
+        type: 'gallery',
+        images: ['/blog/con-dao-05.jpg'],
+      },
+      {
+        type: 'paragraph',
+        text: "Dès ton arrivée, tu comprends que Con Dao est différent. Pas de tourisme de masse. Pas de buildings. Pas de bruit. Seulement une mer turquoise cristalline, des plages quasi désertes et une nature encore sauvage.",
+      },
+      {
+        type: 'heading',
+        text: "Un décor digne d'une carte postale",
+      },
+      {
+        type: 'paragraph',
+        text: "L'île est cernée de montagnes couvertes de jungle, avec des lagunes nichées entre les reliefs. Vue depuis les hauteurs, le panorama est à couper le souffle — on a du mal à croire qu'on est encore au Vietnam.",
+      },
+      {
+        type: 'gallery',
+        images: ['/blog/con-dao-02.jpg'],
+      },
+      {
+        type: 'paragraph',
+        text: "Le meilleur moyen de découvrir Con Dao, c'est le scooter. Les routes côtières longent la mer turquoise, les montagnes en toile de fond, presque sans circulation. C'est l'une de ces balades dont tu te souviens longtemps.",
+      },
+      {
+        type: 'gallery',
+        images: ['/blog/con-dao-03.jpg'],
+      },
+      {
+        type: 'list',
+        items: [
+          'An Hai Beach — la plus accessible, idéale pour se poser',
+          'Dam Trau Beach — parfaite pour admirer les avions atterrir',
+          'Bai Nhat — accessible à marée basse, quasi déserte',
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Un passé chargé d'histoire",
+      },
+      {
+        type: 'paragraph',
+        text: "Con Dao n'est pas seulement un paradis naturel. C'est aussi un lieu profondément marqué par l'histoire du Vietnam.",
+      },
+      {
+        type: 'paragraph',
+        text: "Pendant la colonisation française puis la guerre du Vietnam, l'île abritait des prisons tristement célèbres — notamment les \"cages à tigres\", de minuscules cellules où des milliers de prisonniers politiques ont souffert.",
+      },
+      {
+        type: 'list',
+        items: [
+          'La prison de Phu Hai — la plus grande et la plus ancienne',
+          'Le Musée de Con Dao — pour comprendre l\'histoire complète',
+          'Le cimetière de Hang Duong — lieu de recueillement important',
+        ],
+      },
+      {
+        type: 'quote',
+        text: "C'est une visite forte, parfois difficile, mais essentielle pour comprendre ce qu'a traversé le peuple vietnamien.",
+      },
+      {
+        type: 'heading',
+        text: "Une nature protégée exceptionnelle",
+      },
+      {
+        type: 'paragraph',
+        text: "Une grande partie de l'archipel est classée parc national. Le Côn Đảo National Park est un véritable trésor pour les amoureux de nature.",
+      },
+      {
+        type: 'list',
+        items: [
+          'Randonnées dans la jungle avec une faune locale riche — singes, oiseaux rares',
+          'Snorkeling et plongée sur des récifs coralliens préservés',
+          'Observation des tortues marines qui pondent leurs œufs (de juin à septembre)',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Con Dao est l'un des rares endroits au Vietnam où les tortues marines viennent encore nicher. Un spectacle naturel rare et bouleversant.",
+      },
+      {
+        type: 'heading',
+        text: "L'ambiance le soir : simple et authentique",
+      },
+      {
+        type: 'paragraph',
+        text: "La nuit, Con Dao s'anime doucement. Pas de clubs ni de bars bondés — juste des rues éclairées de lampions, des familles qui se promènent, et parfois des fêtes locales qui transforment la place principale en quelque chose de magique.",
+      },
+      {
+        type: 'gallery',
+        images: ['/blog/con-dao-04.jpg'],
+      },
+      {
+        type: 'heading',
+        text: "Le port au coucher du soleil",
+      },
+      {
+        type: 'paragraph',
+        text: "Mon moment préféré à Con Dao : le coucher du soleil depuis les rochers du port de pêche. Les bateaux colorés au mouillage, les montagnes qui rougissent dans la lumière du soir, le calme absolu. C'est ici qu'on comprend pourquoi cette île est à part.",
+      },
+      {
+        type: 'gallery',
+        images: ['/blog/con-dao-01.jpg'],
+      },
+      {
+        type: 'heading',
+        text: "Infos pratiques",
+      },
+      {
+        type: 'list',
+        items: [
+          '✈️ Comment y aller : en avion depuis Ho Chi Minh City (40 min, VASCO) ou en bateau depuis Vung Tau',
+          '📅 Meilleure période : mars à septembre pour la mer calme, juin à septembre pour les tortues',
+          '🛏️ Hébergement : hôtels locaux abordables, resorts avec vue sur l\'océan, homestays authentiques',
+          '🛵 Transport sur place : location de scooter indispensable',
+        ],
+      },
+      {
+        type: 'quote',
+        text: "Con Dao, c'est un endroit que tu ressens. Un endroit où le temps ralentit. Un endroit qui te marque.",
+      },
+      {
+        type: 'paragraph',
+        text: "Si tu cherches un Vietnam différent — plus brut, plus authentique, loin des foules — alors Con Dao est fait pour toi. Ne tarde pas trop : les secrets finissent toujours par se révéler.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "Lying off the southern coast of Vietnam, the Côn Đảo archipelago is one of the country's most fascinating — and still relatively secret — destinations. Few people talk about it. Even fewer go.",
+      },
+      {
+        type: 'paragraph',
+        text: "Far from the bustle of Ho Chi Minh City, Con Dao offers a unique experience: a rare blend of paradise beaches, untouched jungle, and history that weighs heavily.",
+      },
+      {
+        type: 'heading',
+        text: "Getting there: already an adventure",
+      },
+      {
+        type: 'paragraph',
+        text: "You reach it by plane from Ho Chi Minh City — about forty minutes on a small VASCO ATR. Landing on this tiny runway surrounded by sea and mountains sets the tone immediately.",
+      },
+      {
+        type: 'gallery',
+        images: ['/blog/con-dao-05.jpg'],
+      },
+      {
+        type: 'paragraph',
+        text: "From the moment you arrive, you understand Con Dao is different. No mass tourism. No high-rises. No noise. Just crystal-clear turquoise water, near-deserted beaches, and nature that's still wild.",
+      },
+      {
+        type: 'heading',
+        text: "Scenery straight off a postcard",
+      },
+      {
+        type: 'paragraph',
+        text: "The island is ringed by jungle-covered mountains, with lagoons nestled between the ridges. Seen from above, the panorama is breathtaking — it's hard to believe you're still in Vietnam.",
+      },
+      {
+        type: 'gallery',
+        images: ['/blog/con-dao-02.jpg'],
+      },
+      {
+        type: 'paragraph',
+        text: "The best way to explore Con Dao is by scooter. The coastal roads hug the turquoise sea with mountains as a backdrop and almost no traffic. It's one of those rides you remember for a long time.",
+      },
+      {
+        type: 'gallery',
+        images: ['/blog/con-dao-03.jpg'],
+      },
+      {
+        type: 'list',
+        items: [
+          'An Hai Beach — the most accessible, perfect for chilling out',
+          'Dam Trau Beach — great for watching planes land',
+          'Bai Nhat — reachable at low tide, almost completely deserted',
+        ],
+      },
+      {
+        type: 'heading',
+        text: "A past heavy with history",
+      },
+      {
+        type: 'paragraph',
+        text: "Con Dao is not just a natural paradise. It's also a place deeply marked by Vietnam's history.",
+      },
+      {
+        type: 'paragraph',
+        text: "During the French colonial period and the Vietnam War, the island housed notorious prisons — including the infamous \"tiger cages\", tiny cells where thousands of political prisoners suffered.",
+      },
+      {
+        type: 'list',
+        items: [
+          'Phu Hai Prison — the largest and oldest on the island',
+          'Con Dao Museum — for the full historical picture',
+          'Hang Duong Cemetery — an important place of remembrance',
+        ],
+      },
+      {
+        type: 'quote',
+        text: "It's an intense visit, sometimes difficult, but essential to understand what the Vietnamese people went through.",
+      },
+      {
+        type: 'heading',
+        text: "Exceptional protected nature",
+      },
+      {
+        type: 'paragraph',
+        text: "A large part of the archipelago is classified as a national park. Côn Đảo National Park is a true treasure for nature lovers.",
+      },
+      {
+        type: 'list',
+        items: [
+          'Jungle hikes with rich local wildlife — monkeys, rare birds',
+          'Snorkelling and diving on pristine coral reefs',
+          'Watching sea turtles lay their eggs (June to September)',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Con Dao is one of the rare places in Vietnam where sea turtles still come to nest. A rare and moving natural spectacle.",
+      },
+      {
+        type: 'heading',
+        text: "Evening vibes: simple and authentic",
+      },
+      {
+        type: 'paragraph',
+        text: "At night, Con Dao comes gently to life. No clubs or crowded bars — just lantern-lit streets, families strolling about, and sometimes local festivals that transform the main square into something magical.",
+      },
+      {
+        type: 'gallery',
+        images: ['/blog/con-dao-04.jpg'],
+      },
+      {
+        type: 'heading',
+        text: "The harbour at sunset",
+      },
+      {
+        type: 'paragraph',
+        text: "My favourite moment in Con Dao: sunset from the rocks of the fishing harbour. Colourful boats at anchor, mountains turning red in the evening light, absolute silence. This is where you understand why this island is in a league of its own.",
+      },
+      {
+        type: 'gallery',
+        images: ['/blog/con-dao-01.jpg'],
+      },
+      {
+        type: 'heading',
+        text: "Practical info",
+      },
+      {
+        type: 'list',
+        items: [
+          '✈️ Getting there: by plane from Ho Chi Minh City (40 min, VASCO) or by boat from Vung Tau',
+          '📅 Best time to visit: March to September for calm seas, June to September for turtles',
+          '🛏️ Accommodation: affordable local hotels, ocean-view resorts, authentic homestays',
+          '🛵 Getting around: renting a scooter is essential',
+        ],
+      },
+      {
+        type: 'quote',
+        text: "Con Dao is a place you feel. A place where time slows down. A place that stays with you.",
+      },
+      {
+        type: 'paragraph',
+        text: "If you're looking for a different Vietnam — rawer, more authentic, away from the crowds — then Con Dao is made for you. Don't wait too long: secrets have a way of getting out.",
+      },
+    ],
+  },
 ];
 
 export default posts;
