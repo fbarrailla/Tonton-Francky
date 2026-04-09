@@ -76,6 +76,9 @@ export default defineConfig(({mode}) => {
         secure: false,
       },
     },
+    optimizeDeps: {
+      include: ['motion/react', 'motion-dom', 'motion-utils'],
+    },
     build: {
       rollupOptions: {
         output: {
