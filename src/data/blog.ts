@@ -1617,7 +1617,7 @@ const posts: BlogPost[] = [
     readTime: 5,
     category: 'Tech & IA',
     categoryEn: 'Tech & AI',
-    thumbnail: '/blog/johntran-code.jpg',
+    thumbnail: '/ebook.png',
     content: [
       {
         type: 'paragraph',
@@ -1887,7 +1887,7 @@ const posts: BlogPost[] = [
     readTime: 7,
     category: 'Tech & IA',
     categoryEn: 'Tech & AI',
-    thumbnail: '/blog/budget-notion.png',
+    thumbnail: '/budget-notion.png',
     content: [
       {
         type: 'paragraph',
