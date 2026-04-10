@@ -28,7 +28,7 @@ export default function Blog() {
       <section className="py-16 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col gap-8">
-            {posts.map((post, i) => (
+            {[...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).map((post, i) => (
               <motion.article
                 key={post.slug}
                 initial={{ opacity: 0, y: 24 }}
