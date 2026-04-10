@@ -1877,6 +1877,320 @@ const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'budget-automatique-notion-no-code',
+    title: 'Mettre en place un budget automatique avec Notion + des intégrations no-code',
+    titleEn: 'Building an Automatic Budget with Notion + No-Code Integrations',
+    excerpt: "J'ai arrêté de tracker mes dépenses à la main. Voici comment j'ai branché Notion, Make et quelques automatisations pour que mon budget se mette à jour tout seul.",
+    excerptEn: "I stopped tracking expenses by hand. Here's how I connected Notion, Make and a few automations so my budget updates itself.",
+    date: '2026-04-10',
+    readTime: 7,
+    category: 'Tech & IA',
+    categoryEn: 'Tech & AI',
+    thumbnail: '/blog/budget-notion.png',
+    content: [
+      {
+        type: 'paragraph',
+        text: "Pendant des années, j'ai tenu un budget. Enfin, j'essayais. Un tableau Excel ouvert le premier du mois, quelques lignes renseignées, puis plus rien. La friction de devoir saisir chaque dépense à la main avait raison de ma motivation en moins de deux semaines.",
+      },
+      {
+        type: 'paragraph',
+        text: "Le problème n'était pas la discipline. C'était le système. Un système manuel, c'est un système qui meurt.",
+      },
+      {
+        type: 'paragraph',
+        text: "Alors j'ai cherché une autre approche. Pas une app toute faite — je voulais comprendre ce qui rentrait et sortait, avoir le contrôle sur les catégories, voir les tendances mois par mois. J'ai fini par construire quelque chose avec Notion et Make. Et maintenant, mon budget se met à jour tout seul.",
+      },
+      {
+        type: 'heading',
+        text: "Pourquoi Notion plutôt qu'une app dédiée",
+      },
+      {
+        type: 'paragraph',
+        text: "Il existe des dizaines d'apps de budget. YNAB, Bankin', Linxo, Copilot. Elles font le travail, mais elles t'enferment dans leur interface, leur logique, leurs catégories prédéfinies.",
+      },
+      {
+        type: 'paragraph',
+        text: "Notion, c'est une base de données flexible. Tu décides de la structure. Tu décides des vues. Tu peux croiser tes dépenses avec d'autres données — projets, abonnements, objectifs d'épargne — sans changer d'outil.",
+      },
+      {
+        type: 'quote',
+        text: "Un bon système de budget, c'est celui que tu comprends assez pour le modifier. Sinon tu l'abandonnes dès que la réalité dépasse les cases prévues.",
+      },
+      {
+        type: 'paragraph',
+        text: "Et Notion, avec ses propriétés personnalisées, ses filtres, ses formules — c'est exactement ça.",
+      },
+      {
+        type: 'heading',
+        text: 'La structure Notion : deux bases de données',
+      },
+      {
+        type: 'paragraph',
+        text: "Le setup repose sur deux bases de données liées entre elles.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Transactions — chaque entrée ou sortie d'argent avec sa date, son montant, sa catégorie et son compte",
+          'Catégories — les enveloppes budgétaires (loyer, courses, transport, loisirs...) avec un budget mensuel alloué',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Chaque transaction est reliée à une catégorie. Notion fait la somme automatiquement via une propriété de formule. Tu vois en temps réel combien il reste dans chaque enveloppe.",
+      },
+      {
+        type: 'paragraph',
+        text: "La vue par défaut : un tableau filtré sur le mois en cours. Une deuxième vue en galerie pour voir les catégories et leur avancement. C'est tout. Simple, lisible, exploitable.",
+      },
+      {
+        type: 'heading',
+        text: "Make : le chef d'orchestre des automatisations",
+      },
+      {
+        type: 'paragraph',
+        text: "Make (anciennement Integromat) est l'outil no-code qui connecte tout. Pense à lui comme un tuyau intelligent entre tes applications.",
+      },
+      {
+        type: 'paragraph',
+        text: "Le scénario principal que j'ai mis en place : chaque fois que je reçois un e-mail de notification de ma banque — virement reçu, paiement par carte, prélèvement — Make intercepte ce mail, en extrait les informations clés et crée automatiquement une entrée dans ma base Notion.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Déclencheur — Gmail : nouveau mail de l'adresse de la banque",
+          'Étape 2 — Parsing du texte avec une regex pour extraire montant, marchand, date',
+          'Étape 3 — Notion : créer une nouvelle transaction avec les données extraites',
+          'Étape 4 — Catégorisation automatique selon le nom du marchand (Amazon → Loisirs, Franprix → Courses...)',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Le scénario tourne en arrière-plan. Je reçois une notification de ma banque, et trente secondes plus tard, la dépense est dans Notion. Je n'ai rien touché.",
+      },
+      {
+        type: 'heading',
+        text: 'La catégorisation automatique : le vrai gain de temps',
+      },
+      {
+        type: 'paragraph',
+        text: "Le moment où j'ai réalisé que le système fonctionnait vraiment, c'est quand j'ai configuré la catégorisation automatique par nom de marchand.",
+      },
+      {
+        type: 'paragraph',
+        text: 'Dans Make, j\'ai créé un module de routage avec des conditions : si le champ "marchand" contient "Netflix" ou "Spotify", catégorie = Abonnements. Si ça contient "SNCF" ou "Navigo", catégorie = Transport.',
+      },
+      {
+        type: 'quote',
+        text: "La règle de Pareto s'applique ici : 20% des marchands représentent 80% de tes dépenses récurrentes. Automatise ces 20%, et le reste tu le classes à la main en deux minutes.",
+      },
+      {
+        type: 'paragraph',
+        text: "Résultat : 85% de mes transactions arrivent déjà catégorisées dans Notion. Je passe 5 minutes par semaine à vérifier et corriger les 15% restants.",
+      },
+      {
+        type: 'heading',
+        text: 'Le résumé mensuel automatique',
+      },
+      {
+        type: 'paragraph',
+        text: "Le deuxième scénario Make tourne le premier de chaque mois. Il compile les totaux par catégorie du mois écoulé et m'envoie un récapitulatif par mail : combien j'ai dépensé, par rapport au budget alloué, et les 3 catégories où j'ai le plus dérapé.",
+      },
+      {
+        type: 'paragraph',
+        text: "C'est simple mais efficace. Je n'ai pas besoin d'ouvrir Notion pour savoir si le mois s'est bien passé. Le résumé arrive, je le lis en 30 secondes, je retourne à ma vie.",
+      },
+      {
+        type: 'heading',
+        text: 'Ce qu\'il faut pour démarrer',
+      },
+      {
+        type: 'list',
+        items: [
+          'Un compte Notion gratuit suffit pour commencer',
+          "Un compte Make — le plan gratuit offre 1000 opérations/mois, amplement suffisant",
+          'Une banque qui envoie des notifications e-mail détaillées (la plupart le font)',
+          'Une heure pour configurer le premier scénario',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Si ta banque n'envoie pas de mails de notification, il existe une alternative : exporter tes relevés en CSV chaque semaine et créer un scénario Make qui lit ce fichier et importe les nouvelles lignes dans Notion. Moins élégant, mais ça fonctionne.",
+      },
+      {
+        type: 'heading',
+        text: 'Ce que ça a changé concrètement',
+      },
+      {
+        type: 'paragraph',
+        text: "Six mois après avoir mis en place ce système, j'ai une vision claire de mes finances pour la première fois de ma vie. Pas parce que je suis devenu plus discipliné — mais parce que le système ne dépend plus de ma discipline.",
+      },
+      {
+        type: 'paragraph',
+        text: "J'ai identifié 140€ d'abonnements que j'avais oubliés. J'ai ajusté mon budget loisirs après avoir réalisé que je le dépassais systématiquement de 30%. J'ai commencé à mettre de côté un montant fixe chaque mois parce que je savais enfin ce qu'il me restait.",
+      },
+      {
+        type: 'quote',
+        text: "Automatiser son budget, ce n'est pas être obsédé par l'argent. C'est arrêter de l'ignorer.",
+      },
+      {
+        type: 'paragraph',
+        text: "Le meilleur système de budget, c'est celui qui tourne sans toi. Notion + Make, c'est exactement ça.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "For years, I kept a budget. Or tried to. A spreadsheet opened on the first of the month, a few rows filled in, then nothing. The friction of entering every expense by hand killed my motivation in under two weeks.",
+      },
+      {
+        type: 'paragraph',
+        text: "The problem wasn't discipline. It was the system. A manual system is a system that dies.",
+      },
+      {
+        type: 'paragraph',
+        text: "So I looked for a different approach. Not a ready-made app — I wanted to understand what was coming in and going out, have control over categories, see trends month by month. I ended up building something with Notion and Make. Now my budget updates itself.",
+      },
+      {
+        type: 'heading',
+        text: 'Why Notion instead of a dedicated app',
+      },
+      {
+        type: 'paragraph',
+        text: "There are dozens of budgeting apps. YNAB, Copilot, Monarch, Emma. They do the job, but they lock you into their interface, their logic, their predefined categories.",
+      },
+      {
+        type: 'paragraph',
+        text: "Notion is a flexible database. You decide the structure. You decide the views. You can cross-reference your spending with other data — projects, subscriptions, savings goals — without switching tools.",
+      },
+      {
+        type: 'quote',
+        text: "A good budget system is one you understand well enough to modify. Otherwise you abandon it the moment reality doesn't fit the preset boxes.",
+      },
+      {
+        type: 'paragraph',
+        text: "And Notion, with its custom properties, filters, and formulas — that's exactly what it is.",
+      },
+      {
+        type: 'heading',
+        text: 'The Notion structure: two databases',
+      },
+      {
+        type: 'paragraph',
+        text: "The setup is built on two linked databases.",
+      },
+      {
+        type: 'list',
+        items: [
+          'Transactions — each income or expense with its date, amount, category and account',
+          'Categories — budget envelopes (rent, groceries, transport, leisure...) with a monthly allocation',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Each transaction is linked to a category. Notion tallies them automatically via a formula property. You see in real time how much is left in each envelope.",
+      },
+      {
+        type: 'paragraph',
+        text: "The default view: a table filtered to the current month. A second gallery view to see categories and their progress. That's it. Simple, readable, actionable.",
+      },
+      {
+        type: 'heading',
+        text: 'Make: the automation conductor',
+      },
+      {
+        type: 'paragraph',
+        text: "Make (formerly Integromat) is the no-code tool that connects everything. Think of it as an intelligent pipe between your apps.",
+      },
+      {
+        type: 'paragraph',
+        text: "The main scenario I set up: whenever I receive a notification email from my bank — incoming transfer, card payment, direct debit — Make intercepts the email, extracts the key information, and automatically creates an entry in my Notion database.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Trigger — Gmail: new email from the bank's address",
+          'Step 2 — Text parsing with a regex to extract amount, merchant, date',
+          'Step 3 — Notion: create a new transaction with the extracted data',
+          'Step 4 — Auto-categorisation based on merchant name (Amazon → Leisure, Whole Foods → Groceries...)',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "The scenario runs in the background. I get a bank notification, and thirty seconds later the expense is in Notion. I haven't touched a thing.",
+      },
+      {
+        type: 'heading',
+        text: 'Automatic categorisation: the real time-saver',
+      },
+      {
+        type: 'paragraph',
+        text: "The moment I realised the system was genuinely working was when I set up automatic categorisation by merchant name.",
+      },
+      {
+        type: 'paragraph',
+        text: 'In Make, I built a routing module with conditions: if the merchant field contains "Netflix" or "Spotify", category = Subscriptions. If it contains a train operator or transit authority, category = Transport.',
+      },
+      {
+        type: 'quote',
+        text: "Pareto's rule applies here: 20% of merchants account for 80% of your recurring spending. Automate those 20%, and you can sort the rest by hand in two minutes.",
+      },
+      {
+        type: 'paragraph',
+        text: "Result: 85% of my transactions arrive already categorised in Notion. I spend 5 minutes a week reviewing and correcting the remaining 15%.",
+      },
+      {
+        type: 'heading',
+        text: 'The automatic monthly summary',
+      },
+      {
+        type: 'paragraph',
+        text: "The second Make scenario runs on the first of every month. It compiles totals by category for the previous month and sends me a summary email: how much I spent, compared to my allocated budget, and the 3 categories where I went the most over.",
+      },
+      {
+        type: 'paragraph',
+        text: "It's simple but effective. I don't need to open Notion to know how the month went. The summary arrives, I read it in 30 seconds, I get on with my life.",
+      },
+      {
+        type: 'heading',
+        text: 'What you need to get started',
+      },
+      {
+        type: 'list',
+        items: [
+          'A free Notion account is enough to start',
+          'A Make account — the free plan offers 1,000 operations/month, more than enough',
+          'A bank that sends detailed email notifications (most do)',
+          'One hour to configure the first scenario',
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "If your bank doesn't send notification emails, there's an alternative: export your statements as CSV each week and create a Make scenario that reads the file and imports new rows into Notion. Less elegant, but it works.",
+      },
+      {
+        type: 'heading',
+        text: 'What it actually changed',
+      },
+      {
+        type: 'paragraph',
+        text: "Six months after setting up this system, I have a clear picture of my finances for the first time in my life. Not because I became more disciplined — but because the system no longer depends on my discipline.",
+      },
+      {
+        type: 'paragraph',
+        text: "I identified €140 in forgotten subscriptions. I adjusted my leisure budget after realising I was consistently 30% over. I started setting aside a fixed amount each month because I finally knew what was left.",
+      },
+      {
+        type: 'quote',
+        text: "Automating your budget isn't being obsessed with money. It's stopping yourself from ignoring it.",
+      },
+      {
+        type: 'paragraph',
+        text: "The best budgeting system is one that runs without you. Notion + Make is exactly that.",
+      },
+    ],
+  },
 ];
 
 export default posts;
