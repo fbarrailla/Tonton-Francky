@@ -24,6 +24,320 @@ export interface BlogPost {
 
 const posts: BlogPost[] = [
   {
+    slug: 'monetiser-site-vitrine',
+    title: 'Monétiser un site vitrine : ce qui marche vraiment',
+    titleEn: 'Monetizing a Showcase Website: What Actually Works',
+    excerpt: "La plupart des conseils sur la monétisation sont théoriques. Voici ce qui fonctionne vraiment quand ton site a peu de trafic — et dans quel ordre commencer.",
+    excerptEn: "Most advice on monetization is theoretical. Here's what actually works when your site has low traffic — and in which order to start.",
+    date: '2026-04-11',
+    readTime: 6,
+    category: 'Tech & IA',
+    categoryEn: 'Tech & AI',
+    thumbnail: '/blog/monetiser-vitrine.jpg',
+    content: [
+      {
+        type: 'paragraph',
+        text: "Tu as lancé ton site. Il est en ligne. Il est propre. Et maintenant tu te demandes : est-ce que ça peut rapporter quelque chose ?",
+      },
+      {
+        type: 'paragraph',
+        text: "La plupart des articles vont te parler d'AdSense, d'affiliation en masse, de trafic organique. Des conseils pour des sites qui font déjà 50 000 visites par mois.",
+      },
+      {
+        type: 'paragraph',
+        text: "Toi tu en fais 300. Et tu veux quand même avancer.",
+      },
+      {
+        type: 'quote',
+        text: "Un petit site bien ciblé peut générer plus qu'un gros site généraliste. La taille n'est pas le facteur déterminant. L'intention si.",
+      },
+      {
+        type: 'heading',
+        text: "Ce qui ne marche pas (et pourquoi on te le vend quand même)",
+      },
+      {
+        type: 'paragraph',
+        text: "Commençons par vider le sac des mauvaises idées.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Google AdSense — sur un site à faible trafic, tu gagneras littéralement quelques centimes par mois. Et tu dégrades l'expérience de tes visiteurs pour ça.",
+          "Attendre d'avoir du trafic avant de monétiser — le trafic ne vient pas tout seul. La monétisation aide à créer de la valeur, qui attire le trafic.",
+          "Le bouton \"travaillons ensemble\" sans offre claire — les visiteurs ne savent pas ce que tu proposes. Ils passent leur chemin.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Ces stratégies fonctionnent à grande échelle. À petite échelle, elles sont soit invisibles, soit contre-productives.",
+      },
+      {
+        type: 'heading',
+        text: "1. Les services : le levier le plus puissant sur un petit trafic",
+      },
+      {
+        type: 'paragraph',
+        text: "Un seul visiteur converti en client, c'est souvent 500€, 1 000€, parfois plus. Tu n'as pas besoin de 10 000 visites pour que ça vaille le coup.",
+      },
+      {
+        type: 'paragraph',
+        text: "Mais ça ne marche que si tu as une offre lisible. Pas juste un portfolio. Une proposition : pour qui tu travailles, ce que tu fais exactement, à quel prix.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Une page dédiée à ton offre, pas juste une section \"contact\"",
+          "Un tarif indicatif ou une fourchette — ça filtre les mauvais leads et rassure les bons",
+          "Un exemple concret de résultat, pas juste une liste de compétences",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "Un site vitrine sans offre claire, c'est une vitrine avec les volets fermés.",
+      },
+      {
+        type: 'heading',
+        text: "2. Les produits numériques : vendre pendant que tu dors",
+      },
+      {
+        type: 'paragraph',
+        text: "Un ebook, un template, un guide PDF, un cours en ligne. Des produits que tu crées une fois et qui se vendent en continu.",
+      },
+      {
+        type: 'paragraph',
+        text: "Le gros avantage : tu n'as pas besoin de trafic sur ton site pour commencer. Si tu as une audience ailleurs — une newsletter, un compte Instagram, une communauté — tu peux vendre immédiatement.",
+      },
+      {
+        type: 'paragraph',
+        text: "La règle d'or : le produit doit résoudre un problème précis que tu as toi-même rencontré. Pas un guide généraliste. Un guide sur le problème exact que tes visiteurs ont.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Gumroad ou Lemon Squeezy pour la vente sans infrastructure",
+          "Un prix entre 9€ et 49€ pour commencer — facile à acheter, suffisant pour valider",
+          "Une page de vente intégrée à ton site, pas juste un lien externe",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "3. L'affiliation contextuelle : oui, mais honnête",
+      },
+      {
+        type: 'paragraph',
+        text: "L'affiliation fonctionne quand elle est naturelle. Tu parles d'un outil que tu utilises vraiment ? Tu mets un lien affilié. C'est tout.",
+      },
+      {
+        type: 'paragraph',
+        text: "Ce qui ne fonctionne pas : les listes \"top 10 outils\" sans contexte, les liens agressifs, les comparatifs que tu n'as jamais testés.",
+      },
+      {
+        type: 'paragraph',
+        text: "Ce qui fonctionne : un article sur ton workflow avec les outils que tu utilises au quotidien. Tes lecteurs font confiance à ton retour d'expérience. Le clic vient naturellement.",
+      },
+      {
+        type: 'quote',
+        text: "L'affiliation honnête, c'est recommander quelque chose que tu paierais de ta poche. Le reste est du bruit.",
+      },
+      {
+        type: 'heading',
+        text: "4. La newsletter : l'actif que tu possèdes vraiment",
+      },
+      {
+        type: 'paragraph',
+        text: "Ton site convertit les visiteurs en abonnés. Ta newsletter convertit les abonnés en clients. C'est le seul canal que tu contrôles entièrement — pas d'algorithme, pas de reach organique qui s'effondre.",
+      },
+      {
+        type: 'paragraph',
+        text: "Tu n'as pas besoin de 10 000 abonnés. 500 personnes qui lisent vraiment ce que tu écris valent plus que 50 000 followers Instagram.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Un formulaire d'inscription visible dès la page d'accueil",
+          "Un incentive simple : un guide gratuit, un template, un mini-cours",
+          "Une cadence régulière — mensuelle au minimum, hebdomadaire si tu peux",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Dans quel ordre commencer",
+      },
+      {
+        type: 'paragraph',
+        text: "Si tu pars de zéro, voici l'ordre qui fait sens :",
+      },
+      {
+        type: 'list',
+        items: [
+          "Jour 1 — Installe un formulaire de newsletter. Même si tu n'as rien à envoyer encore.",
+          "Semaine 1 — Clarifie ton offre de service. Une page, une proposition, un tarif.",
+          "Mois 1 — Lance un premier produit numérique simple. Un guide, un template.",
+          "En parallèle — Intègre des liens affiliés dans tes articles existants là où c'est pertinent.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "La monétisation n'est pas une destination. C'est une couche que tu ajoutes progressivement, article par article, offre par offre.",
+      },
+      {
+        type: 'quote',
+        text: "Tu n'as pas besoin d'un grand site. Tu as besoin d'un site qui a quelque chose à offrir.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "You launched your site. It's live. It looks clean. And now you're wondering: can this actually make money?",
+      },
+      {
+        type: 'paragraph',
+        text: "Most articles will tell you about AdSense, mass affiliate marketing, organic traffic. Advice for sites already pulling 50,000 visits a month.",
+      },
+      {
+        type: 'paragraph',
+        text: "You're getting 300. And you still want to move forward.",
+      },
+      {
+        type: 'quote',
+        text: "A small, well-targeted site can earn more than a large generic one. Size isn't the deciding factor. Intent is.",
+      },
+      {
+        type: 'heading',
+        text: "What doesn't work (and why people still sell it to you)",
+      },
+      {
+        type: 'paragraph',
+        text: "Let's clear out the bad ideas first.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Google AdSense — on a low-traffic site, you'll earn literally a few cents a month. And you'll degrade the user experience in the process.",
+          "Waiting for traffic before monetizing — traffic doesn't come on its own. Monetization helps create value, which attracts traffic.",
+          "A \"let's work together\" button with no clear offer — visitors don't know what you're proposing. They move on.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "These strategies work at scale. At small scale, they're either invisible or counterproductive.",
+      },
+      {
+        type: 'heading',
+        text: "1. Services: the most powerful lever on low traffic",
+      },
+      {
+        type: 'paragraph',
+        text: "One visitor converted into a client is often €500, €1,000, sometimes more. You don't need 10,000 visits for it to be worth it.",
+      },
+      {
+        type: 'paragraph',
+        text: "But it only works if you have a readable offer. Not just a portfolio. A proposition: who you work with, exactly what you do, at what price.",
+      },
+      {
+        type: 'list',
+        items: [
+          "A dedicated page for your offer, not just a \"contact\" section",
+          "An indicative price or range — it filters bad leads and reassures good ones",
+          "A concrete example of a result, not just a list of skills",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "A showcase site without a clear offer is a storefront with the shutters closed.",
+      },
+      {
+        type: 'heading',
+        text: "2. Digital products: selling while you sleep",
+      },
+      {
+        type: 'paragraph',
+        text: "An ebook, a template, a PDF guide, an online course. Products you create once and sell continuously.",
+      },
+      {
+        type: 'paragraph',
+        text: "The big advantage: you don't need site traffic to start. If you have an audience elsewhere — a newsletter, an Instagram account, a community — you can sell immediately.",
+      },
+      {
+        type: 'paragraph',
+        text: "The golden rule: the product must solve a specific problem you've personally encountered. Not a generic guide. A guide for the exact problem your visitors have.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Gumroad or Lemon Squeezy for selling without infrastructure",
+          "A price between €9 and €49 to start — easy to buy, enough to validate",
+          "A sales page integrated into your site, not just an external link",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "3. Contextual affiliate links: yes, but honest",
+      },
+      {
+        type: 'paragraph',
+        text: "Affiliate marketing works when it's natural. You're writing about a tool you actually use? Add an affiliate link. That's it.",
+      },
+      {
+        type: 'paragraph',
+        text: "What doesn't work: \"top 10 tools\" lists with no context, aggressive links, comparisons you've never actually tested.",
+      },
+      {
+        type: 'paragraph',
+        text: "What works: an article about your workflow with the tools you use daily. Your readers trust your hands-on experience. The click comes naturally.",
+      },
+      {
+        type: 'quote',
+        text: "Honest affiliate marketing means recommending something you'd pay for yourself. The rest is noise.",
+      },
+      {
+        type: 'heading',
+        text: "4. The newsletter: the asset you actually own",
+      },
+      {
+        type: 'paragraph',
+        text: "Your site converts visitors into subscribers. Your newsletter converts subscribers into clients. It's the only channel you fully control — no algorithm, no organic reach collapsing overnight.",
+      },
+      {
+        type: 'paragraph',
+        text: "You don't need 10,000 subscribers. 500 people who genuinely read what you write are worth more than 50,000 Instagram followers.",
+      },
+      {
+        type: 'list',
+        items: [
+          "A sign-up form visible from the homepage",
+          "A simple incentive: a free guide, a template, a mini-course",
+          "A regular cadence — monthly at minimum, weekly if you can",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "What order to start in",
+      },
+      {
+        type: 'paragraph',
+        text: "If you're starting from zero, here's the order that makes sense:",
+      },
+      {
+        type: 'list',
+        items: [
+          "Day 1 — Set up a newsletter form. Even if you have nothing to send yet.",
+          "Week 1 — Clarify your service offer. One page, one proposition, one price.",
+          "Month 1 — Launch a first simple digital product. A guide, a template.",
+          "In parallel — Add affiliate links to existing articles where it's genuinely relevant.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Monetization isn't a destination. It's a layer you add progressively, article by article, offer by offer.",
+      },
+      {
+        type: 'quote',
+        text: "You don't need a big site. You need a site that has something to offer.",
+      },
+    ],
+  },
+  {
     slug: 'creer-site-web-claude-code',
     title: "J'ai écrit un e-book pour que tu crées ton site avec Claude Code",
     titleEn: 'I Wrote an E-book So You Can Build Your Website with Claude Code',
