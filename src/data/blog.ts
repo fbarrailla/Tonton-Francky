@@ -1617,7 +1617,7 @@ const posts: BlogPost[] = [
     readTime: 5,
     category: 'Tech & IA',
     categoryEn: 'Tech & AI',
-    thumbnail: '/ebook.png',
+    thumbnail: '/johntran-code.png',
     content: [
       {
         type: 'paragraph',
