@@ -15,9 +15,11 @@ if (nodeMajor < 14) {
   process.exit(0);
 }
 
-const { readdir, stat } = require('fs').promises;
+const { readdir, stat, rename } = require('fs').promises;
 const { join, extname } = require('path');
 const sharp = require('sharp');
+
+sharp.cache(false);
 
 const ASSETS_DIR = 'src/assets';
 
@@ -40,12 +42,15 @@ async function main() {
     const ext = extname(filePath).toLowerCase();
     if (ext !== '.jpg' && ext !== '.jpeg') continue;
 
+    const tmpPath = filePath + '.tmp.jpg';
     try {
-      const buf = await sharp(filePath).rotate().jpeg({ quality: 92 }).toBuffer();
-      await sharp(buf).toFile(filePath);
+      await sharp(filePath).rotate().jpeg({ quality: 92 }).toFile(tmpPath);
+      await rename(tmpPath, filePath);
       count++;
     } catch (err) {
       console.error('Error processing ' + filePath + ':', err.message);
+      const { unlink } = require('fs').promises;
+      await unlink(tmpPath).catch(() => {});
     }
   }
 
