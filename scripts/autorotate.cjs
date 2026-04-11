@@ -7,6 +7,12 @@
 
 'use strict';
 
+// Skip in production — images are already normalized before deploy.
+if (process.env.SKIP_AUTOROTATE === 'true') {
+  console.log('autorotate: skipping (SKIP_AUTOROTATE=true)');
+  process.exit(0);
+}
+
 // sharp requires Node 14.18+ (node: protocol). Skip gracefully on older servers
 // since CI (Node 22) already processes the images before deploying.
 const nodeMajor = parseInt(process.versions.node.split('.')[0], 10);
