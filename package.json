@@ -14,7 +14,7 @@
     "test": "playwright test",
     "test:ui": "playwright test --ui",
     "lint": "tsc --noEmit",
-    "publish": "cp ./favicon.png ./dist/favicon.png && cp ./robots.txt ./dist/robots.txt && cp ./sitemap.xml ./dist/sitemap.xml && cp ./src/assets/miniature.png ./dist/assets/miniature.png && cp -r ./public/fonts ./dist/fonts && cp ./public/icon-192.png ./dist/icon-192.png && cp ./public/icon-512.png ./dist/icon-512.png && cp ./public/ebook.pdf ./dist/ebook.pdf && cp ./public/ebook.png ./dist/ebook.png"
+    "publish": "cp ./favicon.png ./dist/favicon.png && cp ./robots.txt ./dist/robots.txt && cp ./sitemap.xml ./dist/sitemap.xml && cp ./src/assets/miniature.png ./dist/assets/miniature.png && cp -r ./public/fonts ./dist/fonts && cp ./public/icon-192.png ./dist/icon-192.png && cp ./public/icon-512.png ./dist/icon-512.png && cp ./public/ebook.pdf ./dist/ebook.pdf && cp ./public/ebook-ai.pdf ./dist/ebook-ai.pdf && cp ./public/ebook-vietnam.pdf ./dist/ebook-vietnam.pdf && cp ./public/ebook.png ./dist/ebook.png"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
