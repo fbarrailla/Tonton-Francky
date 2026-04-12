@@ -78,7 +78,7 @@ export default function EbookPickerModal({ open, defaultChoice = 'claude', promo
       id: 'bundle',
       title: pk.bundleTitle,
       cover: '/ebook.png',
-      accent: 'from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30',
+      accent: '',
       ring: 'ring-emerald-500',
     },
   ];
