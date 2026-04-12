@@ -679,7 +679,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="relative bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 dark:from-stone-800 dark:to-stone-800 rounded-3xl p-7 border-2 border-emerald-200 dark:border-emerald-800 flex flex-col sm:flex-row items-center gap-6"
+            className="relative bg-emerald-50 dark:bg-stone-800 rounded-3xl p-7 border-2 border-emerald-200 dark:border-emerald-800 flex flex-col sm:flex-row items-center gap-6"
           >
             <div className="absolute -top-3 left-1/2 -translate-x-1/2">
               <span className="inline-flex items-center gap-1.5 bg-emerald-600 text-white text-xs font-black px-4 py-1.5 rounded-full shadow-md">
