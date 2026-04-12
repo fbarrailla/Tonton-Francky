@@ -549,6 +549,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
+              <p className="text-sm text-stone-600 dark:text-stone-300 mb-4 leading-relaxed">{h.ebookDesc}</p>
               {salesCount !== null && salesCount > 0 && (
                 <p className="text-xs text-stone-500 dark:text-stone-400 mb-4">
                   <strong className="text-stone-700 dark:text-stone-200">{salesCount}</strong> {lang === 'fr' ? 'achats' : 'purchases'} ✅
