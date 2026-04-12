@@ -9,6 +9,7 @@ import heroBg from '../assets/hero.png';
 import heroMe from '../assets/hero-me.png';
 import qrCode from '../assets/qr-code.png';
 import ebookAiCover from '../assets/ebook-ai.png';
+import ebookVietnamCover from '../assets/ebook-vietnam.png';
 import { motion, useInView } from 'motion/react';
 import {
   Instagram,
@@ -117,6 +118,7 @@ export default function Home() {
   const [pickerOpen, setPickerOpen] = useState(false);
   const [ebookChoice, setEbookChoice] = useState<EbookChoice>('claude');
   const [previewAIOpen, setPreviewAIOpen] = useState(false);
+  const [previewVietnamOpen, setPreviewVietnamOpen] = useState(false);
   const [copiedField, setCopiedField] = useState<string | null>(null);
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'sending' | 'success' | 'error' | 'duplicate'>('idle');
@@ -516,8 +518,8 @@ export default function Home() {
             </h2>
           </motion.div>
 
-          {/* Two ebook cards */}
-          <div className="grid md:grid-cols-2 gap-8 mb-10">
+          {/* Ebook cards */}
+          <div className="grid md:grid-cols-3 gap-8 mb-10">
             {/* Claude Code ebook */}
             <motion.div
               initial={{ opacity: 0, y: 24 }}
@@ -622,6 +624,52 @@ export default function Home() {
                 </motion.button>
               </div>
             </motion.div>
+            {/* Vietnam Travel Guide */}
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex flex-col bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-stone-800 dark:to-stone-800 rounded-3xl p-7 border border-teal-100 dark:border-stone-700"
+            >
+              <div className="flex gap-6 mb-6">
+                <motion.div
+                  whileHover={{ y: -4, rotate: 1 }}
+                  transition={{ duration: 0.25 }}
+                  className="cursor-pointer shrink-0"
+                  onClick={() => setPreviewVietnamOpen(true)}
+                >
+                  <div className="relative">
+                    <div className="absolute -inset-2 bg-gradient-to-br from-teal-400 to-emerald-400 rounded-xl blur-lg opacity-30" />
+                    <img src={ebookVietnamCover} alt="Travel Guide Vietnam cover" className="relative w-24 rounded-xl shadow-xl" />
+                  </div>
+                </motion.div>
+                <div>
+                  <p className="text-xs font-semibold text-teal-700 dark:text-teal-400 uppercase tracking-wider mb-1">{t.ebookVietnam.badge}</p>
+                  <h3 className="font-serif font-bold text-lg text-stone-900 dark:text-stone-100 leading-snug mb-2">{t.ebookVietnam.title} {t.ebookVietnam.titleHighlight}</h3>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-2xl font-black text-stone-900 dark:text-stone-100">{t.ebookVietnam.originalPrice}</span>
+                  </div>
+                </div>
+              </div>
+              <p className="text-sm text-stone-600 dark:text-stone-300 mb-4 leading-relaxed">{t.ebookVietnam.desc}</p>
+              <div className="flex gap-2 mt-auto">
+                <motion.button
+                  whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
+                  onClick={() => { setPickerOpen(true); setEbookChoice('vietnam'); }}
+                  className="flex-1 py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-full font-bold text-sm transition-colors"
+                >
+                  {t.ebookVietnam.buyNow}
+                </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}
+                  onClick={() => setPreviewVietnamOpen(true)}
+                  className="px-4 py-3 bg-white dark:bg-stone-700 text-stone-700 dark:text-stone-200 rounded-full font-bold text-sm hover:bg-stone-100 dark:hover:bg-stone-600 transition-colors border border-stone-200 dark:border-stone-600"
+                >
+                  <BookOpen size={16} />
+                </motion.button>
+              </div>
+            </motion.div>
           </div>
 
           {/* Bundle offer */}
@@ -677,6 +725,20 @@ export default function Home() {
           </div>
           <div className="flex-1 px-4 pb-4" onClick={e => e.stopPropagation()}>
             <iframe src="/ebook-ai.pdf" className="w-full h-full rounded-xl" title="AI for Beginners preview" />
+          </div>
+        </div>
+      )}
+
+      {/* Vietnam E-book preview modal */}
+      {previewVietnamOpen && (
+        <div className="fixed inset-0 z-50 bg-black/90 flex flex-col" onClick={() => setPreviewVietnamOpen(false)}>
+          <div className="flex justify-end p-4">
+            <button onClick={() => setPreviewVietnamOpen(false)} className="text-white bg-white/10 hover:bg-white/20 rounded-full p-2">
+              <X size={24} />
+            </button>
+          </div>
+          <div className="flex-1 px-4 pb-4" onClick={e => e.stopPropagation()}>
+            <iframe src="/ebook-vietnam.pdf" className="w-full h-full rounded-xl" title="Travel Guide Vietnam preview" />
           </div>
         </div>
       )}
