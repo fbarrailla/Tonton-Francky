@@ -631,7 +631,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex flex-col bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-stone-800 dark:to-stone-800 rounded-3xl p-7 border border-teal-100 dark:border-stone-700"
+              className="flex flex-col rounded-3xl p-7 border border-teal-100 dark:border-stone-700"
             >
               <div className="flex gap-6 mb-6">
                 <motion.div
