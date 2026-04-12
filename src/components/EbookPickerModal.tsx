@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import { BookOpen, Check, Sparkles, Tag, X } from 'lucide-react';
 import { useLanguage } from '../i18n';
 import ebookAiCover from '../assets/ebook-ai.png';
+import ebookVietnamCover from '../assets/ebook-vietnam.png';
 
-export type EbookChoice = 'claude' | 'ai' | 'bundle';
+export type EbookChoice = 'claude' | 'ai' | 'vietnam' | 'bundle';
 
 interface Props {
   open: boolean;
@@ -17,24 +18,28 @@ interface Props {
 const PRICES: Record<EbookChoice, string> = {
   claude: '$9.99',
   ai: '$9.99',
+  vietnam: '$9.99',
   bundle: '$7.99',
 };
 
 const PRICES_FR: Record<EbookChoice, string> = {
   claude: '9,99$',
   ai: '9,99$',
+  vietnam: '9,99$',
   bundle: '7,99$',
 };
 
 const PROMO_PRICES: Record<EbookChoice, string> = {
   claude: '$4.99',
   ai: '$4.99',
+  vietnam: '$4.99',
   bundle: '$7.99',
 };
 
 const PROMO_PRICES_FR: Record<EbookChoice, string> = {
   claude: '4,99$',
   ai: '4,99$',
+  vietnam: '4,99$',
   bundle: '7,99$',
 };
 
@@ -61,6 +66,13 @@ export default function EbookPickerModal({ open, defaultChoice = 'claude', promo
       cover: ebookAiCover,
       accent: 'from-violet-50 to-indigo-50 dark:from-violet-950/30 dark:to-indigo-950/30',
       ring: 'ring-violet-500',
+    },
+    {
+      id: 'vietnam',
+      title: pk.ebook3Title,
+      cover: ebookVietnamCover,
+      accent: 'from-teal-50 to-emerald-50 dark:from-teal-950/30 dark:to-emerald-950/30',
+      ring: 'ring-teal-500',
     },
     {
       id: 'bundle',

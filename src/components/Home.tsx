@@ -168,6 +168,7 @@ export default function Home() {
   const PAYPAL_URLS: Record<EbookChoice, string> = {
     claude: 'https://www.paypal.com/ncp/payment/6PA3DPBZBZS8A',
     ai: 'https://www.paypal.com/ncp/payment/JBKRH44BDQS3Q',
+    vietnam: 'https://www.paypal.com/ncp/payment/A6LQKRNC6TXHW',
     bundle: 'https://www.paypal.com/ncp/payment/X2MVQVN7NEWPG',
   };
 
