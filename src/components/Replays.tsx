@@ -18,6 +18,13 @@ interface ReplayPost {
 
 const replays: ReplayPost[] = [
   {
+    id: 3,
+    title: 'Live Twitch sur mon dernier e-book: Travel Guide - Vietnam',
+    titleEn: 'Twitch Live on my latest e-book: Travel Guide - Vietnam',
+    date: 'Dimanche 13 Avril 2026',
+    youtubeId: 'FdLS4tM1Qdo',
+  },
+  {
     id: 2,
     title: 'Marche à Dam Sen park',
     titleEn: 'Walk at Dam Sen park',
