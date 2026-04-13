@@ -377,7 +377,7 @@ export default function Home() {
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9, delay: 0.35 }}
-              className="hidden md:flex flex-shrink-0 items-end relative"
+              className="hidden md:flex flex-shrink-0 items-end absolute bottom-0 right-0"
             >
               {/* Portrait */}
               <div className="relative overflow-hidden">
