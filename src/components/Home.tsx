@@ -760,7 +760,7 @@ export default function Home() {
           </div>
           <div className="flex-1 px-4 pb-4" onClick={e => e.stopPropagation()}>
             <iframe
-              src="/ebook.pdf"
+              src="/ebook.pdf?cache=false"
               className="w-full h-full rounded-xl"
               title="E-book"
             />
