@@ -29,6 +29,7 @@ import {
   CheckCircle,
   Copy,
   Sparkles,
+  Download,
 } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useLanguage } from '../i18n';
@@ -714,6 +715,56 @@ export default function Home() {
               >
                 {lang === 'fr' ? 'Acheter le pack' : 'Buy the bundle'}
               </motion.button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Secret download section — John Tran Code */}
+      <section id="john-tran" className="py-16 px-6 bg-stone-50 dark:bg-stone-950">
+        <div className="max-w-xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="bg-white dark:bg-stone-900 rounded-3xl p-8 border border-stone-200 dark:border-stone-700 shadow-sm"
+          >
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 rounded-2xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center text-amber-700 dark:text-amber-400">
+                <BookOpen size={20} />
+              </div>
+              <div>
+                <p className="text-xs font-semibold text-stone-400 dark:text-stone-500 uppercase tracking-wider">E-book</p>
+                <h2 className="font-serif font-bold text-xl text-stone-900 dark:text-stone-100">John Tran Code</h2>
+              </div>
+            </div>
+            <p className="text-sm text-stone-500 dark:text-stone-400 mb-6 mt-3">
+              {lang === 'fr'
+                ? 'Télécharge ton exemplaire ci-dessous.'
+                : 'Download your copy below.'}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <motion.a
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                href="/John-Tran-Code.pdf"
+                download
+                className="flex-1 inline-flex items-center justify-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-6 py-3.5 rounded-full font-bold text-sm transition-colors"
+              >
+                <Download size={16} />
+                {lang === 'fr' ? 'Télécharger (FR)' : 'Download (EN)'}
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                href="/John-Tran-Code_translated.pdf"
+                download
+                className="flex-1 inline-flex items-center justify-center gap-2 bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-stone-700 dark:text-stone-200 px-6 py-3.5 rounded-full font-bold text-sm transition-colors border border-stone-200 dark:border-stone-700"
+              >
+                <Download size={16} />
+                🇻🇳 Tiếng Việt
+              </motion.a>
             </div>
           </motion.div>
         </div>
