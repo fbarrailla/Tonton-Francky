@@ -316,7 +316,7 @@
 
   // ── Stats ────────────────────────────────────────────────────
   async function loadStats() {
-    const { total, revenue, subscribers } = await api('GET', '/api/stats');
+    const { total, revenue, subscribers } = await api('GET', https://api.tontonfrancky.com/stats');
     document.getElementById('stat-total').textContent = total;
     document.getElementById('stat-revenue').textContent = '$' + Number(revenue).toFixed(2);
     document.getElementById('stat-subscribers').textContent = subscribers;
@@ -324,7 +324,7 @@
 
   // ── Orders ───────────────────────────────────────────────────
   async function loadOrders() {
-    const orders = await api('GET', '/api/orders');
+    const orders = await api('GET', https://api.tontonfrancky.com/orders');
     const tbody = document.getElementById('orders-body');
     if (!orders.length) {
       tbody.innerHTML = '<tr><td colspan="6" class="empty">No orders yet.</td></tr>';
@@ -376,7 +376,7 @@
     if (!body.customer || !body.date || isNaN(body.price)) {
       toast('Please fill all fields.', 'error'); return;
     }
-    await api(id ? 'PUT' : 'POST', id ? `/api/orders/${id}` : '/api/orders', body);
+    await api(id ? 'PUT' : 'POST', id ? `/api/orders/${id}` : https://api.tontonfrancky.com/orders', body);
     toast(id ? 'Order updated.' : 'Order created.', 'success');
     closeModal('form-modal');
     loadOrders(); loadStats();
@@ -386,7 +386,7 @@
   let subscribersCache = [];
 
   async function loadSubscribers() {
-    subscribersCache = await api('GET', '/api/subscribers');
+    subscribersCache = await api('GET', https://api.tontonfrancky.com/subscribers');
     const tbody = document.getElementById('subscribers-body');
     document.getElementById('sub-count-label').textContent =
       `Subscribers (${subscribersCache.length})`;
@@ -435,7 +435,7 @@
     const input = document.getElementById('new-email-input');
     const email = input.value.trim();
     if (!email) return;
-    const result = await api('POST', '/api/subscribers', { email });
+    const result = await api('POST', https://api.tontonfrancky.com/subscribers', { email });
     if (result?.error) { toast(result.error, 'error'); return; }
     cancelAddRow();
     toast('Subscriber added.', 'success');

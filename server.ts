@@ -11,7 +11,7 @@ app.use(express.json());
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Verify reCAPTCHA + forward to EmailJS
-app.post('/api/contact', async (req, res) => {
+app.post(https://api.tontonfrancky.com/contact', async (req, res) => {
   const { captchaToken, name, email, subject, message } = req.body;
 
   if (!captchaToken) {
@@ -65,7 +65,7 @@ app.post('/api/contact', async (req, res) => {
 // Public ebook sales count (reads directly from backoffice SQLite DB)
 const DB_PATH = process.env.DB_PATH || path.join(__dirname, 'backoffice/orders.db');
 
-app.get('/api/ebook-sales', (_req, res) => {
+app.get(https://api.tontonfrancky.com/ebook-sales', (_req, res) => {
   try {
     if (!existsSync(DB_PATH)) throw new Error('DB not found');
     const db = new DatabaseSync(DB_PATH, { open: true });

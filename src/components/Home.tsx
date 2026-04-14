@@ -93,7 +93,7 @@ const InterestCard = ({ icon: Icon, text, delay, color = 'bg-travel-blue text-st
 function useSalesCount() {
   const [count, setCount] = React.useState<number | null>(null);
   React.useEffect(() => {
-    fetch('/api/ebook-sales')
+    fetch(https://api.tontonfrancky.com/ebook-sales')
       .then(r => r.json())
       .then(({ count }) => { if (count !== null) setCount(count); })
       .catch(() => {});
