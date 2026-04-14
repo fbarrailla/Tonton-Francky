@@ -56,8 +56,8 @@ function langColor(lang: string) {
 async function fetchStats(): Promise<{ user: GithubUser; repos: GithubRepo[] }> {
   const headers = { Accept: 'application/vnd.github+json' };
   const [userRes, reposRes] = await Promise.all([
-    fetch(`https://api.github.com/users/${USERNAME}`, { headers }),
-    fetch(`https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated`, { headers }),
+    fetch(`'https://api.github.com/users/${USERNAME}`, { headers }),
+    fetch(`'https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated`, { headers }),
   ]);
   if (!userRes.ok || !reposRes.ok) throw new Error('GitHub API error');
   const [user, repos] = await Promise.all([userRes.json(), reposRes.json()]);

@@ -73,7 +73,7 @@ export function Contact() {
     setStatus('sending');
     try {
       const captchaToken = await executeRecaptcha('contact_form');
-      const res = await fetch(https://api.tontonfrancky.com/contact', {
+      const res = await fetch('https://api.tontonfrancky.com/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, captchaToken }),

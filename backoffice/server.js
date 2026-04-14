@@ -10,17 +10,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // ── Orders ────────────────────────────────────────────────────
 
-app.get(https://api.tontonfrancky.com/orders', (req, res) => {
+app.get('https://api.tontonfrancky.com/orders', (req, res) => {
   res.json(db.prepare('SELECT * FROM orders ORDER BY date DESC, id DESC').all());
 });
 
-app.get(https://api.tontonfrancky.com/orders/:id', (req, res) => {
+app.get('https://api.tontonfrancky.com/orders/:id', (req, res) => {
   const order = db.prepare('SELECT * FROM orders WHERE id = ?').get(req.params.id);
   if (!order) return res.status(404).json({ error: 'Order not found' });
   res.json(order);
 });
 
-app.post(https://api.tontonfrancky.com/orders', (req, res) => {
+app.post('https://api.tontonfrancky.com/orders', (req, res) => {
   const { product, customer, date, price } = req.body;
   if (!customer || !date || price == null)
     return res.status(400).json({ error: 'customer, date and price are required' });
@@ -30,7 +30,7 @@ app.post(https://api.tontonfrancky.com/orders', (req, res) => {
   res.status(201).json(db.prepare('SELECT * FROM orders WHERE id = ?').get(result.lastInsertRowid));
 });
 
-app.put(https://api.tontonfrancky.com/orders/:id', (req, res) => {
+app.put('https://api.tontonfrancky.com/orders/:id', (req, res) => {
   const { product, customer, date, price } = req.body;
   const existing = db.prepare('SELECT * FROM orders WHERE id = ?').get(req.params.id);
   if (!existing) return res.status(404).json({ error: 'Order not found' });
@@ -44,7 +44,7 @@ app.put(https://api.tontonfrancky.com/orders/:id', (req, res) => {
   res.json(db.prepare('SELECT * FROM orders WHERE id = ?').get(req.params.id));
 });
 
-app.delete(https://api.tontonfrancky.com/orders/:id', (req, res) => {
+app.delete('https://api.tontonfrancky.com/orders/:id', (req, res) => {
   if (!db.prepare('SELECT id FROM orders WHERE id = ?').get(req.params.id))
     return res.status(404).json({ error: 'Order not found' });
   db.prepare('DELETE FROM orders WHERE id = ?').run(req.params.id);
@@ -53,11 +53,11 @@ app.delete(https://api.tontonfrancky.com/orders/:id', (req, res) => {
 
 // ── Subscribers ───────────────────────────────────────────────
 
-app.get(https://api.tontonfrancky.com/subscribers', (req, res) => {
+app.get('https://api.tontonfrancky.com/subscribers', (req, res) => {
   res.json(db.prepare('SELECT * FROM subscribers ORDER BY created_at DESC').all());
 });
 
-app.post(https://api.tontonfrancky.com/subscribers', (req, res) => {
+app.post('https://api.tontonfrancky.com/subscribers', (req, res) => {
   const { email } = req.body;
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
     return res.status(400).json({ error: 'Valid email is required' });
@@ -69,7 +69,7 @@ app.post(https://api.tontonfrancky.com/subscribers', (req, res) => {
   }
 });
 
-app.delete(https://api.tontonfrancky.com/subscribers/:id', (req, res) => {
+app.delete('https://api.tontonfrancky.com/subscribers/:id', (req, res) => {
   if (!db.prepare('SELECT id FROM subscribers WHERE id = ?').get(req.params.id))
     return res.status(404).json({ error: 'Subscriber not found' });
   db.prepare('DELETE FROM subscribers WHERE id = ?').run(req.params.id);
@@ -78,7 +78,7 @@ app.delete(https://api.tontonfrancky.com/subscribers/:id', (req, res) => {
 
 // ── Stats ─────────────────────────────────────────────────────
 
-app.get(https://api.tontonfrancky.com/stats', (req, res) => {
+app.get('https://api.tontonfrancky.com/stats', (req, res) => {
   const { total } = db.prepare('SELECT COUNT(*) as total FROM orders').get();
   const { revenue } = db.prepare('SELECT COALESCE(SUM(price), 0) as revenue FROM orders').get();
   const { subscribers } = db.prepare('SELECT COUNT(*) as subscribers FROM subscribers').get();
