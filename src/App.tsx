@@ -166,7 +166,7 @@ function AppContent() {
             <motion.img
               src={logo}
               alt="Tonton Francky"
-              className="h-18 w-auto dark:invert"
+              className="h-18 w-auto dark:invert scale-200"
               initial={{ opacity: 0, x: -8 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4 }}
