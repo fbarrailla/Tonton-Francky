@@ -6,15 +6,14 @@
   "scripts": {
     "dev": "vite --port=3000 --host=0.0.0.0",
     "server": "tsx server.ts",
-    "prebuild": "node scripts/autorotate.cjs",
-    "build": "NODE_OPTIONS=--max-old-space-size=4096 vite build && npm run publish",
-    "build:compress": "COMPRESS_IMAGES=true NODE_OPTIONS=--max-old-space-size=4096 vite build && npm run publish",
+    "prebuild": "node -e \"if(process.env.SKIP_AUTOROTATE !== 'true') require('./scripts/autorotate.cjs')\"",
+    "build": "NODE_OPTIONS=--max-old-space-size=4096 vite build",
+    "build:compress": "COMPRESS_IMAGES=true NODE_OPTIONS=--max-old-space-size=4096 vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
-    "lint": "tsc --noEmit",
-    "publish": "cp ./favicon.png ./dist/favicon.png && cp ./robots.txt ./dist/robots.txt && cp ./sitemap.xml ./dist/sitemap.xml && cp ./src/assets/miniature.png ./dist/assets/miniature.png && cp -r ./public/fonts ./dist/fonts && cp ./public/icon-192.png ./dist/icon-192.png && cp ./public/icon-512.png ./dist/icon-512.png && cp ./public/ebook.pdf ./dist/ebook.pdf && cp ./public/ebook-ai.pdf ./dist/ebook-ai.pdf && cp ./public/ebook-vietnam.pdf ./dist/ebook-vietnam.pdf && cp ./public/ebook.png ./dist/ebook.png"
+    "lint": "tsc --noEmit"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
