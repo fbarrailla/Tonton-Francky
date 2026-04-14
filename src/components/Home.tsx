@@ -8,6 +8,9 @@ import emailjs from '@emailjs/browser';
 import heroBg from '../assets/hero.png';
 import heroMe from '../assets/hero-me.png';
 import qrCode from '../assets/qr-code.png';
+import ebookPdf from '../../public/ebook.pdf';
+import ebookAiPdf from '../../public/ebook-ai.pdf';
+import ebookVietnamPdf from '../../public/ebook-vietnam.pdf';
 import ebookAiCover from '../assets/ebook-ai.png';
 import ebookVietnamCover from '../assets/ebook-vietnam.png';
 import { motion, useInView } from 'motion/react';
@@ -725,8 +728,8 @@ export default function Home() {
             </button>
           </div>
           <div className="flex-1 px-4 pb-4" onClick={e => e.stopPropagation()}>
-            <object data="/ebook-ai.pdf" type="application/pdf" className="w-full h-full rounded-xl">
-              <a href="/ebook-ai.pdf" target="_blank" rel="noopener" className="flex items-center justify-center h-full text-white underline">Ouvrir le PDF</a>
+            <object data={ebookAiPdf} type="application/pdf" className="w-full h-full rounded-xl">
+              <a href={ebookAiPdf} target="_blank" rel="noopener" className="flex items-center justify-center h-full text-white underline">Ouvrir le PDF</a>
             </object>
           </div>
         </div>
@@ -741,8 +744,8 @@ export default function Home() {
             </button>
           </div>
           <div className="flex-1 px-4 pb-4" onClick={e => e.stopPropagation()}>
-            <object data="/ebook-vietnam.pdf" type="application/pdf" className="w-full h-full rounded-xl">
-              <a href="/ebook-vietnam.pdf" target="_blank" rel="noopener" className="flex items-center justify-center h-full text-white underline">Ouvrir le PDF</a>
+            <object data={ebookVietnamPdf} type="application/pdf" className="w-full h-full rounded-xl">
+              <a href={ebookVietnamPdf} target="_blank" rel="noopener" className="flex items-center justify-center h-full text-white underline">Ouvrir le PDF</a>
             </object>
           </div>
         </div>
@@ -763,8 +766,8 @@ export default function Home() {
             </button>
           </div>
           <div className="flex-1 px-4 pb-4" onClick={e => e.stopPropagation()}>
-            <object data="/ebook.pdf" type="application/pdf" className="w-full h-full rounded-xl">
-              <a href="/ebook.pdf" target="_blank" rel="noopener" className="flex items-center justify-center h-full text-white underline">Ouvrir le PDF</a>
+            <object data={ebookPdf} type="application/pdf" className="w-full h-full rounded-xl">
+              <a href={ebookPdf} target="_blank" rel="noopener" className="flex items-center justify-center h-full text-white underline">Ouvrir le PDF</a>
             </object>
           </div>
         </div>
