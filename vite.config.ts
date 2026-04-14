@@ -31,7 +31,8 @@ export default defineConfig(({mode}) => {
           ],
         },
         workbox: {
-          // Cache pages & assets, fall back to network
+          skipWaiting: true,
+          clientsClaim: true,
           maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5 MB
           runtimeCaching: [
             {
