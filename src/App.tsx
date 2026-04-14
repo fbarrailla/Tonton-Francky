@@ -20,6 +20,7 @@ const TikTokIcon = ({ size = 20 }: { size?: number }) => (
   </svg>
 );
 
+import logo from './assets/logo.png';
 import SplashScreen from './components/SplashScreen';
 import SearchModal from './components/SearchModal';
 import ScrollProgressBar from './components/ScrollProgressBar';
@@ -160,16 +161,16 @@ function AppContent() {
 
         <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
 
-          {/* Wordmark */}
-          <Link to="/" className="group flex flex-col items-start leading-none gap-0">
-            <motion.div initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.4 }}>
-              <span className="block text-[0.58rem] uppercase tracking-[0.28em] font-semibold text-amber-700 dark:text-amber-500 mb-0.5 transition-colors group-hover:text-amber-600">
-                Tonton
-              </span>
-              <span className="block font-serif text-[1.3rem] font-bold tracking-tight text-stone-900 dark:text-stone-50 transition-colors group-hover:text-amber-900 dark:group-hover:text-amber-300">
-                Francky
-              </span>
-            </motion.div>
+          {/* Logo */}
+          <Link to="/" aria-label="Tonton Francky">
+            <motion.img
+              src={logo}
+              alt="Tonton Francky"
+              className="h-9 w-auto dark:invert"
+              initial={{ opacity: 0, x: -8 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4 }}
+            />
           </Link>
 
           {/* Desktop nav */}
