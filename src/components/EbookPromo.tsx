@@ -572,11 +572,9 @@ export default function EbookPromo() {
             </button>
           </div>
           <div className="flex-1 px-4 pb-4" onClick={e => e.stopPropagation()}>
-            <iframe
-              src="/ebook.pdf?cache=false"
-              className="w-full h-full rounded-xl"
-              title="E-book preview"
-            />
+            <object data="/ebook.pdf" type="application/pdf" className="w-full h-full rounded-xl">
+              <a href="/ebook.pdf" target="_blank" rel="noopener" className="flex items-center justify-center h-full text-white underline">Ouvrir le PDF</a>
+            </object>
           </div>
         </div>
       )}
@@ -596,11 +594,9 @@ export default function EbookPromo() {
             </button>
           </div>
           <div className="flex-1 px-4 pb-4" onClick={e => e.stopPropagation()}>
-            <iframe
-              src="/ebook-vietnam.pdf"
-              className="w-full h-full rounded-xl"
-              title="Travel Guide Vietnam preview"
-            />
+            <object data="/ebook-vietnam.pdf" type="application/pdf" className="w-full h-full rounded-xl">
+              <a href="/ebook-vietnam.pdf" target="_blank" rel="noopener" className="flex items-center justify-center h-full text-white underline">Ouvrir le PDF</a>
+            </object>
           </div>
         </div>
       )}
@@ -620,11 +616,9 @@ export default function EbookPromo() {
             </button>
           </div>
           <div className="flex-1 px-4 pb-4" onClick={e => e.stopPropagation()}>
-            <iframe
-              src="/ebook-ai.pdf"
-              className="w-full h-full rounded-xl"
-              title="AI for Beginners preview"
-            />
+            <object data="/ebook-ai.pdf" type="application/pdf" className="w-full h-full rounded-xl">
+              <a href="/ebook-ai.pdf" target="_blank" rel="noopener" className="flex items-center justify-center h-full text-white underline">Ouvrir le PDF</a>
+            </object>
           </div>
         </div>
       )}
