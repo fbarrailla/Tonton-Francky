@@ -159,14 +159,14 @@ function AppContent() {
         {/* Subtle amber accent line at top */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-600/30 to-transparent dark:via-amber-500/20" />
 
-        <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-[72px]">
 
           {/* Logo */}
-          <Link to="/" aria-label="Tonton Francky" className="shrink-0 mr-[54px]">
+          <Link to="/" aria-label="Tonton Francky" className="shrink-0">
             <motion.img
               src={logo}
               alt="Tonton Francky"
-              className="h-9 w-auto dark:invert scale-[2] origin-left"
+              className="h-18 w-auto dark:invert"
               initial={{ opacity: 0, x: -8 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4 }}
