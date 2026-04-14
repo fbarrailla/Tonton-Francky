@@ -9,7 +9,7 @@ export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   const compress = process.env.COMPRESS_IMAGES === 'true';
   return {
-    base: '/',
+    base: process.env.VITE_BASE_URL ?? '/',
     assetsInclude: ['**/*.mov', '**/*.mp4'],
     plugins: [
       react(),
