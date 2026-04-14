@@ -13,7 +13,6 @@ const fortuneWheelVideo = '/portfolio/fortune-wheel.mov';
 const vcTestVideo = '/portfolio/vc-test.mov';
 const cashbotVideo = '/portfolio/cashbot.mov';
 const giphyVideo = '/portfolio/giphy.mov';
-const starbucksVideo = '/portfolio/starbucks.MP4';
 const feelityVideo = '/portfolio/test-rn-feelity.mov';
 const gptMoodVideo = '/portfolio/gpt-mood.mov';
 const todoVideo = '/portfolio/todo.mov';
@@ -288,19 +287,6 @@ export const projects: Project[] = [
     tags: ['React Native', 'Android', 'TypeScript'],
     year: '2016',
     githubUrl: 'https://github.com/fbarrailla/RNAndroidFreeboxRemote',
-  },
-  {
-    slug: 'starbucks-shop',
-    title: 'Starbucks Shop',
-    descFr: 'Application e-commerce créée pour Starbucks US — catalogue de produits, personnalisation des commandes et panier interactif.',
-    descEn: 'E-commerce app built for Starbucks US — product catalogue, order customisation and interactive cart.',
-    clientFr: 'Starbucks US',
-    clientEn: 'Starbucks US',
-    media: starbucksVideo,
-    mediaType: 'video',
-    tags: ['React', 'TypeScript', 'CSS'],
-    year: '2024',
-    liveUrl: 'https://shop.starbucks.com',
   },
   {
     slug: 'giphy-app',
