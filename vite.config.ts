@@ -72,7 +72,7 @@ export default defineConfig(({mode}) => {
     server: {
       hmr: process.env.DISABLE_HMR !== 'true',
       proxy: {
-        '/api': 'http://localhost:3001',
+        'api.tontonfrancky.com': 'http://localhost:3001',
         changeOrigin: true,
         secure: false,
       },
