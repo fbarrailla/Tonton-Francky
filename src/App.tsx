@@ -162,11 +162,11 @@ function AppContent() {
         <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
 
           {/* Logo */}
-          <Link to="/" aria-label="Tonton Francky">
+          <Link to="/" aria-label="Tonton Francky" className="shrink-0 mr-[54px]">
             <motion.img
               src={logo}
               alt="Tonton Francky"
-              className="h-18 w-auto dark:invert"
+              className="h-9 w-auto dark:invert scale-[2] origin-left"
               initial={{ opacity: 0, x: -8 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4 }}
