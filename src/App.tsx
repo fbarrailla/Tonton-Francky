@@ -66,17 +66,6 @@ function AppContent() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const scrollToEbook = () => {
-    setMenuOpen(false);
-    if (location.pathname === '/') {
-      document.getElementById('ebook')?.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      navigate('/');
-      setTimeout(() => {
-        document.getElementById('ebook')?.scrollIntoView({ behavior: 'smooth' });
-      }, 350);
-    }
-  };
 
   const isActive = (path: string) =>
     path === '/' ? location.pathname === '/' : location.pathname.startsWith(path);
@@ -166,7 +155,7 @@ function AppContent() {
             <motion.img
               src={logo}
               alt="Tonton Francky"
-              className="h-18 w-auto dark:invert scale-150 pt-2"
+              className="h-18 w-auto scale-150 pt-2"
               initial={{ opacity: 0, x: -8 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4 }}
