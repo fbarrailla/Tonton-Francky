@@ -33,7 +33,7 @@ const posts: BlogPost[] = [
     readTime: 6,
     category: 'Tech & IA',
     categoryEn: 'Tech & AI',
-    thumbnail: '/blog/monetiser-vitrine.jpg',
+    thumbnail: '/blog/monetiser-vitrine.png',
     content: [
       {
         type: 'paragraph',
