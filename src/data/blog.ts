@@ -2776,6 +2776,274 @@ const posts: BlogPost[] = [
     ],
   },
   {
+    slug: 'phu-quoc-ile',
+    title: 'Phu Quoc : l\'île qui fait tout en grand',
+    titleEn: 'Phu Quoc: the island that does everything big',
+    excerpt: "Grand World dans le nord, Sunny World dans le sud, appartement au centre — Phu Quoc est une île qui ne ressemble à rien d'autre au Vietnam. Une destination qui divise, et c'est précisément pour ça qu'elle vaut le détour.",
+    excerptEn: "Grand World in the north, Sunny World in the south, apartment in the centre — Phu Quoc is an island unlike anything else in Vietnam. A destination that divides opinion, and that's exactly why it's worth the trip.",
+    date: '2026-04-15',
+    readTime: 6,
+    category: 'Voyages',
+    categoryEn: 'Travel',
+    thumbnail: '/blog/phu-quoc.png',
+    ebookCta: true,
+    ebookType: 'vietnam',
+    content: [
+      {
+        type: 'paragraph',
+        text: "Phu Quoc, c'est l'île que les puristes détestent et que les autres adorent. En dix ans, elle est passée d'un coin de pêcheurs quasi vierge à une destination de resort international avec parcs d'attractions, casino et câble car. C'est beaucoup. Mais si tu acceptes ça dès le départ, tu vas passer un séjour excellent.",
+      },
+      {
+        type: 'quote',
+        text: "Phu Quoc, c'est le Vietnam qui met le turbo. Pas pour tout le monde — mais quand ça te parle, ça te parle vraiment.",
+      },
+      {
+        type: 'heading',
+        text: "Grand World : le nord de l'île qui ne dort jamais",
+      },
+      {
+        type: 'paragraph',
+        text: "Grand World, c'est un complexe de divertissement dans le nord de l'île, développé par Vingroup. Concrètement : une ville artificielle avec des canaux, des ponts, des ruelles à l'italienne, des restaurants à la chaîne, des spectacles de rue et une ambiance de fête permanente dès la tombée de la nuit.",
+      },
+      {
+        type: 'paragraph',
+        text: "C'est kitsch, assumé, et franchement amusant. Les Vietnamiens adorent — les familles, les couples, les groupes d'amis. Les vendeurs ambulants, les shows de lumière, les stands de nourriture de rue réinterprétée. On n'est pas en train de chercher l'authenticité ici, et c'est libérateur.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Spectacles nocturnes gratuits — acrobaties, danse, projections lumières sur les façades",
+          "Dizaines de restaurants et de bars — du street food vietnamien aux cuisines du monde",
+          "Gondoles sur les canaux — touristique à mort, mais le genre de truc qu'on fait quand même",
+          "Très animé le week-end — prévoir plus de monde, plus d'ambiance, plus de bruit",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Grand World mérite une soirée, pas plus. Arrive vers 19h quand les lumières s'allument, mange quelque chose, fais un tour des spectacles, et rentre. Ce n'est pas un endroit pour s'attarder — c'est un endroit pour en prendre plein les yeux pendant deux heures.",
+      },
+      {
+        type: 'heading',
+        text: "Sunny World : le parc d'attractions du sud",
+      },
+      {
+        type: 'paragraph',
+        text: "À l'opposé de l'île, dans le sud, Vinpearl a construit Sunny World — un parc d'attractions côtier avec manèges, parc aquatique, safari et câble car au-dessus de la mer. C'est grand, c'est coloré, et c'est clairement pensé pour les familles et les couples.",
+      },
+      {
+        type: 'paragraph',
+        text: "La traversée en câble car depuis l'embarcadère de Bãi Thơm est un moment à part. On survole la mer turquoise, on voit les îlots parsemer l'horizon, et on arrive sur une île annexe où est concentrée une partie des attractions. Même si tu n'es pas fan de parcs, la traversée en elle-même vaut le déplacement.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Câble car sur la mer — 8 km de traversée, l'une des plus longues du monde au-dessus de l'eau",
+          "Parc aquatique — piscines à vagues, toboggans, parfait pour une journée sous le soleil",
+          "Safari Vinpearl — animaux en liberté relative, dans un cadre bien entretenu",
+          "Plages adjacentes — moins fréquentées que Long Beach, idéales pour décompresser après le parc",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Prévois une journée entière pour Sunny World si tu veux tout voir. Le ticket journée inclut la plupart des attractions — vérifie ce qui est inclus à l'entrée pour éviter les surprises.",
+      },
+      {
+        type: 'heading',
+        text: "Vivre au centre : le bon compromis",
+      },
+      {
+        type: 'paragraph',
+        text: "J'ai posé mes valises dans un appartement au centre de Phu Quoc, entre les deux complexes. C'est le meilleur endroit pour être : à 20 minutes de Grand World au nord, à 25 minutes de Sunny World au sud, et à deux pas de Long Beach et du marché nocturne de Dương Đông.",
+      },
+      {
+        type: 'paragraph',
+        text: "Le centre de l'île, c'est aussi là où la vie locale se passe encore. Les marchés du matin, les petits restos de pho sur le trottoir, les vendeurs de fruits en scooter. Dương Đông Town a gardé une âme de ville de pêcheurs malgré le développement touristique intense des dix dernières années.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Long Beach (Bãi Trường) — plage principale, 20 km, accessible à pied depuis le centre",
+          "Marché nocturne de Dương Đông — fruits de mer frais, souvenirs, ambiance locale",
+          "Location d'appartement : bien meilleure option qu'un resort pour une semaine ou plus",
+          "Scooter : indispensable pour rejoindre les deux extrémités de l'île à son rythme",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "Un appartement au centre de Phu Quoc, c'est avoir la mer le matin, Grand World le soir, et un marché de rue pour les repas. Le bon équilibre.",
+      },
+      {
+        type: 'heading',
+        text: "Ce que Phu Quoc n'est plus — et ce qu'elle est vraiment",
+      },
+      {
+        type: 'paragraph',
+        text: "Phu Quoc n'est plus l'île sauvage qu'elle était. Le nord est bétonné, le sud est un parc d'attractions, et Long Beach est bordée de resorts 5 étoiles. Ça peut frustrer ceux qui cherchent la nature brute.",
+      },
+      {
+        type: 'paragraph',
+        text: "Mais l'île a conservé quelque chose : une eau extraordinaire. Le bleu-vert qu'on voit depuis le câble car, c'est réel. Les plages du nord-ouest — An Thới, Bãi Sao — sont encore calmes et très belles. Et la pointe sud de l'île, hors des circuits touristiques, reste sauvage.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Bãi Sao : la plus belle plage de l'île, sable blanc, eau cristalline, dans le sud-est",
+          "Snorkeling autour des îlots An Thới — coraux encore préservés, poissons en masse",
+          "Sauce de poisson (nước mắm) de Phu Quoc — la meilleure du Vietnam, ramène-en absolument",
+          "Poivre de Phu Quoc — plantations visitables, produit d'exception à rapporter",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Pratique : organiser son séjour",
+      },
+      {
+        type: 'paragraph',
+        text: "Phu Quoc se rejoint en avion depuis Saigon en 50 minutes. Vol à partir de 20$ en promotion sur VietJet ou Bamboo. L'aéroport est au centre de l'île — 10 minutes en Grab de Dương Đông Town.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Durée idéale : 5 à 7 jours — en dessous de 4 jours tu vas rater la moitié",
+          "Scooter : louer dès l'arrivée, 150 000–200 000 VND/jour, indispensable",
+          "Budget : 50–80$/jour incluant hébergement, restos et activités",
+          "Meilleure période : novembre à avril, saison sèche — éviter mai à octobre (mousson)",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Phu Quoc n'est pas parfaite. Elle est construite trop vite, trop fort, et elle a perdu une partie de son charme sauvage. Mais elle offre quelque chose d'unique au Vietnam : une île avec une vraie infrastructure de loisirs, une mer splendide, et suffisamment de diversité pour qu'une semaine ne ressemble pas du tout à une autre.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "Phu Quoc is the island purists hate and everyone else loves. In ten years it went from a near-untouched fishing backwater to an international resort destination with theme parks, a casino and a cable car. That's a lot. But if you accept that upfront, you're going to have a great time.",
+      },
+      {
+        type: 'quote',
+        text: "Phu Quoc is Vietnam hitting the accelerator. Not for everyone — but when it speaks to you, it really speaks.",
+      },
+      {
+        type: 'heading',
+        text: "Grand World: the north that never sleeps",
+      },
+      {
+        type: 'paragraph',
+        text: "Grand World is an entertainment complex in the north of the island, developed by Vingroup. In practice: an artificial town with canals, bridges, Italian-style alleyways, chain restaurants, street shows and a permanent party atmosphere from sundown.",
+      },
+      {
+        type: 'paragraph',
+        text: "It's kitsch, unapologetic, and genuinely fun. Vietnamese people love it — families, couples, groups of friends. Street vendors, light shows, reimagined street food stalls. We're not here looking for authenticity, and there's something freeing about that.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Free nightly shows — acrobatics, dance, light projections on building facades",
+          "Dozens of restaurants and bars — Vietnamese street food to international cuisines",
+          "Canal gondola rides — deeply touristy, but the kind of thing you do anyway",
+          "Very busy at weekends — expect more crowds, more atmosphere, more noise",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Grand World deserves one evening, no more. Arrive around 7pm when the lights come on, eat something, catch a show or two, then head back. It's not a place to linger — it's a place to be dazzled for two hours.",
+      },
+      {
+        type: 'heading',
+        text: "Sunny World: the theme park in the south",
+      },
+      {
+        type: 'paragraph',
+        text: "At the opposite end of the island, in the south, Vinpearl built Sunny World — a coastal theme park with rides, a water park, a safari and a cable car over the sea. It's big, colourful, and clearly designed for families and couples.",
+      },
+      {
+        type: 'paragraph',
+        text: "The cable car crossing from Bãi Thơm pier is something else. You glide over turquoise water, islands dotting the horizon, landing on an offshore island where much of the park is concentrated. Even if theme parks aren't your thing, the crossing alone is worth the trip.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Cable car over the sea — 8 km crossing, one of the world's longest over water",
+          "Water park — wave pools, slides, perfect for a day under the sun",
+          "Vinpearl Safari — free-roaming animals in a well-maintained setting",
+          "Adjacent beaches — quieter than Long Beach, ideal for unwinding after the park",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Plan a full day for Sunny World if you want to see everything. The day ticket covers most attractions — check what's included at the entrance to avoid surprises.",
+      },
+      {
+        type: 'heading',
+        text: "Living in the centre: the right balance",
+      },
+      {
+        type: 'paragraph',
+        text: "I stayed in an apartment in the centre of Phu Quoc, between the two complexes. It's the best place to be: 20 minutes from Grand World in the north, 25 minutes from Sunny World in the south, and a short walk from Long Beach and Dương Đông night market.",
+      },
+      {
+        type: 'paragraph',
+        text: "The centre of the island is also where local life still happens. Morning markets, small pho restaurants on the pavement, fruit vendors on scooters. Dương Đông Town has kept a fishing village soul despite the intense tourist development of the last ten years.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Long Beach (Bãi Trường) — main beach, 20 km long, walkable from the centre",
+          "Dương Đông night market — fresh seafood, souvenirs, local atmosphere",
+          "Apartment rental: far better option than a resort for a week or more",
+          "Scooter: essential for reaching both ends of the island on your own schedule",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "An apartment in the centre of Phu Quoc means the sea in the morning, Grand World in the evening, and a street market for meals. The right balance.",
+      },
+      {
+        type: 'heading',
+        text: "What Phu Quoc no longer is — and what it really is",
+      },
+      {
+        type: 'paragraph',
+        text: "Phu Quoc is no longer the wild island it once was. The north is heavily developed, the south is a theme park, and Long Beach is lined with 5-star resorts. That can frustrate anyone looking for raw nature.",
+      },
+      {
+        type: 'paragraph',
+        text: "But the island has kept one thing: extraordinary water. The blue-green you see from the cable car is real. The beaches on the northwest — An Thới, Bãi Sao — are still quiet and stunning. And the southern tip of the island, off the tourist circuit, remains wild.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Bãi Sao: the island's most beautiful beach, white sand, crystal water, in the southeast",
+          "Snorkelling around An Thới islets — well-preserved coral, fish everywhere",
+          "Phu Quoc fish sauce (nước mắm) — the best in Vietnam, absolutely bring some home",
+          "Phu Quoc pepper — plantations open to visit, exceptional product worth bringing back",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Practical: planning your stay",
+      },
+      {
+        type: 'paragraph',
+        text: "Phu Quoc is reached by plane from Saigon in 50 minutes. Flights from $20 on promotion with VietJet or Bamboo. The airport is in the centre of the island — 10 minutes by Grab from Dương Đông Town.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Ideal length: 5 to 7 days — under 4 days and you'll miss half of it",
+          "Scooter: rent on arrival, 150,000–200,000 VND/day, non-negotiable",
+          "Budget: $50–80/day including accommodation, restaurants and activities",
+          "Best time: November to April, dry season — avoid May to October (monsoon)",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Phu Quoc isn't perfect. It's been built too fast, too hard, and it has lost some of its wild charm. But it offers something unique in Vietnam: an island with real leisure infrastructure, spectacular water, and enough variety that one week looks nothing like another.",
+      },
+    ],
+  },
+  {
     slug: 'can-tho-delta',
     title: 'Can Tho : le vrai Vietnam flottant',
     titleEn: 'Can Tho: the real floating Vietnam',
