@@ -200,13 +200,13 @@ function AppContent() {
               </Link>
             ))}
 
-            <button
-              onClick={scrollToEbook}
+            <Link
+              to="/ebook"
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[0.8rem] font-medium text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/80 dark:hover:bg-stone-800/50 transition-all duration-150"
             >
               <BookOpen size={13} />
               <span>{t.nav.ebook}</span>
-            </button>
+            </Link>
 
             {/* Divider */}
             <span className="mx-2 h-5 w-px bg-stone-200 dark:bg-stone-700/80 flex-shrink-0" aria-hidden="true" />
@@ -333,12 +333,12 @@ function AppContent() {
                   {icon} {label}
                 </Link>
               ))}
-              <button
-                onClick={scrollToEbook}
+              <Link
+                to="/ebook"
                 className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors w-full text-left"
               >
                 <BookOpen size={15} /> {t.nav.ebook}
-              </button>
+              </Link>
 
               <div className="my-1 h-px bg-stone-100 dark:bg-stone-800" />
 
