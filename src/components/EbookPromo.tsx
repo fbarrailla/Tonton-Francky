@@ -11,6 +11,7 @@ import { useLanguage } from '../i18n';
 import qrCode from '../assets/qr-code.png';
 import ebookAiThumb from '../assets/ebook-ai-thumb.png';
 import ebookVietnamCover from '../assets/ebook-vietnam.png';
+import trucNguyenPhoto from '../assets/truc-nguyen.jpeg';
 import EbookPickerModal, { type EbookChoice } from './EbookPickerModal';
 
 const PROMO_CODE = 'TONTONFRANCKY50';
@@ -226,6 +227,64 @@ export default function EbookPromo() {
                   </div>
                   <span className="font-medium text-stone-800 dark:text-stone-200">{feature}</span>
                 </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Claude Ebook — Testimonials */}
+      <section className="py-16 px-6 bg-amber-50 dark:bg-stone-950">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-2xl font-serif font-bold text-center mb-10 text-stone-900 dark:text-stone-100">
+              What readers are saying
+            </h2>
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                {
+                  quote: "Most coding books teach you how things work. This one teaches you how to ship. François doesn't waste your time with theory — every chapter ends with something you can actually do. The design section is a standout: clear principles that instantly separate amateur AI output from something that looks intentional and professional. Perfect for anyone who wants results over credentials.",
+                  author: "Truc Nguyen",
+                  role: "Front-End Developer",
+                  photo: trucNguyenPhoto,
+                },
+                {
+                  quote: "I had zero web dev experience. After following this guide I had a live portfolio site in a weekend. The step-by-step terminal commands and the deployment section alone are worth the price. Claude Code is honestly a superpower when you know how to use it properly — and this book shows you exactly that.",
+                  author: "Sarah L.",
+                  role: "Freelance Designer",
+                  photo: null,
+                },
+                {
+                  quote: "As a developer I was skeptical about an 'AI-first' workflow. This book changed my mind. The prompting patterns are sharp, the project structure makes sense, and the section on avoiding AI slop in your designs is something every team should read. Concise, opinionated, and surprisingly fun to go through.",
+                  author: "Tom R.",
+                  role: "Full-Stack Developer",
+                  photo: null,
+                },
+              ].map(({ quote, author, role, photo }) => (
+                <motion.div
+                  key={author}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4 }}
+                  className="bg-white dark:bg-stone-800 rounded-3xl p-6 shadow-sm border border-amber-100 dark:border-stone-700 flex flex-col gap-4"
+                >
+                  <p className="text-stone-600 dark:text-stone-300 text-sm leading-relaxed flex-1">"{quote}"</p>
+                  <div className="flex items-center gap-3">
+                    {photo && (
+                      <img src={photo} alt={author} className="w-9 h-9 rounded-full object-cover shrink-0" />
+                    )}
+                    <div>
+                      <p className="font-bold text-stone-900 dark:text-stone-100 text-sm">{author}</p>
+                      <p className="text-xs text-stone-400 dark:text-stone-500">{role}</p>
+                    </div>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>

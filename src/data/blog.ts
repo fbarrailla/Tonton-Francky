@@ -2521,10 +2521,6 @@ const posts: BlogPost[] = [
     content: [
       {
         type: 'paragraph',
-        text: "Je n'avais pas grand-chose en tête quand j'ai réservé Da Nang. Un vol pas cher, une semaine de libre, et l'envie de changer d'air. Ce que j'y ai trouvé, c'est une ville qui a tout compris.",
-      },
-      {
-        type: 'paragraph',
         text: "Da Nang n'est pas Hoi An — trop pittoresque et touristique. Ce n'est pas Hanoï — trop dense et chaotique. C'est quelque chose entre les deux : une ville moderne, détendue, avec une plage immense et une énergie nocturne qui démarre vraiment tard.",
       },
       {
