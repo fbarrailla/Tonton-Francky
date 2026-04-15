@@ -2776,6 +2776,294 @@ const posts: BlogPost[] = [
     ],
   },
   {
+    slug: 'vivre-a-saigon-district-11',
+    title: 'Vivre à Saigon : ma vie dans le district 11',
+    titleEn: 'Living in Saigon: my life in District 11',
+    excerpt: "Marche matinale à Dam Sen Park, jus d'orange en bas de chez moi, coworkings et coffee shops pour bosser, nuits qui commencent tard et finissent encore plus tard — Saigon en tant que résident, c'est autre chose qu'en tant que touriste.",
+    excerptEn: "Morning walk at Dam Sen Park, fresh orange juice downstairs, coworking spaces and coffee shops to work from, nights that start late and end even later — Saigon as a resident is something else entirely.",
+    date: '2026-04-15',
+    readTime: 7,
+    category: 'Voyages',
+    categoryEn: 'Travel',
+    thumbnail: '/blog/saigon-district-11.png',
+    ebookCta: true,
+    ebookType: 'vietnam',
+    content: [
+      {
+        type: 'paragraph',
+        text: "Il y a une différence fondamentale entre visiter Saigon et y vivre. En tant que touriste, tu vois la ville en surface — le bruit, la densité, l'énergie. En tant que résident, tu comprends comment elle fonctionne. Tu trouves tes rituels, tes adresses, tes raccourcis. Tu arrêtes de regarder une carte à chaque fois que tu sors.",
+      },
+      {
+        type: 'paragraph',
+        text: "J'habite dans le district 11. Pas le plus glamour, pas le plus photogénié, mais peut-être le plus honnête. Pas de bar à cocktails de luxe au coin de la rue, pas d'expat café avec des pancakes à 8$. Juste une vie de quartier vietnamienne dense, accessible, et étrangement reposante.",
+      },
+      {
+        type: 'quote',
+        text: "Saigon te prend deux semaines à apprivoiser. Après ça, tu ne veux plus partir.",
+      },
+      {
+        type: 'heading',
+        text: "La routine du matin : Dam Sen Park et jus d'orange",
+      },
+      {
+        type: 'paragraph',
+        text: "Chaque matin, je marche jusqu'à Dam Sen Park. Le parc est à dix minutes à pied, et il fait environ 6 kilomètres de tour complet. À 6h30, le parc appartient aux locaux — des groupes de seniors qui font de la gym en musique, des femmes qui pratiquent le tai-chi en bordure du lac, des couples qui marchent en silence. Personne ne te regarde. Tu fais partie du décor.",
+      },
+      {
+        type: 'paragraph',
+        text: "Le lac central, les bancs sous les arbres, les vieux qui jouent aux échecs dès l'aube — il y a dans Dam Sen quelque chose de profondément calme qui contraste totalement avec le chaos qui l'entoure. C'est mon reset quotidien. Sans ça, Saigon peut devenir écrasante.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Dam Sen Park — entrée à 6 000 VND, ouvert dès 5h30, plein de Saigonnais avant 8h",
+          "Tour complet du lac : ~6 km, parfait pour marcher ou courir",
+          "Le matin, évite le parc d'attractions adjacent qui ouvre plus tard et attire les touristes",
+          "En rentrant : un jus d'orange fraîchement pressé au stand en bas de l'immeuble — 15 000 VND",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Ce jus d'orange, c'est un détail qui ne l'est pas. La dame qui le prépare est là tous les matins à 7h. Elle me voit arriver en sueur, elle commence à presser sans que je le demande. Ces petits rituels avec les gens du quartier, c'est ce qui transforme un séjour en quelque chose qui ressemble à une vie.",
+      },
+      {
+        type: 'heading',
+        text: "Travailler depuis Saigon : le paradis des nomades digitaux",
+      },
+      {
+        type: 'paragraph',
+        text: "Saigon est l'une des meilleures villes du monde pour travailler à distance. Combinaison imbattable : internet ultra-rapide partout, coffee shops ouverts jusqu'à minuit, coworkings bien équipés, et un coût de la vie qui fait qu'on ne stresse pas pour sa trésorerie.",
+      },
+      {
+        type: 'paragraph',
+        text: "Les coffee shops vietnamiens sont dans une catégorie à part. Ils ne sont pas juste des endroits où on boit du café — ce sont des espaces de travail assumés. Prises électriques à chaque table, wifi affiché à l'entrée, personnel qui ne te regarde pas de travers si tu restes trois heures avec une seule commande. Un café cà phê trứng ou un bạc xỉu glacé à 30 000 VND, et tu travailles aussi bien que dans un coworking à 20$/jour.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Coworkings : Toong, Dreamplex, Base Workspace — de 5$/jour à 80$/mois",
+          "Coffee shops : Katinat, The Workshop, Shin Coffee — wifi fiable, ambiance studieuse",
+          "Café local dans le district 11 : 20 000–30 000 VND la commande, personne ne te presse",
+          "Connexion : fibre disponible dans la plupart des appartements, 4G omniprésent en backup",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Pour les développeurs en particulier, Saigon a une communauté tech active. Des meetups réguliers, des événements dans les coworkings, des groupes Telegram qui partagent les bonnes adresses. Ce n'est pas Berlin ou Lisbonne, mais c'est une vraie scène — et elle est en train de grandir vite.",
+      },
+      {
+        type: 'heading',
+        text: "La nuit à Saigon : du café des stagiaires aux rooftops",
+      },
+      {
+        type: 'paragraph',
+        text: "La vie nocturne de Saigon est stratifiée. Il y a plusieurs niveaux, plusieurs ambiances, et chaque quartier a ses codes. Ce n'est pas une ville avec un seul endroit où ça se passe — c'est une ville où ça se passe partout, différemment.",
+      },
+      {
+        type: 'paragraph',
+        text: "Le café des stagiaires — surnom donné par les expats francophones à certains cafés du district 1 où se retrouvent les jeunes Vietnamiens qui ont fait leurs études à l'étranger. Ambiance décontractée, musique lo-fi, conversations mélangées français-anglais-vietnamien. Un endroit où tu rencontres des gens en cinq minutes.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Bars à cocktails du district 1 — Pasteur Street, The Gin House, Observatory : ambiance craft, clientèle mélangée",
+          "Bui Vien Street — la rue des backpackers, décomplexée, bruyante, idéale pour une première nuit",
+          "Rooftops : EON Heli Bar (tour Bitexco), Chill Sky Bar, Saigon Saigon — vues sur la ville, cocktails à 5$",
+          "District 2 : bars de quartier plus calmes, clientèle expat installée, ambiance lounge",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Ce que j'aime dans les nuits saigonnaises, c'est qu'elles commencent tard et finissent quand tout le monde est prêt. On dîne à 19h, on prend un verre à 21h, on finit sur un rooftop à 23h, et si l'envie est là, on continue. Personne ne regarde sa montre.",
+      },
+      {
+        type: 'quote',
+        text: "À Saigon, la nuit n'a pas d'heure de fermeture. C'est à toi de décider quand ça s'arrête.",
+      },
+      {
+        type: 'heading',
+        text: "Les districts : chaque quartier est une ville dans la ville",
+      },
+      {
+        type: 'paragraph',
+        text: "Ce qui rend Saigon fascinante pour y vivre, c'est que chaque district a sa propre personnalité. Prendre un Grab d'un district à l'autre, c'est changer complètement d'atmosphère en quinze minutes.",
+      },
+      {
+        type: 'list',
+        items: [
+          "District 1 — le centre historique. Touristes, expats, bars, restos internationaux, hôtels. Pratique mais cher et saturé",
+          "District 2 (Thảo Điền) — l'enclave expat. Écoles internationales, cafés instagrammables, marchés fermiers. Calme, verdoyant, hors de prix",
+          "District 4 — street food et authenticité à deux pas du centre. Petits restos sur trottoir, marché nocturne, sans les touristes",
+          "District 5 — Chinatown (Chợ Lớn). Temples, marchés au tissu, cuisine sino-vietnamienne, une ville dans la ville",
+          "District 7 — le district coréen. Centres commerciaux, restaurants coréens et japonais, familles aisées, très propre",
+          "District 11 — ma base. Populaire, dense, authentique. Dam Sen Park, marchés locaux, loin du tourisme de masse",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Habiter dans le district 11, c'est choisir de vivre comme les Saigonnais et non pas comme les visiteurs. Ça veut dire moins de confort surface, moins d'anglais autour de soi, mais plus d'immersion, des prix divisés par deux ou trois, et la sensation d'appartenir réellement à la ville.",
+      },
+      {
+        type: 'heading',
+        text: "Pourquoi Saigon pour les développeurs nomades",
+      },
+      {
+        type: 'paragraph',
+        text: "Je suis développeur. Saigon coche toutes les cases de manière presque absurde. Internet rapide partout. Électricité fiable. Coût de la vie qui permet de vivre confortablement avec 1 500$ par mois tout compris. Décalage horaire avec l'Europe gérable. Et une qualité de vie qui dépasse de loin ce qu'on peut avoir pour ce budget en France ou en Belgique.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Appartement en centre-ville : 400–600$/mois pour un studio correct, 600–900$ pour un T2 avec vue",
+          "Repas : 2–4$ au restaurant local, 10–15$ dans un endroit plus soigné",
+          "Transport : Grab moto (xe ôm) pour 1–2$ les courts trajets, Grab car pour 3–5$ en ville",
+          "Visa : e-visa 90 jours renouvelable, ou visa run en Thaïlande ou Cambodge pour les longs séjours",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Saigon n'est pas parfaite. La pollution de l'air est réelle. La chaleur est permanente. La circulation en heure de pointe est éprouvante. Mais une fois qu'on a trouvé son quartier, ses rituels et ses adresses, c'est une des villes les plus agréables du monde pour travailler et vivre en même temps.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "There's a fundamental difference between visiting Saigon and living there. As a tourist, you see the city on the surface — the noise, the density, the energy. As a resident, you understand how it works. You find your rituals, your spots, your shortcuts. You stop looking at a map every time you go out.",
+      },
+      {
+        type: 'paragraph',
+        text: "I live in District 11. Not the most glamorous, not the most photogenic, but maybe the most honest. No upscale cocktail bar on the corner, no expat café serving $8 pancakes. Just a dense, accessible Vietnamese neighbourhood life that's strangely restful.",
+      },
+      {
+        type: 'quote',
+        text: "Saigon takes two weeks to get your head around. After that, you don't want to leave.",
+      },
+      {
+        type: 'heading',
+        text: "Morning routine: Dam Sen Park and orange juice",
+      },
+      {
+        type: 'paragraph',
+        text: "Every morning I walk to Dam Sen Park. The park is ten minutes on foot, and a full lap is about 6 kilometres. At 6:30am the park belongs to locals — groups of seniors doing group exercises to music, women practising tai chi by the lake, couples walking in silence. Nobody looks at you. You're part of the scenery.",
+      },
+      {
+        type: 'paragraph',
+        text: "The central lake, benches under the trees, old men playing chess at dawn — Dam Sen has a deep calm that contrasts completely with the chaos surrounding it. It's my daily reset. Without it, Saigon can become overwhelming.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Dam Sen Park — entry 6,000 VND, open from 5:30am, packed with locals before 8am",
+          "Full lap around the lake: ~6 km, perfect for walking or running",
+          "In the morning, avoid the adjacent amusement park which opens later and draws tourists",
+          "On the way back: a freshly squeezed orange juice from the stand downstairs — 15,000 VND",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "That orange juice is a detail that isn't. The woman who makes it is there every morning at 7am. She sees me arrive sweaty and starts pressing before I even ask. These small rituals with neighbourhood people are what turn a stay into something that feels like a life.",
+      },
+      {
+        type: 'heading',
+        text: "Working from Saigon: a digital nomad's paradise",
+      },
+      {
+        type: 'paragraph',
+        text: "Saigon is one of the best cities in the world to work remotely. An unbeatable combination: ultra-fast internet everywhere, coffee shops open until midnight, well-equipped coworking spaces, and a cost of living that means you're not stressed about cash flow.",
+      },
+      {
+        type: 'paragraph',
+        text: "Vietnamese coffee shops are in a category of their own. They're not just places to drink coffee — they're unapologetic workspaces. Power outlets at every table, wifi posted at the entrance, staff who don't give you the side-eye if you sit for three hours on one order. An egg coffee or iced bạc xỉu at 30,000 VND, and you work just as well as in a $20/day coworking.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Coworkings: Toong, Dreamplex, Base Workspace — from $5/day to $80/month",
+          "Coffee shops: Katinat, The Workshop, Shin Coffee — reliable wifi, studious atmosphere",
+          "Local café in District 11: 20,000–30,000 VND per order, nobody rushes you",
+          "Connectivity: fibre in most apartments, 4G everywhere as backup",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "For developers specifically, Saigon has an active tech community. Regular meetups, coworking events, Telegram groups sharing good spots. It's not Berlin or Lisbon, but it's a real scene — and it's growing fast.",
+      },
+      {
+        type: 'heading',
+        text: "Saigon at night: from intern cafés to rooftops",
+      },
+      {
+        type: 'paragraph',
+        text: "Saigon's nightlife is layered. Multiple levels, multiple atmospheres, each district with its own codes. It's not a city with one place where things happen — it's a city where things happen everywhere, differently.",
+      },
+      {
+        type: 'paragraph',
+        text: "The \"intern café\" — a nickname used by French-speaking expats for certain District 1 cafés where young Vietnamese who studied abroad hang out. Relaxed atmosphere, lo-fi music, conversations mixing French, English and Vietnamese. A place where you meet people in five minutes.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Cocktail bars in District 1 — Pasteur Street, The Gin House, Observatory: craft vibes, mixed crowd",
+          "Bui Vien Street — the backpacker strip, unpretentious, loud, great for a first night out",
+          "Rooftops: EON Heli Bar (Bitexco tower), Chill Sky Bar, Saigon Saigon — city views, $5 cocktails",
+          "District 2: quieter neighbourhood bars, settled expat crowd, lounge atmosphere",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "What I love about Saigon nights is that they start late and end when everyone's ready. Dinner at 7pm, drinks at 9pm, rooftop at 11pm, and if the mood is there, you keep going. Nobody checks the time.",
+      },
+      {
+        type: 'quote',
+        text: "In Saigon, the night has no closing time. It's up to you to decide when it stops.",
+      },
+      {
+        type: 'heading',
+        text: "The districts: each neighbourhood is a city within a city",
+      },
+      {
+        type: 'paragraph',
+        text: "What makes Saigon fascinating to live in is that each district has its own personality. Taking a Grab from one district to another means completely changing atmosphere in fifteen minutes.",
+      },
+      {
+        type: 'list',
+        items: [
+          "District 1 — the historic centre. Tourists, expats, bars, international restaurants, hotels. Convenient but expensive and saturated",
+          "District 2 (Thảo Điền) — the expat enclave. International schools, instagrammable cafés, farmers' markets. Calm, green, pricey",
+          "District 4 — street food and authenticity minutes from the centre. Pavement restaurants, night market, no tourists",
+          "District 5 — Chinatown (Chợ Lớn). Temples, fabric markets, Sino-Vietnamese cuisine, a city within the city",
+          "District 7 — the Korean district. Shopping centres, Korean and Japanese restaurants, wealthy families, very clean",
+          "District 11 — my base. Working-class, dense, authentic. Dam Sen Park, local markets, far from mass tourism",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Living in District 11 means choosing to live like Saigonese people rather than like visitors. That means less surface comfort, less English around you, but more immersion, prices two or three times lower, and the genuine feeling of belonging to the city.",
+      },
+      {
+        type: 'heading',
+        text: "Why Saigon for digital nomad developers",
+      },
+      {
+        type: 'paragraph',
+        text: "I'm a developer. Saigon ticks every box almost absurdly well. Fast internet everywhere. Reliable electricity. A cost of living that lets you live comfortably on $1,500/month all in. A time difference from Europe that's manageable. And a quality of life that far exceeds what you'd get for that budget in France or Belgium.",
+      },
+      {
+        type: 'list',
+        items: [
+          "City centre apartment: $400–600/month for a decent studio, $600–900 for a 1-bed with a view",
+          "Meals: $2–4 at a local restaurant, $10–15 somewhere nicer",
+          "Transport: Grab moto for $1–2 for short trips, Grab car $3–5 across the city",
+          "Visa: 90-day e-visa renewable, or visa run to Thailand or Cambodia for long stays",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Saigon isn't perfect. The air pollution is real. The heat is constant. Rush-hour traffic is gruelling. But once you've found your neighbourhood, your rituals and your spots, it's one of the most enjoyable cities in the world to work and live at the same time.",
+      },
+    ],
+  },
+  {
     slug: 'phu-quoc-ile',
     title: 'Phu Quoc : l\'île qui fait tout en grand',
     titleEn: 'Phu Quoc: the island that does everything big',
