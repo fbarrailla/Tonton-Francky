@@ -2515,7 +2515,7 @@ const posts: BlogPost[] = [
     readTime: 6,
     category: 'Voyages',
     categoryEn: 'Travel',
-    thumbnail: '/blog/da-nang-2026.jpg',
+    thumbnail: '/blog/da-nang-2026.png',
     ebookCta: true,
     ebookType: 'vietnam',
     content: [
