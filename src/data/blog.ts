@@ -2807,7 +2807,7 @@ const posts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: "Chaque matin, je marche jusqu'à Dam Sen Park. Le parc est à dix minutes à pied, et il fait environ 6 kilomètres de tour complet. À 6h30, le parc appartient aux locaux — des groupes de seniors qui font de la gym en musique, des femmes qui pratiquent le tai-chi en bordure du lac, des couples qui marchent en silence. Personne ne te regarde. Tu fais partie du décor.",
+        text: "Chaque matin, je marche jusqu'à Dam Sen Park. Le parc est à cinq minutes à pied, et il fait environ 3 kilomètres de tour complet. À 6h30, le parc appartient aux locaux — des groupes de seniors qui font de la gym en musique, des femmes qui pratiquent le tai-chi en bordure du lac, des couples qui marchent en silence. Personne ne te regarde. Tu fais partie du décor.",
       },
       {
         type: 'paragraph',
@@ -2817,7 +2817,7 @@ const posts: BlogPost[] = [
         type: 'list',
         items: [
           "Dam Sen Park — entrée à 6 000 VND, ouvert dès 5h30, plein de Saigonnais avant 8h",
-          "Tour complet du lac : ~6 km, parfait pour marcher ou courir",
+          "Tour complet du lac : ~3 km, parfait pour marcher ou courir",
           "Le matin, évite le parc d'attractions adjacent qui ouvre plus tard et attire les touristes",
           "En rentrant : un jus d'orange fraîchement pressé au stand en bas de l'immeuble — 15 000 VND",
         ],
@@ -2944,7 +2944,7 @@ const posts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: "Every morning I walk to Dam Sen Park. The park is ten minutes on foot, and a full lap is about 6 kilometres. At 6:30am the park belongs to locals — groups of seniors doing group exercises to music, women practising tai chi by the lake, couples walking in silence. Nobody looks at you. You're part of the scenery.",
+        text: "Every morning I walk to Dam Sen Park. The park is five minutes on foot, and a full lap is about 3 kilometres. At 6:30am the park belongs to locals — groups of seniors doing group exercises to music, women practising tai chi by the lake, couples walking in silence. Nobody looks at you. You're part of the scenery.",
       },
       {
         type: 'paragraph',
@@ -2954,7 +2954,7 @@ const posts: BlogPost[] = [
         type: 'list',
         items: [
           "Dam Sen Park — entry 6,000 VND, open from 5:30am, packed with locals before 8am",
-          "Full lap around the lake: ~6 km, perfect for walking or running",
+          "Full lap around the lake: ~3 km, perfect for walking or running",
           "In the morning, avoid the adjacent amusement park which opens later and draws tourists",
           "On the way back: a freshly squeezed orange juice from the stand downstairs — 15,000 VND",
         ],
