@@ -2776,6 +2776,264 @@ const posts: BlogPost[] = [
     ],
   },
   {
+    slug: 'setup-dev-nomade-2026',
+    title: 'Mon setup de dev nomade en 2026 : rien de superflu',
+    titleEn: 'My nomad dev setup in 2026: nothing unnecessary',
+    excerpt: "MacBook, batterie externe, Claude Code et une SIM locale — voilà tout ce qu'il me faut pour bosser depuis un café de Saigon ou un coworking à Da Nang. Le minimalisme appliqué au travail de développeur.",
+    excerptEn: "MacBook, power bank, Claude Code and a local SIM — that's all I need to work from a Saigon café or a Da Nang coworking. Minimalism applied to developer work.",
+    date: '2026-04-15',
+    readTime: 5,
+    category: 'Dev',
+    categoryEn: 'Dev',
+    thumbnail: '/blog/setup-nomade.png',
+    ebookCta: true,
+    ebookType: 'claude',
+    content: [
+      {
+        type: 'paragraph',
+        text: "La question qu'on me pose le plus souvent quand les gens apprennent que je bosse en voyage : \"Mais t'as pas besoin d'un écran externe ? D'un bureau fixe ? D'un setup digne de ce nom ?\" Non. Vraiment non. Après deux ans à bosser depuis des cafés, des coworkings et des appartements loués au mois au Vietnam, j'ai compris une chose : le mieux ennemi du bien s'applique aussi au matériel.",
+      },
+      {
+        type: 'quote',
+        text: "Le meilleur setup, c'est celui que tu transportes sans y penser.",
+      },
+      {
+        type: 'heading',
+        text: "Le matériel : MacBook et rien de plus",
+      },
+      {
+        type: 'paragraph',
+        text: "Mon ordi de travail, c'est un MacBook. C'est tout. Pas d'écran externe, pas de clavier mécanique, pas de dock. La philosophie KISS — Keep It Simple — appliquée au hardware. Chaque accessoire supplémentaire, c'est du poids dans le sac, un câble de plus à chercher, une raison de ne pas s'installer quelque part.",
+      },
+      {
+        type: 'paragraph',
+        text: "L'écran du MacBook est suffisant pour coder. Si tu n'es pas convaincu, c'est probablement que tu n'as pas encore essayé vraiment. On s'y habitue en une semaine, et après on arrête d'y penser.",
+      },
+      {
+        type: 'list',
+        items: [
+          "MacBook — l'autonomie tient une journée de boulot, la puissance est largement suffisante pour du dev web",
+          "Batterie externe — pour les longues sessions en café sans prise accessible ou les journées en déplacement",
+          "Câble USB-C MacBook, câble iPhone, câble Apple Watch — trois câbles, tout est chargé",
+          "Total dans le sac : moins de 2 kg. Tu l'oublies sur l'épaule.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "La batterie externe, c'est la vraie liberté. Elle me permet de m'installer n'importe où sans chercher une prise — un banc dans un parc, une terrasse en plein air, un train. Je la recharge la nuit et je ne me pose plus la question en journée.",
+      },
+      {
+        type: 'heading',
+        text: "Les outils de dev : simple et efficace",
+      },
+      {
+        type: 'paragraph',
+        text: "Côté logiciels, même philosophie. Pas de stack exotique, pas d'outils à la mode changés tous les six mois. Des valeurs sûres qui fonctionnent partout et que je n'ai jamais à réapprendre.",
+      },
+      {
+        type: 'list',
+        items: [
+          "VS Code — léger, extensible, universel. Le standard de facto du dev web en 2026, et pour de bonnes raisons",
+          "Terminal natif macOS + Git — rien à installer, tout est là. Pour le versioning, GitHub en remote",
+          "Claude Code — mon outil IA principal. Directement dans le terminal, intégré au projet, beaucoup plus pertinent qu'un assistant généraliste pour du vrai travail de dev",
+          "ChatGPT — en complément, pour les questions rapides, les recherches et les premiers jets de rédaction",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Claude Code mérite une mention spéciale. Ce n'est pas un simple autocomplétion — c'est un agent qui comprend le contexte de ton projet, lit tes fichiers, propose des modifications cohérentes et t'explique ses choix. Pour un nomade qui bosse seul sur ses projets, c'est comme avoir un second développeur disponible à toute heure.",
+      },
+      {
+        type: 'heading',
+        text: "Communication et organisation : le strict minimum",
+      },
+      {
+        type: 'paragraph',
+        text: "Pour les calls clients, Google Meet ou Zoom selon ce que le client préfère. Je ne m'impose pas. Une bonne connexion, des écouteurs corrects, et ça se passe bien depuis n'importe quel coworking du monde.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Google Meet / Zoom — pas de préférence, je m'adapte au client",
+          "Trello — gestion de projet. Boards simples, cartes, deadlines. Pas besoin de plus pour des projets en solo ou en petite équipe",
+          "Notes Apple — pour tout ce qui est éphémère : idées, listes de courses, trucs à ne pas oublier. Synchronisé sur tous mes appareils automatiquement",
+          "Email et messagerie : le standard suffit. Pas d'outil de productivité supplémentaire",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Trello reste mon outil de gestion de projet depuis des années. Je sais que Linear, Notion et une dizaine d'autres existent. Mais Trello fait exactement ce dont j'ai besoin, je le connais par cœur, et je n'ai pas envie de passer une journée à migrer mes boards pour gagner une feature que j'utiliserai deux fois.",
+      },
+      {
+        type: 'heading',
+        text: "La connexion : SIM locale, point final",
+      },
+      {
+        type: 'paragraph',
+        text: "La connexion internet, c'est le seul point non négociable du setup nomade. Et la solution est ridiculement simple : acheter une SIM locale à l'arrivée dans chaque pays.",
+      },
+      {
+        type: 'paragraph',
+        text: "Au Vietnam, une SIM Viettel ou Vietnamobile avec 60 Go de data coûte environ 5$. Le réseau 4G/5G est excellent dans toutes les grandes villes. Je l'utilise en hotspot sur le MacBook quand le wifi du café est mauvais. Le problème de connexion n'existe quasiment pas.",
+      },
+      {
+        type: 'list',
+        items: [
+          "SIM locale à chaque pays — 3 à 7$ pour un forfait data large, sans comparaison avec le roaming",
+          "Hotspot iPhone → MacBook — la solution de secours qui fonctionne à tous les coups",
+          "Pas de VPN au quotidien — je l'active uniquement si le réseau d'un café semble peu sécurisé",
+          "Tester la connexion avant de s'installer — 30 secondes pour éviter une heure de frustration",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Où bosser : café, coworking ou appart selon le jour",
+      },
+      {
+        type: 'paragraph',
+        text: "Je ne travaille pas au même endroit tous les jours, et c'est voulu. La variation des environnements de travail change le type de concentration qu'on a. Un café bruyant est parfait pour écrire ou répondre à des mails. Un coworking calme est meilleur pour du code qui demande de la profondeur. L'appartement est idéal pour les calls ou les journées très longues.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Café local — ambiance, bruit de fond utile, café à 30 000 VND, idéal pour les tâches légères",
+          "Coworking — bureau fixe, silence quand nécessaire, networking possible, 5 à 15$/jour",
+          "Appartement — pour les calls clients, les journées de focus intense ou quand il fait trop chaud dehors",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "Les heures libres ne veulent pas dire travailler moins. Elles veulent dire travailler quand tu es au meilleur de ta concentration.",
+      },
+      {
+        type: 'paragraph',
+        text: "Je n'ai pas d'horaires fixes. Certains jours je commence à 7h après Dam Sen Park et je finis à 14h. D'autres jours je commence à 10h et je travaille jusqu'à 20h. Ce qui compte, c'est ce qui est livré — pas le nombre d'heures passées assis devant un écran.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "The question I get asked most when people find out I work while travelling: \"But don't you need an external monitor? A proper desk? A real setup?\" No. Really, no. After two years working from cafés, coworking spaces and month-to-month apartments in Vietnam, I've understood one thing: less is more applies to hardware too.",
+      },
+      {
+        type: 'quote',
+        text: "The best setup is the one you carry without thinking about it.",
+      },
+      {
+        type: 'heading',
+        text: "Hardware: MacBook and nothing else",
+      },
+      {
+        type: 'paragraph',
+        text: "My work computer is a MacBook. That's it. No external monitor, no mechanical keyboard, no dock. The KISS philosophy — Keep It Simple — applied to hardware. Every extra accessory is more weight in the bag, one more cable to find, one more reason not to set up somewhere.",
+      },
+      {
+        type: 'paragraph',
+        text: "The MacBook screen is enough to code on. If you're not convinced, you probably haven't really tried. You adjust within a week and then stop thinking about it.",
+      },
+      {
+        type: 'list',
+        items: [
+          "MacBook — battery lasts a full working day, more than enough power for web dev",
+          "Power bank — for long café sessions without an accessible plug, or full days on the move",
+          "USB-C MacBook cable, iPhone cable, Apple Watch cable — three cables, everything charged",
+          "Total bag weight: under 2 kg. You forget it's on your shoulder.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "The power bank is real freedom. It means I can sit anywhere without hunting for a plug — a park bench, an open-air terrace, a train. I charge it overnight and never think about it during the day.",
+      },
+      {
+        type: 'heading',
+        text: "Dev tools: simple and effective",
+      },
+      {
+        type: 'paragraph',
+        text: "Same philosophy on the software side. No exotic stack, no trendy tools swapped out every six months. Reliable standards that work everywhere and that I never have to relearn.",
+      },
+      {
+        type: 'list',
+        items: [
+          "VS Code — lightweight, extensible, universal. The de facto standard for web dev in 2026, for good reason",
+          "Native macOS Terminal + Git — nothing to install, everything's there. GitHub for remote versioning",
+          "Claude Code — my main AI tool. Directly in the terminal, integrated with the project, far more relevant than a general assistant for real dev work",
+          "ChatGPT — as a complement, for quick questions, research and first drafts",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Claude Code deserves a special mention. It's not just autocomplete — it's an agent that understands your project's context, reads your files, proposes coherent changes and explains its choices. For a nomad working solo on their projects, it's like having a second developer available at any hour.",
+      },
+      {
+        type: 'heading',
+        text: "Communication and organisation: the bare minimum",
+      },
+      {
+        type: 'paragraph',
+        text: "For client calls, Google Meet or Zoom depending on what the client prefers. I don't impose. Good connection, decent earphones, and it works fine from any coworking in the world.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Google Meet / Zoom — no preference, I adapt to the client",
+          "Trello — project management. Simple boards, cards, deadlines. Nothing more needed for solo or small-team projects",
+          "Apple Notes — for everything ephemeral: ideas, shopping lists, things not to forget. Synced across all devices automatically",
+          "Email and messaging: standard tools are enough. No extra productivity layer needed",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Trello has been my project management tool for years. I know Linear, Notion and a dozen others exist. But Trello does exactly what I need, I know it inside out, and I have no interest in spending a day migrating my boards to gain a feature I'll use twice.",
+      },
+      {
+        type: 'heading',
+        text: "Connectivity: local SIM, full stop",
+      },
+      {
+        type: 'paragraph',
+        text: "Internet connection is the only non-negotiable in a nomad setup. And the solution is ridiculously simple: buy a local SIM on arrival in each country.",
+      },
+      {
+        type: 'paragraph',
+        text: "In Vietnam, a Viettel or Vietnamobile SIM with 60 GB of data costs around $5. The 4G/5G network is excellent in all major cities. I use it as a hotspot on the MacBook when the café wifi is poor. The connection problem barely exists.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Local SIM in each country — $3 to $7 for a large data plan, no comparison with roaming",
+          "iPhone hotspot → MacBook — the backup solution that always works",
+          "No daily VPN — I turn it on only if a café network seems insecure",
+          "Test the connection before settling in — 30 seconds to avoid an hour of frustration",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Where to work: café, coworking or apartment depending on the day",
+      },
+      {
+        type: 'paragraph',
+        text: "I don't work in the same place every day, and that's intentional. Varying work environments changes the type of focus you have. A busy café is perfect for writing or answering emails. A quiet coworking is better for code that requires depth. The apartment is ideal for calls or very long days.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Local café — atmosphere, useful background noise, coffee at 30,000 VND, ideal for lighter tasks",
+          "Coworking — fixed desk, silence when needed, possible networking, $5 to $15/day",
+          "Apartment — for client calls, intense focus days or when it's too hot outside",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "Flexible hours don't mean working less. They mean working when you're at your sharpest.",
+      },
+      {
+        type: 'paragraph',
+        text: "I have no fixed hours. Some days I start at 7am after Dam Sen Park and finish at 2pm. Other days I start at 10am and work until 8pm. What matters is what gets delivered — not the number of hours spent sitting in front of a screen.",
+      },
+    ],
+  },
+  {
     slug: 'vivre-a-saigon-district-11',
     title: 'Vivre à Saigon : ma vie dans le district 11',
     titleEn: 'Living in Saigon: my life in District 11',
