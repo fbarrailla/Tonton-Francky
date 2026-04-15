@@ -6,6 +6,7 @@ import posts from '../data/blog';
 
 const PAYPAL_CLAUDE = 'https://www.paypal.com/ncp/payment/R7ZQ2BSCC6ZEG';
 const PAYPAL_AI = 'https://www.paypal.com/ncp/payment/JBKRH44BDQS3Q';
+const PAYPAL_VIETNAM = 'https://www.paypal.com/ncp/payment/A6LQKRNC6TXHW';
 
 export default function BlogDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -139,26 +140,35 @@ export default function BlogDetail() {
         {/* Ebook CTA */}
         {post.ebookCta && (() => {
           const isAI = post.ebookType === 'ai';
-          const paypalUrl = isAI ? PAYPAL_AI : PAYPAL_CLAUDE;
-          const ebookAnchor = isAI ? '/ebook#ebook-ai' : '/ebook';
+          const isVietnam = post.ebookType === 'vietnam';
+          const paypalUrl = isAI ? PAYPAL_AI : isVietnam ? PAYPAL_VIETNAM : PAYPAL_CLAUDE;
+          const ebookAnchor = isAI ? '/ebook#ebook-ai' : isVietnam ? '/ebook#ebook-vietnam' : '/ebook';
           const accentColor = isAI
             ? 'from-violet-50 to-purple-50 dark:from-stone-800 dark:to-stone-800 border-violet-100 dark:border-stone-700'
+            : isVietnam
+            ? 'from-teal-50 to-emerald-50 dark:from-stone-800 dark:to-stone-800 border-teal-100 dark:border-stone-700'
             : 'from-amber-50 to-orange-50 dark:from-stone-800 dark:to-stone-800 border-amber-100 dark:border-stone-700';
           const btnColor = isAI
             ? 'bg-violet-600 hover:bg-violet-700'
+            : isVietnam
+            ? 'bg-teal-600 hover:bg-teal-700'
             : 'bg-amber-600 hover:bg-amber-700';
           const badgeColor = isAI
             ? 'text-violet-700 dark:text-violet-400'
+            : isVietnam
+            ? 'text-teal-700 dark:text-teal-400'
             : 'text-amber-700 dark:text-amber-400';
           const ebookTitle = isAI
             ? (lang === 'fr' ? "L'IA pour les débutants" : 'AI for Beginners')
+            : isVietnam
+            ? (lang === 'fr' ? 'Travel Guide Vietnam' : 'Travel Guide Vietnam')
             : (lang === 'fr' ? 'Crée ton site web avec Claude Code' : 'Build your website with Claude Code');
           const ebookDesc = isAI
             ? (lang === 'fr' ? 'Maîtrise le prompt engineering et utilise l\'IA comme un pro — 9,99$' : 'Master prompt engineering and use AI like a pro — $9.99')
+            : isVietnam
+            ? (lang === 'fr' ? 'Le guide complet pour voyager au Vietnam — restos, hébergements, bons plans — 9,99$' : 'The complete guide to travelling Vietnam — restaurants, stays, tips — $9.99')
             : (lang === 'fr' ? 'Le guide pratique du terminal à la mise en ligne — 9,99$' : 'The practical guide from terminal to deployment — $9.99');
-          const buyLabel = isAI
-            ? (lang === 'fr' ? 'Acheter — 9,99$' : 'Buy — $9.99')
-            : (lang === 'fr' ? 'Acheter — 9,99$' : 'Buy — $9.99');
+          const buyLabel = lang === 'fr' ? 'Acheter — 9,99$' : 'Buy — $9.99';
 
           return (
             <motion.div

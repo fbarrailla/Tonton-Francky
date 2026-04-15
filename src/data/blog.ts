@@ -17,7 +17,7 @@ export interface BlogPost {
   categoryEn: string;
   thumbnail: string;
   ebookCta?: boolean;
-  ebookType?: 'claude' | 'ai';
+  ebookType?: 'claude' | 'ai' | 'vietnam';
   content: BlogSection[];
   contentEn: BlogSection[];
 }
@@ -2502,6 +2502,280 @@ const posts: BlogPost[] = [
       {
         type: 'paragraph',
         text: "The best budgeting system is one that runs without you. Notion + Make is exactly that.",
+      },
+    ],
+  },
+  {
+    slug: 'da-nang-2026',
+    title: 'Da Nang 2026 : la ville qui m\'a surpris',
+    titleEn: 'Da Nang 2026: the city that surprised me',
+    excerpt: "Plage à perte de vue, nuits animées et restos qui déchirent — Da Nang en 2026, c'est la destination Vietnam que personne ne voit venir.",
+    excerptEn: "Endless beach, wild nights and incredible food — Da Nang in 2026 is the Vietnam destination nobody sees coming.",
+    date: '2026-04-15',
+    readTime: 6,
+    category: 'Voyages',
+    categoryEn: 'Travel',
+    thumbnail: '/blog/da-nang-2026.jpg',
+    ebookCta: true,
+    ebookType: 'vietnam',
+    content: [
+      {
+        type: 'paragraph',
+        text: "Je n'avais pas grand-chose en tête quand j'ai réservé Da Nang. Un vol pas cher, une semaine de libre, et l'envie de changer d'air. Ce que j'y ai trouvé, c'est une ville qui a tout compris.",
+      },
+      {
+        type: 'paragraph',
+        text: "Da Nang n'est pas Hoi An — trop pittoresque et touristique. Ce n'est pas Hanoï — trop dense et chaotique. C'est quelque chose entre les deux : une ville moderne, détendue, avec une plage immense et une énergie nocturne qui démarre vraiment tard.",
+      },
+      {
+        type: 'quote',
+        text: "Da Nang, c'est la ville où tu pars une semaine et tu cherches un appart au bout de trois jours.",
+      },
+      {
+        type: 'heading',
+        text: "La plage : 8 km chaque matin",
+      },
+      {
+        type: 'paragraph',
+        text: "My Khe Beach est l'une des plus longues plages urbaines d'Asie du Sud-Est. 8 kilomètres de sable blanc, presque vide en début de matinée. J'ai pris l'habitude de marcher toute sa longueur dès 6h30.",
+      },
+      {
+        type: 'paragraph',
+        text: "À cette heure-là, la plage appartient aux locaux. Des groupes de Vietnamiens font du sport, des femmes âgées ramassent des coquillages, quelques pêcheurs rentrent avec leurs filets. Le soleil sort de l'eau juste en face. C'est probablement la meilleure heure de la journée.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Lever du soleil sur la mer — directement depuis la plage, pas besoin de se lever à 4h",
+          "Eau chaude toute l'année, peu de vagues — idéal pour nager tranquillement",
+          "Douches et vestiaires publics gratuits le long du front de mer",
+          "Boulevard côtier propre et bien entretenu — parfait pour courir ou faire du vélo",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Le soir c'est une autre plage. Les restos de fruits de mer s'allument, des enceintes sortent de nulle part, les locaux arrivent en scooter avec leurs hamacs. L'ambiance est totalement différente — plus festive, plus bruyante, mais toujours accessible.",
+      },
+      {
+        type: 'heading',
+        text: "La nuit : karaoké, bars et Malibu Club",
+      },
+      {
+        type: 'paragraph',
+        text: "Da Nang la nuit, c'est un vrai sujet. La ville n'essaie pas de copier Bangkok ou Saigon. Elle a son propre truc — moins underground, plus assumé, avec une clientèle mélangée d'expats, de voyageurs et de locaux qui connaissent bien leur ville.",
+      },
+      {
+        type: 'paragraph',
+        text: "Le karaoké d'abord. Au Vietnam, c'est une institution sociale, pas un truc honteux qu'on fait après deux verres de trop. Des salles privées, des écrans géants, des cocktails à volonté. J'y suis allé trois fois en une semaine. On ne repart jamais avant 2h du matin.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Karaoké : salles privées à partir de 5$/h — réserver à l'avance le week-end",
+          "Bars sur An Thượng — le quartier expat, ambiance décontractée, bières à 1$",
+          "Malibu Club — le club référence de Da Nang, musique électro, terrasse avec vue sur la rivière Han, soirées qui commencent vraiment après minuit",
+          "Sky 36 — rooftop au 36e étage du Novotel, pour les couchers de soleil et les premiers verres",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Le Malibu Club mérite mention spéciale. Grande terrasse, son impeccable, mix local/international dans la clientèle. C'est là où tu rencontres des gens qui habitent la ville depuis des années et qui peuvent te donner les vraies bonnes adresses.",
+      },
+      {
+        type: 'quote',
+        text: "Les meilleures adresses ne sont pas sur Google. Elles sont dans la conversation que tu as au bar à 1h du matin.",
+      },
+      {
+        type: 'heading',
+        text: "La bouffe : le vrai niveau",
+      },
+      {
+        type: 'paragraph',
+        text: "Da Nang est une ville de cuisine. Pas juste \"bonne pour l'Asie du Sud-Est\" — vraiment bonne. La région Centre a ses propres spécialités que tu ne trouves pas à Hanoï ni à Saigon.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Mì Quảng — les nouilles jaunes de Da Nang, avec du porc, des crevettes et des cacahuètes grillées. À commander partout, à 1,50$ le bol",
+          "Bánh xèo — la crêpe croustillante aux crevettes et germes de soja. La meilleure que j'ai mangée était dans un boui-boui sans nom avec trois tables en plastique",
+          "Fruits de mer grillés sur la plage — homards, crevettes, palourdes. Le soir, les vendeurs installent leurs braises directement sur le sable",
+          "Nem lụi — brochettes de viande hachée grillées sur des bâtons de citronnelle, servies avec une sauce d'arachide",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Pour les restos avec table et menu, le quartier Hải Châu concentre les meilleures adresses locales. Évite les endroits avec menu en photo plastifiée à l'entrée et photos de tour Eiffel sur les murs — pas pour le Vietnam.",
+      },
+      {
+        type: 'heading',
+        text: "Ce que Da Nang a de différent",
+      },
+      {
+        type: 'paragraph',
+        text: "Il y a quelque chose dans Da Nang que je n'arrive pas vraiment à définir. La ville est propre — ce qui est rare au Vietnam. Les habitants sont détendus — moins de vendeurs insistants, moins de klaxons permanents. Le rythme est différent.",
+      },
+      {
+        type: 'paragraph',
+        text: "C'est aussi une ville qui se transforme vite. Des hôtels neufs, des cafés design, des co-workings avec terrasse sur la rivière. Dans cinq ans, Da Nang sera probablement beaucoup plus chère et beaucoup plus touristique. C'est maintenant qu'il faut y aller.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Facilité de déplacement : tout est à scooter ou Grab, rien n'est loin",
+          "Coût de la vie : budget 40-60$/jour incluant hébergement correct, restos et sorties",
+          "Anglais : mieux parlé qu'ailleurs au Vietnam, surtout dans la zone beachfront",
+          "Climat : éviter septembre-novembre (typhons). Meilleure période : février à août",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "Da Nang en 2026, c'est ce que Bali était en 2010. Profites-en maintenant.",
+      },
+      {
+        type: 'heading',
+        text: "Pratique : comment organiser ton séjour",
+      },
+      {
+        type: 'paragraph',
+        text: "Da Nang s'use bien sur une semaine, idéalement deux. En dessous de cinq jours, tu vas rater quelque chose. L'aéroport est en pleine ville — 10 minutes en Grab depuis le centre, 4$ maximum.",
+      },
+      {
+        type: 'paragraph',
+        text: "Pour dormir, le front de mer est la zone évidente — tu te réveilles à 200m de la plage. Mais le quartier An Thượng, un peu en retrait, est souvent moins cher et plus vivant le soir. Pour une semaine ou plus, les locations d'appartement sur Airbnb ou Booking sont imbattables en rapport qualité-prix.",
+      },
+      {
+        type: 'paragraph',
+        text: "L'excursion incontournable : Hoi An à 30km. Une heure de Grab, une vieille ville classée UNESCO, les meilleurs tailleurs du monde. Pars tôt le matin, reviens le soir — ou reste dormir sur place si tu as le temps.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "I didn't have much in mind when I booked Da Nang. A cheap flight, a free week, and the urge to get away. What I found there was a city that gets it right.",
+      },
+      {
+        type: 'paragraph',
+        text: "Da Nang is not Hoi An — too picturesque and touristy. It's not Hanoi — too dense and chaotic. It's something in between: a modern, laid-back city with an enormous beach and a nightlife scene that doesn't start until late.",
+      },
+      {
+        type: 'quote',
+        text: "Da Nang is the city you visit for a week and start looking for an apartment by day three.",
+      },
+      {
+        type: 'heading',
+        text: "The beach: 8 km every morning",
+      },
+      {
+        type: 'paragraph',
+        text: "My Khe Beach is one of the longest urban beaches in Southeast Asia. 8 kilometres of white sand, nearly empty in the early morning. I got into the habit of walking the full length from 6:30am.",
+      },
+      {
+        type: 'paragraph',
+        text: "At that hour the beach belongs to the locals. Groups of Vietnamese doing exercise, elderly women collecting shells, a few fishermen heading back with their nets. The sun rises directly from the sea. It's probably the best hour of the day.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Sunrise over the sea — straight from the beach, no 4am alarm needed",
+          "Warm water year-round, gentle waves — ideal for a relaxed swim",
+          "Free public showers and changing rooms along the seafront",
+          "Clean, well-maintained coastal boulevard — perfect for running or cycling",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "In the evening it's a different beach altogether. Seafood restaurants light up, speakers appear from nowhere, locals arrive on scooters with their hammocks. The vibe is totally different — more festive, louder, but still accessible.",
+      },
+      {
+        type: 'heading',
+        text: "The night: karaoke, bars, and Malibu Club",
+      },
+      {
+        type: 'paragraph',
+        text: "Da Nang at night is worth talking about. The city doesn't try to copy Bangkok or Saigon. It has its own thing — less underground, more unapologetic, with a mixed crowd of expats, travellers, and locals who know their city well.",
+      },
+      {
+        type: 'paragraph',
+        text: "Karaoke first. In Vietnam it's a social institution, not something you do after two too many drinks. Private rooms, huge screens, unlimited cocktails. I went three times in one week. Nobody leaves before 2am.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Karaoke: private rooms from $5/hour — book ahead on weekends",
+          "Bars on An Thượng street — the expat district, relaxed vibe, beers from $1",
+          "Malibu Club — Da Nang's reference club, electronic music, terrace overlooking the Han river, nights that only get going after midnight",
+          "Sky 36 — rooftop on the 36th floor of the Novotel, ideal for sunset and first drinks",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Malibu Club deserves a special mention. Large terrace, great sound, a genuine mix of local and international crowd. It's where you meet people who've lived in the city for years and can point you to the real good spots.",
+      },
+      {
+        type: 'quote',
+        text: "The best addresses aren't on Google. They're in the conversation you have at the bar at 1am.",
+      },
+      {
+        type: 'heading',
+        text: "The food: genuinely impressive",
+      },
+      {
+        type: 'paragraph',
+        text: "Da Nang is a food city. Not just \"good for Southeast Asia\" — genuinely good. Central Vietnam has its own specialities you won't find in Hanoi or Saigon.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Mì Quảng — Da Nang's yellow noodles, with pork, shrimp and toasted peanuts. Order it everywhere, $1.50 a bowl",
+          "Bánh xèo — crispy shrimp and bean sprout crepe. The best I had was in a nameless hole-in-the-wall with three plastic tables",
+          "Grilled seafood on the beach — lobsters, prawns, clams. In the evenings, vendors set up their grills directly on the sand",
+          "Nem lụi — minced meat skewers grilled on lemongrass sticks, served with peanut sauce",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "For sit-down restaurants, the Hải Châu district has the best local spots. Avoid places with laminated photo menus at the entrance and pictures of the Eiffel Tower on the walls.",
+      },
+      {
+        type: 'heading',
+        text: "What makes Da Nang different",
+      },
+      {
+        type: 'paragraph',
+        text: "There's something about Da Nang I can't quite define. The city is clean — rare in Vietnam. The locals are relaxed — fewer pushy vendors, less constant honking. The pace is different.",
+      },
+      {
+        type: 'paragraph',
+        text: "It's also a city transforming fast. New hotels, design cafés, co-working spaces with river terraces. In five years Da Nang will probably be much more expensive and much more touristy. Now is the time to go.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Easy to get around: everything is by scooter or Grab, nothing is far",
+          "Cost of living: budget $40–60/day including decent accommodation, restaurants and nights out",
+          "English: better spoken than elsewhere in Vietnam, especially in the beachfront area",
+          "Climate: avoid September–November (typhoons). Best period: February to August",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "Da Nang in 2026 is what Bali was in 2010. Get there now.",
+      },
+      {
+        type: 'heading',
+        text: "Practical: how to plan your trip",
+      },
+      {
+        type: 'paragraph',
+        text: "Da Nang works well over a week, ideally two. Under five days and you'll miss something. The airport is right in the city — 10 minutes by Grab from the centre, $4 max.",
+      },
+      {
+        type: 'paragraph',
+        text: "For accommodation, the seafront is the obvious choice — you wake up 200m from the beach. But the An Thượng neighbourhood, slightly set back, is often cheaper and more lively at night. For a week or more, apartment rentals on Airbnb or Booking are unbeatable value.",
+      },
+      {
+        type: 'paragraph',
+        text: "The unmissable day trip: Hoi An, 30km away. One hour by Grab, a UNESCO-listed old town, the best tailors in the world. Go early, come back in the evening — or stay overnight if you have the time.",
       },
     ],
   },
