@@ -2775,6 +2775,266 @@ const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'can-tho-delta',
+    title: 'Can Tho : le vrai Vietnam flottant',
+    titleEn: 'Can Tho: the real floating Vietnam',
+    excerpt: "Marchés flottants au lever du soleil, marché aux fleurs qui s'éveille à l'aube, balade en sampan sur le Mékong — Can Tho est la capitale du Delta et la ville la plus authentique que j'ai visitée au Vietnam.",
+    excerptEn: "Floating markets at sunrise, a flower market waking at dawn, a sampan ride along the Mekong — Can Tho is the Delta's capital and the most authentic city I visited in Vietnam.",
+    date: '2026-04-15',
+    readTime: 6,
+    category: 'Voyages',
+    categoryEn: 'Travel',
+    thumbnail: '/blog/can-tho.jpg',
+    ebookCta: true,
+    ebookType: 'vietnam',
+    content: [
+      {
+        type: 'paragraph',
+        text: "Can Tho n'est pas sur l'itinéraire classique. La plupart des voyageurs font Hanoï, Hoi An, Saigon — et rentrent. Ceux qui descendent dans le Delta du Mékong voient quelque chose de complètement différent : une région où la vie se passe sur l'eau, où les marchés commencent avant l'aube, et où le rythme n'a rien à voir avec le reste du pays.",
+      },
+      {
+        type: 'quote',
+        text: "À Can Tho, les vendeurs partent travailler en barque. Le reste du monde peut attendre.",
+      },
+      {
+        type: 'heading',
+        text: "Les marchés flottants : lever à 5h, aucun regret",
+      },
+      {
+        type: 'paragraph',
+        text: "Le marché flottant de Cái Răng est le plus grand du Delta. Des dizaines de sampans chargés à ras bord — ananas, mangues, papayes, durians — qui se retrouvent au milieu de la rivière pour s'échanger de la marchandise. Ça ressemble à ce qu'on voit sur les photos, mais en vrai c'est bruyant, ça sent fort, et c'est surtout un vrai marché de gros où les locaux font leurs courses.",
+      },
+      {
+        type: 'paragraph',
+        text: "Il faut y aller tôt. Vraiment tôt. À 6h le marché est en pleine activité. À 9h il se vide. Les guides qui te proposent d'y aller à 8h pour éviter le lever matinal te font rater l'essentiel. Prends un bateau depuis l'embarcadère de Ninh Kiều à 5h30, ramène un café vietnamien à emporter, et regarde le soleil se lever sur le Mékong depuis le pont d'une barque en bois.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Marché flottant de Cái Răng — 6 km du centre, 30 min en bateau depuis Ninh Kiều",
+          "Meilleure heure : 5h30–7h30, avant que les bateaux touristes n'arrivent en nombre",
+          "Prix bateau : 100 000–150 000 VND pour 2h, marchandage possible",
+          "Bonus : le petit-déjeuner sur l'eau — des barques vendent bún bò, cháo et café dès l'aube",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Le marché de Phong Điền, un peu plus loin, est encore moins touristique et plus authentique. Moins de bateaux, plus de locaux. Si tu as le temps, c'est celui-là qu'il faut privilégier.",
+      },
+      {
+        type: 'heading',
+        text: "Le marché aux fleurs : Hoa Ninh Kiều",
+      },
+      {
+        type: 'paragraph',
+        text: "Le long du quai Ninh Kiều, chaque matin avant l'aube, les barques chargées de fleurs s'amarrent les unes après les autres. Lotus, orchidées, anthuriums, tournesols — tout ce que le Delta cultive arrive ici avant d'être redistribué dans les marchés de la ville et des environs.",
+      },
+      {
+        type: 'paragraph',
+        text: "Ce n'est pas un marché touristique. Les vendeuses ne s'intéressent pas à toi, elles déchargent leurs bateaux depuis 4h du matin et négocient leurs lots à la criée. Mais c'est précisément pour ça que c'est beau — un monde à part, coloré, bruyant, qui ne joue pas pour les appareils photo.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Quai Ninh Kiều — directement en bord de rivière, à pied du centre-ville",
+          "Horaire : 4h–7h, le mieux c'est d'y être avant le lever du soleil",
+          "Lotus : fleur emblématique du Delta, vendue en bouquet pour quelques milliers de dongs",
+          "Ambiance unique : odeur de fleurs mêlée au diesel des moteurs de bateaux",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Balade en bord de rivière : le quai Ninh Kiều",
+      },
+      {
+        type: 'paragraph',
+        text: "Le soir, le quai Ninh Kiều se transforme. Les vendeurs de fleurs ont laissé la place aux familles, aux couples, aux gamins qui font du vélo. Des stands de rue s'installent en bordure du trottoir. L'air est lourd, chaud, et il y a quelque chose de profondément reposant à regarder les bateaux passer sur le fleuve.",
+      },
+      {
+        type: 'paragraph',
+        text: "Prendre un bateau en soirée sur les canaux secondaires du Delta, c'est une autre expérience. Loin du Mékong principal, on glisse entre des cocotiers, des jardins flottants, des maisons sur pilotis. Le bruit de la ville disparaît complètement. Certains bateliers proposent des circuits de 2 à 3 heures qui s'enfoncent profondément dans les canaux secondaires — c'est là que tu vois comment les gens vivent vraiment ici.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Balade en sampan dans les canaux secondaires — prévoir 2h minimum",
+          "Jardins flottants : cultures de légumes sur des îles artificielles de jacinthes d'eau",
+          "Coucher de soleil depuis le pont sur le Mékong — un classique, mais il mérite sa réputation",
+          "Restaurants en bord de rivière sur le quai : com tấm, lẩu mắm, poisson grillé à la citronnelle",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "Sur les canaux du Delta, personne n'est pressé. Et après deux heures en barque, tu ne l'es plus non plus.",
+      },
+      {
+        type: 'heading',
+        text: "La bouffe du Delta : une cuisine à part",
+      },
+      {
+        type: 'paragraph',
+        text: "Le Delta du Mékong a sa propre cuisine, influencée par les Khmers et la proximité du Cambodge. Plus de poisson d'eau douce, plus de cocotier dans les recettes, des saveurs différentes de celles qu'on trouve dans le Centre ou le Nord.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Lẩu mắm — fondue au mắm (pâte de poisson fermenté), le plat emblématique du Delta. Fort en goût, inoubliable",
+          "Cá lóc nướng trui — poisson serpent grillé directement sur la braise, servi entier avec des herbes fraîches",
+          "Bánh cống — beignets croustillants aux crevettes et haricots mungo, à grignoter en marchant",
+          "Hủ tiếu Nam Vang — soupe de nouilles influence cambodgienne, bouillon clair et garniture généreuse",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Le marché de Cái Răng, une fois les bateaux repartis, laisse place à une rangée de gargotes où les locaux viennent déjeuner. C'est là que j'ai mangé les meilleurs beignets de ma vie, debout au bord du fleuve, pour 20 000 dongs.",
+      },
+      {
+        type: 'heading',
+        text: "Pratique : comment organiser ton passage à Can Tho",
+      },
+      {
+        type: 'paragraph',
+        text: "Can Tho se vit bien en 2 à 3 jours. En dessous de 48h, tu vas courir. La ville elle-même n'est pas immense mais les marchés, les canaux et les excursions dans le Delta méritent qu'on prenne le temps.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Depuis Saigon : 3h30 en bus depuis la gare routière de Miền Tây, 150 000 VND",
+          "Se loger : autour du quai Ninh Kiều pour être à pied des marchés du matin",
+          "Budget : 25–40$/jour tout compris — Can Tho est moins chère que Saigon ou Da Nang",
+          "Déplacement : Grab fonctionne bien en ville, bateau pour tout ce qui est sur l'eau",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Si tu fais le Vietnam du Sud, Can Tho mérite deux nuits minimum. C'est la seule ville du pays où tu peux assister à un marché flottant au lever du soleil, te promener dans un marché aux fleurs à l'aube, et finir la journée en barque dans les canaux. Difficile de trouver mieux pour sentir que tu as vraiment quitté les sentiers battus.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "Can Tho isn't on the classic itinerary. Most travellers do Hanoi, Hoi An, Saigon — then fly home. Those who head down to the Mekong Delta see something entirely different: a region where life happens on the water, where markets start before dawn, and where the pace has nothing in common with the rest of the country.",
+      },
+      {
+        type: 'quote',
+        text: "In Can Tho, vendors go to work by boat. The rest of the world can wait.",
+      },
+      {
+        type: 'heading',
+        text: "The floating markets: up at 5am, zero regrets",
+      },
+      {
+        type: 'paragraph',
+        text: "Cái Răng floating market is the largest in the Delta. Dozens of sampans loaded to the brim — pineapples, mangoes, papayas, durians — gathering in the middle of the river to trade wholesale. It looks like the photos, but in person it's loud, it smells intense, and it's above all a real wholesale market where locals do their shopping.",
+      },
+      {
+        type: 'paragraph',
+        text: "You have to go early. Really early. By 6am the market is in full swing. By 9am it's emptying out. Any guide who suggests going at 8am to avoid the early start is making you miss the whole point. Take a boat from Ninh Kiều wharf at 5:30am, grab a Vietnamese coffee to go, and watch the sun rise over the Mekong from the deck of a wooden boat.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Cái Răng floating market — 6 km from the centre, 30 min by boat from Ninh Kiều",
+          "Best time: 5:30–7:30am, before the tourist boats arrive in numbers",
+          "Boat price: 100,000–150,000 VND for 2 hours, negotiable",
+          "Bonus: breakfast on the water — boats sell bún bò, cháo and coffee from dawn",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Phong Điền market, a little further out, is even less touristy and more authentic. Fewer boats, more locals. If you have the time, this is the one to prioritise.",
+      },
+      {
+        type: 'heading',
+        text: "The flower market: Hoa Ninh Kiều",
+      },
+      {
+        type: 'paragraph',
+        text: "Along the Ninh Kiều quay, every morning before dawn, flower-laden boats moor one after another. Lotus, orchids, anthuriums, sunflowers — everything the Delta grows arrives here before being distributed to markets across the city and surrounding area.",
+      },
+      {
+        type: 'paragraph',
+        text: "This isn't a tourist market. The vendors have no interest in you — they've been unloading their boats since 4am and negotiating lots by the crate. But that's precisely what makes it beautiful: a world apart, colourful, loud, performing for no one.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Ninh Kiều quay — right on the riverfront, walkable from the city centre",
+          "Hours: 4–7am, best to arrive before sunrise",
+          "Lotus: the Delta's emblematic flower, sold in bunches for a few thousand dong",
+          "Unique atmosphere: scent of flowers mixed with the diesel of boat engines",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Riverside strolling: Ninh Kiều wharf",
+      },
+      {
+        type: 'paragraph',
+        text: "In the evening, Ninh Kiều wharf transforms. The flower vendors make way for families, couples, kids on bikes. Street food stalls set up along the pavement. The air is heavy and warm, and there's something deeply restful about watching boats drift past on the river.",
+      },
+      {
+        type: 'paragraph',
+        text: "Taking a boat into the secondary canals of the Delta in the evening is a different experience altogether. Away from the main Mekong, you glide between coconut palms, floating gardens and houses on stilts. The city noise disappears completely. Some boatmen offer 2–3 hour circuits that push deep into the smaller canals — that's where you see how people actually live here.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Sampan ride through the secondary canals — allow at least 2 hours",
+          "Floating gardens: vegetable plots grown on artificial islands of water hyacinth",
+          "Sunset from the Mekong bridge — a classic, but it earns its reputation",
+          "Riverside restaurants on the wharf: com tấm, lẩu mắm, lemongrass grilled fish",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "On the Delta canals, nobody is in a hurry. And after two hours in a boat, neither are you.",
+      },
+      {
+        type: 'heading',
+        text: "Delta food: a cuisine of its own",
+      },
+      {
+        type: 'paragraph',
+        text: "The Mekong Delta has its own cuisine, shaped by Khmer influence and the proximity of Cambodia. More freshwater fish, more coconut in the recipes, flavours distinct from anything you find in Central or Northern Vietnam.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Lẩu mắm — fermented fish paste hotpot, the Delta's signature dish. Strong in flavour, unforgettable",
+          "Cá lóc nướng trui — snakehead fish grilled directly over coals, served whole with fresh herbs",
+          "Bánh cống — crispy shrimp and mung bean fritters, perfect for eating while walking",
+          "Hủ tiếu Nam Vang — Cambodian-influenced noodle soup, clear broth and generous toppings",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "The Cái Răng market, once the boats have left, gives way to a row of simple eateries where locals come for lunch. That's where I had the best fritters of my life, standing at the river's edge, for 20,000 dong.",
+      },
+      {
+        type: 'heading',
+        text: "Practical: how to plan your visit to Can Tho",
+      },
+      {
+        type: 'paragraph',
+        text: "Can Tho works well over 2 to 3 days. Under 48 hours and you'll be rushing. The city itself isn't huge but the markets, canals and Delta excursions deserve time.",
+      },
+      {
+        type: 'list',
+        items: [
+          "From Saigon: 3.5 hours by bus from Miền Tây bus station, 150,000 VND",
+          "Where to stay: around Ninh Kiều wharf to walk to the morning markets",
+          "Budget: $25–40/day all in — Can Tho is cheaper than Saigon or Da Nang",
+          "Getting around: Grab works well in the city, boat for everything on the water",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "If you're doing southern Vietnam, Can Tho is worth at least two nights. It's the only city in the country where you can watch a floating market at sunrise, wander a flower market at dawn, and end the day drifting through canals by boat. Hard to beat for feeling like you've actually left the beaten track.",
+      },
+    ],
+  },
 ];
 
 export default posts;
