@@ -25,6 +25,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Verify reCAPTCHA + forward to EmailJS
 app.post('/contact', async (req, res) => {
+  console.log("CALL CONTACT API");
   try {
     const { captchaToken, name, email, subject, message } = req.body;
 
