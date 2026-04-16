@@ -135,6 +135,27 @@ app.get('/api/config', (_req, res) => {
   });
 });
 
+// ── Settings ──────────────────────────────────────────────────
+
+app.put('/api/settings/:key', async (req, res) => {
+  const { value } = req.body;
+  const { error } = await supabase
+    .from('settings')
+    .upsert({ key: req.params.key, value: String(value) });
+  if (error) return res.status(500).json({ error: error.message });
+  res.json({ key: req.params.key, value });
+});
+
+app.get('/api/settings/:key', async (req, res) => {
+  const { data, error } = await supabase
+    .from('settings')
+    .select('value')
+    .eq('key', req.params.key)
+    .single();
+  if (error) return res.status(404).json({ error: error.message });
+  res.json({ key: req.params.key, value: data.value });
+});
+
 // ── Stats ─────────────────────────────────────────────────────
 
 app.get('/api/stats', async (_req, res) => {

@@ -3,7 +3,13 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { existsSync } from 'fs';
 import { DatabaseSync } from 'node:sqlite';
+import { createClient } from '@supabase/supabase-js';
 import 'dotenv/config';
+
+const supabase = createClient(
+  process.env.SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_KEY!
+);
 
 const app = express();
 app.use(express.json());
@@ -60,6 +66,17 @@ app.post('https://api.tontonfrancky.com/contact', async (req, res) => {
   }
 
   return res.json({ success: true });
+});
+
+// Instagram followers count (from Supabase settings table)
+app.get('/api/instagram-followers', async (_req, res) => {
+  const { data } = await supabase
+    .from('settings')
+    .select('value')
+    .eq('key', 'instagram_followers')
+    .single();
+  res.setHeader('Cache-Control', 'public, max-age=300');
+  res.json({ count: data ? Number(data.value) : 414 });
 });
 
 // Public ebook sales count (reads directly from backoffice SQLite DB)

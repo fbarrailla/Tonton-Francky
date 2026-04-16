@@ -34,8 +34,16 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { useLanguage } from '../i18n';
 import EbookPickerModal, { type EbookChoice } from './EbookPickerModal';
 
-// ← Update this number when your follower count changes
-const INSTAGRAM_FOLLOWERS = 414;
+function useInstagramFollowers() {
+  const [followers, setFollowers] = useState(414);
+  useEffect(() => {
+    fetch('/api/instagram-followers')
+      .then(r => r.json())
+      .then(d => { if (d.count) setFollowers(d.count); })
+      .catch(() => {});
+  }, []);
+  return followers;
+}
 
 const CRYPTO_ADDRESS = '0x49089DA6cA4752469ADc1A7BDA8eDf19925a073d';
 
@@ -105,7 +113,8 @@ export default function Home() {
   const { t, lang } = useLanguage();
   const h = t.home;
   const salesCount = useSalesCount();
-  const { count, ref: counterRef } = useCountUp(INSTAGRAM_FOLLOWERS);
+  const instagramFollowers = useInstagramFollowers();
+  const { count, ref: counterRef } = useCountUp(instagramFollowers);
   const [searchParams, setSearchParams] = useSearchParams();
   const ebookOpen = searchParams.has('ebook') && !searchParams.has('thankyou');
   const setEbookOpen = (open: boolean) => {
