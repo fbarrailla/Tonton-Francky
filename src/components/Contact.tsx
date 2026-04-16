@@ -6,8 +6,8 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import { Send, CheckCircle, AlertCircle } from 'lucide-react';
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import emailjs from '@emailjs/browser';
 import { useLanguage } from '../i18n';
 
 const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
@@ -72,14 +72,19 @@ export function Contact() {
 
     setStatus('sending');
     try {
-      const captchaToken = await executeRecaptcha('contact_form');
-      const res = await fetch('https://api.barrailla.com/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, captchaToken }),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.detail || data.error);
+      await executeRecaptcha('contact_form');
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          subject: form.subject,
+          message: form.message,
+          to_email: 'hello@tontonfrancky.com',
+        },
+        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
+      );
       setStatus('success');
       setForm({ name: '', email: '', subject: '', message: '' });
     } catch (err: any) {
