@@ -58,7 +58,7 @@ app.post('/api/orders', async (req, res) => {
 
   const { error } = await supabase.from('orders').insert({
     product: finalProduct,
-    customer_name: customer,
+    customer,
     price,
     date,
   });
