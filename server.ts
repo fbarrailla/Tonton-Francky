@@ -13,11 +13,18 @@ const supabase = createClient(
 
 const app = express();
 app.use(express.json());
+app.use((_req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  if (_req.method === 'OPTIONS') return res.sendStatus(204);
+  next();
+});
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Verify reCAPTCHA + forward to EmailJS
-app.post('https://api.tontonfrancky.com/contact', async (req, res) => {
+app.post('/contact', async (req, res) => {
   const { captchaToken, name, email, subject, message } = req.body;
 
   if (!captchaToken) {
@@ -69,7 +76,7 @@ app.post('https://api.tontonfrancky.com/contact', async (req, res) => {
 });
 
 // Instagram followers count (from Supabase settings table)
-app.get('/api/instagram-followers', async (_req, res) => {
+app.get('/instagram-followers', async (_req, res) => {
   const { data } = await supabase
     .from('settings')
     .select('value')
@@ -82,7 +89,7 @@ app.get('/api/instagram-followers', async (_req, res) => {
 // Public ebook sales count (reads directly from backoffice SQLite DB)
 const DB_PATH = process.env.DB_PATH || path.join(__dirname, 'backoffice/orders.db');
 
-app.get('https://api.tontonfrancky.com/ebook-sales', (_req, res) => {
+app.get('/ebook-sales', (_req, res) => {
   try {
     if (!existsSync(DB_PATH)) throw new Error('DB not found');
     const db = new DatabaseSync(DB_PATH, { open: true });
