@@ -406,7 +406,7 @@
         <td style="color:var(--muted);font-size:.8rem">#${o.id}</td>
         <td><span class="product-badge">${o.product}</span></td>
         <td>${escHtml(o.customer)}</td>
-        <td>${o.date}</td>
+        <td>${String(o.date).slice(0, 10)}</td>
         <td class="price-cell">$${Number(o.price).toFixed(2)}</td>
         <td><div class="actions">
           <button class="btn btn-ghost btn-sm" onclick="openEdit(${o.id})">Edit</button>
