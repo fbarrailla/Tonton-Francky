@@ -261,7 +261,15 @@
 
 <script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script>
+  // ── Supabase client ───────────────────────────────────────────
+  let supabase;
+  (async () => {
+    const cfg = await fetch('/api/config').then(r => r.json());
+    supabase = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseKey);
+  })();
+
   // ── EmailJS config ────────────────────────────────────────────
   const EMAILJS_PUBLIC_KEY  = '-BGhKDSFxI8D8E1hT';
   const EMAILJS_SERVICE_ID  = 'service_nop1bn9';
@@ -324,7 +332,11 @@
 
   // ── Orders ───────────────────────────────────────────────────
   async function loadOrders() {
-    const orders = await api('GET', 'https://api.tontonfrancky.com/orders');
+    const { data: orders, error } = await supabase
+      .from('orders')
+      .select('*')
+      .order('date', { ascending: false });
+    if (error) { console.error('[Supabase]', error.message); return; }
     const tbody = document.getElementById('orders-body');
     if (!orders.length) {
       tbody.innerHTML = '<tr><td colspan="6" class="empty">No orders yet.</td></tr>';
@@ -334,12 +346,12 @@
       <tr>
         <td style="color:var(--muted);font-size:.8rem">#${o.id}</td>
         <td><span class="product-badge">${o.product}</span></td>
-        <td>${escHtml(o.customer)}</td>
+        <td>${escHtml(o.customer_name)}</td>
         <td>${o.date}</td>
         <td class="price-cell">$${Number(o.price).toFixed(2)}</td>
         <td><div class="actions">
           <button class="btn btn-ghost btn-sm" onclick="openEdit(${o.id})">Edit</button>
-          <button class="btn btn-danger btn-sm" onclick="openDelete('order', ${o.id}, '${escAttr(o.customer)}')">Delete</button>
+          <button class="btn btn-danger btn-sm" onclick="openDelete('order', ${o.id}, '${escAttr(o.customer_name)}')">Delete</button>
         </div></td>
       </tr>`).join('');
   }

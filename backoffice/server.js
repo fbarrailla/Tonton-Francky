@@ -91,6 +91,15 @@ app.delete('https://api.tontonfrancky.com/subscribers/:id', (req, res) => {
   res.status(204).end();
 });
 
+// ── Config (exposes Supabase public credentials to the frontend) ──
+
+app.get('/api/config', (_req, res) => {
+  res.json({
+    supabaseUrl: process.env.SUPABASE_URL,
+    supabaseKey: process.env.SUPABASE_SERVICE_KEY,
+  });
+});
+
 // ── Stats ─────────────────────────────────────────────────────
 
 app.get('https://api.tontonfrancky.com/stats', (req, res) => {
