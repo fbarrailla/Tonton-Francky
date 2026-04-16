@@ -25,54 +25,59 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Verify reCAPTCHA + forward to EmailJS
 app.post('/contact', async (req, res) => {
-  const { captchaToken, name, email, subject, message } = req.body;
+  try {
+    const { captchaToken, name, email, subject, message } = req.body;
 
-  if (!captchaToken) {
-    return res.status(400).json({ error: 'Missing reCAPTCHA token' });
+    if (!captchaToken) {
+      return res.status(400).json({ error: 'Missing reCAPTCHA token' });
+    }
+
+    // Verify reCAPTCHA with Google
+    const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        secret: process.env.RECAPTCHA_SECRET!,
+        response: captchaToken,
+      }),
+    });
+
+    const verifyData = await verifyRes.json() as { success: boolean; score: number };
+
+    if (!verifyData.success || verifyData.score < 0.5) {
+      return res.status(400).json({ error: 'reCAPTCHA verification failed' });
+    }
+
+    // Send email via EmailJS REST API
+    const emailRes = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        service_id: process.env.VITE_EMAILJS_SERVICE_ID,
+        template_id: process.env.VITE_EMAILJS_TEMPLATE_ID,
+        user_id: process.env.VITE_EMAILJS_PUBLIC_KEY,
+        accessToken: process.env.EMAILJS_PRIVATE_KEY,
+        template_params: {
+          from_name: name,
+          from_email: email,
+          subject,
+          message,
+          to_email: 'hello@tontonfrancky.com',
+        },
+      }),
+    });
+
+    if (!emailRes.ok) {
+      const emailErr = await emailRes.text();
+      console.error('EmailJS error:', emailRes.status, emailErr);
+      return res.status(500).json({ error: 'Failed to send email', detail: emailErr });
+    }
+
+    return res.json({ success: true });
+  } catch (e: any) {
+    console.error('Contact error:', e.message);
+    return res.status(500).json({ error: 'Internal server error' });
   }
-
-  // Verify reCAPTCHA with Google
-  const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
-      secret: process.env.RECAPTCHA_SECRET!,
-      response: captchaToken,
-    }),
-  });
-
-  const verifyData = await verifyRes.json() as { success: boolean; score: number };
-
-  if (!verifyData.success || verifyData.score < 0.5) {
-    return res.status(400).json({ error: 'reCAPTCHA verification failed' });
-  }
-
-  // Send email via EmailJS REST API
-  const emailRes = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      service_id: process.env.VITE_EMAILJS_SERVICE_ID,
-      template_id: process.env.VITE_EMAILJS_TEMPLATE_ID,
-      user_id: process.env.VITE_EMAILJS_PUBLIC_KEY,
-      accessToken: process.env.EMAILJS_PRIVATE_KEY,
-      template_params: {
-        from_name: name,
-        from_email: email,
-        subject,
-        message,
-        to_email: 'hello@tontonfrancky.com',
-      },
-    }),
-  });
-
-  if (!emailRes.ok) {
-    const emailErr = await emailRes.text();
-    console.error('EmailJS error:', emailRes.status, emailErr);
-    return res.status(500).json({ error: 'Failed to send email', detail: emailErr });
-  }
-
-  return res.json({ success: true });
 });
 
 // Instagram followers count (from Supabase settings table)
