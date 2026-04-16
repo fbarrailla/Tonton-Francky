@@ -35,7 +35,7 @@ app.post('https://api.tontonfrancky.com/contact', async (req, res) => {
   }
 
   // Send email via EmailJS REST API
-  const emailRes = await fetch(''https://api.emailjs.com/api/v1.0/email/send', {
+  const emailRes = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

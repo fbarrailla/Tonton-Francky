@@ -1,6 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const db = require('./db');
+const supabase = require('./supabase');
 
 const app = express();
 const PORT = process.env.PORT || 3002;
@@ -20,14 +22,27 @@ app.get('https://api.tontonfrancky.com/orders/:id', (req, res) => {
   res.json(order);
 });
 
-app.post('https://api.tontonfrancky.com/orders', (req, res) => {
+app.post('https://api.tontonfrancky.com/orders', async (req, res) => {
   const { product, customer, date, price } = req.body;
   if (!customer || !date || price == null)
     return res.status(400).json({ error: 'customer, date and price are required' });
+
+  const finalProduct = product || 'ebook';
+
   const result = db.prepare(
     'INSERT INTO orders (product, customer, date, price) VALUES (?, ?, ?, ?)'
-  ).run(product || 'ebook', customer, date, price);
-  res.status(201).json(db.prepare('SELECT * FROM orders WHERE id = ?').get(result.lastInsertRowid));
+  ).run(finalProduct, customer, date, price);
+  const order = db.prepare('SELECT * FROM orders WHERE id = ?').get(result.lastInsertRowid);
+
+  const { error } = await supabase.from('orders').insert({
+    product: finalProduct,
+    customer_name: customer,
+    price,
+    date,
+  });
+  if (error) console.error('[Supabase] insert error:', error.message);
+
+  res.status(201).json(order);
 });
 
 app.put('https://api.tontonfrancky.com/orders/:id', (req, res) => {
