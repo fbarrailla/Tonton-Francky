@@ -73,18 +73,24 @@ app.post('/api/orders', async (req, res) => {
   res.status(201).json(order);
 });
 
-app.put('/api/orders/:id', (req, res) => {
+app.put('/api/orders/:id', async (req, res) => {
   const { product, customer, date, price } = req.body;
-  const existing = db.prepare('SELECT * FROM orders WHERE id = ?').get(req.params.id);
-  if (!existing) return res.status(404).json({ error: 'Order not found' });
-  db.prepare('UPDATE orders SET product = ?, customer = ?, date = ?, price = ? WHERE id = ?').run(
-    product ?? existing.product,
-    customer ?? existing.customer,
-    date ?? existing.date,
-    price ?? existing.price,
-    req.params.id
-  );
-  res.json(db.prepare('SELECT * FROM orders WHERE id = ?').get(req.params.id));
+  const { data, error } = await supabase
+    .from('orders')
+    .update({ product, customer, date, price })
+    .eq('id', req.params.id)
+    .select()
+    .single();
+  if (error) {
+    console.error('[Supabase] update error:', error.message);
+    return res.status(500).json({ error: error.message });
+  }
+  // Best-effort SQLite update
+  try {
+    db.prepare('UPDATE orders SET product = ?, customer = ?, date = ?, price = ? WHERE id = ?')
+      .run(product, customer, date, price, req.params.id);
+  } catch {}
+  res.json(data);
 });
 
 app.delete('/api/orders/:id', async (req, res) => {

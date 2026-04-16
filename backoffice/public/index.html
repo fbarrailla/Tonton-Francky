@@ -390,12 +390,15 @@
   }
 
   // ── Orders ───────────────────────────────────────────────────
+  let ordersCache = [];
+
   async function loadOrders() {
     const { data: orders, error } = await db
       .from('orders')
       .select('*')
       .order('date', { ascending: false });
     if (error) { console.error('[Supabase]', error.message); return; }
+    ordersCache = orders;
     const tbody = document.getElementById('orders-body');
     if (!orders.length) {
       tbody.innerHTML = '<tr><td colspan="6" class="empty">No orders yet.</td></tr>';
@@ -425,13 +428,14 @@
     openModal('form-modal');
   }
 
-  async function openEdit(id) {
-    const o = await api('GET', `/api/orders/${id}`);
+  function openEdit(id) {
+    const o = ordersCache.find(x => x.id === id);
+    if (!o) return;
     document.getElementById('modal-title').textContent = 'Edit order';
     document.getElementById('edit-id').value = o.id;
     document.getElementById('f-product').value = o.product;
     document.getElementById('f-customer').value = o.customer;
-    document.getElementById('f-date').value = o.date;
+    document.getElementById('f-date').value = new Date(o.date).toLocaleDateString('en-CA');
     document.getElementById('f-price').value = o.price;
     openModal('form-modal');
   }
