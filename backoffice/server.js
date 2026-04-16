@@ -12,7 +12,6 @@ const PORT = process.env.PORT || 3002;
 const SESSION_TOKEN = crypto.randomBytes(32).toString('hex');
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
 
 // ── Auth ──────────────────────────────────────────────────────
 
@@ -30,6 +29,8 @@ app.use('/api', (req, res, next) => {
   if (token === SESSION_TOKEN) return next();
   res.status(401).json({ error: 'Unauthorized' });
 });
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 // ── Orders ────────────────────────────────────────────────────
 
