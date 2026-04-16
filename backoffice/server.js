@@ -1,14 +1,35 @@
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
+const crypto = require('crypto');
 const db = require('./db');
 const supabase = require('./supabase');
 
 const app = express();
 const PORT = process.env.PORT || 3002;
 
+// Session token — regenerated on each server restart
+const SESSION_TOKEN = crypto.randomBytes(32).toString('hex');
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// ── Auth ──────────────────────────────────────────────────────
+
+app.post('/api/login', (req, res) => {
+  const { password } = req.body;
+  if (!process.env.BACKOFFICE_PASSWORD)
+    return res.status(500).json({ error: 'BACKOFFICE_PASSWORD not configured' });
+  if (password !== process.env.BACKOFFICE_PASSWORD)
+    return res.status(401).json({ error: 'Invalid password' });
+  res.json({ token: SESSION_TOKEN });
+});
+
+app.use('/api', (req, res, next) => {
+  const token = (req.headers.authorization || '').replace('Bearer ', '');
+  if (token === SESSION_TOKEN) return next();
+  res.status(401).json({ error: 'Unauthorized' });
+});
 
 // ── Orders ────────────────────────────────────────────────────
 

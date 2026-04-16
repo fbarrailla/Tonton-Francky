@@ -121,14 +121,44 @@
     .toast.show { opacity: 1; transform: translateY(0); }
     .toast.success { background: var(--success); }
     .toast.error { background: var(--danger); }
+
+    /* Login screen */
+    #login-screen { position: fixed; inset: 0; background: var(--bg); z-index: 999; display: flex; align-items: center; justify-content: center; }
+    #login-screen.hidden { display: none; }
+    .login-card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 40px; width: 100%; max-width: 360px; box-shadow: var(--shadow); }
+    .login-card h1 { font-size: 1.2rem; font-weight: 700; margin-bottom: 6px; }
+    .login-card p { font-size: .85rem; color: var(--muted); margin-bottom: 28px; }
+    .login-card .form-group { margin-bottom: 16px; }
+    .login-card .form-group input { width: 100%; padding: 11px 14px; border: 1px solid var(--border); border-radius: 8px; font-size: .95rem; outline: none; background: var(--bg); transition: border-color .15s; }
+    .login-card .form-group input:focus { border-color: var(--accent); background: #fff; }
+    .login-card .btn { width: 100%; justify-content: center; padding: 11px; font-size: .95rem; }
+    .login-error { font-size: .82rem; color: var(--danger); margin-top: 10px; min-height: 18px; }
+
+    /* Logout btn */
+    .logout-btn { margin-left: auto; padding: 5px 14px; border-radius: 7px; font-size: .8rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border); background: transparent; color: var(--muted); transition: all .15s; }
+    .logout-btn:hover { background: var(--bg); color: var(--danger); border-color: #fca5a5; }
   </style>
 </head>
 <body>
+
+<!-- Login screen -->
+<div id="login-screen">
+  <div class="login-card">
+    <h1>Tonton Francky</h1>
+    <p>Backoffice — accès restreint</p>
+    <div class="form-group">
+      <input type="password" id="login-password" placeholder="Mot de passe" onkeydown="if(event.key==='Enter')submitLogin()" autofocus />
+    </div>
+    <button class="btn btn-primary" onclick="submitLogin()">Se connecter</button>
+    <div class="login-error" id="login-error"></div>
+  </div>
+</div>
 
 <header>
   <span class="logo">Tonton Francky</span>
   <span class="sep">›</span>
   <span class="page">Backoffice</span>
+  <button class="logout-btn" onclick="logout()">Déconnexion</button>
 </header>
 
 <main>
@@ -266,8 +296,7 @@
   // ── Supabase client ───────────────────────────────────────────
   let db;
   (async () => {
-    const cfg = await fetch('/api/config').then(r => r.json());
-    db = window.supabase.createClient(cfg.supabaseUrl, cfg.supabaseKey);
+    db = window.supabase.createClient('https://dufftgmvjjtlyfqwdsyp.supabase.co', 'sba_7275dbe5cc850cc42594072c08226040677b8172');
   })();
 
   // ── EmailJS config ────────────────────────────────────────────
@@ -295,13 +324,43 @@
   let deleteTargetId = null;
   let deleteTargetType = null;
 
+  // ── Auth ─────────────────────────────────────────────────────
+  const TOKEN_KEY = 'bo_token';
+
+  function getToken() { return localStorage.getItem(TOKEN_KEY); }
+
+  async function submitLogin() {
+    const password = document.getElementById('login-password').value;
+    const errEl = document.getElementById('login-error');
+    errEl.textContent = '';
+    const res = await fetch('/api/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password }),
+    });
+    if (!res.ok) { errEl.textContent = 'Mot de passe incorrect.'; return; }
+    const { token } = await res.json();
+    localStorage.setItem(TOKEN_KEY, token);
+    document.getElementById('login-screen').classList.add('hidden');
+    initApp();
+  }
+
+  function logout() {
+    localStorage.removeItem(TOKEN_KEY);
+    location.reload();
+  }
+
   // ── API ──────────────────────────────────────────────────────
   async function api(method, path, body) {
     const res = await fetch(path, {
       method,
-      headers: body ? { 'Content-Type': 'application/json' } : {},
+      headers: {
+        ...(body ? { 'Content-Type': 'application/json' } : {}),
+        'Authorization': `Bearer ${getToken()}`,
+      },
       body: body ? JSON.stringify(body) : undefined,
     });
+    if (res.status === 401) { logout(); return null; }
     if (res.status === 204) return null;
     return res.json();
   }
@@ -527,9 +586,16 @@
   function escAttr(s) { return String(s).replace(/'/g, "\\'"); }
 
   // ── Init ──────────────────────────────────────────────────────
-  loadStats();
-  loadOrders();
-  loadSubscribers();
+  function initApp() {
+    loadStats();
+    loadOrders();
+    loadSubscribers();
+  }
+
+  if (getToken()) {
+    document.getElementById('login-screen').classList.add('hidden');
+    initApp();
+  }
 </script>
 </body>
 </html>
