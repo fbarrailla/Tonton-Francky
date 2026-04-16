@@ -51,10 +51,16 @@ app.post('/api/orders', async (req, res) => {
 
   const finalProduct = product || 'ebook';
 
-  const result = db.prepare(
-    'INSERT INTO orders (product, customer, date, price) VALUES (?, ?, ?, ?)'
-  ).run(finalProduct, customer, date, price);
-  const order = db.prepare('SELECT * FROM orders WHERE id = ?').get(result.lastInsertRowid);
+  let order;
+  try {
+    const result = db.prepare(
+      'INSERT INTO orders (product, customer, date, price) VALUES (?, ?, ?, ?)'
+    ).run(finalProduct, customer, date, price);
+    order = db.prepare('SELECT * FROM orders WHERE id = ?').get(result.lastInsertRowid);
+  } catch (e) {
+    console.error('[SQLite] insert error:', e.message);
+    return res.status(500).json({ error: 'Database error: ' + e.message });
+  }
 
   const { error } = await supabase.from('orders').insert({
     product: finalProduct,
