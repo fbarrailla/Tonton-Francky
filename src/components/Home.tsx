@@ -37,7 +37,7 @@ import EbookPickerModal, { type EbookChoice } from './EbookPickerModal';
 function useInstagramFollowers() {
   const [followers, setFollowers] = useState(414);
   useEffect(() => {
-    fetch('/api/instagram-followers')
+    fetch('https://api.barrailla.com/instagram-followers')
       .then(r => r.json())
       .then(d => { if (d.count) setFollowers(d.count); })
       .catch(() => {});
