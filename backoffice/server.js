@@ -88,11 +88,10 @@ app.put('/api/orders/:id', (req, res) => {
 });
 
 app.delete('/api/orders/:id', async (req, res) => {
-  if (!db.prepare('SELECT id FROM orders WHERE id = ?').get(req.params.id))
-    return res.status(404).json({ error: 'Order not found' });
-  db.prepare('DELETE FROM orders WHERE id = ?').run(req.params.id);
   const { error } = await supabase.from('orders').delete().eq('id', req.params.id);
   if (error) console.error('[Supabase] delete error:', error.message);
+  // Best-effort SQLite delete (IDs may differ)
+  try { db.prepare('DELETE FROM orders WHERE id = ?').run(req.params.id); } catch {}
   res.status(204).end();
 });
 
