@@ -137,9 +137,10 @@ app.get('/api/config', (_req, res) => {
 
 // ── Stats ─────────────────────────────────────────────────────
 
-app.get('/api/stats', (req, res) => {
-  const { total } = db.prepare('SELECT COUNT(*) as total FROM orders').get();
-  const { revenue } = db.prepare('SELECT COALESCE(SUM(price), 0) as revenue FROM orders').get();
+app.get('/api/stats', async (_req, res) => {
+  const { data: orders } = await supabase.from('orders').select('price');
+  const total = orders?.length ?? 0;
+  const revenue = orders?.reduce((sum, o) => sum + (Number(o.price) || 0), 0) ?? 0;
   const { subscribers } = db.prepare('SELECT COUNT(*) as subscribers FROM subscribers').get();
   res.json({ total, revenue, subscribers });
 });
