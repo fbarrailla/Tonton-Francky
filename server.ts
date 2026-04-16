@@ -32,10 +32,17 @@ app.post('/contact', async (req, res) => {
       return res.status(400).json({ error: 'Missing reCAPTCHA token' });
     }
 
+    const timeout = (ms: number) => {
+      const ctrl = new AbortController();
+      setTimeout(() => ctrl.abort(), ms);
+      return ctrl.signal;
+    };
+
     // Verify reCAPTCHA with Google
     const verifyRes = await fetch('https://www.google.com/recaptcha/api/siteverify', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      signal: timeout(8000),
       body: new URLSearchParams({
         secret: process.env.RECAPTCHA_SECRET!,
         response: captchaToken,
@@ -52,6 +59,7 @@ app.post('/contact', async (req, res) => {
     const emailRes = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
+      signal: timeout(8000),
       body: JSON.stringify({
         service_id: process.env.VITE_EMAILJS_SERVICE_ID,
         template_id: process.env.VITE_EMAILJS_TEMPLATE_ID,
