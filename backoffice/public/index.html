@@ -566,7 +566,7 @@
     await api('DELETE', path);
     closeModal('delete-modal');
     toast('Deleted.', 'success');
-    if (deleteTargetType === 'subscriber') { loadSubscribers(); } else { loadOrders(); }
+    await (deleteTargetType === 'subscriber' ? loadSubscribers() : loadOrders());
     loadStats();
   }
 
