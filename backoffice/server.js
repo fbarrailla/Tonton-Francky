@@ -87,10 +87,12 @@ app.put('/api/orders/:id', (req, res) => {
   res.json(db.prepare('SELECT * FROM orders WHERE id = ?').get(req.params.id));
 });
 
-app.delete('/api/orders/:id', (req, res) => {
+app.delete('/api/orders/:id', async (req, res) => {
   if (!db.prepare('SELECT id FROM orders WHERE id = ?').get(req.params.id))
     return res.status(404).json({ error: 'Order not found' });
   db.prepare('DELETE FROM orders WHERE id = ?').run(req.params.id);
+  const { error } = await supabase.from('orders').delete().eq('id', req.params.id);
+  if (error) console.error('[Supabase] delete error:', error.message);
   res.status(204).end();
 });
 
