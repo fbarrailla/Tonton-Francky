@@ -450,7 +450,7 @@
     await api(id ? 'PUT' : 'POST', id ? `/api/orders/${id}` : '/api/orders', body);
     toast(id ? 'Order updated.' : 'Order created.', 'success');
     closeModal('form-modal');
-    loadOrders(); loadStats();
+    await loadOrders(); loadStats();
   }
 
   // ── Subscribers ───────────────────────────────────────────────
