@@ -97,7 +97,7 @@ app.get('/instagram-followers', async (_req, res) => {
     .eq('key', 'instagram_followers')
     .single();
   res.setHeader('Cache-Control', 'public, max-age=300');
-  res.json({ count: data ? Number(data.value) : 414 });
+  res.json({ count: data ? Number(data.value) : 424 });
 });
 
 // Public ebook sales count (reads directly from backoffice SQLite DB)
