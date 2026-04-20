@@ -130,8 +130,8 @@ app.delete('/api/subscribers/:id', (req, res) => {
 
 app.get('/api/config', (_req, res) => {
   res.json({
-    supabaseUrl: process.env.SUPABASE_URL,
-    supabaseKey: process.env.SUPABASE_SERVICE_KEY,
+    supabaseUrl: 'https://dufftgmvjjtlyfqwdsyp.supabase.co',
+    supabaseKey: 'sb_publishable_1hywiIeUxTa6_5IuZK0l-w_WwOy7rCD',
   });
 });
 
