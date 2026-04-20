@@ -5,7 +5,8 @@
 
 import React from 'react';
 import { motion } from 'motion/react';
-import { Twitch } from 'lucide-react';
+import { Twitch, BookOpen } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../i18n';
 
 interface ReplayPost {
@@ -14,9 +15,20 @@ interface ReplayPost {
   titleEn: string;
   date: string;
   youtubeId: string;
+  ebookLink?: string;
+  ebookLabel?: string;
 }
 
 const replays: ReplayPost[] = [
+  {
+    id: 4,
+    title: 'Créer et publier un site web avec Claude Code',
+    titleEn: 'Building and Publishing a website using Claude Code',
+    date: 'Avril 2026',
+    youtubeId: 'pf21Crq_gLw',
+    ebookLink: '/ebook',
+    ebookLabel: 'Obtenir l\'e-book',
+  },
   {
     id: 3,
     title: 'Live Twitch sur mon dernier e-book: Travel Guide - Vietnam',
@@ -90,6 +102,15 @@ export default function Replays() {
                   {lang === 'fr' ? replay.title : replay.titleEn}
                 </h2>
                 <p className="text-stone-600 dark:text-stone-400 text-sm">{replay.date}</p>
+                {replay.ebookLink && (
+                  <Link
+                    to={replay.ebookLink}
+                    className="inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-500 text-stone-900 font-semibold text-sm transition-colors"
+                  >
+                    <BookOpen size={16} />
+                    {replay.ebookLabel ?? 'E-book'}
+                  </Link>
+                )}
               </div>
             </motion.article>
           ))}
