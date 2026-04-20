@@ -1,11 +1,104 @@
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'motion/react';
-import { ArrowLeft, Clock, Eye, BookOpen, ShoppingCart, Share2, Check } from 'lucide-react';
-import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { ArrowLeft, Clock, Eye, BookOpen, ShoppingCart, Share2, Check, List, ChevronDown } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n';
 import posts from '../data/blog';
 import { usePageViews } from '../hooks/usePageViews';
 import Breadcrumb from './Breadcrumb';
+
+const slugify = (text: string) =>
+  text.toLowerCase().replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-');
+
+function TableOfContents({ headings, lang }: { headings: string[]; lang: string }) {
+  const [activeId, setActiveId] = useState<string>('');
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        const visible = entries.filter(e => e.isIntersecting);
+        if (visible.length > 0) setActiveId(visible[0].target.id);
+      },
+      { rootMargin: '-80px 0px -60% 0px' }
+    );
+    headings.forEach(h => {
+      const el = document.getElementById(slugify(h));
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, [headings]);
+
+  const handleClick = (heading: string) => {
+    document.getElementById(slugify(heading))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setOpen(false);
+  };
+
+  const label = lang === 'fr' ? 'Table des matières' : 'Table of contents';
+
+  return (
+    <>
+      {/* Desktop: sticky sidebar */}
+      <aside className="hidden xl:block w-56 shrink-0">
+        <div className="sticky top-28">
+          <p className="text-xs font-bold text-stone-400 dark:text-stone-500 uppercase tracking-wider mb-3">{label}</p>
+          <nav>
+            <ul className="space-y-1.5">
+              {headings.map(h => (
+                <li key={h}>
+                  <button
+                    onClick={() => handleClick(h)}
+                    className={`text-left text-sm leading-snug transition-colors w-full ${
+                      activeId === slugify(h)
+                        ? 'text-amber-600 dark:text-amber-400 font-semibold'
+                        : 'text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-200'
+                    }`}
+                  >
+                    {h}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+      </aside>
+
+      {/* Mobile: collapsible */}
+      <div className="xl:hidden mb-8 rounded-2xl border border-stone-200 dark:border-stone-700 overflow-hidden">
+        <button
+          onClick={() => setOpen(v => !v)}
+          className="w-full flex items-center justify-between px-4 py-3 bg-stone-50 dark:bg-stone-800 text-sm font-semibold text-stone-700 dark:text-stone-200"
+        >
+          <span className="flex items-center gap-2"><List size={15} />{label}</span>
+          <ChevronDown size={15} className={`transition-transform ${open ? 'rotate-180' : ''}`} />
+        </button>
+        <AnimatePresence>
+          {open && (
+            <motion.nav
+              initial={{ height: 0 }}
+              animate={{ height: 'auto' }}
+              exit={{ height: 0 }}
+              className="overflow-hidden"
+            >
+              <ul className="px-4 py-3 space-y-2.5">
+                {headings.map(h => (
+                  <li key={h}>
+                    <button
+                      onClick={() => handleClick(h)}
+                      className="text-left text-sm text-stone-600 dark:text-stone-300 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
+                    >
+                      {h}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </motion.nav>
+          )}
+        </AnimatePresence>
+      </div>
+    </>
+  );
+}
 
 
 const PAYPAL_CLAUDE = 'https://www.paypal.com/ncp/payment/R7ZQ2BSCC6ZEG';
@@ -47,6 +140,10 @@ export default function BlogDetail() {
     .filter(p => p.slug !== post.slug && p.category === post.category)
     .sort(() => Math.random() - 0.5)
     .slice(0, 3);
+
+  const headings = content.filter(s => s.type === 'heading' && s.text).map(s => s.text!);
+  const showToc = headings.length >= 3;
+
   const [copied, setCopied] = useState(false);
 
   const handleShare = async () => {
@@ -118,8 +215,11 @@ export default function BlogDetail() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.15 }}
-        className="max-w-3xl mx-auto px-6"
+        className="max-w-5xl mx-auto px-6"
       >
+        <div className={showToc ? 'flex gap-12 items-start xl:flex-row-reverse' : ''}>
+          {showToc && <TableOfContents headings={headings} lang={lang} />}
+          <div className="min-w-0 flex-1">
         <div className="prose prose-stone dark:prose-invert max-w-none">
           {content.map((section, i) => {
             switch (section.type) {
@@ -131,7 +231,7 @@ export default function BlogDetail() {
                 );
               case 'heading':
                 return (
-                  <h2 key={i} className="text-2xl font-serif font-bold text-stone-900 dark:text-stone-100 mt-12 mb-4">
+                  <h2 key={i} id={slugify(section.text!)} className="text-2xl font-serif font-bold text-stone-900 dark:text-stone-100 mt-12 mb-4 scroll-mt-28">
                     {section.text}
                   </h2>
                 );
@@ -295,6 +395,8 @@ export default function BlogDetail() {
               ? (lang === 'fr' ? 'Copié !' : 'Copied!')
               : (lang === 'fr' ? 'Partager' : 'Share')}
           </button>
+        </div>
+          </div>
         </div>
       </motion.div>
     </main>
