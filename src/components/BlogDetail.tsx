@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowLeft, Clock, Eye, BookOpen, ShoppingCart, Link2, Check } from 'lucide-react';
+import { ArrowLeft, Clock, Eye, BookOpen, ShoppingCart, Share2, Link2, Check } from 'lucide-react';
 import { useState } from 'react';
 import { useLanguage } from '../i18n';
 import posts from '../data/blog';
@@ -41,10 +41,17 @@ export default function BlogDetail() {
   const views = usePageViews(`blog-${post.slug}`);
   const [copied, setCopied] = useState(false);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText(window.location.href);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const handleShare = async () => {
+    const url = window.location.href;
+    if (navigator.share) {
+      try {
+        await navigator.share({ title, url });
+      } catch {}
+    } else {
+      navigator.clipboard.writeText(url);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
   };
 
   return (
@@ -235,26 +242,14 @@ export default function BlogDetail() {
         })()}
         {/* Share */}
         <div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-800 flex items-center gap-3">
-          <span className="text-sm text-stone-500 dark:text-stone-400 font-medium mr-1">
-            {lang === 'fr' ? 'Partager' : 'Share'}
-          </span>
-          <a
-            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 text-sm font-semibold hover:bg-stone-700 dark:hover:bg-stone-300 transition-colors"
-          >
-            <XIcon />
-            Twitter / X
-          </a>
           <button
-            onClick={handleCopy}
+            onClick={handleShare}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-stone-200 dark:border-stone-700 text-stone-700 dark:text-stone-300 text-sm font-semibold hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors"
           >
-            {copied ? <Check size={15} className="text-emerald-500" /> : <Link2 size={15} />}
+            {copied ? <Check size={15} className="text-emerald-500" /> : <Share2 size={15} />}
             {copied
               ? (lang === 'fr' ? 'Copié !' : 'Copied!')
-              : (lang === 'fr' ? 'Copier le lien' : 'Copy link')}
+              : (lang === 'fr' ? 'Partager' : 'Share')}
           </button>
         </div>
       </motion.div>
