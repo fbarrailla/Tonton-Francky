@@ -42,6 +42,11 @@ export default function BlogDetail() {
     ...(post.category === 'Voyages' ? [{ label: lang === 'fr' ? 'Voyages' : 'Travel', to: '/voyages' }] : []),
     { label: title },
   ];
+
+  const related = posts
+    .filter(p => p.slug !== post.slug && p.category === post.category)
+    .sort(() => Math.random() - 0.5)
+    .slice(0, 3);
   const [copied, setCopied] = useState(false);
 
   const handleShare = async () => {
@@ -244,6 +249,41 @@ export default function BlogDetail() {
             </motion.div>
           );
         })()}
+        {/* Related posts */}
+        {related.length > 0 && (
+          <div className="mt-16">
+            <h2 className="text-xl font-serif font-bold text-stone-900 dark:text-stone-100 mb-6">
+              {lang === 'fr' ? 'Articles similaires' : 'Related articles'}
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {related.map((r, i) => (
+                <motion.div
+                  key={r.slug}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.08, duration: 0.4 }}
+                >
+                  <Link
+                    to={`/blog/${r.slug}`}
+                    className="group flex flex-col rounded-2xl overflow-hidden border border-stone-100 dark:border-stone-800 hover:border-amber-300 dark:hover:border-amber-700 bg-white dark:bg-stone-900 transition-colors"
+                  >
+                    <div className="bg-gradient-to-br from-amber-50 to-orange-100 dark:from-stone-800 dark:to-stone-700 flex items-center justify-center py-6 px-4">
+                      <img src={r.thumbnail} alt="" className="h-20 object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300" />
+                    </div>
+                    <div className="p-4">
+                      <span className="text-xs font-bold text-amber-700 dark:text-amber-400">{lang === 'fr' ? r.category : r.categoryEn}</span>
+                      <p className="mt-1 text-sm font-semibold text-stone-800 dark:text-stone-100 leading-snug line-clamp-2 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
+                        {lang === 'fr' ? r.title : r.titleEn}
+                      </p>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Share */}
         <div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-800 flex items-center gap-3">
           <button
