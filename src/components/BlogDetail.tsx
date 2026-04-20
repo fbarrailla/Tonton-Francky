@@ -1,16 +1,11 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowLeft, Clock, Eye, BookOpen, ShoppingCart, Share2, Link2, Check } from 'lucide-react';
+import { ArrowLeft, Clock, Eye, BookOpen, ShoppingCart, Share2, Check } from 'lucide-react';
 import { useState } from 'react';
 import { useLanguage } from '../i18n';
 import posts from '../data/blog';
 import { usePageViews } from '../hooks/usePageViews';
 
-const XIcon = () => (
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.738l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-  </svg>
-);
 
 const PAYPAL_CLAUDE = 'https://www.paypal.com/ncp/payment/R7ZQ2BSCC6ZEG';
 const PAYPAL_AI = 'https://www.paypal.com/ncp/payment/JBKRH44BDQS3Q';
