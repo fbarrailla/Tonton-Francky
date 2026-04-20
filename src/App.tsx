@@ -49,6 +49,60 @@ function ScrollToTop() {
   return null;
 }
 
+function EbookStickyBanner() {
+  const { t } = useLanguage();
+  const location = useLocation();
+  const [visible, setVisible] = React.useState(false);
+  const [dismissed, setDismissed] = React.useState(
+    () => localStorage.getItem('ebook_banner_dismissed') === '1'
+  );
+
+  React.useEffect(() => {
+    if (dismissed) return;
+    const timer = setTimeout(() => setVisible(true), 3000);
+    return () => clearTimeout(timer);
+  }, [dismissed]);
+
+  const dismiss = () => {
+    setDismissed(true);
+    localStorage.setItem('ebook_banner_dismissed', '1');
+  };
+
+  if (dismissed || location.pathname === '/ebook') return null;
+
+  return (
+    <AnimatePresence>
+      {visible && (
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: 100, opacity: 0 }}
+          transition={{ type: 'spring', bounce: 0.3, duration: 0.5 }}
+          className="fixed bottom-0 left-0 right-0 z-50 md:hidden"
+        >
+          <div className="m-3 rounded-2xl bg-stone-900 dark:bg-stone-800 shadow-2xl border border-stone-700 flex items-center gap-3 px-4 py-3">
+            <span className="text-2xl select-none">📘</span>
+            <div className="flex-1 min-w-0">
+              <p className="text-white font-semibold text-sm leading-tight truncate">{t.ebookTitle}</p>
+              <p className="text-amber-400 text-xs font-bold">{t.ebookPrice} <span className="line-through text-stone-500 font-normal">{t.ebookOriginalPrice}</span></p>
+            </div>
+            <Link
+              to="/ebook"
+              onClick={dismiss}
+              className="shrink-0 bg-amber-400 hover:bg-amber-500 text-stone-900 font-bold text-sm px-4 py-2 rounded-xl transition-colors"
+            >
+              {t.ebookCta}
+            </Link>
+            <button onClick={dismiss} className="shrink-0 text-stone-400 hover:text-white transition-colors p-1">
+              <X size={18} />
+            </button>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
 function AppContent() {
   const { lang, setLang, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
@@ -419,6 +473,8 @@ function AppContent() {
           </Suspense>
         </motion.div>
       </AnimatePresence>
+
+      <EbookStickyBanner />
 
       {/* Footer */}
       <footer className="py-12 px-6 border-t border-stone-200 dark:border-stone-800">
