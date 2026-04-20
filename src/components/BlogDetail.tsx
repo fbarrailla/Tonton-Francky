@@ -1,8 +1,9 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowLeft, Clock, BookOpen, ShoppingCart } from 'lucide-react';
+import { ArrowLeft, Clock, Eye, BookOpen, ShoppingCart } from 'lucide-react';
 import { useLanguage } from '../i18n';
 import posts from '../data/blog';
+import { usePageViews } from '../hooks/usePageViews';
 
 const PAYPAL_CLAUDE = 'https://www.paypal.com/ncp/payment/R7ZQ2BSCC6ZEG';
 const PAYPAL_AI = 'https://www.paypal.com/ncp/payment/JBKRH44BDQS3Q';
@@ -30,6 +31,7 @@ export default function BlogDetail() {
   const title = lang === 'fr' ? post.title : post.titleEn;
   const content = lang === 'fr' ? post.content : post.contentEn;
   const category = lang === 'fr' ? post.category : post.categoryEn;
+  const views = usePageViews(`blog-${post.slug}`);
 
   return (
     <main className="flex-grow pt-24 pb-20">
@@ -59,6 +61,12 @@ export default function BlogDetail() {
           <span className="text-xs text-stone-400 dark:text-stone-500">
             {new Date(post.date).toLocaleDateString(lang === 'fr' ? 'fr-FR' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
           </span>
+          {views != null && (
+            <span className="text-xs text-stone-400 dark:text-stone-500 flex items-center gap-1">
+              <Eye size={11} />
+              {views.toLocaleString()}
+            </span>
+          )}
         </div>
 
         <h1 className="text-3xl md:text-5xl font-serif font-bold text-stone-900 dark:text-stone-100 leading-tight mb-6">
