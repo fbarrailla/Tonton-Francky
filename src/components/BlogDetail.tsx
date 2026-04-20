@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useLanguage } from '../i18n';
 import posts from '../data/blog';
 import { usePageViews } from '../hooks/usePageViews';
+import Breadcrumb from './Breadcrumb';
 
 
 const PAYPAL_CLAUDE = 'https://www.paypal.com/ncp/payment/R7ZQ2BSCC6ZEG';
@@ -34,6 +35,13 @@ export default function BlogDetail() {
   const content = lang === 'fr' ? post.content : post.contentEn;
   const category = lang === 'fr' ? post.category : post.categoryEn;
   const views = usePageViews(`blog-${post.slug}`);
+
+  const crumbs = [
+    { label: lang === 'fr' ? 'Accueil' : 'Home', to: '/' },
+    { label: lang === 'fr' ? 'Blog' : 'Blog', to: '/blog' },
+    ...(post.category === 'Voyages' ? [{ label: lang === 'fr' ? 'Voyages' : 'Travel', to: '/voyages' }] : []),
+    { label: title },
+  ];
   const [copied, setCopied] = useState(false);
 
   const handleShare = async () => {
@@ -51,12 +59,13 @@ export default function BlogDetail() {
 
   return (
     <main className="flex-grow pt-24 pb-20">
-      {/* Back */}
-      <div className="max-w-3xl mx-auto px-6 pt-8 mb-8">
+      {/* Back + Breadcrumb */}
+      <div className="max-w-3xl mx-auto px-6 pt-8 mb-8 flex flex-col gap-3">
         <Link to="/blog" className="inline-flex items-center gap-2 text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-stone-100 transition-colors text-sm font-medium">
           <ArrowLeft size={15} />
           {b.back}
         </Link>
+        <Breadcrumb crumbs={crumbs} />
       </div>
 
       {/* Header */}
