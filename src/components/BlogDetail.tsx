@@ -1,9 +1,16 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowLeft, Clock, Eye, BookOpen, ShoppingCart } from 'lucide-react';
+import { ArrowLeft, Clock, Eye, BookOpen, ShoppingCart, Link2, Check } from 'lucide-react';
+import { useState } from 'react';
 import { useLanguage } from '../i18n';
 import posts from '../data/blog';
 import { usePageViews } from '../hooks/usePageViews';
+
+const XIcon = () => (
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.738l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+  </svg>
+);
 
 const PAYPAL_CLAUDE = 'https://www.paypal.com/ncp/payment/R7ZQ2BSCC6ZEG';
 const PAYPAL_AI = 'https://www.paypal.com/ncp/payment/JBKRH44BDQS3Q';
@@ -32,6 +39,13 @@ export default function BlogDetail() {
   const content = lang === 'fr' ? post.content : post.contentEn;
   const category = lang === 'fr' ? post.category : post.categoryEn;
   const views = usePageViews(`blog-${post.slug}`);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(window.location.href);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <main className="flex-grow pt-24 pb-20">
@@ -219,6 +233,30 @@ export default function BlogDetail() {
             </motion.div>
           );
         })()}
+        {/* Share */}
+        <div className="mt-12 pt-8 border-t border-stone-200 dark:border-stone-800 flex items-center gap-3">
+          <span className="text-sm text-stone-500 dark:text-stone-400 font-medium mr-1">
+            {lang === 'fr' ? 'Partager' : 'Share'}
+          </span>
+          <a
+            href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-stone-900 dark:bg-stone-100 text-white dark:text-stone-900 text-sm font-semibold hover:bg-stone-700 dark:hover:bg-stone-300 transition-colors"
+          >
+            <XIcon />
+            Twitter / X
+          </a>
+          <button
+            onClick={handleCopy}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-stone-200 dark:border-stone-700 text-stone-700 dark:text-stone-300 text-sm font-semibold hover:bg-stone-50 dark:hover:bg-stone-800 transition-colors"
+          >
+            {copied ? <Check size={15} className="text-emerald-500" /> : <Link2 size={15} />}
+            {copied
+              ? (lang === 'fr' ? 'Copié !' : 'Copied!')
+              : (lang === 'fr' ? 'Copier le lien' : 'Copy link')}
+          </button>
+        </div>
       </motion.div>
     </main>
   );
