@@ -35,7 +35,7 @@ import { useLanguage } from '../i18n';
 import EbookPickerModal, { type EbookChoice } from './EbookPickerModal';
 
 function useInstagramFollowers() {
-  const [followers, setFollowers] = useState(424);
+  const [followers, setFollowers] = useState(477);
   useEffect(() => {
     fetch('https://api.barrailla.com/instagram-followers')
       .then(r => r.json())
