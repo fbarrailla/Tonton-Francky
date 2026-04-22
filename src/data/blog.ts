@@ -3849,6 +3849,456 @@ const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'kuala-lumpur-2026',
+    title: 'Kuala Lumpur 2026 : temples, tours et nuits de jungle urbaine',
+    titleEn: 'Kuala Lumpur 2026: temples, towers and urban jungle nights',
+    excerpt: "Petronas au lever du soleil, grottes sacrées à 30 minutes du centre, jardins botaniques perdus dans la chaleur moite, et une bibliothèque qui fait honte à la plupart des musées. KL est la ville qui m'a le plus surpris en Asie du Sud-Est.",
+    excerptEn: "Petronas at sunrise, sacred caves 30 minutes from the centre, botanical gardens lost in humid heat, and a library that puts most museums to shame. KL is the city that surprised me most in Southeast Asia.",
+    date: '2026-04-22',
+    readTime: 8,
+    category: 'Voyages',
+    categoryEn: 'Travel',
+    thumbnail: '/blog/kuala-lumpur.jpg',
+    ebookCta: true,
+    ebookType: 'vietnam',
+    content: [
+      {
+        type: 'paragraph',
+        text: "Kuala Lumpur est une ville que les gens sous-estiment. On la survole pour aller en Thaïlande, on y passe une nuit de transit, on voit les Petronas depuis un taxi et on repart. C'est une erreur. KL mérite au minimum quatre jours — et si tu as le temps, une semaine passe vite.",
+      },
+      {
+        type: 'paragraph',
+        text: "La ville est dense, chaotique, multiculturelle jusqu'au vertige — malaise, chinois, tamoul, tout ça dans le même quartier, parfois dans la même rue. Elle est moderne et ancienne en même temps. Et contrairement à Bangkok ou Singapour, elle n'est pas encore envahie par les groupes de touristes organisés.",
+      },
+      {
+        type: 'quote',
+        text: "KL n'essaie pas d'être Singapour. Et c'est exactement pour ça qu'elle est plus intéressante.",
+      },
+      {
+        type: 'heading',
+        text: "Les Tours Petronas : arriver à l'aube, pas au coucher du soleil",
+      },
+      {
+        type: 'paragraph',
+        text: "Tout le monde te dira d'y aller au coucher du soleil. Ignore ce conseil. Arrive à 7h du matin, quand le KLCC Park est encore quasi vide et que la brume matinale accroche encore les tours. La lumière est différente, les reflets dans le bassin sont nets, et tu peux prendre cent photos sans que personne ne marche dans le cadre.",
+      },
+      {
+        type: 'paragraph',
+        text: "Les billets pour la Skybridge (passerelle entre les deux tours au 41ème étage) et l'Observation Deck (86ème) se réservent à l'avance sur le site officiel. Les sessions du matin partent en quelques jours. Depuis la passerelle, la vue sur la ville est différente de toutes les autres tours d'observation que j'ai vues — on est au cœur de deux structures identiques, suspendus entre elles. C'est vertigineux dans le bon sens du terme.",
+      },
+      {
+        type: 'list',
+        items: [
+          "KLCC Park — accès libre 24h/24, vue sur les tours depuis le bassin",
+          "Skybridge (niveau 41) + Observation Deck (niveau 86) — 85 MYR, réservation en ligne obligatoire",
+          "Meilleure heure photo extérieure : 6h30–8h ou après 22h pour les tours illuminées",
+          "Centre commercial Suria KLCC en bas — gastronomie locale au food court du sous-sol",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Batu Caves : 272 marches et une divinité dorée",
+      },
+      {
+        type: 'paragraph',
+        text: "À 13 kilomètres du centre, les grottes de Batu sont l'un des sites hindous les plus importants hors d'Inde. La statue de Murugan à l'entrée fait 42 mètres de haut — elle est dorée, monumentale, et elle écrase tout ce qui l'entoure. Les 272 marches peintes en arc-en-ciel mènent à une cathédrale naturelle creusée dans la roche calcaire, habitée par des autels, des singes et une lumière qui tombe depuis des ouvertures naturelles dans le plafond.",
+      },
+      {
+        type: 'paragraph',
+        text: "Le temple principal dans la grotte est actif. Des familles viennent prier, des prêtres officiaient, de l'encens brûle en permanence. Ce n'est pas un site pour touristes, c'est un lieu de culte où les touristes sont acceptés. Tiens-toi en conséquence : bras couverts, chaussures enlevées à l'entrée du temple, volume de voix adapté.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Accès : KTM Komuter depuis KL Sentral, station Batu Caves — 30 min, 3 MYR",
+          "Entrée gratuite — contribution libre pour entrer dans les temples",
+          "Attention aux macaques : ils volent les sacs, les lunettes, les bouteilles ouvertes",
+          "Meilleure heure : 7h–9h avant la chaleur et les cars de touristes",
+          "Grotte de l'Art (Dark Cave) — parcours spéléo avec guide, à réserver sur place",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "Quand tu montes les 272 marches et que tu vois la lumière entrer dans la voûte calcaire, tu comprends pourquoi des gens font des centaines de kilomètres pour venir ici.",
+      },
+      {
+        type: 'heading',
+        text: "Jardins Botaniques de Perdana : l'oasis oubliée",
+      },
+      {
+        type: 'paragraph',
+        text: "Les Perdana Botanical Gardens sont au bord du lac Perdana, à dix minutes du centre historique. Ils couvrent 91 hectares et la plupart des touristes les ignorent complètement — ce qui en fait l'endroit idéal pour souffler après deux jours à courir dans la ville.",
+      },
+      {
+        type: 'paragraph',
+        text: "Il y a un jardin des orchidées, un jardin des hibiscus (fleur nationale de Malaisie), des allées de dipterocarpacées géantes et un lac où des varans d'eau se prélassent au soleil sans que personne ne s'en préoccupe. Les varans de KL sont grands — parfois plus d'un mètre cinquante — et complètement indifférents aux humains. C'est étrange et fascinant en même temps.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Jardins ouverts 7h–20h, entrée libre",
+          "Jardin des Orchidées et Jardin des Hibiscus — accès payant, quelques MYR",
+          "Varans d'eau (biawak) — présents en permanence autour du lac, ne pas nourrir",
+          "Musée des Cerfs-Volants (Layang-Layang) à l'intérieur des jardins — curiosité locale",
+          "Café au bord du lac — idéal pour une pause déjeuner à l'ombre",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Le Musée National et le Musée des Arts Islamiques",
+      },
+      {
+        type: 'paragraph',
+        text: "Le Muzium Negara (Musée National) retrace l'histoire de la Malaisie depuis les royaumes de Srivijaya jusqu'à l'indépendance de 1957. La scénographie est un peu datée mais le contenu est solide — on comprend comment trois grandes civilisations (malaise, chinoise, indienne) se sont retrouvées dans le même pays et ont cohabité sans se diluer complètement.",
+      },
+      {
+        type: 'paragraph',
+        text: "Juste à côté, le Musée des Arts Islamiques est une autre catégorie. C'est l'un des plus beaux musées de la région — architecture intérieure majestueuse, collections de céramiques, de textiles et de manuscrits du monde islamique, maquettes détaillées des grandes mosquées. Même si tu n'es pas particulièrement intéressé par l'islam, tu sors de là avec une image beaucoup plus nuancée de ce que représente cette civilisation.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Muzium Negara — ouvert 9h–18h, entrée 5 MYR",
+          "Islamic Arts Museum — ouvert 10h–18h, entrée 20 MYR (ça vaut chaque ringgit)",
+          "Les deux sont à 5 min à pied l'un de l'autre, près des jardins de Perdana",
+          "Café au rez-de-chaussée du musée islamique — bon café, architecture sublime",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Putrajaya : la ville-gouvernement venue du futur",
+      },
+      {
+        type: 'paragraph',
+        text: "Putrajaya a été construite de zéro à partir de 1995 pour devenir la nouvelle capitale administrative de la Malaisie. Ce n'est pas une ville organique — c'est une ville planifiée, avec des avenues de 8 voies, des ministères qui ressemblent à des palais, et une mosquée rose construite sur l'eau. C'est étrange, un peu surréaliste, et fascinant à voir.",
+      },
+      {
+        type: 'paragraph',
+        text: "La Mosquée de Putra (Masjid Putra) est le point fort. En marbre rose importé du Moyen-Orient, elle peut accueillir 15 000 fidèles et sa réflexion dans le lac artificiel est l'une des images iconiques de la Malaisie moderne. Autour, le Palais de Justice, le Palais du Premier Ministre et les différents ministères forment une succession d'architectures qui mélangent le style islamique et le modernisme — le résultat est déconcertant mais cohérent.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Accès depuis KL : KLIA Transit jusqu'à Putrajaya Sentral — 25 min, 12 MYR",
+          "Mosquée de Putra — entrée libre hors horaires de prière, abaya fournie à l'entrée pour les femmes",
+          "Location de vélo ou trottinette — la ville est conçue pour ça, pas pour les piétons",
+          "Croisière sur le lac — 10 MYR, permet de voir l'ensemble des bâtiments depuis l'eau",
+          "Presque aucun touriste occidental — tu seras souvent le seul étranger sur place",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "La Bibliothèque Nationale : le secret le mieux gardé de KL",
+      },
+      {
+        type: 'paragraph',
+        text: "La Perpustakaan Negara Malaysia — la Bibliothèque Nationale — est un bâtiment extraordinaire. Construit dans les années 80 dans un style postmoderne inspiré du songkok (coiffure traditionnelle malaise), il trône sur une colline près du centre historique et la plupart des guidebooks n'en parlent pas. C'est une erreur.",
+      },
+      {
+        type: 'paragraph',
+        text: "L'intérieur est frais, silencieux et immense. Des espaces de lecture qui s'étagent sur plusieurs niveaux, des collections de manuscrits anciens, et une architecture intérieure qui joue avec la lumière naturelle d'une façon que je n'avais jamais vue dans une bibliothèque. C'est l'endroit où j'ai passé le plus de temps à KL — assis dans un fauteuil, à regarder les gens travailler et à sentir la ville ralentir autour de moi.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Ouvert lun–sam 10h–19h, fermé dimanche et jours fériés",
+          "Accès libre — inscription gratuite pour accéder aux collections",
+          "Architecture extérieure à voir absolument, même si tu n'entres pas",
+          "À 15 min à pied du Muzium Negara, en haut de la colline Bukit Petaling",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Millenium Club : KL la nuit, version locale",
+      },
+      {
+        type: 'paragraph',
+        text: "KL a une vraie vie nocturne et le Millenium Club est l'un des endroits où elle s'exprime le mieux. Pas un club pour touristes — une clientèle majoritairement locale, une programmation qui mélange hip-hop, R&B et EDM selon les soirs, et une ambiance qui rappelle que Kuala Lumpur est une ville de 8 millions d'habitants qui sort.",
+      },
+      {
+        type: 'paragraph',
+        text: "La zone de Jalan P. Ramlee, où il se trouve, concentre la plupart des bars et clubs du centre. Le code vestimentaire est respecté — pas de tongs, pas de shorts. Le prix des boissons est dans la moyenne KL : élevé par rapport au reste de l'Asie du Sud-Est, mais rien de comparable aux tarifs de Singapour. La clientèle mixte (malaise, chinoise, expats) donne à ces soirées une texture qu'on ne trouve pas dans d'autres villes de la région.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Zone Jalan P. Ramlee / KLCC — cœur de la vie nocturne de KL",
+          "Dress code : tenue correcte exigée dans la plupart des clubs",
+          "Entrée variable selon les soirs — souvent gratuite avant 23h avec consommation",
+          "Bars rooftop avec vue sur les Petronas : Heli Lounge Bar, Sky Bar au Traders Hotel",
+          "Happy hours en ville : 17h–20h dans la plupart des bars de Changkat Bukit Bintang",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "L'Aéroport KLIA : le meilleur hub d'Asie du Sud-Est",
+      },
+      {
+        type: 'paragraph',
+        text: "Le KLIA (Kuala Lumpur International Airport) mérite une mention à part. Ce n'est pas juste un aéroport — c'est un hub régional qui dessert plus de 60 compagnies, dont AirAsia dont le siège est ici. Si tu fais de l'Asie du Sud-Est, tu y passeras forcément.",
+      },
+      {
+        type: 'paragraph',
+        text: "Le terminal principal est l'un des plus beaux de la région — une forêt tropicale intérieure sous une verrière géante, une architecture qui joue avec la lumière et la végétation. Le KLIA2, terminal low-cost adjacent, est moins spectaculaire mais hyper fonctionnel. La connexion entre les deux terminaux et le centre-ville (KL Sentral) se fait par le KLIA Ekspres — 28 minutes, 55 MYR. Pas de bouchons, pas d'anxiété.",
+      },
+      {
+        type: 'list',
+        items: [
+          "KLIA Ekspres — KL Sentral à l'aéroport en 28 min, départ toutes les 15-20 min",
+          "KLIA2 — terminal AirAsia, liaisons budget vers tout le Sud-Est asiatique",
+          "Salons Plaza Premium Lounge — accessibles à l'achat sans être en Business",
+          "Sleeping pods après la sécurité — solution économique pour les transits longs",
+          "Duty free : alcool et chocolats malaisiens parmi les moins chers de la région",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "Si tu dois choisir un hub pour traverser l'Asie du Sud-Est, prends KL. L'aéroport est beau, les connexions sont parfaites, et tu as une vraie ville à explorer entre deux vols.",
+      },
+      {
+        type: 'heading',
+        text: "Pratique : organiser son séjour à KL",
+      },
+      {
+        type: 'paragraph',
+        text: "KL est abordable, bien connectée et relativement facile à naviguer une fois qu'on a compris que la marche à pied n'est pas toujours la meilleure option. La chaleur (35°C en permanence) et l'absence de trottoirs dans certains quartiers rendent les transports en commun et les Grab incontournables.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Se loger : KLCC pour la localisation idéale, Bukit Bintang pour la vie de quartier",
+          "Transport : MyRapid (métro/bus) + Grab — éviter les taxis non-Grab",
+          "Budget : 50–80€/jour en voyage confortable — moins qu'en Thaïlande touristique",
+          "Monnaie : Ringgit malaisien (MYR) — 1€ ≈ 4,8 MYR en 2026",
+          "Meilleure période : février–avril (moins de pluie) — à éviter pendant Thaipusam si foules = problème",
+          "4 jours minimum recommandés pour couvrir l'essentiel sans courir",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "KL ne ressemble à aucune autre ville d'Asie du Sud-Est. Elle n'a pas la magie de Hanoï ni la folie de Bangkok, mais elle a une identité propre — moderne sans être stérile, traditionnelle sans être figée. C'est une ville qui mérite mieux qu'une nuit de transit.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "Kuala Lumpur is a city people underestimate. They fly over it on the way to Thailand, spend one transit night, glimpse the Petronas from a taxi and leave. That's a mistake. KL deserves at least four days — and if you have the time, a week goes fast.",
+      },
+      {
+        type: 'paragraph',
+        text: "The city is dense, chaotic, multicultural to the point of vertigo — Malay, Chinese, Tamil, all in the same neighbourhood, sometimes on the same street. It's modern and ancient at the same time. And unlike Bangkok or Singapore, it hasn't yet been swamped by organised tour groups.",
+      },
+      {
+        type: 'quote',
+        text: "KL isn't trying to be Singapore. And that's exactly why it's more interesting.",
+      },
+      {
+        type: 'heading',
+        text: "Petronas Towers: come at dawn, not sunset",
+      },
+      {
+        type: 'paragraph',
+        text: "Everyone will tell you to go at sunset. Ignore that advice. Arrive at 7am when KLCC Park is nearly empty and the morning mist still clings to the towers. The light is different, the reflections in the pool are sharp, and you can take a hundred photos without anyone walking into the frame.",
+      },
+      {
+        type: 'paragraph',
+        text: "Tickets for the Skybridge (the walkway between the towers on the 41st floor) and the Observation Deck (86th floor) must be booked online in advance. Morning sessions sell out within days. From the bridge, the view over the city is unlike any other observation tower I've visited — you're at the heart of two identical structures, suspended between them. Vertiginous in the best possible way.",
+      },
+      {
+        type: 'list',
+        items: [
+          "KLCC Park — free access 24/7, tower views from the reflecting pool",
+          "Skybridge (level 41) + Observation Deck (level 86) — 85 MYR, online booking required",
+          "Best outdoor photo time: 6:30–8am or after 10pm for illuminated towers",
+          "Suria KLCC mall below — local food at the basement food court",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Batu Caves: 272 steps and a golden deity",
+      },
+      {
+        type: 'paragraph',
+        text: "Thirteen kilometres from the centre, the Batu Caves are one of the most important Hindu sites outside India. The Murugan statue at the entrance stands 42 metres tall — golden, monumental, dwarfing everything around it. The 272 rainbow-painted steps lead up to a natural cathedral carved into limestone, filled with shrines, monkeys and light that falls through natural openings in the ceiling.",
+      },
+      {
+        type: 'paragraph',
+        text: "The main temple inside the cave is active. Families come to pray, priests officiate, incense burns constantly. This isn't a tourist site — it's a place of worship where tourists are welcomed. Act accordingly: arms covered, shoes removed at the temple entrance, voices kept low.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Access: KTM Komuter from KL Sentral to Batu Caves station — 30 min, 3 MYR",
+          "Free entry — voluntary donations to enter the temples",
+          "Watch the macaques: they steal bags, glasses and open bottles",
+          "Best time: 7–9am before the heat and tour buses arrive",
+          "Dark Cave — guided spelunking tour, book on-site",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "When you climb those 272 steps and see the light pouring into the limestone vault, you understand why people travel hundreds of kilometres to come here.",
+      },
+      {
+        type: 'heading',
+        text: "Perdana Botanical Gardens: the forgotten oasis",
+      },
+      {
+        type: 'paragraph',
+        text: "The Perdana Botanical Gardens sit beside Lake Perdana, ten minutes from the historic centre. They cover 91 hectares and most tourists skip them entirely — which makes them the perfect place to breathe after two days of running around the city.",
+      },
+      {
+        type: 'paragraph',
+        text: "There's an orchid garden, a hibiscus garden (Malaysia's national flower), avenues of towering dipterocarps and a lake where water monitors sun themselves without anyone batting an eye. KL's monitors are large — sometimes over a metre and a half — and completely indifferent to humans. It's strange and fascinating at the same time.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Gardens open 7am–8pm, free entry",
+          "Orchid and Hibiscus Gardens — small entry fee, a few MYR",
+          "Water monitors (biawak) — permanent residents around the lake, don't feed them",
+          "Kite Museum (Layang-Layang) inside the gardens — local curiosity",
+          "Lakeside café — ideal shaded lunch spot",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "National Museum and Islamic Arts Museum",
+      },
+      {
+        type: 'paragraph',
+        text: "The Muzium Negara traces Malaysia's history from the Srivijaya kingdom to independence in 1957. The presentation is a little dated but the content is solid — you come away understanding how three great civilisations (Malay, Chinese, Indian) ended up in the same country and coexisted without fully merging.",
+      },
+      {
+        type: 'paragraph',
+        text: "Right next door, the Islamic Arts Museum is a different league entirely. It's one of the most beautiful museums in the region — a majestic interior, collections of ceramics, textiles and manuscripts from across the Islamic world, detailed scale models of the great mosques. Even if you have no particular interest in Islam, you leave with a far richer picture of what that civilisation represents.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Muzium Negara — open 9am–6pm, entry 5 MYR",
+          "Islamic Arts Museum — open 10am–6pm, entry 20 MYR (worth every ringgit)",
+          "Both are 5 minutes' walk from each other, near Perdana Gardens",
+          "Café on the ground floor of the Islamic museum — great coffee, stunning architecture",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Putrajaya: the government city from the future",
+      },
+      {
+        type: 'paragraph',
+        text: "Putrajaya was built from scratch starting in 1995 to become Malaysia's new administrative capital. It's not an organic city — it's a planned one, with eight-lane boulevards, ministries that look like palaces, and a pink mosque built over water. It's strange, a little surreal, and fascinating to see.",
+      },
+      {
+        type: 'paragraph',
+        text: "Putra Mosque (Masjid Putra) is the highlight. Built from pink granite imported from the Middle East, it holds 15,000 worshippers and its reflection in the artificial lake is one of the iconic images of modern Malaysia. Around it, the Palace of Justice, the Prime Minister's Office and the various ministries form a succession of buildings mixing Islamic style with modernism — the result is disconcerting but coherent.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Access from KL: KLIA Transit to Putrajaya Sentral — 25 min, 12 MYR",
+          "Putra Mosque — free entry outside prayer times, abayas provided at entrance for women",
+          "Bike or scooter rental — the city is built for them, not pedestrians",
+          "Lake cruise — 10 MYR, lets you see all the buildings from the water",
+          "Almost no Western tourists — you'll often be the only foreigner around",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "The National Library: KL's best-kept secret",
+      },
+      {
+        type: 'paragraph',
+        text: "The Perpustakaan Negara Malaysia — the National Library — is an extraordinary building. Built in the 1980s in a postmodern style inspired by the songkok (traditional Malay headwear), it sits on a hill near the historic centre and most guidebooks don't mention it. That's a mistake.",
+      },
+      {
+        type: 'paragraph',
+        text: "Inside it's cool, quiet and vast. Reading spaces spread across multiple levels, collections of ancient manuscripts, and an interior architecture that plays with natural light in a way I'd never seen in a library. It's where I spent the most time in KL — sitting in a chair, watching people work and feeling the city slow down around me.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Open Mon–Sat 10am–7pm, closed Sundays and public holidays",
+          "Free entry — free registration to access collections",
+          "The exterior architecture alone is worth seeing, even if you don't go in",
+          "15 minutes' walk from Muzium Negara, up Bukit Petaling hill",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Millenium Club: KL at night, local edition",
+      },
+      {
+        type: 'paragraph',
+        text: "KL has a real nightlife and the Millenium Club is one of the places where it shows. Not a tourist club — mostly local crowd, a programme that mixes hip-hop, R&B and EDM depending on the night, and an atmosphere that reminds you Kuala Lumpur is a city of 8 million people that goes out.",
+      },
+      {
+        type: 'paragraph',
+        text: "The Jalan P. Ramlee area, where it's located, concentrates most of the city centre's bars and clubs. Dress code is enforced — no flip-flops, no shorts. Drinks prices are mid-range for KL: higher than the rest of Southeast Asia, but nothing like Singapore. The mixed crowd (Malay, Chinese, expats) gives these nights a texture you don't find in other cities in the region.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Jalan P. Ramlee / KLCC area — heart of KL nightlife",
+          "Dress code: smart casual enforced at most clubs",
+          "Entry varies by night — often free before 11pm with a drink",
+          "Rooftop bars with Petronas views: Heli Lounge Bar, Sky Bar at Traders Hotel",
+          "Happy hours: 5–8pm at most bars on Changkat Bukit Bintang",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "KLIA Airport: the best hub in Southeast Asia",
+      },
+      {
+        type: 'paragraph',
+        text: "Kuala Lumpur International Airport deserves a special mention. It's not just an airport — it's a regional hub serving over 60 airlines, including AirAsia which is headquartered here. If you're travelling around Southeast Asia, you'll pass through it.",
+      },
+      {
+        type: 'paragraph',
+        text: "The main terminal is one of the most beautiful in the region — a tropical rainforest under a giant glass roof, an architecture that plays with light and vegetation. The KLIA2 low-cost terminal next door is less spectacular but hyper-functional. The connection between both terminals and the city centre (KL Sentral) runs on the KLIA Ekspres — 28 minutes, 55 MYR. No traffic, no stress.",
+      },
+      {
+        type: 'list',
+        items: [
+          "KLIA Ekspres — KL Sentral to airport in 28 min, every 15–20 minutes",
+          "KLIA2 — AirAsia terminal, budget connections across all of Southeast Asia",
+          "Plaza Premium Lounge — accessible for purchase without Business class ticket",
+          "Sleeping pods airside — cost-effective solution for long layovers",
+          "Duty free: alcohol and Malaysian chocolates among the cheapest in the region",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "If you need to pick one hub to travel Southeast Asia, choose KL. Beautiful airport, perfect connections, and a real city to explore between flights.",
+      },
+      {
+        type: 'heading',
+        text: "Practical: planning your KL trip",
+      },
+      {
+        type: 'paragraph',
+        text: "KL is affordable, well-connected and relatively easy to navigate once you understand that walking isn't always the best option. The heat (35°C constantly) and the absence of pavements in some areas make public transport and Grab essential.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Where to stay: KLCC for ideal location, Bukit Bintang for neighbourhood life",
+          "Transport: MyRapid (metro/bus) + Grab — avoid non-Grab taxis",
+          "Budget: €50–80/day travelling comfortably — less than touristy Thailand",
+          "Currency: Malaysian Ringgit (MYR) — €1 ≈ 4.8 MYR in 2026",
+          "Best time: February–April (less rain) — avoid Thaipusam if crowds are a problem",
+          "Minimum 4 days recommended to cover the essentials without rushing",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "KL doesn't look like any other city in Southeast Asia. It doesn't have Hanoi's magic or Bangkok's madness, but it has its own identity — modern without being sterile, traditional without being frozen in time. It deserves better than one transit night.",
+      },
+    ],
+  },
 ];
 
 export default posts;
