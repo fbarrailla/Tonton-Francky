@@ -3850,6 +3850,348 @@ const posts: BlogPost[] = [
     ],
   },
   {
+    slug: 'app-complete-claude-un-jour',
+    title: "J'ai construit une app complète avec Claude en une journée — voici ce qui s'est passé",
+    titleEn: "I built a complete app with Claude in one day — here's what happened",
+    excerpt: "Un tracker de budget nomade, de zéro à déployé en 9 heures. Pas un prototype — une vraie app avec base de données, auth et interface mobile. Le récit honnête de ce qui a marché, ce qui a planté, et ce que ça change vraiment de coder avec l'IA.",
+    excerptEn: "A nomad budget tracker, from zero to deployed in 9 hours. Not a prototype — a real app with database, auth and mobile interface. The honest story of what worked, what broke, and what it actually changes about coding with AI.",
+    date: '2026-04-22',
+    readTime: 7,
+    category: 'Tech & IA',
+    categoryEn: 'Tech & AI',
+    thumbnail: '/blog/app-claude-un-jour.jpg',
+    ebookCta: true,
+    ebookType: 'claude',
+    content: [
+      {
+        type: 'paragraph',
+        text: "Je me suis levé un mardi matin avec une idée simple : un tracker de budget pour nomades. Pas un tableur, pas Notion — une vraie app web, avec une interface propre, une base de données, et la possibilité d'ajouter des dépenses depuis son téléphone à la table d'un café à Kuala Lumpur. Le soir, l'app était en ligne.",
+      },
+      {
+        type: 'paragraph',
+        text: "Je ne dis pas ça pour impressionner. Je dis ça parce que six mois avant, le même projet m'aurait pris deux semaines — et encore, en sacrifiant des nuits. Ce qui a changé, c'est Claude Code. Et ce que j'ai appris ce jour-là sur la façon de travailler avec l'IA mérite d'être raconté correctement.",
+      },
+      {
+        type: 'quote',
+        text: "Je ne suis pas devenu meilleur développeur en un jour. J'ai appris à diriger quelqu'un de beaucoup plus rapide que moi.",
+      },
+      {
+        type: 'heading',
+        text: "L'idée : simple sur le papier, pas si simple à construire",
+      },
+      {
+        type: 'paragraph',
+        text: "Le brief que je me suis donné : une app pour tracker mes dépenses par pays, avec des catégories (logement, bouffe, transport, divertissement), un résumé mensuel, et une interface qui s'utilise bien sur mobile. Rien de révolutionnaire. Mais dès qu'on sort du prototype statique, ça implique une base de données, une authentification, une API, et un front qui communique avec tout ça.",
+      },
+      {
+        type: 'paragraph',
+        text: "En d'autres termes : une vraie stack. Pas un exercice de style.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Frontend React + Tailwind — interface mobile-first",
+          "Supabase — base de données PostgreSQL + authentification",
+          "Vercel — déploiement continu depuis GitHub",
+          "Zéro backend custom — tout passe par l'API Supabase directement",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Les 3 premières heures : aller vite et ne pas réfléchir",
+      },
+      {
+        type: 'paragraph',
+        text: "La première chose que j'ai apprise : ne pas micro-manager Claude au début. Donne-lui le brief complet, laisse-le proposer une architecture, commente — mais ne l'interromps pas toutes les cinq lignes. Les trois premières heures, j'ai décrit ce que je voulais en détail, Claude a posé la structure du projet, créé les composants de base, branché Supabase. J'ai validé les directions, signalé les erreurs, rien de plus.",
+      },
+      {
+        type: 'paragraph',
+        text: "À midi, j'avais une app qui tournait en local avec l'ajout de dépenses fonctionnel, un formulaire propre, et les données qui s'enregistraient en base. Aucun bug visible. C'était déconcertant.",
+      },
+      {
+        type: 'list',
+        items: [
+          "09h00 — Brief complet donné à Claude, architecture proposée en 10 min",
+          "09h30 — Structure de projet créée, dépendances installées",
+          "10h15 — Composant formulaire fonctionnel, connexion Supabase établie",
+          "12h00 — CRUD complet : ajout, liste, suppression de dépenses",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "L'après-midi : là où ça devient intéressant (et parfois pénible)",
+      },
+      {
+        type: 'paragraph',
+        text: "L'après-midi a été plus chaotique. L'authentification Supabase a pris une heure de trop parce que j'avais mal configuré les Row Level Security policies — Claude avait généré le code correct, mais j'avais oublié d'activer RLS sur la table dans l'interface Supabase. Erreur humaine, pas erreur de l'IA.",
+      },
+      {
+        type: 'paragraph',
+        text: "C'est là que j'ai compris un truc fondamental : Claude ne voit pas ton dashboard Supabase. Il ne sait pas que tu as oublié d'activer un toggle dans une interface externe. Il génère du code parfait pour une configuration qui n'existe pas encore de ton côté. La moitié des blocages de la journée venaient de ça — une config manquante dans un service tiers, pas un bug dans le code.",
+      },
+      {
+        type: 'quote',
+        text: "Claude écrit du code pour le monde qu'il t'a aidé à construire. Si ce monde n'existe pas encore côté serveur, le code ne marche pas. C'est toi le problème, pas lui.",
+      },
+      {
+        type: 'list',
+        items: [
+          "13h30 — Auth Supabase implémentée, bug RLS politique bloquant",
+          "14h45 — Bug résolu (config manquante de mon côté, pas dans le code)",
+          "15h30 — Dashboard avec graphiques par catégorie et résumé mensuel",
+          "17h00 — Mode responsive mobile testé et corrigé",
+          "18h30 — Déploiement Vercel, app en ligne",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Ce que Claude fait exceptionnellement bien",
+      },
+      {
+        type: 'paragraph',
+        text: "Les composants répétitifs. Les formulaires avec validation. La logique de filtrage et de tri. La gestion des états de chargement et d'erreur. Tout ce qui est \"je sais exactement ce que je veux, je n'ai juste pas envie d'écrire les 80 lignes\" — Claude le fait en 30 secondes et c'est propre.",
+      },
+      {
+        type: 'paragraph',
+        text: "Il est aussi excellent pour débugger quand tu lui donnes le bon contexte. Pas \"ça marche pas\" — ça, c'est inutile. Mais \"voici l'erreur, voici le code concerné, voici ce que j'ai déjà essayé\" — là il trouve le problème en général au premier coup.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Boilerplate et structure initiale — ce qui prendrait 2h se fait en 20 min",
+          "Composants UI complexes — graphiques, tableaux, formulaires multi-étapes",
+          "Refactoring — réorganiser du code existant sans casser ce qui fonctionne",
+          "Debugging avec contexte — donne-lui l'erreur + le code + ce que tu as essayé",
+          "Documentation et types TypeScript — il commente et type correctement par défaut",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Ce que Claude fait moins bien (soyons honnêtes)",
+      },
+      {
+        type: 'paragraph',
+        text: "Il ne voit pas l'état global de ton projet si tu ne le lui montres pas. Dans une longue session, il peut perdre le fil de l'architecture décidée deux heures avant et proposer quelque chose qui entre en conflit avec une décision existante. Il faut le recadrer régulièrement — lui rappeler les conventions du projet, lui montrer le code existant avant de lui demander d'ajouter quelque chose.",
+      },
+      {
+        type: 'paragraph',
+        text: "Il peut aussi sur-ingénier. Demande-lui quelque chose de simple et il va parfois proposer une solution générique configurable pour dix cas d'usage que tu n'auras jamais. Il faut être explicite : \"garde ça simple, je n'ai besoin que de ce cas précis\".",
+      },
+      {
+        type: 'list',
+        items: [
+          "Perd le fil sur les longues sessions — montre-lui régulièrement le contexte existant",
+          "Tend à sur-ingénier — précise explicitement quand tu veux quelque chose de simple",
+          "Ne voit pas les services externes (Supabase, Vercel, DNS) — tu dois gérer ça toi-même",
+          "Les décisions d'architecture restent les tiennes — il exécute, il ne pilote pas",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Ce que ça change vraiment",
+      },
+      {
+        type: 'paragraph',
+        text: "La vraie transformation, ce n'est pas la vitesse. C'est ce que la vitesse permet. Quand une fonctionnalité coûte 2 heures au lieu de 2 jours, tu testes des idées que tu n'aurais jamais essayées. Tu arrives à \"est-ce que ça marche vraiment ?\" avant d'avoir investi suffisamment de temps pour être incapable de l'abandonner.",
+      },
+      {
+        type: 'paragraph',
+        text: "Mon tracker de budget ? Je l'utilise tous les jours depuis. Ce n'est pas parfait — il manque des fonctionnalités que j'ajouterai. Mais il existe. Et il aurait mis deux semaines à exister sans Claude, ce qui signifie qu'il n't aurait probablement jamais existé.",
+      },
+      {
+        type: 'quote',
+        text: "L'IA ne remplace pas l'idée, le jugement ou le goût. Elle supprime le coût d'entrée. Et quand le coût d'entrée disparaît, tout ce que tu n'osais pas construire devient possible.",
+      },
+      {
+        type: 'heading',
+        text: "Le process que je referais exactement pareil",
+      },
+      {
+        type: 'paragraph',
+        text: "Si tu veux reproduire ce type de journée, voici ce qui a fonctionné pour moi :",
+      },
+      {
+        type: 'list',
+        items: [
+          "Brief écrit avant de commencer — décris l'app en 10 lignes, stack incluse. Claude travaille mieux avec un contexte clair dès le départ.",
+          "Une fonctionnalité à la fois — ne demande pas tout d'un coup. Fais fonctionner le formulaire avant de demander les graphiques.",
+          "Teste après chaque étape — ne laisse pas s'accumuler 3h de code non testé. Les bugs se multiplient en silence.",
+          "Montre le code existant avant chaque nouvelle demande — \"voici ce qu'on a, j'ai besoin d'ajouter X\".",
+          "Dis-lui quand c'est trop complexe — \"simplifie, je n'ai besoin que de ce cas\" est une instruction valide.",
+          "Les erreurs côté services externes, c'est toi — vérifie ta config Supabase, tes variables d'environnement, tes permissions avant de blâmer le code.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Neuf heures. Une app qui tourne. Un apprentissage que deux semaines de tuto n'auraient pas donné. Si tu n'as pas encore essayé de construire quelque chose de concret avec Claude Code, c'est le bon moment.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "I woke up on a Tuesday morning with a simple idea: a budget tracker for nomads. Not a spreadsheet, not Notion — a real web app, with a clean interface, a database, and the ability to add expenses from your phone at a café table in Kuala Lumpur. By evening, the app was live.",
+      },
+      {
+        type: 'paragraph',
+        text: "I'm not saying this to impress anyone. I'm saying it because six months earlier, the same project would have taken two weeks — and even then, sacrificing nights. What changed is Claude Code. And what I learned that day about how to work with AI is worth telling properly.",
+      },
+      {
+        type: 'quote',
+        text: "I didn't become a better developer in one day. I learned how to direct someone much faster than me.",
+      },
+      {
+        type: 'heading',
+        text: "The idea: simple on paper, not so simple to build",
+      },
+      {
+        type: 'paragraph',
+        text: "The brief I gave myself: an app to track expenses by country, with categories (accommodation, food, transport, entertainment), a monthly summary, and an interface that works well on mobile. Nothing revolutionary. But the moment you go beyond a static prototype, it requires a database, authentication, an API, and a frontend that talks to all of it.",
+      },
+      {
+        type: 'paragraph',
+        text: "In other words: a real stack. Not a style exercise.",
+      },
+      {
+        type: 'list',
+        items: [
+          "React + Tailwind frontend — mobile-first interface",
+          "Supabase — PostgreSQL database + authentication",
+          "Vercel — continuous deployment from GitHub",
+          "Zero custom backend — everything goes through the Supabase API directly",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "The first 3 hours: move fast and don't overthink",
+      },
+      {
+        type: 'paragraph',
+        text: "The first thing I learned: don't micro-manage Claude at the start. Give it the full brief, let it propose an architecture, comment on it — but don't interrupt every five lines. For the first three hours, I described what I wanted in detail, Claude laid out the project structure, created the base components, connected Supabase. I validated directions, flagged errors, nothing more.",
+      },
+      {
+        type: 'paragraph',
+        text: "By noon, I had an app running locally with working expense entry, a clean form, and data saving to the database. No visible bugs. It was unsettling.",
+      },
+      {
+        type: 'list',
+        items: [
+          "9:00am — Full brief given to Claude, architecture proposed in 10 min",
+          "9:30am — Project structure created, dependencies installed",
+          "10:15am — Working form component, Supabase connection established",
+          "12:00pm — Full CRUD: add, list, delete expenses",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "The afternoon: where it gets interesting (and sometimes painful)",
+      },
+      {
+        type: 'paragraph',
+        text: "The afternoon was more chaotic. Supabase authentication took an hour longer than it should have because I'd misconfigured the Row Level Security policies — Claude had generated correct code, but I'd forgotten to enable RLS on the table in the Supabase dashboard. Human error, not AI error.",
+      },
+      {
+        type: 'paragraph',
+        text: "That's when I understood something fundamental: Claude can't see your Supabase dashboard. It doesn't know you forgot to flip a toggle in an external interface. It generates perfect code for a configuration that doesn't exist yet on your end. Half the blockers of the day came from this — a missing config in a third-party service, not a bug in the code.",
+      },
+      {
+        type: 'quote',
+        text: "Claude writes code for the world it helped you build. If that world doesn't exist yet server-side, the code won't work. You're the problem, not it.",
+      },
+      {
+        type: 'list',
+        items: [
+          "1:30pm — Supabase auth implemented, RLS policy bug blocking",
+          "2:45pm — Bug resolved (missing config on my end, not in the code)",
+          "3:30pm — Dashboard with category charts and monthly summary",
+          "5:00pm — Mobile responsive tested and fixed",
+          "6:30pm — Vercel deployment, app live",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "What Claude does exceptionally well",
+      },
+      {
+        type: 'paragraph',
+        text: "Repetitive components. Forms with validation. Filtering and sorting logic. Loading and error state handling. Everything that falls under 'I know exactly what I want, I just don't want to write the 80 lines' — Claude does it in 30 seconds and it's clean.",
+      },
+      {
+        type: 'paragraph',
+        text: "It's also excellent at debugging when you give it the right context. Not 'it doesn't work' — that's useless. But 'here's the error, here's the code, here's what I've already tried' — then it finds the problem on the first go, usually.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Boilerplate and initial structure — what would take 2 hours takes 20 minutes",
+          "Complex UI components — charts, tables, multi-step forms",
+          "Refactoring — reorganising existing code without breaking what works",
+          "Debugging with context — give it the error + the code + what you've tried",
+          "Documentation and TypeScript types — it annotates and types correctly by default",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "What Claude does less well (let's be honest)",
+      },
+      {
+        type: 'paragraph',
+        text: "It doesn't see the global state of your project unless you show it. In a long session, it can lose track of the architecture decided two hours earlier and propose something that conflicts with an existing decision. You need to recalibrate regularly — remind it of the project conventions, show it the existing code before asking it to add something.",
+      },
+      {
+        type: 'paragraph',
+        text: "It can also over-engineer. Ask it for something simple and it'll sometimes propose a generic solution configurable for ten use cases you'll never have. You need to be explicit: 'keep it simple, I only need this specific case'.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Loses context on long sessions — regularly show it what already exists",
+          "Tends to over-engineer — explicitly say when you want something simple",
+          "Can't see external services (Supabase, Vercel, DNS) — you manage that yourself",
+          "Architecture decisions remain yours — it executes, it doesn't steer",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "What it actually changes",
+      },
+      {
+        type: 'paragraph',
+        text: "The real transformation isn't speed. It's what speed enables. When a feature costs 2 hours instead of 2 days, you test ideas you'd never have tried. You get to 'does this actually work?' before you've invested enough time to be incapable of abandoning it.",
+      },
+      {
+        type: 'paragraph',
+        text: "My budget tracker? I use it every day now. It's not perfect — there are features I'll add. But it exists. And it would have taken two weeks to exist without Claude, which means it probably would never have existed at all.",
+      },
+      {
+        type: 'quote',
+        text: "AI doesn't replace the idea, the judgment or the taste. It removes the entry cost. And when the entry cost disappears, everything you didn't dare build becomes possible.",
+      },
+      {
+        type: 'heading',
+        text: "The process I'd follow exactly the same way again",
+      },
+      {
+        type: 'paragraph',
+        text: "If you want to replicate this kind of day, here's what worked for me:",
+      },
+      {
+        type: 'list',
+        items: [
+          "Write the brief before you start — describe the app in 10 lines, stack included. Claude works better with clear context from the start.",
+          "One feature at a time — don't ask for everything at once. Get the form working before asking for charts.",
+          "Test after every step — don't let 3 hours of untested code pile up. Bugs multiply in silence.",
+          "Show existing code before each new request — 'here's what we have, I need to add X'.",
+          "Tell it when it's too complex — 'simplify, I only need this case' is a valid instruction.",
+          "Errors on external services are on you — check your Supabase config, env variables and permissions before blaming the code.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Nine hours. A working app. Learning that two weeks of tutorials wouldn't have given. If you haven't tried building something concrete with Claude Code yet, now is a good time.",
+      },
+    ],
+  },
+  {
     slug: 'kuala-lumpur-2026',
     title: 'Kuala Lumpur 2026 : temples, tours et nuits de jungle urbaine',
     titleEn: 'Kuala Lumpur 2026: temples, towers and urban jungle nights',
