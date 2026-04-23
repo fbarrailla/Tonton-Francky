@@ -3349,7 +3349,7 @@ const posts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: "Grand World, c'est un complexe de divertissement dans le nord de l'île, développé par Vingroup. Concrètement : une ville artificielle avec des canaux, des ponts, des ruelles à l'italienne, des restaurants à la chaîne, des spectacles de rue et une ambiance de fête permanente dès la tombée de la nuit.",
+        text: "Le nord de l'île est le territoire de Vingroup, avec trois attractions majeures regroupées dans un même secteur. Grand World, c'est une ville artificielle avec des canaux, des ponts, des ruelles à l'italienne, des restaurants à la chaîne, des spectacles de rue et une ambiance de fête permanente dès la tombée de la nuit. Juste à côté, VinWonder est le parc d'attractions de Vinpearl — manèges, shows, et en son centre l'aquarium en forme de tortue géante, le plus grand d'Asie du Sud-Est. Et dans la même zone, le Safari Vinpearl : un zoo en semi-liberté où les animaux défilent autour du véhicule.",
       },
       {
         type: 'paragraph',
@@ -3358,15 +3358,15 @@ const posts: BlogPost[] = [
       {
         type: 'list',
         items: [
-          "Spectacles nocturnes gratuits — acrobaties, danse, projections lumières sur les façades",
-          "Dizaines de restaurants et de bars — du street food vietnamien aux cuisines du monde",
-          "Gondoles sur les canaux — touristique à mort, mais le genre de truc qu'on fait quand même",
+          "Grand World — spectacles nocturnes gratuits, gondoles sur les canaux, dizaines de restaurants",
+          "VinWonder — parc d'attractions avec l'aquarium tortue géante, le plus grand d'Asie du Sud-Est",
+          "Safari Vinpearl — animaux en semi-liberté, à voir depuis un véhicule, expérience unique dans le nord",
           "Très animé le week-end — prévoir plus de monde, plus d'ambiance, plus de bruit",
         ],
       },
       {
         type: 'paragraph',
-        text: "Grand World mérite une soirée, pas plus. Arrive vers 19h quand les lumières s'allument, mange quelque chose, fais un tour des spectacles, et rentre. Ce n'est pas un endroit pour s'attarder — c'est un endroit pour en prendre plein les yeux pendant deux heures.",
+        text: "Grand World mérite une soirée, pas plus. Arrive vers 19h quand les lumières s'allument, mange quelque chose, fais un tour des spectacles, et rentre. Pour VinWonder et le Safari, prévois une journée entière — c'est un autre univers.",
       },
       {
         type: 'heading',
@@ -3374,7 +3374,7 @@ const posts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: "À l'opposé de l'île, dans le sud, Vinpearl a construit Sunny World — un parc d'attractions côtier avec manèges, parc aquatique, safari et câble car au-dessus de la mer. C'est grand, c'est coloré, et c'est clairement pensé pour les familles et les couples.",
+        text: "À l'opposé de l'île, dans le sud, c'est Sun Group qui a tout construit — Sunny World, le câble car, les resorts qui bordent la côte. Un parc d'attractions côtier avec manèges, parc aquatique et câble car au-dessus de la mer. C'est grand, c'est coloré, et c'est clairement pensé pour les familles et les couples.",
       },
       {
         type: 'paragraph',
@@ -3385,7 +3385,7 @@ const posts: BlogPost[] = [
         items: [
           "Câble car sur la mer — 8 km de traversée, l'une des plus longues du monde au-dessus de l'eau",
           "Parc aquatique — piscines à vagues, toboggans, parfait pour une journée sous le soleil",
-          "Safari Vinpearl — animaux en liberté relative, dans un cadre bien entretenu",
+          "Sunny World — manèges et attractions, développé par Sun Group",
           "Plages adjacentes — moins fréquentées que Long Beach, idéales pour décompresser après le parc",
         ],
       },
@@ -3476,7 +3476,7 @@ const posts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: "Grand World is an entertainment complex in the north of the island, developed by Vingroup. In practice: an artificial town with canals, bridges, Italian-style alleyways, chain restaurants, street shows and a permanent party atmosphere from sundown.",
+        text: "The north of the island is Vingroup territory, with three major attractions clustered in the same area. Grand World is an artificial town with canals, bridges, Italian-style alleyways, chain restaurants, street shows and a permanent party atmosphere from sundown. Right next door, VinWonder is Vinpearl's theme park — rides, shows, and at its heart a giant turtle-shaped aquarium, the largest in Southeast Asia. And in the same zone, Vinpearl Safari: a semi-open zoo where animals roam around your vehicle.",
       },
       {
         type: 'paragraph',
@@ -3485,15 +3485,15 @@ const posts: BlogPost[] = [
       {
         type: 'list',
         items: [
-          "Free nightly shows — acrobatics, dance, light projections on building facades",
-          "Dozens of restaurants and bars — Vietnamese street food to international cuisines",
-          "Canal gondola rides — deeply touristy, but the kind of thing you do anyway",
+          "Grand World — free nightly shows, canal gondolas, dozens of restaurants and bars",
+          "VinWonder — theme park featuring the giant turtle aquarium, the largest in Southeast Asia",
+          "Vinpearl Safari — semi-free-roaming animals viewed from a vehicle, unique experience in the north",
           "Very busy at weekends — expect more crowds, more atmosphere, more noise",
         ],
       },
       {
         type: 'paragraph',
-        text: "Grand World deserves one evening, no more. Arrive around 7pm when the lights come on, eat something, catch a show or two, then head back. It's not a place to linger — it's a place to be dazzled for two hours.",
+        text: "Grand World deserves one evening, no more. Arrive around 7pm when the lights come on, eat something, catch a show, then head back. For VinWonder and the Safari, plan a full day — it's a completely different world.",
       },
       {
         type: 'heading',
@@ -3501,7 +3501,7 @@ const posts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: "At the opposite end of the island, in the south, Vinpearl built Sunny World — a coastal theme park with rides, a water park, a safari and a cable car over the sea. It's big, colourful, and clearly designed for families and couples.",
+        text: "At the opposite end of the island, in the south, it's Sun Group that built everything — Sunny World, the cable car, the resorts lining the coast. A coastal theme park with rides, a water park and a cable car over the sea. It's big, colourful, and clearly designed for families and couples.",
       },
       {
         type: 'paragraph',
@@ -3512,7 +3512,7 @@ const posts: BlogPost[] = [
         items: [
           "Cable car over the sea — 8 km crossing, one of the world's longest over water",
           "Water park — wave pools, slides, perfect for a day under the sun",
-          "Vinpearl Safari — free-roaming animals in a well-maintained setting",
+          "Sunny World — rides and attractions, developed by Sun Group",
           "Adjacent beaches — quieter than Long Beach, ideal for unwinding after the park",
         ],
       },
