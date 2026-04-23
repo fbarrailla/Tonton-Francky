@@ -3370,28 +3370,32 @@ const posts: BlogPost[] = [
       },
       {
         type: 'heading',
-        text: "Sunny World : le parc d'attractions du sud",
+        text: "Le sud : Sun Group, Sunset Town et shows spectaculaires",
       },
       {
         type: 'paragraph',
-        text: "À l'opposé de l'île, dans le sud, c'est Sun Group qui a tout construit — Sunny World, le câble car, les resorts qui bordent la côte. Un parc d'attractions côtier avec manèges, parc aquatique et câble car au-dessus de la mer. C'est grand, c'est coloré, et c'est clairement pensé pour les familles et les couples.",
+        text: "Dans le sud de l'île, ward d'An Thới, c'est Sun Group qui a développé tout l'écosystème touristique. Le cœur du secteur, c'est la zone méditerranéenne — aussi appelée Sunset Town — une ville artificielle aux façades colorées, pensée pour le coucher de soleil et les photos. On y trouve des ruelles piétonnes, des bars en terrasse, et une atmosphère différente de Grand World : plus romantique, moins chaotique.",
       },
       {
         type: 'paragraph',
-        text: "La traversée en câble car depuis l'embarcadère de Bãi Thơm est un moment à part. On survole la mer turquoise, on voit les îlots parsemer l'horizon, et on arrive sur une île annexe où est concentrée une partie des attractions. Même si tu n'es pas fan de parcs, la traversée en elle-même vaut le déplacement.",
+        text: "Depuis An Thới, le câble car traverse la mer jusqu'à Hòn Thơm — 8 km au-dessus de l'eau turquoise, l'une des plus longues traversées par câble au monde. Sur l'île, le Sun World Water Park propose toboggans et piscines à vagues. Mais le vrai coup de cœur du sud, c'est le soir : trois shows monumentaux sont présentés sur la plage — L'Éveil de la Mer, Le Baiser de la Mer et La Symphonie de la Mer. Ces spectacles mêlent projections lumières, eau, feu, feux d'artifice et performances de Jetski et Flyboard. Difficile d'en ressortir indifférent.",
       },
       {
         type: 'list',
         items: [
-          "Câble car sur la mer — 8 km de traversée, l'une des plus longues du monde au-dessus de l'eau",
-          "Parc aquatique — piscines à vagues, toboggans, parfait pour une journée sous le soleil",
-          "Sunny World — manèges et attractions, développé par Sun Group",
-          "Plages adjacentes — moins fréquentées que Long Beach, idéales pour décompresser après le parc",
+          "Sunset Town — zone méditerranéenne, idéale pour le coucher de soleil et l'apéro en terrasse",
+          "Câble car An Thới–Hòn Thơm — 8 km au-dessus de la mer, l'une des plus longues du monde",
+          "Sun World Water Park — toboggans et piscines à vagues sur Hòn Thơm",
+          "Tours en bateau — excursions vers Hòn Móng Tay, Hòn Mây Rút et Hòn Buôm, coraux et snorkeling",
+          "Khem Beach et Bãi Sao — deux des plus belles plages de l'île, sable blanc, eau cristalline",
+          "Prison de Phu Quoc — site historique de la guerre du Vietnam, sobre et marquant",
+          "Villages de pêcheurs côtiers — la vraie vie du sud, loin des complexes touristiques",
+          "Shows nocturnes — L'Éveil de la Mer, Le Baiser de la Mer, La Symphonie de la Mer",
         ],
       },
       {
         type: 'paragraph',
-        text: "Prévois une journée entière pour Sunny World si tu veux tout voir. Le ticket journée inclut la plupart des attractions — vérifie ce qui est inclus à l'entrée pour éviter les surprises.",
+        text: "Prévois deux jours pour le sud si tu veux tout faire : une journée câble car + plages + snorkeling, une soirée pour Sunset Town et un des shows. C'est un programme dense, mais chaque élément mérite le détour.",
       },
       {
         type: 'heading',
@@ -3399,7 +3403,7 @@ const posts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: "J'ai posé mes valises dans un appartement au centre de Phu Quoc, entre les deux complexes. C'est le meilleur endroit pour être : à 20 minutes de Grand World au nord, à 25 minutes de Sunny World au sud, et à deux pas de Long Beach et du marché nocturne de Dương Đông.",
+        text: "J'ai posé mes valises dans un appartement au centre de Phu Quoc, entre les deux pôles touristiques. C'est le meilleur endroit pour être : à 20 minutes de Grand World au nord, à 25 minutes de Sunset Town et du câble car au sud, et à deux pas de Long Beach et du marché nocturne de Dương Đông.",
       },
       {
         type: 'paragraph',
@@ -3497,28 +3501,32 @@ const posts: BlogPost[] = [
       },
       {
         type: 'heading',
-        text: "Sunny World: the theme park in the south",
+        text: "The south: Sun Group, Sunset Town and spectacular shows",
       },
       {
         type: 'paragraph',
-        text: "At the opposite end of the island, in the south, it's Sun Group that built everything — Sunny World, the cable car, the resorts lining the coast. A coastal theme park with rides, a water park and a cable car over the sea. It's big, colourful, and clearly designed for families and couples.",
+        text: "In the south of the island, in An Thoi ward, Sun Group has developed the entire tourist ecosystem. The centrepiece is the Mediterranean area — also known as Sunset Town — an artificial village of colourful facades built around the golden hour. Pedestrian alleyways, rooftop bars, and an atmosphere that feels more romantic and less hectic than Grand World.",
       },
       {
         type: 'paragraph',
-        text: "The cable car crossing from Bãi Thơm pier is something else. You glide over turquoise water, islands dotting the horizon, landing on an offshore island where much of the park is concentrated. Even if theme parks aren't your thing, the crossing alone is worth the trip.",
+        text: "From An Thoi, the cable car crosses the sea to Hòn Thơm island — 8 km over turquoise water, one of the longest cable car crossings in the world. On the island, Sun World Water Park offers slides and wave pools. But the real highlight of the south happens after dark: three spectacular shows take place on the beach — The Awakening Sea, The Kiss of the Sea, and The Symphony of the Sea. Each combines light technology, water, fire, fireworks, and Jetski or Flyboard performances. Hard to walk away unmoved.",
       },
       {
         type: 'list',
         items: [
-          "Cable car over the sea — 8 km crossing, one of the world's longest over water",
-          "Water park — wave pools, slides, perfect for a day under the sun",
-          "Sunny World — rides and attractions, developed by Sun Group",
-          "Adjacent beaches — quieter than Long Beach, ideal for unwinding after the park",
+          "Sunset Town — Mediterranean-style area, perfect for sundowners and golden-hour photos",
+          "Cable car An Thoi–Hòn Thơm — 8 km over the sea, one of the world's longest",
+          "Sun World Water Park — slides and wave pools on Hòn Thơm island",
+          "Island boat tours — trips to Hòn Móng Tay, Hòn Mây Rút and Hòn Buôm for snorkelling and coral",
+          "Khem Beach and Bãi Sao — two of the island's finest beaches, white sand, crystal water",
+          "Phu Quoc Prison — Vietnam War-era historical site, sobering and worth visiting",
+          "Coastal fishing villages — the real south, away from the tourist complexes",
+          "Evening shows — The Awakening Sea, The Kiss of the Sea, The Symphony of the Sea",
         ],
       },
       {
         type: 'paragraph',
-        text: "Plan a full day for Sunny World if you want to see everything. The day ticket covers most attractions — check what's included at the entrance to avoid surprises.",
+        text: "Allow two days for the south if you want to do it properly: one day for the cable car, beaches and snorkelling, one evening for Sunset Town and a show. It's a packed itinerary, but every piece of it earns its place.",
       },
       {
         type: 'heading',
@@ -3526,7 +3534,7 @@ const posts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: "I stayed in an apartment in the centre of Phu Quoc, between the two complexes. It's the best place to be: 20 minutes from Grand World in the north, 25 minutes from Sunny World in the south, and a short walk from Long Beach and Dương Đông night market.",
+        text: "I stayed in an apartment in the centre of Phu Quoc, between the two tourist poles. It's the best place to be: 20 minutes from Grand World in the north, 25 minutes from Sunset Town and the cable car in the south, and a short walk from Long Beach and Dương Đông night market.",
       },
       {
         type: 'paragraph',
