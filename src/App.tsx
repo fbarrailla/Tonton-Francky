@@ -39,6 +39,7 @@ const MusicPage = lazy(() => import('./components/Music'));
 const EbookPromo = lazy(() => import('./components/EbookPromo'));
 const Blog = lazy(() => import('./components/Blog'));
 const BlogDetail = lazy(() => import('./components/BlogDetail'));
+const Dashboard = lazy(() => import('./components/Dashboard'));
 import { LanguageProvider, useLanguage, type Lang } from './i18n';
 import { ThemeProvider, useTheme } from './theme';
 import { usePageMeta } from './usePageMeta';
@@ -436,6 +437,7 @@ function AppContent() {
               <Route path="/blog/:slug" element={<BlogDetail />} />
               <Route path="/a-propos" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="*" element={
                 <main className="flex-grow pt-10 flex items-center justify-center px-6">
                   <div className="text-center max-w-sm mx-auto">
