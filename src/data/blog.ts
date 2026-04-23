@@ -3859,7 +3859,7 @@ const posts: BlogPost[] = [
     readTime: 7,
     category: 'Tech & IA',
     categoryEn: 'Tech & AI',
-    thumbnail: '/blog/app-claude-un-jour.jpg',
+    thumbnail: '/ebook.png',
     ebookCta: true,
     ebookType: 'claude',
     content: [
