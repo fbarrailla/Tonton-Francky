@@ -37,9 +37,17 @@ import EbookPickerModal, { type EbookChoice } from './EbookPickerModal';
 function useInstagramFollowers() {
   const [followers, setFollowers] = useState(596);
   useEffect(() => {
-    fetch('https://api.barrailla.com/instagram-followers')
+    fetch('https://www.instagram.com/api/v1/users/web_profile_info/?username=tonton__francky', {
+      headers: {
+        'X-IG-App-ID': '936619743392459',
+        'Accept': 'application/json',
+      },
+    })
       .then(r => r.json())
-      .then(d => { if (d.count) setFollowers(d.count); })
+      .then((d: any) => {
+        const count = d?.data?.user?.edge_followed_by?.count;
+        if (typeof count === 'number') setFollowers(count);
+      })
       .catch(() => {});
   }, []);
   return followers;
