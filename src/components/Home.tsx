@@ -37,17 +37,9 @@ import EbookPickerModal, { type EbookChoice } from './EbookPickerModal';
 function useInstagramFollowers() {
   const [followers, setFollowers] = useState(596);
   useEffect(() => {
-    fetch('https://www.instagram.com/api/v1/users/web_profile_info/?username=tonton__francky', {
-      headers: {
-        'X-IG-App-ID': '936619743392459',
-        'Accept': 'application/json',
-      },
-    })
+    fetch('https://dufftgmvjjtlyfqwdsyp.supabase.co/functions/v1/instagram-followers')
       .then(r => r.json())
-      .then((d: any) => {
-        const count = d?.data?.user?.edge_followed_by?.count;
-        if (typeof count === 'number') setFollowers(count);
-      })
+      .then((d: any) => { if (typeof d.count === 'number') setFollowers(d.count); })
       .catch(() => {});
   }, []);
   return followers;
