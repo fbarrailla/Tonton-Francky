@@ -89,15 +89,48 @@ app.post('/contact', async (req, res) => {
   }
 });
 
-// Instagram followers count (from Supabase settings table)
+// Instagram followers count — live fetch with 1h in-memory cache
+let igCache: { count: number; ts: number } | null = null;
+const IG_CACHE_TTL = 60 * 60 * 1000; // 1 hour
+const IG_FALLBACK = 596;
+
 app.get('/instagram-followers', async (_req, res) => {
-  const { data } = await supabase
-    .from('settings')
-    .select('value')
-    .eq('key', 'instagram_followers')
-    .single();
   res.setHeader('Cache-Control', 'public, max-age=300');
-  res.json({ count: data ? Number(data.value) : 424 });
+
+  if (igCache && Date.now() - igCache.ts < IG_CACHE_TTL) {
+    return res.json({ count: igCache.count });
+  }
+
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 8000);
+
+    const igRes = await fetch(
+      'https://www.instagram.com/api/v1/users/web_profile_info/?username=tonton__francky',
+      {
+        signal: controller.signal,
+        headers: {
+          'X-IG-App-ID': '936619743392459',
+          'Accept': 'application/json',
+          'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1',
+        },
+      }
+    );
+    clearTimeout(timer);
+
+    const json = await igRes.json() as any;
+    const count = json?.data?.user?.edge_followed_by?.count;
+
+    if (typeof count === 'number') {
+      igCache = { count, ts: Date.now() };
+      return res.json({ count });
+    }
+  } catch (e: any) {
+    console.warn('Instagram fetch failed:', e.message);
+  }
+
+  // Fallback: return cached value or hardcoded default
+  return res.json({ count: igCache?.count ?? IG_FALLBACK });
 });
 
 // Public ebook sales count (reads directly from backoffice SQLite DB)
