@@ -4649,6 +4649,130 @@ const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'my-trip-my-adventure',
+    title: 'Mon voyage, mon aventure',
+    titleEn: 'My Trip, My Adventure',
+    excerpt: "Une randonnée en montagne avec mes amis — sentiers escarpés, panoramas à couper le souffle et souvenirs qu'on garde à vie.",
+    excerptEn: 'A mountain hike with my friends — steep trails, breathtaking views, and memories that stay with you for life.',
+    date: '2026-04-24',
+    readTime: 4,
+    category: 'Voyages',
+    categoryEn: 'Travels',
+    thumbnail: '/blog/tam-dao-01.jpg',
+    content: [
+      {
+        type: 'paragraph',
+        text: "Voyager est l'une des expériences les plus passionnantes de la vie. Cela nous permet de découvrir de nouveaux endroits, de rencontrer des gens différents et de créer des souvenirs inoubliables. L'un des voyages les plus marquants que j'ai vécus a été ma virée à la montagne avec mes amis. Ce fut une véritable aventure, pleine de rires, de défis et de moments magnifiques.",
+      },
+      {
+        type: 'heading',
+        text: 'Le départ',
+      },
+      {
+        type: 'paragraph',
+        text: "Nous sommes partis tôt le matin. L'air était frais et tout le monde débordait d'énergie. Nous avions préparé nos sacs avec de la nourriture, de l'eau, des vêtements chauds et du matériel de camping. Le trajet jusqu'à la montagne a duré plusieurs heures, mais nous avons profité de chaque instant en chantant et en partageant des histoires dans la voiture.",
+      },
+      {
+        type: 'gallery',
+        images: [
+          '/blog/tam-dao-01.jpg',
+          '/blog/tam-dao-02.jpg',
+        ],
+      },
+      {
+        type: 'heading',
+        text: 'Dans la forêt',
+      },
+      {
+        type: 'paragraph',
+        text: "Quand nous sommes arrivés au pied de la montagne, la vraie aventure a commencé. Nous avons pris le sentier qui s'enfonçait dans la forêt. La route était raide et rocailleuse, mais les paysages étaient magnifiques. On voyait de grands arbres, des fleurs colorées, et on entendait les oiseaux chanter. Par moments, on s'arrêtait pour se reposer et prendre des photos.",
+      },
+      {
+        type: 'gallery',
+        images: [
+          '/blog/tam-dao-03.jpg',
+          '/blog/tam-dao-04.jpg',
+        ],
+      },
+      {
+        type: 'heading',
+        text: 'Enfin au sommet',
+      },
+      {
+        type: 'paragraph',
+        text: "Après plusieurs heures de marche, nous avons enfin atteint le sommet. La vue était à couper le souffle — des vallées qui s'étiraient jusqu'à l'horizon, des nuages qui dérivaient en dessous de nous, et le soleil qui commençait à se coucher dans des teintes d'orange et de rose. Toute la fatigue de l'ascension s'est envolée en un instant.",
+      },
+      {
+        type: 'quote',
+        text: "Il y a des instants où la montagne te rappelle à quel point le monde est vaste — et à quel point on est petit, mais bien là.",
+      },
+      {
+        type: 'paragraph',
+        text: "Nous avons monté notre campement près d'une clairière, allumé un feu et partagé un repas simple mais délicieux. Les rires, les histoires, les silences confortables — la nuit a passé vite sous un ciel constellé d'étoiles, loin des lumières de la ville.",
+      },
+      {
+        type: 'paragraph',
+        text: "Au retour, personne ne parlait beaucoup. On était fatigués, heureux, un peu changés aussi. C'est ça qu'un vrai voyage te laisse : pas seulement des photos, mais cette trace en toi qui te fait dire que ça valait chaque pas.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: 'Traveling is one of the most exciting experiences in life. It allows us to explore new places, meet different people, and create unforgettable memories. One of the most memorable journeys I ever had was my trip to the mountains with my friends. It was truly an adventure full of fun, challenges, and beautiful moments.',
+      },
+      {
+        type: 'heading',
+        text: 'The start of the journey',
+      },
+      {
+        type: 'paragraph',
+        text: 'We started our trip early in the morning. The air was fresh, and everyone was full of energy. We packed our bags with food, water, warm clothes, and camping equipment. The journey to the mountain took several hours, but we enjoyed every moment by singing songs and sharing stories in the car.',
+      },
+      {
+        type: 'gallery',
+        images: [
+          '/blog/tam-dao-01.jpg',
+          '/blog/tam-dao-02.jpg',
+        ],
+      },
+      {
+        type: 'heading',
+        text: 'Into the forest',
+      },
+      {
+        type: 'paragraph',
+        text: 'When we arrived at the foot of the mountain, the real adventure began. We started hiking through the forest path. The road was steep and rocky, but the scenery was amazing. We saw tall trees, colorful flowers, and heard the sound of birds singing. Sometimes we stopped to rest and take pictures of the beautiful landscape.',
+      },
+      {
+        type: 'gallery',
+        images: [
+          '/blog/tam-dao-03.jpg',
+          '/blog/tam-dao-04.jpg',
+        ],
+      },
+      {
+        type: 'heading',
+        text: 'Reaching the summit',
+      },
+      {
+        type: 'paragraph',
+        text: 'After several hours of climbing, we finally reached the summit. The view from the top was breathtaking — valleys stretching to the horizon, clouds drifting below us, and the sun beginning to set in shades of orange and pink. All the tiredness of the climb disappeared in an instant.',
+      },
+      {
+        type: 'quote',
+        text: 'There are moments when the mountain reminds you how vast the world is — and how small, yet fully present, you are within it.',
+      },
+      {
+        type: 'paragraph',
+        text: 'We set up camp near a clearing, lit a fire, and shared a simple but delicious meal. The laughter, the stories, the comfortable silences — the night passed quickly under a sky full of stars, far from the city lights.',
+      },
+      {
+        type: 'paragraph',
+        text: "On the way home, nobody talked much. We were tired, happy, and a little changed too. That's what a real trip leaves behind: not just photos, but that quiet mark inside you that tells you it was worth every single step.",
+      },
+    ],
+  },
 ];
 
 export default posts;
