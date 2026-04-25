@@ -5658,6 +5658,256 @@ const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'bangkok-72h-nomade',
+    title: 'Bangkok en 72h sans budget touristique',
+    titleEn: 'Bangkok in 72h Without a Tourist Budget',
+    excerpt: "Bangkok intimide par sa taille et sa réputation. Mais avec 3 jours et la bonne approche, c'est l'une des villes les plus accessibles d'Asie — à condition de savoir où ne pas aller.",
+    excerptEn: "Bangkok intimidates with its size and reputation. But with 3 days and the right approach, it's one of the most accessible cities in Asia — as long as you know where not to go.",
+    date: '2026-04-25',
+    readTime: 6,
+    category: 'Voyages',
+    categoryEn: 'Travels',
+    thumbnail: '/blog/kuala-lumpur.jpg',
+    content: [
+      {
+        type: 'paragraph',
+        text: "La première fois que j'ai atterri à Bangkok, j'avais lu trop de blogs touristiques. J'avais réservé un hôtel trop cher près de Khao San Road, pris des tuk-tuks à des prix absurdes, et mangé dans des restaurants avec photos plastifiées. Trois jours perdus à faire le touriste.",
+      },
+      {
+        type: 'paragraph',
+        text: "La deuxième fois, j'avais compris le truc. Bangkok est une ville pour les gens qui y vivent — et si tu te comportes comme eux, c'est l'une des destinations les plus agréables et les moins chères d'Asie du Sud-Est.",
+      },
+      {
+        type: 'heading',
+        text: "Jour 1 : arriver et s'orienter",
+      },
+      {
+        type: 'paragraph',
+        text: "L'aéroport Suvarnabhumi est bien connecté. Prends le Airport Rail Link (45 bahts, environ 1,20€) jusqu'à Phaya Thai ou Makkasan, pas un taxi depuis le terminal — tu te ferais arnaquer. Une fois en ville, installe-toi autour de Silom, Ari ou Ekkamai plutôt que Sukhumvit centre ou Khao San. Même confort, moitié prix, plus local.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Transport aéroport → ville : Airport Rail Link (45 THB) + BTS/MRT",
+          "Logement : guesthouse ou appart Airbnb à Silom ou Ari — 15 à 30€/nuit",
+          "SIM locale : True Move ou AIS à l'aéroport — 7 jours data illimitée pour 10€",
+          "Appli indispensable : Grab pour les taxis — jamais de tuk-tuk sans prix fixé à l'avance",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Manger pour 2 à 4€ par repas",
+      },
+      {
+        type: 'paragraph',
+        text: "La règle d'or à Bangkok : si le resto a une carte en anglais avec photos, il est trop cher pour toi. Cherche les plastic tables sur le trottoir, les marchés de nuit, les food courts dans les centres commerciaux (pas ceux d'expats — ceux des locaux).",
+      },
+      {
+        type: 'list',
+        items: [
+          "Pad thaï de rue : 60-80 THB (1,50-2€) — évite les versions \"tourist price\" à 200 THB",
+          "Khao man gai (poulet riz) : 50 THB, repas complet, partout",
+          "Som tam (salade de papaye) : 60 THB, frais, pimenté si tu dis \"pet nit noi\"",
+          "Food court de centre commercial local (ex : MBK, Or Tor Kor Market) : 80-120 THB",
+          "7-Eleven pour le petit déjeuner : triangle de riz + café glacé = 50 THB",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Les 72h sans payer les prix touristes",
+      },
+      {
+        type: 'paragraph',
+        text: "Bangkok a des dizaines de temples — tu n'as pas besoin d'en faire dix. Wat Pho (200 THB) vaut le détour pour le bouddha couché. Wat Arun se visite de l'extérieur depuis le bord du fleuve, gratuitement. Le reste, c'est du remplissage.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Jour 1 soir — Chatuchak Weekend Market (gratuit, éviter si pas weekend) ou Talad Rot Fai Ratchada",
+          "Jour 2 matin — Wat Pho + balade à pied dans Rattanakosin Island",
+          "Jour 2 après-midi — quartier Ari ou Thonglor pour les cafés et le vrai Bangkok local",
+          "Jour 3 — Or Tor Kor Market le matin (le meilleur marché alimentaire de Bangkok), Lumphini Park, Silom le soir",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "Bangkok se mérite en quittant les zones touristiques. À 500 mètres de Khao San Road, tu retrouves la ville réelle.",
+      },
+      {
+        type: 'heading',
+        text: "Se déplacer sans se ruiner",
+      },
+      {
+        type: 'paragraph',
+        text: "Le réseau BTS Skytrain et MRT couvre bien la ville. Un trajet coûte entre 16 et 44 THB selon la distance. C'est propre, climatisé et ponctuel. Pour les zones non couvertes, Grab est incontournable — affiche toujours le prix avant de confirmer, contrairement aux taxis.",
+      },
+      {
+        type: 'list',
+        items: [
+          "BTS + MRT : 16-44 THB par trajet — le moyen le plus fiable",
+          "Bateaux sur le Chao Phraya : 15 THB, rapide, vue magnifique",
+          "Grab moto : 30-60 THB pour les courtes distances en heure de pointe",
+          "Taxis : OK si tu insistes pour le compteur (\"by meter please\") — sinon ils négocient",
+          "À éviter : tuk-tuks sans prix fixé, taxi depuis l'aéroport sans compteur",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Travailler depuis Bangkok",
+      },
+      {
+        type: 'paragraph',
+        text: "Bangkok a une scène de cafés de travail excellente, surtout dans les quartiers Ari, Ekkamai et Thonglor. Wifi rapide, AC fort, café de spécialité à 80-120 THB. La plupart des cafés acceptent qu'on s'installe 3-4h sans consommation supplémentaire.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Quartiers : Ari (calme, expats créatifs), Ekkamai/Thonglor (branchés), Silom (central)",
+          "Cafés recommandés : Roots Coffee, Factory Coffee, Ceresia — wifi stable, prises partout",
+          "Coworking si besoin de concentration : HUBBA, The Hive — environ 300-400 THB/jour",
+          "Éviter de travailler depuis le quartier touristique Sukhumvit centre — trop bruyant, trop cher",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Le budget réel sur 72h",
+      },
+      {
+        type: 'list',
+        items: [
+          "Logement (2 nuits) : 40-60€",
+          "Nourriture (9 repas) : 20-30€",
+          "Transport sur place : 5-8€",
+          "Entrées (Wat Pho + 1-2 sites) : 6-8€",
+          "Total : 70-100€ pour 3 jours — soit 25-35€/jour",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "C'est moins cher que Bali, moins cher que Chiang Mai en haute saison, et infiniment plus riche en expériences. Bangkok punit les touristes pressés et récompense ceux qui prennent le temps de ralentir.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "The first time I landed in Bangkok, I'd read too many tourist blogs. I'd booked an overpriced hotel near Khao San Road, taken tuk-tuks at absurd prices, and eaten at restaurants with laminated photo menus. Three days wasted playing tourist.",
+      },
+      {
+        type: 'paragraph',
+        text: "The second time, I'd figured it out. Bangkok is a city for the people who live there — and if you behave like them, it's one of the most pleasant and affordable destinations in Southeast Asia.",
+      },
+      {
+        type: 'heading',
+        text: "Day 1: arrive and get your bearings",
+      },
+      {
+        type: 'paragraph',
+        text: "Suvarnabhumi airport is well connected. Take the Airport Rail Link (45 baht, about €1.20) to Phaya Thai or Makkasan, not a taxi from the terminal — you'll get ripped off. Once in the city, stay around Silom, Ari or Ekkamai rather than central Sukhumvit or Khao San. Same comfort, half the price, more local.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Airport → city transport: Airport Rail Link (45 THB) + BTS/MRT",
+          "Accommodation: guesthouse or Airbnb in Silom or Ari — €15 to €30/night",
+          "Local SIM: True Move or AIS at the airport — 7 days unlimited data for €10",
+          "Essential app: Grab for taxis — never take a tuk-tuk without agreeing on a price first",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Eating for €2 to €4 per meal",
+      },
+      {
+        type: 'paragraph',
+        text: "The golden rule in Bangkok: if the restaurant has an English menu with photos, it's too expensive for you. Look for plastic tables on the pavement, night markets, food courts in shopping centres (not expat ones — local ones).",
+      },
+      {
+        type: 'list',
+        items: [
+          "Street pad thai: 60-80 THB (€1.50-2) — avoid the \"tourist price\" versions at 200 THB",
+          "Khao man gai (chicken rice): 50 THB, complete meal, everywhere",
+          "Som tam (papaya salad): 60 THB, fresh, spicy if you say \"pet nit noi\"",
+          "Local shopping centre food court (e.g. MBK, Or Tor Kor Market): 80-120 THB",
+          "7-Eleven for breakfast: rice triangle + iced coffee = 50 THB",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "72h without paying tourist prices",
+      },
+      {
+        type: 'paragraph',
+        text: "Bangkok has dozens of temples — you don't need to do ten of them. Wat Pho (200 THB) is worth it for the reclining Buddha. Wat Arun can be visited from the outside along the river, for free. The rest is filler.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Day 1 evening — Chatuchak Weekend Market (free, avoid if not weekend) or Talad Rot Fai Ratchada",
+          "Day 2 morning — Wat Pho + walk through Rattanakosin Island",
+          "Day 2 afternoon — Ari or Thonglor neighbourhood for coffee shops and the real local Bangkok",
+          "Day 3 — Or Tor Kor Market in the morning (Bangkok's best food market), Lumphini Park, Silom in the evening",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "Bangkok rewards you when you leave the tourist zones. 500 metres from Khao San Road, you find the real city.",
+      },
+      {
+        type: 'heading',
+        text: "Getting around without overpaying",
+      },
+      {
+        type: 'paragraph',
+        text: "The BTS Skytrain and MRT network covers the city well. A trip costs between 16 and 44 THB depending on the distance. It's clean, air-conditioned and punctual. For areas not covered, Grab is essential — it always shows the price before you confirm, unlike regular taxis.",
+      },
+      {
+        type: 'list',
+        items: [
+          "BTS + MRT: 16-44 THB per trip — the most reliable option",
+          "Chao Phraya river boats: 15 THB, fast, great views",
+          "Grab moto: 30-60 THB for short distances during rush hour",
+          "Taxis: fine if you insist on the meter (\"by meter please\") — otherwise they negotiate",
+          "Avoid: tuk-tuks without an agreed price, airport taxis without a meter",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Working from Bangkok",
+      },
+      {
+        type: 'paragraph',
+        text: "Bangkok has an excellent work café scene, especially in the Ari, Ekkamai and Thonglor neighbourhoods. Fast wifi, strong AC, specialty coffee at 80-120 THB. Most cafés are fine with you staying 3-4 hours without ordering again.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Neighbourhoods: Ari (quiet, creative expats), Ekkamai/Thonglor (trendy), Silom (central)",
+          "Recommended cafés: Roots Coffee, Factory Coffee, Ceresia — stable wifi, plugs everywhere",
+          "Coworking if you need focus: HUBBA, The Hive — around 300-400 THB/day",
+          "Avoid working from the tourist Sukhumvit area — too noisy, too expensive",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "The real 72h budget",
+      },
+      {
+        type: 'list',
+        items: [
+          "Accommodation (2 nights): €40-60",
+          "Food (9 meals): €20-30",
+          "Local transport: €5-8",
+          "Entry fees (Wat Pho + 1-2 sites): €6-8",
+          "Total: €70-100 for 3 days — i.e. €25-35/day",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "That's cheaper than Bali, cheaper than Chiang Mai in high season, and infinitely richer in experiences. Bangkok punishes the rushed tourist and rewards those who take the time to slow down.",
+      },
+    ],
+  },
 ];
 
 export default posts;
