@@ -4755,6 +4755,224 @@ const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'newsletter-automatique-claude-n8n',
+    title: 'Créer une newsletter automatique avec Claude + n8n',
+    titleEn: 'Build an Automated Newsletter with Claude + n8n',
+    excerpt: "Écrire une newsletter prend du temps. La faire écrire par Claude et l'envoyer via n8n sans toucher au clavier, ça prend une après-midi à mettre en place — et ça tourne tout seul ensuite.",
+    excerptEn: "Writing a newsletter takes time. Having Claude write it and sending it via n8n without touching the keyboard takes an afternoon to set up — and then it runs on its own.",
+    date: '2026-04-25',
+    readTime: 7,
+    category: 'Tech & IA',
+    categoryEn: 'Tech & AI',
+    thumbnail: '/blog/setup-nomade.png',
+    content: [
+      {
+        type: 'paragraph',
+        text: "J'envoyais ma newsletter à la main. Chaque semaine, je rassemblais des liens, je rédigeais une intro, je formatais dans Mailchimp, je cliquais sur envoyer. Une heure, parfois plus. Et souvent, je la sautais parce que j'avais autre chose à faire.",
+      },
+      {
+        type: 'paragraph',
+        text: "Depuis que j'ai connecté Claude et n8n, ça tourne tout seul. Je définis les sources, Claude rédige, n8n envoie. Je valide si je veux — ou pas. Voici comment ça marche.",
+      },
+      {
+        type: 'heading',
+        text: "Ce dont tu as besoin",
+      },
+      {
+        type: 'list',
+        items: [
+          "n8n — self-hosted (gratuit) ou n8n Cloud (plan free suffisant pour commencer)",
+          "Une clé API Claude (Anthropic) — le plan Haiku coûte presque rien à cette échelle",
+          "Un service d'envoi d'email : Brevo, Resend ou Mailchimp (tous ont une API gratuite)",
+          "Une ou plusieurs sources de contenu : flux RSS, Airtable, Notion, Google Sheets...",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Le workflow en 5 étapes",
+      },
+      {
+        type: 'paragraph',
+        text: "L'idée est simple : un déclencheur lance le workflow (tous les lundis à 8h par exemple), n8n récupère le contenu des sources, Claude rédige la newsletter, et le résultat est envoyé à ta liste.",
+      },
+      {
+        type: 'list',
+        items: [
+          "1. Trigger — Schedule node : tous les lundis à 8h00",
+          "2. Fetch — HTTP Request nodes : récupère les derniers articles de tes flux RSS ou ta base Notion",
+          "3. Aggregate — Code node : regroupe et nettoie les données en un seul bloc de texte",
+          "4. Generate — Claude API node : envoie le prompt + les données, reçoit la newsletter rédigée",
+          "5. Send — Brevo / Resend node : envoie l'email à ta liste",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Le prompt qui fait tout le travail",
+      },
+      {
+        type: 'paragraph',
+        text: "C'est là que tout se joue. Un prompt vague donne une newsletter générique. Un prompt précis donne quelque chose qui ressemble vraiment à toi.",
+      },
+      {
+        type: 'code',
+        text: `Tu es moi. Tu écris ma newsletter hebdomadaire "Tonton Weekly".
+
+Ton style : direct, sans bullshit, avec une touche d'humour. Tu tutoies. Tu ne fais pas de grandes introductions. Tu vas à l'essentiel.
+
+Voici les contenus de la semaine :
+{{articles}}
+
+Structure la newsletter ainsi :
+- Un titre accrocheur (pas clickbait, mais percutant)
+- Une intro de 2-3 phrases maximum
+- 3 à 5 sections courtes, une par sujet, avec un lien
+- Une phrase de clôture personnelle
+
+Format HTML prêt à coller dans un emailer. Pas de markdown.`,
+      },
+      {
+        type: 'paragraph',
+        text: "Le placeholder {{articles}} est rempli dynamiquement par n8n avec le contenu récupéré à l'étape précédente. Claude reçoit donc le contexte complet à chaque exécution.",
+      },
+      {
+        type: 'heading',
+        text: "Ajouter une étape de validation (optionnel)",
+      },
+      {
+        type: 'paragraph',
+        text: "Si tu ne veux pas envoyer automatiquement sans lire, insère un nœud Wait + un webhook entre la génération et l'envoi. n8n t'envoie un email avec un lien \"Valider\" et \"Rejeter\". Tu cliques, le workflow reprend ou s'arrête. Tu gardes le contrôle sans faire le travail.",
+      },
+      {
+        type: 'quote',
+        text: "L'automatisation ne remplace pas ta voix — elle te libère du temps pour que tu puisses l'utiliser là où ça compte vraiment.",
+      },
+      {
+        type: 'heading',
+        text: "Ce que ça change concrètement",
+      },
+      {
+        type: 'paragraph',
+        text: "Ma newsletter sort maintenant chaque semaine, sans exception. La régularité a fait grimper mon taux d'ouverture de 22% à 34% en deux mois. Pas parce que le contenu est meilleur — parce qu'il est là, consistant, prévisible.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Temps passé par newsletter : de 60 min à 5 min (relecture + validation)",
+          "Fréquence : de \"quand j'y pense\" à chaque lundi sans exception",
+          "Coût API Claude pour 52 newsletters/an : environ 3-4€",
+          "n8n self-hosted sur un VPS à 5€/mois : zéro coût supplémentaire",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Le workflow complet est dispo sur mon GitHub si tu veux le forker directement. Il suffit de brancher tes propres clés API et d'ajuster le prompt à ta voix.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "I used to write my newsletter by hand. Every week, gathering links, writing an intro, formatting in Mailchimp, clicking send. An hour, sometimes more. And often, I'd skip it because I had other things to do.",
+      },
+      {
+        type: 'paragraph',
+        text: "Since connecting Claude and n8n, it runs on its own. I define the sources, Claude writes, n8n sends. I approve if I want — or not. Here's how it works.",
+      },
+      {
+        type: 'heading',
+        text: "What you need",
+      },
+      {
+        type: 'list',
+        items: [
+          "n8n — self-hosted (free) or n8n Cloud (free plan is enough to start)",
+          "A Claude API key (Anthropic) — the Haiku plan costs almost nothing at this scale",
+          "An email sending service: Brevo, Resend or Mailchimp (all have free APIs)",
+          "One or more content sources: RSS feeds, Airtable, Notion, Google Sheets...",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "The workflow in 5 steps",
+      },
+      {
+        type: 'paragraph',
+        text: "The idea is simple: a trigger starts the workflow (every Monday at 8am for example), n8n fetches content from sources, Claude writes the newsletter, and the result is sent to your list.",
+      },
+      {
+        type: 'list',
+        items: [
+          "1. Trigger — Schedule node: every Monday at 8:00am",
+          "2. Fetch — HTTP Request nodes: retrieves latest articles from your RSS feeds or Notion database",
+          "3. Aggregate — Code node: groups and cleans the data into a single text block",
+          "4. Generate — Claude API node: sends the prompt + data, receives the drafted newsletter",
+          "5. Send — Brevo / Resend node: sends the email to your list",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "The prompt that does all the work",
+      },
+      {
+        type: 'paragraph',
+        text: "This is where everything happens. A vague prompt produces a generic newsletter. A precise prompt produces something that actually sounds like you.",
+      },
+      {
+        type: 'code',
+        text: `You are me. You write my weekly newsletter "Tonton Weekly".
+
+Your style: direct, no bullshit, with a touch of humour. Informal tone. No long intros. Get to the point.
+
+Here is this week's content:
+{{articles}}
+
+Structure the newsletter as follows:
+- A catchy title (not clickbait, but punchy)
+- An intro of 2-3 sentences maximum
+- 3 to 5 short sections, one per topic, with a link
+- A personal closing line
+
+HTML format ready to paste into an emailer. No markdown.`,
+      },
+      {
+        type: 'paragraph',
+        text: "The {{articles}} placeholder is filled dynamically by n8n with the content fetched in the previous step. Claude receives the full context on every run.",
+      },
+      {
+        type: 'heading',
+        text: "Adding a validation step (optional)",
+      },
+      {
+        type: 'paragraph',
+        text: "If you don't want to send automatically without reading first, insert a Wait node + a webhook between generation and sending. n8n sends you an email with an \"Approve\" and \"Reject\" link. You click, the workflow resumes or stops. You stay in control without doing the work.",
+      },
+      {
+        type: 'quote',
+        text: "Automation doesn't replace your voice — it frees up your time so you can use it where it really matters.",
+      },
+      {
+        type: 'heading',
+        text: "What it actually changes",
+      },
+      {
+        type: 'paragraph',
+        text: "My newsletter now goes out every week, without exception. The consistency pushed my open rate from 22% to 34% in two months. Not because the content is better — because it's there, consistent, predictable.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Time per newsletter: from 60 min to 5 min (review + approval)",
+          "Frequency: from 'when I think about it' to every Monday without fail",
+          "Claude API cost for 52 newsletters/year: around €3-4",
+          "n8n self-hosted on a €5/month VPS: zero extra cost",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "The full workflow is available on my GitHub if you want to fork it directly. Just plug in your own API keys and adjust the prompt to your voice.",
+      },
+    ],
+  },
 ];
 
 export default posts;
