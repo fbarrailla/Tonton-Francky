@@ -5383,6 +5383,248 @@ const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'concours-instagram-de-a-a-z',
+    title: 'Organiser un concours Instagram de A à Z',
+    titleEn: 'Running an Instagram Giveaway from A to Z',
+    excerpt: "De la rédaction des règles à l'annonce du gagnant, avec ManyChat pour collecter les participants en temps réel et un script pour récupérer ceux d'avant — le guide complet.",
+    excerptEn: "From writing the rules to announcing the winner, with ManyChat to collect participants in real time and a script to retrieve earlier ones — the complete guide.",
+    date: '2026-04-25',
+    readTime: 7,
+    category: 'Tech & IA',
+    categoryEn: 'Tech & AI',
+    thumbnail: '/blog/scraper-commentaires-instagram.png',
+    content: [
+      {
+        type: 'paragraph',
+        text: "Un concours Instagram bien organisé peut doubler ton engagement en 5 jours. Mais entre les règles floues, les commentaires perdus, les participants qui trichent et les annonces bâclées, la plupart ratent l'essentiel. Voici le process que j'utilise maintenant, outillé de bout en bout.",
+      },
+      {
+        type: 'heading',
+        text: "Phase 1 : définir les règles avant de poster",
+      },
+      {
+        type: 'paragraph',
+        text: "Un concours sans règles claires, c'est une source de conflits. Avant de publier quoi que ce soit, décide de trois choses : ce que les gens doivent faire pour participer, qui peut participer, et quand et comment le gagnant sera annoncé.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Action requise : suivre le compte + liker le post + commenter un mot-clé (ex : \"WEBSITE\")",
+          "Conditions : compte public obligatoire, un seul gagnant par personne",
+          "Date de clôture : annonce précise (ex : samedi 25 avril à 20h)",
+          "Prix : décrit clairement — valeur, ce qui est inclus, délai de livraison",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Phase 2 : configurer ManyChat avant le lancement",
+      },
+      {
+        type: 'paragraph',
+        text: "C'est l'étape que la plupart oublient — et qui coûte des participants. Configure ManyChat avant de publier le post, pas après. Dès que quelqu'un commente le mot-clé, ManyChat lui envoie automatiquement un DM de confirmation et enregistre son profil.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Dans ManyChat : crée un flow \"Comment Growth Tool\" → choisis le post → mot-clé déclencheur",
+          "DM automatique de confirmation : \"Merci pour ta participation ! Le gagnant sera annoncé le [date]. Bonne chance 🎉\"",
+          "Tag automatique : ajoute un tag \"concours-website\" à chaque participant pour les retrouver facilement",
+          "Exporte la liste des tags à tout moment depuis l'onglet Contacts",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Phase 3 : le post et le visuel",
+      },
+      {
+        type: 'paragraph',
+        text: "Le visuel doit communiquer le prix en moins de 2 secondes. Titre en gros, image du prix, les 3 étapes de participation numérotées, date d'annonce visible. Pas de texte en corps de post — tout doit être dans l'image ou en caption courte.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Caption : 3 lignes max — le prix, les étapes, la date",
+          "Hashtags : 5 à 10 ciblés, pas 30 génériques",
+          "Épingle le post en haut de ton profil pendant toute la durée",
+          "Stories quotidiennes pour rappeler le concours et créer de l'urgence",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Phase 4 : récupérer tous les commentaires",
+      },
+      {
+        type: 'paragraph',
+        text: "ManyChat collecte les participants en temps réel — mais seulement depuis sa mise en place. Si tu as publié le post avant de configurer ManyChat, ou si tu veux vérifier que personne ne manque, il faut récupérer les commentaires directement via l'API Instagram.",
+      },
+      {
+        type: 'paragraph',
+        text: "J'utilise un script Python qui appelle l'API GraphQL interne d'Instagram avec un cookie de session, récupère tous les commentaires paginés et exporte la liste en CSV. En 30 secondes, j'ai les 61 participants avec leur username, leur commentaire et le nombre de likes.",
+      },
+      {
+        type: 'quote',
+        text: "ManyChat pour le temps réel, le script pour le rattrapage. Les deux ensemble garantissent zéro participant perdu.",
+      },
+      {
+        type: 'heading',
+        text: "Phase 5 : nettoyer la liste et tirer au sort",
+      },
+      {
+        type: 'paragraph',
+        text: "Avant le tirage, nettoie la liste : supprime les doublons (certains commentent plusieurs fois), vérifie que les comptes sont publics, et retire les participants qui ne suivent pas le compte si c'était une condition.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Déduplique par username — garde une seule participation par personne",
+          "Vérifie les conditions : compte public, abonné au compte",
+          "Outil de tirage : wheelofnames.com ou random.org — simple, visuel, traçable",
+          "Fais une capture d'écran ou un screen record du tirage pour prouver la transparence",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Phase 6 : annoncer le gagnant",
+      },
+      {
+        type: 'paragraph',
+        text: "L'annonce est aussi importante que le concours lui-même. Une bonne annonce génère de l'engagement, renforce la confiance et donne envie de participer au prochain.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Post dédié avec le username du gagnant + capture du tirage",
+          "Story avec compte à rebours : \"Le gagnant est...\" + reveal",
+          "DM direct au gagnant via ManyChat (automatisé si tu as son tag)",
+          "Délai de réponse du gagnant : 48h, sinon nouveau tirage — précise-le dans les règles",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Ce que j'aurais fait différemment",
+      },
+      {
+        type: 'paragraph',
+        text: "Sur mon dernier concours, j'ai configuré ManyChat après avoir publié — ce qui m'a forcé à récupérer les premiers commentaires manuellement via script. La prochaine fois : ManyChat d'abord, post ensuite. Et je prévois le visuel d'annonce à l'avance pour le publier dans les minutes qui suivent le tirage, pas le lendemain.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "A well-run Instagram giveaway can double your engagement in 5 days. But between vague rules, lost comments, cheating participants and botched announcements, most people miss the essentials. Here's the process I now use, tooled from end to end.",
+      },
+      {
+        type: 'heading',
+        text: "Phase 1: define the rules before posting",
+      },
+      {
+        type: 'paragraph',
+        text: "A giveaway without clear rules is a source of conflict. Before publishing anything, decide three things: what people need to do to enter, who can enter, and when and how the winner will be announced.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Required action: follow the account + like the post + comment a keyword (e.g. \"WEBSITE\")",
+          "Conditions: public account required, one winner per person",
+          "Closing date: a precise announcement (e.g. Saturday April 25 at 8pm)",
+          "Prize: clearly described — value, what's included, delivery timeline",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Phase 2: configure ManyChat before launching",
+      },
+      {
+        type: 'paragraph',
+        text: "This is the step most people forget — and it costs them participants. Configure ManyChat before publishing the post, not after. As soon as someone comments the keyword, ManyChat automatically sends them a confirmation DM and logs their profile.",
+      },
+      {
+        type: 'list',
+        items: [
+          "In ManyChat: create a \"Comment Growth Tool\" flow → select the post → trigger keyword",
+          "Automatic confirmation DM: \"Thanks for entering! The winner will be announced on [date]. Good luck 🎉\"",
+          "Automatic tag: add a \"giveaway-website\" tag to each participant for easy retrieval",
+          "Export the tag list at any time from the Contacts tab",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Phase 3: the post and visual",
+      },
+      {
+        type: 'paragraph',
+        text: "The visual needs to communicate the prize in under 2 seconds. Big title, image of the prize, the 3 entry steps numbered, visible announcement date. No body text — everything should be in the image or a short caption.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Caption: 3 lines max — the prize, the steps, the date",
+          "Hashtags: 5 to 10 targeted ones, not 30 generic ones",
+          "Pin the post to the top of your profile for the duration",
+          "Daily Stories to remind people about the giveaway and create urgency",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Phase 4: retrieve all comments",
+      },
+      {
+        type: 'paragraph',
+        text: "ManyChat collects participants in real time — but only from when it was set up. If you published the post before configuring ManyChat, or if you want to make sure no one is missing, you need to retrieve comments directly via the Instagram API.",
+      },
+      {
+        type: 'paragraph',
+        text: "I use a Python script that calls Instagram's internal GraphQL API with a session cookie, fetches all paginated comments and exports the list as CSV. In 30 seconds, I have all 61 participants with their username, comment and like count.",
+      },
+      {
+        type: 'quote',
+        text: "ManyChat for real time, the script for catch-up. Together they guarantee zero lost participant.",
+      },
+      {
+        type: 'heading',
+        text: "Phase 5: clean the list and draw",
+      },
+      {
+        type: 'paragraph',
+        text: "Before the draw, clean the list: remove duplicates (some people comment multiple times), verify accounts are public, and remove participants who don't follow the account if that was a condition.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Deduplicate by username — keep one entry per person",
+          "Check conditions: public account, following the account",
+          "Draw tool: wheelofnames.com or random.org — simple, visual, traceable",
+          "Take a screenshot or screen recording of the draw to prove transparency",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Phase 6: announce the winner",
+      },
+      {
+        type: 'paragraph',
+        text: "The announcement is as important as the giveaway itself. A good announcement generates engagement, builds trust and makes people want to enter the next one.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Dedicated post with the winner's username + draw screenshot",
+          "Story with countdown: \"The winner is...\" + reveal",
+          "Direct DM to the winner via ManyChat (automated if you have their tag)",
+          "Winner response deadline: 48h, otherwise redraw — state this in the rules",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "What I would have done differently",
+      },
+      {
+        type: 'paragraph',
+        text: "In my last giveaway, I configured ManyChat after publishing — which forced me to retrieve the first comments manually via script. Next time: ManyChat first, post second. And I'll prepare the announcement visual in advance to publish it within minutes of the draw, not the next day.",
+      },
+    ],
+  },
 ];
 
 export default posts;
