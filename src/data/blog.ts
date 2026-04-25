@@ -5035,6 +5035,30 @@ const posts: BlogPost[] = [
       },
       {
         type: 'heading',
+        text: "L'approche officielle : ManyChat",
+      },
+      {
+        type: 'paragraph',
+        text: "Avant d'aller chercher une solution technique, j'avais essayé ManyChat — un outil qui s'intègre officiellement avec Instagram via son API partenaire. Le principe : tu configures un trigger sur un mot-clé (ici \"WEBSITE\"), et chaque fois que quelqu'un commente ce mot, ManyChat l'enregistre automatiquement et peut lui envoyer un DM.",
+      },
+      {
+        type: 'paragraph',
+        text: "L'avantage : c'est propre, légal, et ça collecte les données en temps réel. L'inconvénient : ManyChat ne te donne pas accès aux commentaires déjà postés avant la mise en place du trigger. Pour un concours lancé avant la configuration, tu rates les premiers participants.",
+      },
+      {
+        type: 'list',
+        items: [
+          "ManyChat → parfait pour collecter les participants en temps réel dès le départ",
+          "GraphQL API → indispensable pour récupérer les commentaires déjà existants",
+          "Les deux sont complémentaires : ManyChat pour les futurs concours, le script pour les rattrapage",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Dans mon cas, j'avais lancé le concours sans ManyChat. Il fallait donc tout récupérer après coup — d'où la session Claude Code.",
+      },
+      {
+        type: 'heading',
         text: "Ce que ça change pour les concours Instagram",
       },
       {
@@ -5122,6 +5146,30 @@ const posts: BlogPost[] = [
       {
         type: 'quote',
         text: "Undocumented APIs are everywhere. Browsers send network requests — you just need to observe them to understand how the site really works.",
+      },
+      {
+        type: 'heading',
+        text: "The official approach: ManyChat",
+      },
+      {
+        type: 'paragraph',
+        text: "Before going the technical route, I had tried ManyChat — a tool that integrates officially with Instagram via its partner API. The idea: you set up a keyword trigger (here \"WEBSITE\"), and every time someone comments that word, ManyChat automatically logs it and can send them a DM.",
+      },
+      {
+        type: 'paragraph',
+        text: "The advantage: it's clean, legitimate, and collects data in real time. The downside: ManyChat doesn't give you access to comments posted before the trigger was set up. If you launch a giveaway before configuring it, you miss the early participants.",
+      },
+      {
+        type: 'list',
+        items: [
+          "ManyChat → perfect for collecting participants in real time from the start",
+          "GraphQL API → essential for retrieving comments that already exist",
+          "Both are complementary: ManyChat for future giveaways, the script for catching up",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "In my case, I had launched the giveaway without ManyChat. So everything had to be retrieved after the fact — hence the Claude Code session.",
       },
       {
         type: 'heading',
