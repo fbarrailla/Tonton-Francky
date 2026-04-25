@@ -5479,8 +5479,19 @@ const posts: BlogPost[] = [
         items: [
           "Déduplique par username — garde une seule participation par personne",
           "Vérifie les conditions : compte public, abonné au compte",
-          "Outil de tirage : wheelofnames.com ou random.org — simple, visuel, traçable",
           "Fais une capture d'écran ou un screen record du tirage pour prouver la transparence",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Pour le tirage, j'utilise ma propre roue de la fortune : fortune-wheel. Tu colles la liste des usernames, la roue tourne, le gagnant s'affiche. Simple, visuel, et parfait à filmer pour une Story Instagram.",
+      },
+      {
+        type: 'list',
+        items: [
+          "👉 fbarrailla.github.io/fortune-wheel",
+          "Colle la liste CSV des participants en un clic",
+          "Lance la roue en direct devant tes abonnés pour un maximum de transparence",
         ],
       },
       {
@@ -5594,8 +5605,19 @@ const posts: BlogPost[] = [
         items: [
           "Deduplicate by username — keep one entry per person",
           "Check conditions: public account, following the account",
-          "Draw tool: wheelofnames.com or random.org — simple, visual, traceable",
           "Take a screenshot or screen recording of the draw to prove transparency",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "For the draw, I use my own fortune wheel: fortune-wheel. Paste the list of usernames, spin the wheel, the winner appears. Simple, visual, and perfect to film for an Instagram Story.",
+      },
+      {
+        type: 'list',
+        items: [
+          "👉 fbarrailla.github.io/fortune-wheel",
+          "Paste the CSV list of participants in one click",
+          "Spin the wheel live in front of your followers for maximum transparency",
         ],
       },
       {
