@@ -21,6 +21,13 @@ interface ReplayPost {
 
 const replays: ReplayPost[] = [
   {
+    id: 5,
+    title: 'Scrapper les commentaires Instagram avec l\'IA',
+    titleEn: 'Scraping Instagram Comments with AI',
+    date: 'Avril 2026',
+    youtubeId: 'ltkkMkDfY3w',
+  },
+  {
     id: 4,
     title: 'Créer et publier un site web avec Claude Code',
     titleEn: 'Building and Publishing a website using Claude Code',
