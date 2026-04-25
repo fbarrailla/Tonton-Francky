@@ -4816,20 +4816,7 @@ const posts: BlogPost[] = [
       },
       {
         type: 'code',
-        text: `Tu es moi. Tu écris ma newsletter hebdomadaire "Tonton Weekly".
-
-Ton style : direct, sans bullshit, avec une touche d'humour. Tu tutoies. Tu ne fais pas de grandes introductions. Tu vas à l'essentiel.
-
-Voici les contenus de la semaine :
-{{articles}}
-
-Structure la newsletter ainsi :
-- Un titre accrocheur (pas clickbait, mais percutant)
-- Une intro de 2-3 phrases maximum
-- 3 à 5 sections courtes, une par sujet, avec un lien
-- Une phrase de clôture personnelle
-
-Format HTML prêt à coller dans un emailer. Pas de markdown.`,
+        text: "Tu es moi. Tu écris ma newsletter hebdomadaire \"Tonton Weekly\".\n\nTon style : direct, sans bullshit, avec une touche d'humour. Tu tutoies. Tu ne fais pas de grandes introductions. Tu vas à l'essentiel.\n\nVoici les contenus de la semaine :\n{{articles}}\n\nStructure la newsletter ainsi :\n- Un titre accrocheur (pas clickbait, mais percutant)\n- Une intro de 2-3 phrases maximum\n- 3 à 5 sections courtes, une par sujet, avec un lien\n- Une phrase de clôture personnelle\n\nFormat HTML prêt à coller dans un emailer. Pas de markdown.",
       },
       {
         type: 'paragraph',
@@ -4919,20 +4906,7 @@ Format HTML prêt à coller dans un emailer. Pas de markdown.`,
       },
       {
         type: 'code',
-        text: `You are me. You write my weekly newsletter "Tonton Weekly".
-
-Your style: direct, no bullshit, with a touch of humour. Informal tone. No long intros. Get to the point.
-
-Here is this week's content:
-{{articles}}
-
-Structure the newsletter as follows:
-- A catchy title (not clickbait, but punchy)
-- An intro of 2-3 sentences maximum
-- 3 to 5 short sections, one per topic, with a link
-- A personal closing line
-
-HTML format ready to paste into an emailer. No markdown.`,
+        text: "You are me. You write my weekly newsletter \"Tonton Weekly\".\n\nYour style: direct, no bullshit, with a touch of humour. Informal tone. No long intros. Get to the point.\n\nHere is this week's content:\n{{articles}}\n\nStructure the newsletter as follows:\n- A catchy title (not clickbait, but punchy)\n- An intro of 2-3 sentences maximum\n- 3 to 5 short sections, one per topic, with a link\n- A personal closing line\n\nHTML format ready to paste into an emailer. No markdown.",
       },
       {
         type: 'paragraph',
@@ -4983,7 +4957,7 @@ HTML format ready to paste into an emailer. No markdown.`,
     readTime: 5,
     category: 'Tech & IA',
     categoryEn: 'Tech & AI',
-    thumbnail: '/blog/setup-nomade.png',
+    thumbnail: '/blog/scraper-commentaires-instagram.png',
     content: [
       {
         type: 'paragraph',
@@ -5032,9 +5006,7 @@ HTML format ready to paste into an emailer. No markdown.`,
       },
       {
         type: 'code',
-        text: `curl "https://www.instagram.com/graphql/query/?query_hash=97b41c52301f77ce508f55e66d17620e&variables={\"shortcode\":\"XXXX\",\"first\":50}" \\
-  -H "Cookie: sessionid=TON_SESSION_ID; csrftoken=TON_CSRF" \\
-  -H "X-IG-App-ID: 936619743392459"`,
+        text: "curl \"https://www.instagram.com/graphql/query/?query_hash=97b41c52301f77ce508f55e66d17620e&variables={\\\"shortcode\\\":\\\"XXXX\\\",\\\"first\\\":50}\" \\\\\n  -H \"Cookie: sessionid=TON_SESSION_ID; csrftoken=TON_CSRF\" \\\\\n  -H \"X-IG-App-ID: 936619743392459\"",
       },
       {
         type: 'paragraph',
