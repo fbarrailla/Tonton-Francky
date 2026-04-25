@@ -5501,6 +5501,11 @@ const posts: BlogPost[] = [
         text: 'Tirage au sort en direct — fortune-wheel',
       },
       {
+        type: 'video',
+        youtubeId: 'kB1rk3AlDQ8',
+        text: 'Tirage au sort du concours — 25 avril 2026',
+      },
+      {
         type: 'heading',
         text: "Phase 6 : annoncer le gagnant",
       },
@@ -5630,6 +5635,11 @@ const posts: BlogPost[] = [
         type: 'video',
         youtubeId: 'SYQK--0GlmY',
         text: 'Live draw — fortune-wheel',
+      },
+      {
+        type: 'video',
+        youtubeId: 'kB1rk3AlDQ8',
+        text: 'Giveaway draw — April 25, 2026',
       },
       {
         type: 'heading',
