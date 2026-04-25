@@ -269,6 +269,18 @@ export default function BlogDetail() {
                     ))}
                   </div>
                 );
+              case 'video':
+                return (
+                  <div key={i} className="my-8 rounded-2xl overflow-hidden aspect-video bg-stone-900">
+                    <iframe
+                      src={`https://www.youtube-nocookie.com/embed/${section.youtubeId}`}
+                      title={section.text ?? 'Vidéo'}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  </div>
+                );
               default:
                 return null;
             }

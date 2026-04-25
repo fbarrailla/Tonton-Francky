@@ -1,8 +1,9 @@
 export interface BlogSection {
-  type: 'paragraph' | 'heading' | 'list' | 'quote' | 'code' | 'gallery';
+  type: 'paragraph' | 'heading' | 'list' | 'quote' | 'code' | 'gallery' | 'video';
   text?: string;
   items?: string[];
   images?: string[];
+  youtubeId?: string;
 }
 
 export interface BlogPost {
@@ -5495,6 +5496,11 @@ const posts: BlogPost[] = [
         ],
       },
       {
+        type: 'video',
+        youtubeId: 'SYQK--0GlmY',
+        text: 'Tirage au sort en direct — fortune-wheel',
+      },
+      {
         type: 'heading',
         text: "Phase 6 : annoncer le gagnant",
       },
@@ -5619,6 +5625,11 @@ const posts: BlogPost[] = [
           "Paste the CSV list of participants in one click",
           "Spin the wheel live in front of your followers for maximum transparency",
         ],
+      },
+      {
+        type: 'video',
+        youtubeId: 'SYQK--0GlmY',
+        text: 'Live draw — fortune-wheel',
       },
       {
         type: 'heading',
