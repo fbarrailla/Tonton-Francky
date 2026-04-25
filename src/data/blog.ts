@@ -5393,7 +5393,7 @@ const posts: BlogPost[] = [
     readTime: 7,
     category: 'Tech & IA',
     categoryEn: 'Tech & AI',
-    thumbnail: '/blog/scraper-commentaires-instagram.png',
+    thumbnail: '/blog/concours-instagram-de-a-a-z.png',
     content: [
       {
         type: 'paragraph',
