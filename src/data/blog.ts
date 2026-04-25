@@ -4973,6 +4973,198 @@ HTML format ready to paste into an emailer. No markdown.`,
       },
     ],
   },
+  {
+    slug: 'scraper-commentaires-instagram-ia',
+    title: 'Comment j\'ai scrappé les commentaires Instagram avec Claude Code',
+    titleEn: 'How I Scraped Instagram Comments with Claude Code',
+    excerpt: "Instagram bloque tout sans connexion. Avec Claude Code, Puppeteer et un cookie de session, j'ai récupéré les 61 commentaires d'un post de concours en quelques minutes.",
+    excerptEn: "Instagram blocks everything without login. With Claude Code, Puppeteer and a session cookie, I retrieved all 61 comments from a giveaway post in a few minutes.",
+    date: '2026-04-25',
+    readTime: 5,
+    category: 'Tech & IA',
+    categoryEn: 'Tech & AI',
+    thumbnail: '/blog/setup-nomade.png',
+    content: [
+      {
+        type: 'paragraph',
+        text: "J'organisais un concours sur Instagram. 61 commentaires, un gagnant à tirer au sort. Le problème : Instagram n'affiche que quelques commentaires sans connexion, masque le reste derrière une popup de login, et son API officielle est morte depuis 2020.",
+      },
+      {
+        type: 'paragraph',
+        text: "Plutôt que de copier-coller à la main, j'ai demandé à Claude Code de résoudre ça. Voici exactement ce qu'on a fait — et ce que ça m'a appris sur les limites des sites modernes.",
+      },
+      {
+        type: 'heading',
+        text: "Première tentative : Puppeteer à froid",
+      },
+      {
+        type: 'paragraph',
+        text: "Claude a d'abord essayé d'ouvrir le post avec Puppeteer (un navigateur headless contrôlé par code), de fermer la popup de login et d'extraire les commentaires via JavaScript. Résultat : Instagram détecte l'automatisation, fait une redirection React interne qui détache le frame, et tout s'arrête.",
+      },
+      {
+        type: 'paragraph',
+        text: "C'est un mécanisme anti-bot classique sur les SPA (Single Page Applications) : le JavaScript du site remplace le frame de navigation, coupant la connexion avec Puppeteer avant qu'on puisse rien faire.",
+      },
+      {
+        type: 'heading',
+        text: "Deuxième tentative : injecter un cookie de session",
+      },
+      {
+        type: 'paragraph',
+        text: "La vraie solution était ailleurs. Instagram accepte les requêtes authentifiées via son API GraphQL interne — à condition d'avoir un cookie de session valide. Il suffit de :",
+      },
+      {
+        type: 'list',
+        items: [
+          "Ouvrir Instagram dans son navigateur habituel (déjà connecté)",
+          "Aller dans DevTools → Application → Cookies → instagram.com",
+          "Copier la valeur du cookie sessionid",
+          "L'injecter dans les requêtes curl ou Python",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "L'API GraphQL cachée d'Instagram",
+      },
+      {
+        type: 'paragraph',
+        text: "Instagram utilise en interne une API GraphQL pour charger les commentaires dans le navigateur. Elle n'est pas documentée publiquement, mais elle est accessible si on envoie les bons headers. Claude a identifié le bon endpoint et le query hash à utiliser :",
+      },
+      {
+        type: 'code',
+        text: `curl "https://www.instagram.com/graphql/query/?query_hash=97b41c52301f77ce508f55e66d17620e&variables={\"shortcode\":\"XXXX\",\"first\":50}" \\
+  -H "Cookie: sessionid=TON_SESSION_ID; csrftoken=TON_CSRF" \\
+  -H "X-IG-App-ID: 936619743392459"`,
+      },
+      {
+        type: 'paragraph',
+        text: "La réponse est du JSON propre avec tous les commentaires, les usernames, les likes et la pagination. Pour un post avec plus de 50 commentaires, on pagine avec le curseur renvoyé dans page_info.",
+      },
+      {
+        type: 'heading',
+        text: "Le script Python final",
+      },
+      {
+        type: 'paragraph',
+        text: "Claude a écrit un script Python qui récupère toutes les pages automatiquement, déduplique par ID de commentaire (Instagram peut renvoyer des doublons en pagination), et affiche le résultat proprement :",
+      },
+      {
+        type: 'list',
+        items: [
+          "50 commentaires uniques récupérés sur 61 affichés (les 11 restants sont filtrés comme spam par Instagram)",
+          "Pagination automatique avec gestion du curseur",
+          "Déduplication par ID pour éviter les doublons",
+          "Export en CSV ou liste simple en une ligne",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "Les APIs non documentées sont partout. Les navigateurs envoient des requêtes réseau — il suffit de les observer pour comprendre comment le site fonctionne vraiment.",
+      },
+      {
+        type: 'heading',
+        text: "Ce que ça change pour les concours Instagram",
+      },
+      {
+        type: 'paragraph',
+        text: "Le script tourne en quelques secondes. Tu récupères la liste complète des participants en CSV, tu peux l'importer dans un outil de tirage au sort, vérifier les doublons (certains commentent plusieurs fois), et automatiser l'annonce du gagnant. Ce qui prenait 30 minutes de copier-coller manuel prend maintenant 30 secondes.",
+      },
+      {
+        type: 'paragraph',
+        text: "Le replay complet de la session est disponible sur YouTube — on voit Claude Code construire la solution en direct, avec tous les faux départs et ajustements.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "I was running an Instagram giveaway. 61 comments, one winner to draw. The problem: Instagram only shows a few comments without login, hides the rest behind a signup popup, and its official API has been dead since 2020.",
+      },
+      {
+        type: 'paragraph',
+        text: "Rather than copy-pasting by hand, I asked Claude Code to solve it. Here's exactly what we did — and what it taught me about the limitations of modern websites.",
+      },
+      {
+        type: 'heading',
+        text: "First attempt: cold Puppeteer",
+      },
+      {
+        type: 'paragraph',
+        text: "Claude first tried opening the post with Puppeteer (a headless browser controlled by code), closing the login popup and extracting comments via JavaScript. Result: Instagram detects automation, triggers an internal React redirect that detaches the frame, and everything stops.",
+      },
+      {
+        type: 'paragraph',
+        text: "This is a classic anti-bot mechanism on SPAs (Single Page Applications): the site's JavaScript replaces the navigation frame, cutting the Puppeteer connection before anything can be done.",
+      },
+      {
+        type: 'heading',
+        text: "Second attempt: injecting a session cookie",
+      },
+      {
+        type: 'paragraph',
+        text: "The real solution was elsewhere. Instagram accepts authenticated requests via its internal GraphQL API — as long as you have a valid session cookie. You just need to:",
+      },
+      {
+        type: 'list',
+        items: [
+          "Open Instagram in your regular browser (already logged in)",
+          "Go to DevTools → Application → Cookies → instagram.com",
+          "Copy the value of the sessionid cookie",
+          "Inject it into curl or Python requests",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Instagram's hidden GraphQL API",
+      },
+      {
+        type: 'paragraph',
+        text: "Instagram uses an internal GraphQL API to load comments in the browser. It's not publicly documented, but it's accessible if you send the right headers. Claude identified the correct endpoint and query hash:",
+      },
+      {
+        type: 'code',
+        text: `curl "https://www.instagram.com/graphql/query/?query_hash=97b41c52301f77ce508f55e66d17620e&variables={\"shortcode\":\"XXXX\",\"first\":50}" \\
+  -H "Cookie: sessionid=YOUR_SESSION_ID; csrftoken=YOUR_CSRF" \\
+  -H "X-IG-App-ID: 936619743392459"`,
+      },
+      {
+        type: 'paragraph',
+        text: "The response is clean JSON with all comments, usernames, likes and pagination. For posts with more than 50 comments, paginate using the cursor returned in page_info.",
+      },
+      {
+        type: 'heading',
+        text: "The final Python script",
+      },
+      {
+        type: 'paragraph',
+        text: "Claude wrote a Python script that automatically fetches all pages, deduplicates by comment ID (Instagram can return duplicates in pagination), and displays the result cleanly:",
+      },
+      {
+        type: 'list',
+        items: [
+          "50 unique comments retrieved out of 61 displayed (the 11 remaining are filtered as spam by Instagram)",
+          "Automatic pagination with cursor handling",
+          "Deduplication by ID to avoid duplicates",
+          "Export to CSV or simple list in one line",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "Undocumented APIs are everywhere. Browsers send network requests — you just need to observe them to understand how the site really works.",
+      },
+      {
+        type: 'heading',
+        text: "What this changes for Instagram giveaways",
+      },
+      {
+        type: 'paragraph',
+        text: "The script runs in seconds. You get the full list of participants as CSV, can import it into a draw tool, check for duplicates (some people comment multiple times), and automate the winner announcement. What used to take 30 minutes of manual copy-pasting now takes 30 seconds.",
+      },
+      {
+        type: 'paragraph',
+        text: "The full session replay is available on YouTube — you can watch Claude Code build the solution live, including all the false starts and adjustments.",
+      },
+    ],
+  },
 ];
 
 export default posts;
