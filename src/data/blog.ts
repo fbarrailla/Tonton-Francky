@@ -5668,7 +5668,7 @@ const posts: BlogPost[] = [
     readTime: 6,
     category: 'Voyages',
     categoryEn: 'Travels',
-    thumbnail: '/blog/kuala-lumpur.jpg',
+    thumbnail: '/blog/bangkok-72h-nomade.png',
     content: [
       {
         type: 'paragraph',
