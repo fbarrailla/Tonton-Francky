@@ -5185,6 +5185,204 @@ const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'chatbot-instagram-manychat-claude',
+    title: 'Construire un chatbot Instagram avec ManyChat + Claude',
+    titleEn: 'Build an Instagram Chatbot with ManyChat + Claude',
+    excerpt: "ManyChat gère le déclenchement, Claude rédige les réponses. Ensemble, ils créent un chatbot Instagram qui parle vraiment comme toi — sans que tu touches à rien.",
+    excerptEn: "ManyChat handles the triggering, Claude writes the responses. Together they build an Instagram chatbot that actually sounds like you — without you touching a thing.",
+    date: '2026-04-25',
+    readTime: 6,
+    category: 'Tech & IA',
+    categoryEn: 'Tech & AI',
+    thumbnail: '/blog/scraper-commentaires-instagram.png',
+    content: [
+      {
+        type: 'paragraph',
+        text: "Tu reçois des DMs Instagram tous les jours. Toujours les mêmes questions : \"C'est combien ?\", \"Tu fais des sites pour les restaurants ?\", \"Comment tu travailles ?\". Tu réponds à la main, un par un, souvent avec des heures de retard.",
+      },
+      {
+        type: 'paragraph',
+        text: "Avec ManyChat + Claude, ces réponses partent en quelques secondes, dans ton style, avec les bonnes infos. Et toi tu n'interviens que quand c'est un vrai prospect chaud.",
+      },
+      {
+        type: 'heading',
+        text: "Pourquoi ManyChat et pas directement l'API Instagram ?",
+      },
+      {
+        type: 'paragraph',
+        text: "Instagram ne laisse pas n'importe qui envoyer des DMs via API. Il faut être partenaire officiel Meta — ce que ManyChat est. ManyChat sert de pont : il reçoit les messages de tes abonnés via l'API officielle, et toi tu définis ce qui se passe ensuite. Sans ManyChat (ou un outil équivalent), impossible d'automatiser légalement.",
+      },
+      {
+        type: 'heading',
+        text: "Le rôle de Claude dans l'architecture",
+      },
+      {
+        type: 'paragraph',
+        text: "ManyChat est puissant pour les flows simples (if/else, boutons, menus). Mais dès qu'un message est ouvert, nuancé ou inattendu, il répond à côté. C'est là que Claude entre en jeu : ManyChat envoie le message reçu à un webhook, le webhook appelle l'API Claude, Claude génère une réponse contextuelle, et ManyChat l'envoie à l'utilisateur.",
+      },
+      {
+        type: 'list',
+        items: [
+          "ManyChat — reçoit les DMs, gère les triggers, envoie les réponses",
+          "Webhook (n8n ou Make) — reçoit le message depuis ManyChat, appelle Claude",
+          "Claude API — génère la réponse dans ton style avec le bon contexte",
+          "Durée totale bout en bout : 2 à 4 secondes",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Mise en place étape par étape",
+      },
+      {
+        type: 'paragraph',
+        text: "Dans ManyChat, crée un flow déclenché par \"Default Reply\" — c'est-à-dire tout message qui ne correspond à aucun autre trigger. C'est ce flow qui attrape les questions ouvertes et les envoie à Claude.",
+      },
+      {
+        type: 'list',
+        items: [
+          "1. Dans ManyChat : crée un flow \"Default Reply\" → ajoute une action \"Send to External URL\" avec l'URL de ton webhook",
+          "2. Dans n8n : crée un workflow Webhook → HTTP Request vers l'API Claude → réponse renvoyée à ManyChat via son API Send Message",
+          "3. Dans le prompt Claude : injecte le contexte (qui tu es, ce que tu fais, ton style) + le message reçu",
+          "4. Teste avec une dizaine de messages types avant de mettre en production",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Le prompt qui définit ta personnalité",
+      },
+      {
+        type: 'paragraph',
+        text: "C'est la clé. Plus le prompt est précis, plus le chatbot te ressemble. Voici la structure que j'utilise :",
+      },
+      {
+        type: 'code',
+        text: "Tu es l'assistant Instagram de Tonton Francky, créateur de sites web et développeur freelance basé en Asie du Sud-Est.\n\nTon style : chaleureux, direct, sans jargon. Tu tutoies. Tes réponses font 2-4 phrases max.\n\nCe que tu proposes :\n- Création de sites web (vitrine, e-commerce, blog)\n- Tarifs : à partir de 500€ selon le projet\n- Délai moyen : 2 à 4 semaines\n\nSi quelqu'un est intéressé par un projet, invite-le à répondre \"DEVIS\" pour recevoir un formulaire.\nSi la question dépasse tes connaissances, dis-le honnêtement et propose de continuer en vocal.\n\nMessage reçu : {{message}}",
+      },
+      {
+        type: 'heading',
+        text: "Cas d'usage concrets",
+      },
+      {
+        type: 'list',
+        items: [
+          "FAQ automatique — prix, délais, process : Claude répond instantanément avec les bonnes infos",
+          "Qualification de leads — Claude identifie les vrais projets et redirige vers un formulaire ou un lien Calendly",
+          "Suivi de concours — après un giveaway, répond automatiquement à chaque commentaire \"Website\" reçu en DM",
+          "Support client léger — questions sur une commande, un e-book, un accès : Claude gère sans toi",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "Un bon chatbot ne remplace pas ta présence — il la démultiplie. Tu réponds à 100 personnes pendant que tu travailles sur la 101ème.",
+      },
+      {
+        type: 'heading',
+        text: "Les limites à connaître",
+      },
+      {
+        type: 'paragraph',
+        text: "ManyChat facture au nombre de contacts actifs — le plan gratuit couvre 1 000 contacts, suffisant pour démarrer. Au-delà, compte environ 15€/mois. L'API Claude a un coût marginal (quelques centimes pour 1 000 messages avec Haiku). Et Instagram limite le nombre de DMs automatiques : ne bombarde pas tes abonnés sous peine de restriction de compte.",
+      },
+      {
+        type: 'paragraph',
+        text: "Mis en place correctement, ce système tourne en autonomie complète. J'interviens désormais uniquement quand Claude me signale un message marqué \"DEVIS\" — soit environ 5% des conversations, les seules qui comptent vraiment.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "You get Instagram DMs every day. Always the same questions: \"How much does it cost?\", \"Do you build sites for restaurants?\", \"How do you work?\". You reply by hand, one by one, often hours late.",
+      },
+      {
+        type: 'paragraph',
+        text: "With ManyChat + Claude, those responses go out within seconds, in your style, with the right info. And you only step in when it's a genuinely hot lead.",
+      },
+      {
+        type: 'heading',
+        text: "Why ManyChat and not the Instagram API directly?",
+      },
+      {
+        type: 'paragraph',
+        text: "Instagram doesn't let just anyone send DMs via API. You need to be an official Meta partner — which ManyChat is. ManyChat acts as the bridge: it receives messages from your followers via the official API, and you define what happens next. Without ManyChat (or an equivalent tool), legal automation is impossible.",
+      },
+      {
+        type: 'heading',
+        text: "Claude's role in the architecture",
+      },
+      {
+        type: 'paragraph',
+        text: "ManyChat is powerful for simple flows (if/else, buttons, menus). But the moment a message is open-ended, nuanced or unexpected, it misses the mark. That's where Claude comes in: ManyChat sends the received message to a webhook, the webhook calls the Claude API, Claude generates a contextual response, and ManyChat delivers it to the user.",
+      },
+      {
+        type: 'list',
+        items: [
+          "ManyChat — receives DMs, manages triggers, sends responses",
+          "Webhook (n8n or Make) — receives the message from ManyChat, calls Claude",
+          "Claude API — generates a response in your style with the right context",
+          "Total end-to-end time: 2 to 4 seconds",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Step-by-step setup",
+      },
+      {
+        type: 'paragraph',
+        text: "In ManyChat, create a flow triggered by \"Default Reply\" — meaning any message that doesn't match any other trigger. This flow catches open questions and routes them to Claude.",
+      },
+      {
+        type: 'list',
+        items: [
+          "1. In ManyChat: create a \"Default Reply\" flow → add a \"Send to External URL\" action with your webhook URL",
+          "2. In n8n: create a Webhook workflow → HTTP Request to the Claude API → response sent back to ManyChat via its Send Message API",
+          "3. In the Claude prompt: inject context (who you are, what you do, your style) + the received message",
+          "4. Test with a dozen typical messages before going live",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "The prompt that defines your personality",
+      },
+      {
+        type: 'paragraph',
+        text: "This is the key. The more precise the prompt, the more the chatbot sounds like you. Here's the structure I use:",
+      },
+      {
+        type: 'code',
+        text: "You are the Instagram assistant of Tonton Francky, a web developer and freelancer based in Southeast Asia.\n\nYour style: warm, direct, no jargon. Informal tone. Keep responses to 2-4 sentences max.\n\nWhat you offer:\n- Website creation (showcase, e-commerce, blog)\n- Pricing: from €500 depending on the project\n- Average timeline: 2 to 4 weeks\n\nIf someone is interested in a project, invite them to reply \"QUOTE\" to receive a form.\nIf the question is beyond your knowledge, say so honestly and suggest continuing on a call.\n\nMessage received: {{message}}",
+      },
+      {
+        type: 'heading',
+        text: "Concrete use cases",
+      },
+      {
+        type: 'list',
+        items: [
+          "Automatic FAQ — pricing, timelines, process: Claude responds instantly with the right info",
+          "Lead qualification — Claude identifies real projects and redirects to a form or Calendly link",
+          "Giveaway follow-up — after a contest, automatically reply to every \"Website\" comment received as a DM",
+          "Light customer support — questions about an order, an e-book, an access link: Claude handles it without you",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "A good chatbot doesn't replace your presence — it multiplies it. You're responding to 100 people while working on the 101st.",
+      },
+      {
+        type: 'heading',
+        text: "Limits to know",
+      },
+      {
+        type: 'paragraph',
+        text: "ManyChat charges per active contact — the free plan covers 1,000 contacts, enough to start. Beyond that, expect around €15/month. The Claude API has a marginal cost (a few cents per 1,000 messages with Haiku). And Instagram limits the number of automated DMs: don't flood your followers or risk account restrictions.",
+      },
+      {
+        type: 'paragraph',
+        text: "Set up correctly, this system runs fully autonomously. I now only step in when Claude flags a message marked \"QUOTE\" — about 5% of conversations, the only ones that really matter.",
+      },
+    ],
+  },
 ];
 
 export default posts;
