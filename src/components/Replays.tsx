@@ -21,6 +21,13 @@ interface ReplayPost {
 
 const replays: ReplayPost[] = [
   {
+    id: 6,
+    title: 'Tirage au sort du concours Instagram — 25 avril 2026',
+    titleEn: 'Instagram Giveaway Draw — April 25, 2026',
+    date: 'Vendredi 25 Avril 2026',
+    youtubeId: 'kB1rk3AlDQ8',
+  },
+  {
     id: 5,
     title: 'Scrapper les commentaires Instagram avec l\'IA',
     titleEn: 'Scraping Instagram Comments with AI',
