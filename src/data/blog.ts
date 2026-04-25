@@ -4649,6 +4649,112 @@ const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'my-trip-my-adventure',
+    title: 'Mon Voyage, Mon Aventure',
+    titleEn: 'My Trip, My Adventure',
+    excerpt: "Randonner en montagne avec des amis, c'est bien plus qu'une marche. C'est une aventure qui met à l'épreuve, qui émerveille, et dont on revient changé.",
+    excerptEn: "Hiking in the mountains with friends is far more than just a walk. It's an adventure that challenges you, fills you with wonder, and changes you on the way back.",
+    date: '2026-04-25',
+    readTime: 4,
+    category: 'Voyages',
+    categoryEn: 'Travels',
+    thumbnail: '/blog/tam-dao-01.jpg',
+    content: [
+      {
+        type: 'paragraph',
+        text: "Voyager est l'une des expériences les plus enrichissantes qui soit. Cela nous permet de découvrir de nouveaux endroits, de rencontrer des personnes différentes et de créer des souvenirs inoubliables. L'un des voyages les plus mémorables que j'aie jamais faits était ma randonnée en montagne avec mes amis. Une véritable aventure, riche en fun, en défis et en moments magnifiques.",
+      },
+      {
+        type: 'paragraph',
+        text: "Nous avons pris la route tôt le matin. L'air était frais, et tout le monde débordait d'énergie. Nous avions rempli nos sacs de nourriture, d'eau, de vêtements chauds et de matériel de camping. Le trajet jusqu'à la montagne a pris plusieurs heures, mais nous avons profité de chaque instant en chantant et en partageant des histoires dans la voiture.",
+      },
+      {
+        type: 'paragraph',
+        text: "À l'arrivée au pied de la montagne, la véritable aventure a commencé. Nous avons entamé la montée par un sentier forestier. Le chemin était raide et rocailleux, mais les paysages étaient à couper le souffle. Des arbres immenses, des fleurs colorées, le chant des oiseaux. Parfois, nous faisions une pause pour reprendre notre souffle et capturer la beauté du panorama en photo.",
+      },
+      {
+        type: 'quote',
+        text: "Les meilleurs souvenirs ne se trouvent pas au départ. Ils se construisent pas à pas, dans l'effort et le partage.",
+      },
+      {
+        type: 'paragraph',
+        text: "Après plusieurs heures de montée, nous avons enfin atteint le sommet. La vue était époustouflante — une mer de montagnes vertes à perte de vue, avec des nuages qui dérivaient juste en dessous de nous. La fatigue s'était volatilisée. Debout là-haut avec mes amis, à rire, à prendre des photos et simplement à respirer l'air frais de la montagne — c'était l'un de ces rares instants de perfection absolue.",
+      },
+      {
+        type: 'paragraph',
+        text: "Nous avons installé notre camp près du sommet et passé la nuit sous un ciel étoilé. Autour du feu, nous avons partagé des repas, raconté des histoires et forgé des souvenirs qui dureront toute une vie. Le froid n'avait plus d'importance. Les courbatures non plus. Seul comptait le fait d'être là, ensemble.",
+      },
+      {
+        type: 'paragraph',
+        text: "Le lendemain matin, nous avons entamé la descente. En regardant la montagne une dernière fois, j'ai ressenti une profonde gratitude — pour l'aventure, pour le défi relevé, et pour les amis qui l'avaient rendu inoubliable.",
+      },
+      {
+        type: 'heading',
+        text: "Ce que la montagne m'a appris",
+      },
+      {
+        type: 'paragraph',
+        text: "Ce voyage m'a rappelé que les meilleures expériences de la vie ne sont jamais faciles. Elles demandent de l'effort, de la patience et la volonté de sortir de sa zone de confort. Mais quand on y arrive, ça vaut toujours le coup.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Partir tôt — la fraîcheur du matin rend la montée bien plus agréable",
+          "Ne pas sous-estimer le matériel — vêtements chauds et bonnes chaussures sont essentiels",
+          "Profiter du chemin, pas seulement de l'arrivée",
+          "Voyager avec les bonnes personnes change tout",
+        ],
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "Traveling is one of the most exciting experiences in life. It allows us to explore new places, meet different people, and create unforgettable memories. One of the most memorable journeys I ever had was my trip to the mountains with my friends. It was truly an adventure full of fun, challenges, and beautiful moments.",
+      },
+      {
+        type: 'paragraph',
+        text: "We started our trip early in the morning. The air was fresh, and everyone was full of energy. We packed our bags with food, water, warm clothes, and camping equipment. The journey to the mountain took several hours, but we enjoyed every moment by singing songs and sharing stories in the car.",
+      },
+      {
+        type: 'paragraph',
+        text: "When we arrived at the foot of the mountain, the real adventure began. We started hiking through the forest path. The road was steep and rocky, but the scenery was amazing. We saw tall trees, colorful flowers, and heard the sound of birds singing. Sometimes we stopped to rest and take pictures of the beautiful landscape.",
+      },
+      {
+        type: 'quote',
+        text: "The best memories aren't found at the starting line. They're built step by step, through effort and shared moments.",
+      },
+      {
+        type: 'paragraph',
+        text: "After several hours of climbing, we finally reached the summit. The view from the top was breathtaking — a sea of green mountains stretching endlessly in every direction, with clouds drifting just below us. The exhaustion disappeared completely. Standing there with my friends, laughing, taking photos, and simply breathing in the cool mountain air — it was one of those rare, perfect moments.",
+      },
+      {
+        type: 'paragraph',
+        text: "We set up camp near the summit and spent the night under a sky full of stars. Around the fire, we shared meals, told stories, and made memories that will last a lifetime. The cold didn't matter. The soreness in our legs didn't matter. All that mattered was that we were there, together.",
+      },
+      {
+        type: 'paragraph',
+        text: "The next morning, we began our descent. Looking back at the mountain one last time, I felt grateful — grateful for the adventure, for the challenge, and for the friends who made it unforgettable.",
+      },
+      {
+        type: 'heading',
+        text: "What the mountain taught me",
+      },
+      {
+        type: 'paragraph',
+        text: "This trip reminded me that the best experiences in life don't come easy. They require effort, patience, and a willingness to step out of your comfort zone. But when you get there, it's always worth it.",
+      },
+      {
+        type: 'list',
+        items: [
+          "Start early — the cool morning air makes the climb far more enjoyable",
+          "Don't underestimate your gear — warm clothes and good shoes are non-negotiable",
+          "Enjoy the journey, not just the destination",
+          "Traveling with the right people changes everything",
+        ],
+      },
+    ],
+  },
 ];
 
 export default posts;
