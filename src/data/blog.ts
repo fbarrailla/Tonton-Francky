@@ -6226,6 +6226,286 @@ const posts: BlogPost[] = [
       },
     ],
   },
+  {
+    slug: 'vietnam-guide-voyage-complet',
+    title: 'Vietnam : le guide de voyage complet par Tonton Francky',
+    titleEn: 'Vietnam: The Complete Travel Guide by Tonton Francky',
+    excerpt: "Géographie, climat, incontournables, cuisine, transports, budget — tout ce qu'il faut savoir avant de partir au Vietnam, vu depuis l'intérieur.",
+    excerptEn: "Geography, climate, must-sees, food, transport, budget — everything you need to know before traveling to Vietnam, seen from the inside.",
+    date: '2026-04-27',
+    readTime: 12,
+    category: 'Voyages',
+    categoryEn: 'Travel',
+    thumbnail: '/blog/vietnam-guide-complet.png',
+    content: [
+      {
+        type: 'paragraph',
+        text: "Je vis au Vietnam. Saigon, District 11. Depuis ici, j'ai traversé le pays de bout en bout — le Nord brumeux, le Centre royal, le Sud tropical. Ce guide est ce que j'aurais voulu lire avant d'arriver.",
+      },
+      {
+        type: 'quote',
+        text: "Le Vietnam ne se visite pas. Il se vit. Et pour le vivre vraiment, il faut comprendre comment il fonctionne.",
+      },
+      {
+        type: 'heading',
+        text: "Géographie et climat",
+      },
+      {
+        type: 'paragraph',
+        text: "Le Vietnam s'étire sur 1 650 km du nord au sud, coincé entre la Chine, le Laos, le Cambodge et la mer de Chine méridionale. Montagnes au nord, plaines côtières au centre, delta du Mékong au sud — chaque région a sa propre logique géographique et donc son propre climat.",
+      },
+      {
+        type: 'heading',
+        text: "Quand partir ?",
+      },
+      {
+        type: 'list',
+        items: [
+          "Nord (Hanoï, Sapa) : printemps (février–avril) et automne (août–octobre) — températures douces, moins de pluie. Éviter l'hiver humide de décembre–janvier.",
+          "Centre (Huê, Da Nang, Hoi An) : février à avril idéal. La saison des pluies arrive de septembre à décembre — des inondations sont possibles.",
+          "Sud (Saigon, Mékong, Phu Quoc) : saison sèche de novembre à avril. De mai à octobre : pluies tropicales l'après-midi mais la vie continue.",
+          "Règle générale : février à juin offre le meilleur compromis pour traverser tout le pays.",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Les incontournables",
+      },
+      {
+        type: 'heading',
+        text: "Sites historiques",
+      },
+      {
+        type: 'list',
+        items: [
+          "Tunnels de Cu Chi (près de Saigon) : réseau souterrain de la guerre du Vietnam. On peut ramper dans les tunnels, tirer avec des armes d'époque. Dérangeant et fascinant.",
+          "Musée des Vestiges de la Guerre (Saigon) : le plus brutal des musées. Photos, artefacts, témoignages — l'impact de la guerre vu du côté vietnamien. Incontournable.",
+          "Cité Impériale de Huê : ancienne capitale royale, classée UNESCO. Architecture impressionnante, mausolées des empereurs, cuisine royale.",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Merveilles naturelles",
+      },
+      {
+        type: 'list',
+        items: [
+          "Ha Long Bay : 2 000 îles de calcaire dans une mer émeraude. Croisière en jonque, kayak, grottes. Touristique mais impossible à ignorer.",
+          "Ninh Binh : surnommée 'Ha Long Bay terrestre'. Rizières, montagnes karstiques, rivières. Bateau à travers Tam Coc, escalade jusqu'à la grotte de Hang Mua pour une vue à couper le souffle.",
+          "Montagnes de Marbre (Da Nang) : cinq pics de calcaire avec grottes, tunnels et sanctuaires bouddhistes. Mixte nature-histoire.",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Expériences culturelles",
+      },
+      {
+        type: 'list',
+        items: [
+          "Vieux Quartier de Hanoï : architecture coloniale française, ruelles étroites, marchés, café à l'oeuf. Le pouls de la capitale.",
+          "Hoi An : ville ancienne magiquement préservée. Bâtisses colorées, lanternes, artisanat, gastronomie. L'une des villes les plus photogéniques d'Asie.",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Fêtes et festivals",
+      },
+      {
+        type: 'paragraph',
+        text: "Le Têt (Nouvel An lunaire, janvier–février) est l'événement de l'année. Retrouvailles familiales, feux d'artifice à minuit, marchés aux fleurs. La ville entière s'arrête — et repart de plus belle. D'autres festivals marquent l'année : Lim Festival dans le Nord (chants traditionnels en barque), Fête de mi-automne (pour les enfants), et des dizaines de célébrations régionales.",
+      },
+      {
+        type: 'heading',
+        text: "La cuisine vietnamienne",
+      },
+      {
+        type: 'paragraph',
+        text: "C'est probablement la meilleure cuisine de rue au monde. Et ce n'est pas moi qui le dis — c'est l'expérience de manger un phở à 6h du matin dans une ruelle de Hanoï pour 1,50€.",
+      },
+      {
+        type: 'heading',
+        text: "Par région",
+      },
+      {
+        type: 'list',
+        items: [
+          "Nord : phở (soupe de nouilles de riz), bún thang, bánh cuốn (rouleaux de riz vapeur). Saveurs subtiles, équilibrées.",
+          "Centre : cuisine plus relevée et épicée. Bánh khoai (galettes de Huê), porc fermenté de Thanh Hoa, bouillies d'anguille. La cuisine royale de Huê est une catégorie à part.",
+          "Sud : influences du Mékong. Poisson grillé, noix de coco, légumes frais. Bún nước lèo, carpe de vase. Douceur et générosité.",
+          "Street food : phở, bánh mì, bún bò Huê, cơm tấm — entre 1$ et 3$ le repas. Les vendeurs de rue se spécialisent souvent dans un seul plat, maîtrisé à la perfection.",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "Manger au Vietnam c'est faire confiance à un tabouret en plastique, une dame avec un wok, et l'odeur qui vient du trottoir.",
+      },
+      {
+        type: 'heading',
+        text: "Transports",
+      },
+      {
+        type: 'list',
+        items: [
+          "Moto : le mode de transport roi. Louer une moto ou prendre un xe ôm (taxi moto). Toujours porter un casque. Toujours.",
+          "Grab : le Uber local. Moto, voiture, même livraison de repas. Indispensable dans les grandes villes.",
+          "Bus longue distance : le système Open Bus permet de voyager de ville en ville avec un seul ticket. Pratique et pas cher.",
+          "Train : la ligne Réunification relie Hanoï à Saigon en 30h. Sleeper train, paysages magnifiques, expérience en soi.",
+          "Avion intérieur : VietJet, Bamboo Airways, Vietnam Airlines. Souvent moins cher que le train sur les longues distances si réservé à l'avance.",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Conseils pratiques",
+      },
+      {
+        type: 'list',
+        items: [
+          "Budget : comptez 25–40€/jour en voyageur standard (hébergement, repas, transports). Moins en mode backpacker, plus en confort.",
+          "Communication : téléchargez Grab et Google Maps hors ligne avant de partir. Gardez une carte de visite de votre hôtel avec l'adresse en vietnamien.",
+          "Argent : les distributeurs sont partout. Évitez de porter trop de liquide dans les zones touristiques fréquentées.",
+          "Sécurité routière : le trafic est chaotique. Traversez aux passages piétons, regardez des deux côtés plusieurs fois, et ne jamais courir.",
+          "Respect culturel : couvrez-vous les épaules et les genoux dans les temples. Un sourire va loin.",
+          "Environnement : refusez les plastiques à usage unique quand c'est possible. Le Vietnam commence à prendre conscience de l'impact du tourisme.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Le Vietnam récompense ceux qui prennent le temps de le comprendre. Pas besoin d'un budget énorme. Pas besoin d'un planning minute par minute. Juste une curiosité sincère et l'envie de manger sur un tabouret.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "I live in Vietnam. Saigon, District 11. From here, I've crossed the country end to end — the misty North, the royal Center, the tropical South. This guide is what I wish I'd read before arriving.",
+      },
+      {
+        type: 'quote',
+        text: "Vietnam isn't visited. It's lived. And to truly live it, you need to understand how it works.",
+      },
+      {
+        type: 'heading',
+        text: "Geography and Climate",
+      },
+      {
+        type: 'paragraph',
+        text: "Vietnam stretches 1,650 km from north to south, wedged between China, Laos, Cambodia and the South China Sea. Mountains in the north, coastal plains in the center, Mekong Delta in the south — each region has its own geographical logic and therefore its own climate.",
+      },
+      {
+        type: 'heading',
+        text: "When to Go",
+      },
+      {
+        type: 'list',
+        items: [
+          "North (Hanoi, Sapa): spring (Feb–Apr) and autumn (Aug–Oct) — mild temperatures, less rain. Avoid the cold, damp winter of Dec–Jan.",
+          "Center (Hue, Da Nang, Hoi An): February to April is ideal. Rainy season runs September to December — flooding possible.",
+          "South (Saigon, Mekong, Phu Quoc): dry season November to April. May to October: tropical afternoon showers but life goes on.",
+          "General rule: February to June offers the best compromise for traveling the whole country.",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Must-See Attractions",
+      },
+      {
+        type: 'heading',
+        text: "Historical Sites",
+      },
+      {
+        type: 'list',
+        items: [
+          "Cu Chi Tunnels (near Saigon): underground network from the Vietnam War. You can crawl through tunnels and fire period weapons. Unsettling and fascinating.",
+          "War Remnants Museum (Saigon): the most confronting museum here. Photos, artifacts, testimonies — the impact of war seen from the Vietnamese side. Essential.",
+          "Hue Imperial City: former royal capital, UNESCO-listed. Impressive architecture, imperial mausoleums, royal cuisine.",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Natural Wonders",
+      },
+      {
+        type: 'list',
+        items: [
+          "Ha Long Bay: 2,000 limestone islands in an emerald sea. Junk cruise, kayaking, caves. Touristy but impossible to ignore.",
+          "Ninh Binh: nicknamed 'Ha Long Bay on land'. Rice fields, karst mountains, rivers. Boat through Tam Coc, climb to Hang Mua Cave for a breathtaking view.",
+          "Marble Mountains (Da Nang): five limestone peaks with caves, tunnels and Buddhist sanctuaries. Nature meets history.",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Cultural Experiences",
+      },
+      {
+        type: 'list',
+        items: [
+          "Hanoi Old Quarter: French colonial architecture, narrow streets, markets, egg coffee. The pulse of the capital.",
+          "Hoi An: magically preserved ancient town. Colorful buildings, lanterns, crafts, gastronomy. One of Asia's most photogenic cities.",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Festivals",
+      },
+      {
+        type: 'paragraph',
+        text: "Tet (Lunar New Year, Jan–Feb) is the event of the year. Family reunions, midnight fireworks, flower markets. The whole city stops — then restarts louder than before. Other festivals mark the year: Lim Festival in the North (traditional songs on dragon boats), Mid-Autumn Festival (for children), and dozens of regional celebrations.",
+      },
+      {
+        type: 'heading',
+        text: "Vietnamese Cuisine",
+      },
+      {
+        type: 'paragraph',
+        text: "It's probably the best street food in the world. Not just my opinion — it's the experience of eating a phở at 6am in a Hanoi alley for €1.50.",
+      },
+      {
+        type: 'list',
+        items: [
+          "North: phở, bún thang, bánh cuốn (steamed rice rolls). Subtle, balanced flavors.",
+          "Center: spicier, bolder cuisine. Bánh khoai (Hue pancakes), Thanh Hoa fermented pork, eel porridge. Hue's royal cuisine is a category of its own.",
+          "South: Mekong influences. Grilled fish, coconut, fresh vegetables. Sweetness and generosity.",
+          "Street food: phở, bánh mì, bún bò Huê, cơm tấm — $1 to $3 per meal. Street vendors often specialize in a single dish, perfected over decades.",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "Eating in Vietnam means trusting a plastic stool, a lady with a wok, and the smell coming from the sidewalk.",
+      },
+      {
+        type: 'heading',
+        text: "Getting Around",
+      },
+      {
+        type: 'list',
+        items: [
+          "Motorbike: the king of transport. Rent one or take a xe ôm (motorbike taxi). Always wear a helmet. Always.",
+          "Grab: the local Uber. Motorbike, car, even food delivery. Essential in big cities.",
+          "Long-distance bus: the Open Bus system lets you travel city-to-city on a single ticket. Practical and cheap.",
+          "Train: the Reunification Line connects Hanoi to Saigon in 30h. Sleeper train, stunning landscapes, an experience in itself.",
+          "Domestic flights: VietJet, Bamboo Airways, Vietnam Airlines. Often cheaper than the train on long distances if booked in advance.",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Practical Tips",
+      },
+      {
+        type: 'list',
+        items: [
+          "Budget: count €25–40/day as a standard traveler (accommodation, meals, transport). Less in backpacker mode, more for comfort.",
+          "Communication: download Grab and Google Maps offline before you go. Keep a business card from your hotel with the address in Vietnamese.",
+          "Money: ATMs are everywhere. Avoid carrying too much cash in busy tourist areas.",
+          "Road safety: traffic is chaotic. Cross at pedestrian crossings, look both ways several times, never run.",
+          "Cultural respect: cover shoulders and knees in temples. A smile goes a long way.",
+          "Environment: refuse single-use plastics when possible. Vietnam is starting to take the impact of tourism seriously.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Vietnam rewards those who take the time to understand it. No need for a huge budget. No need for a minute-by-minute itinerary. Just genuine curiosity and a willingness to eat on a plastic stool.",
+      },
+    ],
+  },
 ];
 
 export default posts;
