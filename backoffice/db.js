@@ -18,7 +18,25 @@ db.exec(`
     email      TEXT    NOT NULL UNIQUE,
     created_at TEXT    NOT NULL DEFAULT (datetime('now'))
   );
+
+  CREATE TABLE IF NOT EXISTS followers_history (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    date       TEXT    NOT NULL UNIQUE,
+    count      INTEGER NOT NULL,
+    created_at TEXT    NOT NULL DEFAULT (datetime('now'))
+  );
 `);
+
+// Seed initial followers history (only inserts if table is empty)
+const followersCount = db.prepare('SELECT COUNT(*) as n FROM followers_history').get().n;
+if (followersCount === 0) {
+  const seedFollowers = [
+    ['2026-04-28', 2230],
+    ['2026-04-29', 2284],
+  ];
+  const stmt = db.prepare('INSERT OR IGNORE INTO followers_history (date, count) VALUES (?, ?)');
+  for (const [d, c] of seedFollowers) stmt.run(d, c);
+}
 
 // Seed initial subscribers (skips duplicates via INSERT OR IGNORE)
 const seed = [

@@ -126,6 +126,38 @@ app.delete('/api/subscribers/:id', (req, res) => {
   res.status(204).end();
 });
 
+// ── Followers history ─────────────────────────────────────────
+
+app.get('/api/followers-history', (_req, res) => {
+  res.json(db.prepare('SELECT * FROM followers_history ORDER BY date ASC').all());
+});
+
+app.post('/api/followers-history', (req, res) => {
+  const { date, count } = req.body;
+  if (!date || count == null || isNaN(Number(count)))
+    return res.status(400).json({ error: 'date and count are required' });
+
+  const finalCount = parseInt(count, 10);
+  if (finalCount < 0) return res.status(400).json({ error: 'count must be positive' });
+
+  // Upsert: if entry for this date exists, update it; otherwise insert
+  const existing = db.prepare('SELECT id FROM followers_history WHERE date = ?').get(date);
+  if (existing) {
+    db.prepare('UPDATE followers_history SET count = ? WHERE date = ?').run(finalCount, date);
+  } else {
+    db.prepare('INSERT INTO followers_history (date, count) VALUES (?, ?)').run(date, finalCount);
+  }
+  const entry = db.prepare('SELECT * FROM followers_history WHERE date = ?').get(date);
+  res.status(201).json(entry);
+});
+
+app.delete('/api/followers-history/:id', (req, res) => {
+  if (!db.prepare('SELECT id FROM followers_history WHERE id = ?').get(req.params.id))
+    return res.status(404).json({ error: 'Entry not found' });
+  db.prepare('DELETE FROM followers_history WHERE id = ?').run(req.params.id);
+  res.status(204).end();
+});
+
 // ── Config (exposes Supabase public credentials to the frontend) ──
 
 app.get('/api/config', (_req, res) => {

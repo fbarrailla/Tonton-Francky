@@ -182,6 +182,7 @@
   <div class="tabs">
     <button class="tab active" onclick="switchTab('orders')">Orders</button>
     <button class="tab" onclick="switchTab('newsletter')">Newsletter</button>
+    <button class="tab" onclick="switchTab('followers')">Followers</button>
     <button class="tab" onclick="switchTab('settings')">Settings</button>
   </div>
 
@@ -238,6 +239,71 @@
           <tr><th>#</th><th>Email</th><th>Subscribed on</th><th></th></tr>
         </thead>
         <tbody id="subscribers-body">
+          <tr><td colspan="4" class="empty">Loading…</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Followers tab -->
+  <div class="tab-panel" id="tab-followers">
+    <!-- Add entry card -->
+    <div class="compose-card">
+      <h2>Add follower count</h2>
+      <div style="display:flex; gap:12px; flex-wrap:wrap; align-items:flex-end">
+        <div class="form-group" style="flex:1; min-width:140px; margin-bottom:0">
+          <label>Date</label>
+          <input type="date" id="fh-date" />
+        </div>
+        <div class="form-group" style="flex:1; min-width:140px; margin-bottom:0">
+          <label>Count</label>
+          <input type="number" id="fh-count" placeholder="2284" min="0" />
+        </div>
+        <button class="btn btn-primary" onclick="saveFollowerEntry()">Save</button>
+      </div>
+      <p style="font-size:.78rem; color:var(--muted); margin-top:12px">
+        Saving the same date overwrites the existing entry.
+      </p>
+    </div>
+
+    <!-- Stats summary -->
+    <div class="stats" id="fh-stats" style="margin-top:8px">
+      <div class="stat-card">
+        <div class="label">Current</div>
+        <div class="value" id="fh-current">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Last 7 days</div>
+        <div class="value" id="fh-week">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Last 30 days</div>
+        <div class="value" id="fh-month">—</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Total tracked</div>
+        <div class="value" id="fh-since">—</div>
+      </div>
+    </div>
+
+    <!-- Chart -->
+    <div class="compose-card">
+      <h2>Evolution over time</h2>
+      <div style="position:relative; height:320px">
+        <canvas id="fh-chart"></canvas>
+      </div>
+    </div>
+
+    <!-- History table -->
+    <div class="toolbar">
+      <h2 id="fh-count-label">History</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Count</th><th>Δ</th><th></th></tr>
+        </thead>
+        <tbody id="fh-body">
           <tr><td colspan="4" class="empty">Loading…</td></tr>
         </tbody>
       </table>
@@ -307,6 +373,7 @@
 <script src="https://cdn.jsdelivr.net/npm/quill@2/dist/quill.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script>
   // ── Supabase client ───────────────────────────────────────────
   let db;
@@ -617,12 +684,148 @@
     toast('Saved.', 'success');
   }
 
+  // ── Followers history ─────────────────────────────────────────
+  let followersHistoryCache = [];
+  let followersChart = null;
+
+  async function loadFollowersHistory() {
+    followersHistoryCache = await api('GET', '/api/followers-history') || [];
+    renderFollowersChart();
+    renderFollowersTable();
+    renderFollowersStats();
+    // Pre-fill date input with today
+    if (!document.getElementById('fh-date').value) {
+      document.getElementById('fh-date').value = today();
+    }
+  }
+
+  function renderFollowersStats() {
+    const h = followersHistoryCache;
+    const fmt = n => n == null ? '—' : (n >= 0 ? '+' : '') + n;
+    const fmtCurrent = n => n == null ? '—' : Number(n).toLocaleString('en-US');
+
+    const current = h.length ? h[h.length - 1].count : null;
+    document.getElementById('fh-current').textContent = fmtCurrent(current);
+
+    const findFromDays = days => {
+      if (!current) return null;
+      const cutoff = new Date(Date.now() - days * 86400 * 1000).toISOString().slice(0, 10);
+      const past = [...h].reverse().find(e => e.date <= cutoff);
+      return past ? current - past.count : null;
+    };
+
+    document.getElementById('fh-week').textContent = fmt(findFromDays(7));
+    document.getElementById('fh-month').textContent = fmt(findFromDays(30));
+    document.getElementById('fh-since').textContent = h.length
+      ? fmt(current - h[0].count) + ` since ${h[0].date}`
+      : '—';
+  }
+
+  function renderFollowersChart() {
+    const ctx = document.getElementById('fh-chart').getContext('2d');
+    const labels = followersHistoryCache.map(e => e.date);
+    const data = followersHistoryCache.map(e => e.count);
+
+    if (followersChart) {
+      followersChart.data.labels = labels;
+      followersChart.data.datasets[0].data = data;
+      followersChart.update();
+      return;
+    }
+
+    followersChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [{
+          label: 'Followers',
+          data,
+          borderColor: '#b45309',
+          backgroundColor: 'rgba(180, 83, 9, 0.08)',
+          tension: 0.3,
+          fill: true,
+          pointBackgroundColor: '#b45309',
+          pointRadius: 4,
+          pointHoverRadius: 6,
+        }],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: ctx => `${ctx.parsed.y.toLocaleString('en-US')} followers`,
+            },
+          },
+        },
+        scales: {
+          y: {
+            beginAtZero: false,
+            ticks: { callback: v => Number(v).toLocaleString('en-US') },
+            grid: { color: 'rgba(0,0,0,0.05)' },
+          },
+          x: { grid: { display: false } },
+        },
+      },
+    });
+  }
+
+  function renderFollowersTable() {
+    const tbody = document.getElementById('fh-body');
+    document.getElementById('fh-count-label').textContent =
+      `History (${followersHistoryCache.length})`;
+
+    if (!followersHistoryCache.length) {
+      tbody.innerHTML = '<tr><td colspan="4" class="empty">No entries yet.</td></tr>';
+      return;
+    }
+    // Display newest first
+    const sorted = [...followersHistoryCache].reverse();
+    tbody.innerHTML = sorted.map((e, i) => {
+      const prev = sorted[i + 1];
+      const delta = prev ? e.count - prev.count : null;
+      const deltaStr = delta == null ? '—'
+        : delta === 0 ? '0'
+        : `<span style="color:${delta > 0 ? 'var(--success)' : 'var(--danger)'}; font-weight:600">${delta > 0 ? '+' : ''}${delta}</span>`;
+      return `
+        <tr>
+          <td>${e.date}</td>
+          <td class="price-cell">${e.count.toLocaleString('en-US')}</td>
+          <td>${deltaStr}</td>
+          <td><div class="actions">
+            <button class="btn btn-danger btn-sm" onclick="deleteFollowerEntry(${e.id}, '${e.date}')">Delete</button>
+          </div></td>
+        </tr>`;
+    }).join('');
+  }
+
+  async function saveFollowerEntry() {
+    const date = document.getElementById('fh-date').value;
+    const count = document.getElementById('fh-count').value;
+    if (!date || !count) { toast('Fill both date and count.', 'error'); return; }
+    const result = await api('POST', '/api/followers-history', { date, count });
+    if (result?.error) { toast(result.error, 'error'); return; }
+    document.getElementById('fh-count').value = '';
+    toast('Saved.', 'success');
+    loadFollowersHistory();
+  }
+
+  async function deleteFollowerEntry(id, date) {
+    if (!confirm(`Delete entry for ${date}?`)) return;
+    await api('DELETE', `/api/followers-history/${id}`);
+    toast('Deleted.', 'success');
+    loadFollowersHistory();
+  }
+
   // ── Init ──────────────────────────────────────────────────────
   function initApp() {
     loadStats();
     loadOrders();
     loadSubscribers();
     loadSettings();
+    loadFollowersHistory();
   }
 
   if (getToken()) {
