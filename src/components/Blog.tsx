@@ -1,12 +1,24 @@
+import { useMemo, useState } from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Clock, ArrowRight } from 'lucide-react';
+import { BookOpen, Clock, ArrowRight, Plus } from 'lucide-react';
 import { useLanguage } from '../i18n';
 import posts from '../data/blog';
+
+const PAGE_SIZE = 6;
 
 export default function Blog() {
   const { lang, t } = useLanguage();
   const b = t.blog;
+
+  const sortedPosts = useMemo(
+    () => [...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()),
+    [],
+  );
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+  const visiblePosts = sortedPosts.slice(0, visibleCount);
+  const hasMore = visibleCount < sortedPosts.length;
+  const remaining = sortedPosts.length - visibleCount;
 
   return (
     <main className="flex-grow pt-24">
@@ -28,12 +40,12 @@ export default function Blog() {
       <section className="py-16 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col gap-8">
-            {[...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).map((post, i) => (
+            {visiblePosts.map((post, i) => (
               <motion.article
                 key={post.slug}
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
+                transition={{ duration: 0.5, delay: Math.min(i, PAGE_SIZE - 1) * 0.05 }}
               >
                 <Link
                   to={`/blog/${post.slug}`}
@@ -81,6 +93,25 @@ export default function Blog() {
               </motion.article>
             ))}
           </div>
+
+          {hasMore && (
+            <div className="mt-12 flex flex-col items-center gap-3">
+              <motion.button
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => setVisibleCount(c => c + PAGE_SIZE)}
+                className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-7 py-3.5 rounded-full font-bold text-sm shadow-lg transition-colors"
+              >
+                <Plus size={16} />
+                {lang === 'fr' ? 'Charger plus d\'articles' : 'Load more articles'}
+              </motion.button>
+              <p className="text-xs text-stone-400 dark:text-stone-500">
+                {lang === 'fr'
+                  ? `${visibleCount} sur ${sortedPosts.length} articles · encore ${remaining}`
+                  : `${visibleCount} of ${sortedPosts.length} articles · ${remaining} left`}
+              </p>
+            </div>
+          )}
         </div>
       </section>
     </main>
