@@ -188,6 +188,89 @@ app.get('/api/settings/:key', async (req, res) => {
   res.json({ key: req.params.key, value: data.value });
 });
 
+// ── Instagram comment scraper ─────────────────────────────────
+
+const IG_ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_';
+
+function shortcodeToMediaId(shortcode) {
+  let id = 0n;
+  for (const ch of shortcode) {
+    const idx = IG_ALPHABET.indexOf(ch);
+    if (idx === -1) throw new Error(`invalid shortcode char: ${ch}`);
+    id = id * 64n + BigInt(idx);
+  }
+  return id.toString();
+}
+
+function extractShortcode(input) {
+  if (!input) return null;
+  const m = String(input).match(/instagram\.com\/(?:p|reel|reels|tv)\/([A-Za-z0-9_-]+)/);
+  if (m) return m[1];
+  if (/^[A-Za-z0-9_-]{6,15}$/.test(input)) return input;
+  return null;
+}
+
+app.post('/api/comments/scrape', async (req, res) => {
+  const { url, shortcode: scIn, sessionid, csrftoken, dsUserId } = req.body || {};
+  const shortcode = extractShortcode(url || scIn);
+  if (!shortcode) return res.status(400).json({ error: 'Invalid Instagram URL or shortcode' });
+  if (!sessionid) return res.status(400).json({ error: 'sessionid cookie required' });
+
+  let mediaId;
+  try { mediaId = shortcodeToMediaId(shortcode); }
+  catch (e) { return res.status(400).json({ error: e.message }); }
+
+  const cookieParts = [`sessionid=${sessionid}`];
+  if (csrftoken) cookieParts.push(`csrftoken=${csrftoken}`);
+  if (dsUserId) cookieParts.push(`ds_user_id=${dsUserId}`);
+
+  const headers = {
+    'Cookie': cookieParts.join('; '),
+    'X-IG-App-ID': '936619743392459',
+    'Accept': '*/*',
+    'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1',
+    'Referer': `https://www.instagram.com/p/${shortcode}/`,
+    ...(csrftoken ? { 'X-CSRFToken': csrftoken } : {}),
+  };
+
+  const usernames = new Set();
+  let nextMinId = null;
+  let pages = 0;
+  const MAX_PAGES = 600;
+
+  try {
+    while (pages < MAX_PAGES) {
+      const apiUrl = nextMinId
+        ? `https://www.instagram.com/api/v1/media/${mediaId}/comments/?can_support_threading=true&permalink_enabled=false&min_id=${encodeURIComponent(nextMinId)}`
+        : `https://www.instagram.com/api/v1/media/${mediaId}/comments/?can_support_threading=true&permalink_enabled=false`;
+
+      const r = await fetch(apiUrl, { headers, redirect: 'manual' });
+      if (r.status >= 300 && r.status < 400)
+        return res.status(401).json({ error: `IG redirected (${r.status}) — sessionid likely invalid/expired`, usernames: [...usernames], pages });
+      if (r.status === 401 || r.status === 403)
+        return res.status(401).json({ error: 'IG auth failed — sessionid invalid or expired', usernames: [...usernames], pages });
+      if (r.status === 429)
+        return res.status(429).json({ error: 'IG rate-limited — try again later', usernames: [...usernames], pages });
+      if (!r.ok) {
+        const text = await r.text();
+        return res.status(502).json({ error: `IG returned ${r.status}: ${text.slice(0, 200)}`, usernames: [...usernames], pages });
+      }
+
+      const data = await r.json();
+      for (const c of (data.comments || [])) {
+        if (c?.user?.username) usernames.add(c.user.username);
+      }
+      pages++;
+      nextMinId = data.next_min_id || null;
+      if (!nextMinId) break;
+      await new Promise(r => setTimeout(r, 350));
+    }
+    res.json({ shortcode, mediaId, total: usernames.size, pages, usernames: [...usernames] });
+  } catch (e) {
+    res.status(500).json({ error: e.message, usernames: [...usernames], pages });
+  }
+});
+
 // ── Stats ─────────────────────────────────────────────────────
 
 app.get('/api/stats', async (_req, res) => {
