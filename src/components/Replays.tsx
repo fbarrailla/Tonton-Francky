@@ -21,6 +21,13 @@ interface ReplayPost {
 
 const replays: ReplayPost[] = [
   {
+    id: 7,
+    title: 'Giveaway contests — 2 mai 2026',
+    titleEn: 'Giveaway contests — May 2, 2026',
+    date: 'Samedi 2 Mai 2026',
+    youtubeId: '-ajJOoW6IKE',
+  },
+  {
     id: 6,
     title: 'Tirage au sort du concours Instagram — 25 avril 2026',
     titleEn: 'Instagram Giveaway Draw — April 25, 2026',

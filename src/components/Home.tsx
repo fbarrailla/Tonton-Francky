@@ -29,7 +29,6 @@ import {
   CheckCircle,
   Copy,
   Sparkles,
-  Gift,
 } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useLanguage } from '../i18n';
@@ -47,36 +46,6 @@ function useInstagramFollowers() {
 }
 
 const CRYPTO_ADDRESS = '0x49089DA6cA4752469ADc1A7BDA8eDf19925a073d';
-
-function useCountdownToToday17h() {
-  const computeTarget = () => {
-    const t = new Date();
-    t.setHours(17, 0, 0, 0);
-    return t.getTime();
-  };
-  const [target, setTarget] = useState(computeTarget);
-  const [now, setNow] = useState(() => Date.now());
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      const current = Date.now();
-      setNow(current);
-      // If target passed, roll to next day's 17h so the counter keeps a sane state
-      if (current >= target) {
-        const next = new Date(target);
-        next.setDate(next.getDate() + 1);
-        setTarget(next.getTime());
-      }
-    }, 1000);
-    return () => clearInterval(id);
-  }, [target]);
-
-  const diff = Math.max(0, target - now);
-  const hours = Math.floor(diff / 3_600_000);
-  const minutes = Math.floor((diff % 3_600_000) / 60_000);
-  const seconds = Math.floor((diff % 60_000) / 1000);
-  return { hours, minutes, seconds, finished: diff === 0 };
-}
 
 function useCountUp(target: number, duration = 2200) {
   const [count, setCount] = useState(0);
@@ -146,7 +115,6 @@ export default function Home() {
   const salesCount = useSalesCount();
   const instagramFollowers = useInstagramFollowers();
   const { count, ref: counterRef } = useCountUp(instagramFollowers);
-  const { hours: gHours, minutes: gMinutes, seconds: gSeconds, finished: gFinished } = useCountdownToToday17h();
   const [searchParams, setSearchParams] = useSearchParams();
   const ebookOpen = searchParams.has('ebook') && !searchParams.has('thankyou');
   const setEbookOpen = (open: boolean) => {
@@ -463,78 +431,6 @@ export default function Home() {
           transition={{ opacity: { delay: 1.8, duration: 0.6 }, y: { repeat: Infinity, duration: 2.2, ease: 'easeInOut', delay: 1.8 } }}
         >
           <ChevronDown size={20} />
-        </motion.div>
-      </section>
-
-      {/* Gifts Giveaway Countdown */}
-      <section className="relative overflow-hidden py-16 md:py-24 px-6 bg-gradient-to-br from-rose-500 via-pink-500 to-purple-600 text-white">
-        {/* Animated glow blobs */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute -top-24 left-1/4 w-[28rem] h-[28rem] rounded-full bg-yellow-300/30 blur-3xl animate-pulse" />
-          <div className="absolute -bottom-24 right-1/4 w-[28rem] h-[28rem] rounded-full bg-fuchsia-300/30 blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="relative z-10 max-w-5xl mx-auto text-center"
-        >
-          <div className="inline-flex items-center gap-2 bg-white/15 backdrop-blur-sm border border-white/30 rounded-full px-5 py-2 mb-6 text-sm font-semibold tracking-widest uppercase">
-            <Gift size={15} />
-            {lang === 'fr' ? 'Concours en cours' : 'Contest live'}
-          </div>
-
-          <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl font-black mb-4 drop-shadow-lg">
-            🎁 Gifts Giveaway
-          </h2>
-
-          <p className="text-2xl md:text-3xl font-bold mb-2">
-            {lang === 'fr' ? 'Gagne un site web gratuit !' : 'Win a free website!'}
-          </p>
-          <p className="text-base md:text-lg opacity-90 mb-10 md:mb-12">
-            {lang === 'fr' ? "Tirage aujourd'hui à 17h ⏰" : 'Draw today at 5 PM ⏰'}
-          </p>
-
-          {/* Countdown */}
-          {gFinished ? (
-            <div className="inline-flex items-center gap-3 bg-white/15 backdrop-blur-sm border border-white/30 rounded-2xl px-8 py-6 text-2xl md:text-3xl font-black">
-              {lang === 'fr' ? "🎉 C'est l'heure !" : "🎉 It's time!"}
-            </div>
-          ) : (
-            <div className="flex justify-center gap-3 md:gap-6">
-              {[
-                { value: gHours, label: lang === 'fr' ? 'heures' : 'hours' },
-                { value: gMinutes, label: lang === 'fr' ? 'minutes' : 'minutes' },
-                { value: gSeconds, label: lang === 'fr' ? 'secondes' : 'seconds' },
-              ].map(({ value, label }) => (
-                <div
-                  key={label}
-                  className="flex flex-col items-center bg-white/15 backdrop-blur-md border border-white/25 rounded-2xl md:rounded-3xl px-4 md:px-8 py-4 md:py-6 min-w-[5.5rem] md:min-w-[8rem] shadow-xl"
-                >
-                  <span className="text-5xl md:text-7xl lg:text-8xl font-black tabular-nums leading-none">
-                    {String(value).padStart(2, '0')}
-                  </span>
-                  <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest opacity-80 mt-2">
-                    {label}
-                  </span>
-                </div>
-              ))}
-            </div>
-          )}
-
-          <motion.a
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-            href="https://instagram.com/tonton__francky"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-10 md:mt-12 inline-flex items-center gap-3 bg-white text-rose-600 px-8 py-4 rounded-full font-black text-base md:text-lg shadow-2xl hover:shadow-white/30 transition-shadow"
-          >
-            <Instagram size={20} />
-            {lang === 'fr' ? 'Participer sur Instagram' : 'Join on Instagram'}
-          </motion.a>
         </motion.div>
       </section>
 
