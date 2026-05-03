@@ -184,6 +184,7 @@
     <button class="tab" onclick="switchTab('newsletter')">Newsletter</button>
     <button class="tab" onclick="switchTab('followers')">Followers</button>
     <button class="tab" onclick="switchTab('comments')">Comments</button>
+    <button class="tab" onclick="switchTab('followers-list')">Followers list</button>
     <button class="tab" onclick="switchTab('settings')">Settings</button>
   </div>
 
@@ -349,6 +350,57 @@
         <button class="copy-btn" onclick="copyCommentUsernames()">⎘ Copy</button>
       </div>
       <textarea id="cm-result" readonly style="width:100%; min-height:240px; padding:12px; border:1px solid var(--border); border-radius:8px; font-family:ui-monospace,Menlo,monospace; font-size:.85rem; background:var(--bg); resize:vertical"></textarea>
+    </div>
+  </div>
+
+  <!-- Followers list tab -->
+  <div class="tab-panel" id="tab-followers-list">
+    <div class="compose-card">
+      <h2>Scrape followers list</h2>
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" id="fl-username" placeholder="tonton__francky" value="tonton__francky" />
+      </div>
+      <div class="form-group">
+        <label>IG sessionid cookie</label>
+        <input type="text" id="fl-sessionid" placeholder="paste your sessionid cookie value" />
+      </div>
+      <details style="margin-bottom:16px">
+        <summary style="cursor:pointer; font-size:.8rem; color:var(--muted)">Advanced (optional)</summary>
+        <div class="form-group" style="margin-top:12px">
+          <label>csrftoken</label>
+          <input type="text" id="fl-csrf" placeholder="optional" />
+        </div>
+        <div class="form-group">
+          <label>ds_user_id</label>
+          <input type="text" id="fl-dsuid" placeholder="optional" />
+        </div>
+      </details>
+      <div class="compose-actions">
+        <button class="btn btn-primary" id="fl-btn" onclick="scrapeFollowers()">Scrape</button>
+        <span class="send-info" id="fl-status"></span>
+      </div>
+      <p style="font-size:.78rem; color:var(--muted); margin-top:14px">
+        Instagram returns followers most-recent first. The list is reversed: <strong>#1 = oldest follower, #N = most recent</strong>. Numbering is approximate (IG never tells us the exact subscription date).
+      </p>
+    </div>
+
+    <div class="compose-card" id="fl-result-card" style="display:none">
+      <div class="toolbar">
+        <h2 id="fl-result-title">Followers</h2>
+        <div style="display:flex;gap:8px;align-items:center">
+          <input type="text" id="fl-search" placeholder="Search username or name…" oninput="renderFollowersList()" style="padding:8px 12px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-size:.85rem;min-width:220px" />
+          <button class="copy-btn" onclick="copyFollowersList()">⎘ Copy</button>
+        </div>
+      </div>
+      <div class="table-wrap" style="max-height:640px;overflow-y:auto">
+        <table>
+          <thead>
+            <tr><th>#</th><th>Username</th><th>Name</th></tr>
+          </thead>
+          <tbody id="fl-body"></tbody>
+        </table>
+      </div>
     </div>
   </div>
 
@@ -915,6 +967,97 @@
     toast('Copied.', 'success');
   }
 
+  // ── Followers list scraper ───────────────────────────────────
+  let followersListData = [];
+
+  function loadFollowersListSettings() {
+    document.getElementById('fl-sessionid').value = localStorage.getItem(SESSIONID_KEY) || '';
+    document.getElementById('fl-csrf').value = localStorage.getItem(CSRF_KEY) || '';
+    document.getElementById('fl-dsuid').value = localStorage.getItem(DSUID_KEY) || '';
+  }
+
+  async function scrapeFollowers() {
+    const username = document.getElementById('fl-username').value.trim();
+    const sessionid = document.getElementById('fl-sessionid').value.trim();
+    const csrftoken = document.getElementById('fl-csrf').value.trim();
+    const dsUserId = document.getElementById('fl-dsuid').value.trim();
+    if (!username) return toast('Enter a username', 'error');
+    if (!sessionid) return toast('IG sessionid required', 'error');
+
+    localStorage.setItem(SESSIONID_KEY, sessionid);
+    if (csrftoken) localStorage.setItem(CSRF_KEY, csrftoken);
+    if (dsUserId) localStorage.setItem(DSUID_KEY, dsUserId);
+
+    const btn = document.getElementById('fl-btn');
+    const status = document.getElementById('fl-status');
+    btn.disabled = true;
+    status.textContent = 'Scraping… (can take several minutes — IG throttles aggressively)';
+
+    const result = await api('POST', '/api/followers/scrape', { username, sessionid, csrftoken, dsUserId });
+    btn.disabled = false;
+
+    if (!result) return;
+    if (result.error) {
+      status.textContent = `Error: ${result.error}`;
+      if (result.followers?.length) {
+        followersListData = result.followers;
+        renderFollowersList();
+      }
+      return;
+    }
+    status.textContent = `Done — ${result.total} followers fetched in ${result.pages} pages (account total: ${result.totalCount}).`;
+    followersListData = result.followers;
+    renderFollowersList();
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
+
+  function renderFollowersList() {
+    const card = document.getElementById('fl-result-card');
+    const tbody = document.getElementById('fl-body');
+    const title = document.getElementById('fl-result-title');
+    const total = followersListData.length;
+    if (!total) { card.style.display = 'none'; return; }
+
+    card.style.display = 'block';
+    title.textContent = `Followers (${total})`;
+
+    // IG returns most-recent first → index 0 is most recent (= #total), last is oldest (= #1).
+    const rows = followersListData.map((f, i) => ({
+      number: total - i,
+      username: f.username,
+      full_name: f.full_name || '',
+      is_verified: !!f.is_verified,
+    })).sort((a, b) => a.number - b.number);
+
+    const search = (document.getElementById('fl-search')?.value || '').toLowerCase().trim();
+    const filtered = search
+      ? rows.filter(r => r.username.toLowerCase().includes(search) || r.full_name.toLowerCase().includes(search))
+      : rows;
+
+    tbody.innerHTML = filtered.map(r => `
+      <tr>
+        <td><strong>${r.number}</strong></td>
+        <td><a href="https://instagram.com/${encodeURIComponent(r.username)}" target="_blank" rel="noopener">@${escapeHtml(r.username)}</a>${r.is_verified ? ' <span title="verified">✓</span>' : ''}</td>
+        <td>${escapeHtml(r.full_name)}</td>
+      </tr>
+    `).join('') || `<tr><td colspan="3" class="empty">No match</td></tr>`;
+  }
+
+  function copyFollowersList() {
+    const total = followersListData.length;
+    if (!total) return toast('Nothing to copy.', 'error');
+    const text = followersListData
+      .map((f, i) => ({ n: total - i, u: f.username }))
+      .sort((a, b) => a.n - b.n)
+      .map(({ n, u }) => `${n}\t${u}`)
+      .join('\n');
+    navigator.clipboard.writeText(text);
+    toast('Copied.', 'success');
+  }
+
   // ── Init ──────────────────────────────────────────────────────
   function initApp() {
     loadStats();
@@ -923,6 +1066,7 @@
     loadSettings();
     loadFollowersHistory();
     loadCommentSettings();
+    loadFollowersListSettings();
   }
 
   if (getToken()) {

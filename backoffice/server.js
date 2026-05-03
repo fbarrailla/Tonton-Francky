@@ -271,6 +271,93 @@ app.post('/api/comments/scrape', async (req, res) => {
   }
 });
 
+// ── Followers list scraper ────────────────────────────────────
+
+app.post('/api/followers/scrape', async (req, res) => {
+  const { username, sessionid, csrftoken, dsUserId } = req.body || {};
+  if (!username) return res.status(400).json({ error: 'username required' });
+  if (!sessionid) return res.status(400).json({ error: 'sessionid cookie required' });
+
+  const cookieParts = [`sessionid=${sessionid}`];
+  if (csrftoken) cookieParts.push(`csrftoken=${csrftoken}`);
+  if (dsUserId) cookieParts.push(`ds_user_id=${dsUserId}`);
+
+  const headers = {
+    'Cookie': cookieParts.join('; '),
+    'X-IG-App-ID': '936619743392459',
+    'Accept': '*/*',
+    'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1',
+    'Referer': `https://www.instagram.com/${username}/`,
+    ...(csrftoken ? { 'X-CSRFToken': csrftoken } : {}),
+  };
+
+  // 1. Resolve username → user id + total follower count
+  let userId, totalCount;
+  try {
+    const profileUrl = `https://www.instagram.com/api/v1/users/web_profile_info/?username=${encodeURIComponent(username)}`;
+    const r = await fetch(profileUrl, { headers, redirect: 'manual' });
+    if (r.status === 401 || r.status === 403)
+      return res.status(401).json({ error: 'IG auth failed on profile lookup — sessionid invalid or expired' });
+    if (!r.ok)
+      return res.status(502).json({ error: `Profile lookup failed: HTTP ${r.status}` });
+    const data = await r.json();
+    const user = data?.data?.user;
+    if (!user) return res.status(404).json({ error: 'User not found' });
+    userId = user.id;
+    totalCount = user.edge_followed_by?.count ?? 0;
+  } catch (e) {
+    return res.status(500).json({ error: `Profile lookup error: ${e.message}` });
+  }
+
+  // 2. Paginate followers
+  const followers = [];
+  const seen = new Set();
+  let maxId = null;
+  let pages = 0;
+  const MAX_PAGES = 1000;
+
+  try {
+    while (pages < MAX_PAGES) {
+      const apiUrl = maxId
+        ? `https://www.instagram.com/api/v1/friendships/${userId}/followers/?count=100&max_id=${encodeURIComponent(maxId)}`
+        : `https://www.instagram.com/api/v1/friendships/${userId}/followers/?count=100`;
+
+      const r = await fetch(apiUrl, { headers, redirect: 'manual' });
+      if (r.status >= 300 && r.status < 400)
+        return res.status(401).json({ error: `IG redirected (${r.status}) — sessionid likely invalid/expired`, followers, pages, totalCount, userId });
+      if (r.status === 401 || r.status === 403)
+        return res.status(401).json({ error: 'IG auth failed — sessionid invalid or expired', followers, pages, totalCount, userId });
+      if (r.status === 429)
+        return res.status(429).json({ error: 'IG rate-limited — try again later', followers, pages, totalCount, userId });
+      if (!r.ok) {
+        const text = await r.text();
+        return res.status(502).json({ error: `IG returned ${r.status}: ${text.slice(0, 200)}`, followers, pages, totalCount, userId });
+      }
+
+      const data = await r.json();
+      for (const u of (data.users || [])) {
+        if (u?.username && !seen.has(u.username)) {
+          seen.add(u.username);
+          followers.push({
+            username: u.username,
+            full_name: u.full_name || '',
+            is_verified: !!u.is_verified,
+            is_private: !!u.is_private,
+            pk: u.pk || u.id || null,
+          });
+        }
+      }
+      pages++;
+      maxId = data.next_max_id || null;
+      if (!maxId) break;
+      await new Promise(r => setTimeout(r, 500));
+    }
+    res.json({ userId, username, totalCount, total: followers.length, pages, followers });
+  } catch (e) {
+    res.status(500).json({ error: e.message, followers, pages, totalCount, userId });
+  }
+});
+
 // ── Stats ─────────────────────────────────────────────────────
 
 app.get('/api/stats', async (_req, res) => {
