@@ -21,6 +21,13 @@ interface ReplayPost {
 
 const replays: ReplayPost[] = [
   {
+    id: 8,
+    title: 'Scrapper les followers Instagram + concours',
+    titleEn: 'Instagram followers scraping + contests',
+    date: 'Mardi 5 Mai 2026',
+    youtubeId: 'lSQULzQ24yw',
+  },
+  {
     id: 7,
     title: 'Giveaway contests — 2 mai 2026',
     titleEn: 'Giveaway contests — May 2, 2026',
