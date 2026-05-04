@@ -33,14 +33,21 @@ import {
 import { Link, useSearchParams } from 'react-router-dom';
 import { useLanguage } from '../i18n';
 import EbookPickerModal, { type EbookChoice } from './EbookPickerModal';
+import { supabase } from '../supabase';
 
 function useInstagramFollowers() {
   const [followers, setFollowers] = useState(596);
   useEffect(() => {
-    fetch('https://dufftgmvjjtlyfqwdsyp.supabase.co/functions/v1/instagram-followers')
-      .then(r => r.json())
-      .then((d: any) => { if (typeof d.count === 'number') setFollowers(d.count); })
-      .catch(() => {});
+    supabase
+      .from('settings')
+      .select('value')
+      .eq('key', 'instagram_followers')
+      .maybeSingle()
+      .then(({ data }) => {
+        if (!data) return;
+        const n = parseInt((data as { value: string }).value, 10);
+        if (!Number.isNaN(n)) setFollowers(n);
+      });
   }, []);
   return followers;
 }

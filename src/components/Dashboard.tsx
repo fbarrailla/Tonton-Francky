@@ -97,7 +97,7 @@ function DashboardContent() {
         const [pageViewsRes, salesRes, followersRes] = await Promise.allSettled([
           supabase.from('page_views').select('slug, views').order('views', { ascending: false }).limit(10),
           fetch(`${SUPABASE_URL}/ebook-sales`).then(r => r.json()),
-          fetch(`${SUPABASE_URL}/instagram-followers`).then(r => r.json()),
+          supabase.from('settings').select('value').eq('key', 'instagram_followers').maybeSingle(),
         ]);
 
         if (pageViewsRes.status === 'fulfilled' && pageViewsRes.value.data) {
@@ -110,7 +110,11 @@ function DashboardContent() {
           );
         }
         if (salesRes.status === 'fulfilled') setSales(salesRes.value.count ?? null);
-        if (followersRes.status === 'fulfilled') setFollowers(followersRes.value.count ?? null);
+        if (followersRes.status === 'fulfilled' && followersRes.value.data) {
+          const raw = (followersRes.value.data as { value: string }).value;
+          const n = parseInt(raw, 10);
+          setFollowers(Number.isNaN(n) ? null : n);
+        }
       } finally {
         setLoading(false);
       }

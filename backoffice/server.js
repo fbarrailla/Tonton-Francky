@@ -128,11 +128,20 @@ app.delete('/api/subscribers/:id', (req, res) => {
 
 // ── Followers history ─────────────────────────────────────────
 
+async function syncLatestFollowersToSupabase() {
+  const latest = db.prepare('SELECT count FROM followers_history ORDER BY date DESC LIMIT 1').get();
+  const value = latest ? String(latest.count) : '0';
+  const { error } = await supabase
+    .from('settings')
+    .upsert({ key: 'instagram_followers', value });
+  if (error) console.error('[Supabase] failed to sync instagram_followers:', error);
+}
+
 app.get('/api/followers-history', (_req, res) => {
   res.json(db.prepare('SELECT * FROM followers_history ORDER BY date ASC').all());
 });
 
-app.post('/api/followers-history', (req, res) => {
+app.post('/api/followers-history', async (req, res) => {
   const { date, count } = req.body;
   if (!date || count == null || isNaN(Number(count)))
     return res.status(400).json({ error: 'date and count are required' });
@@ -148,13 +157,15 @@ app.post('/api/followers-history', (req, res) => {
     db.prepare('INSERT INTO followers_history (date, count) VALUES (?, ?)').run(date, finalCount);
   }
   const entry = db.prepare('SELECT * FROM followers_history WHERE date = ?').get(date);
+  await syncLatestFollowersToSupabase();
   res.status(201).json(entry);
 });
 
-app.delete('/api/followers-history/:id', (req, res) => {
+app.delete('/api/followers-history/:id', async (req, res) => {
   if (!db.prepare('SELECT id FROM followers_history WHERE id = ?').get(req.params.id))
     return res.status(404).json({ error: 'Entry not found' });
   db.prepare('DELETE FROM followers_history WHERE id = ?').run(req.params.id);
+  await syncLatestFollowersToSupabase();
   res.status(204).end();
 });
 
@@ -183,9 +194,12 @@ app.get('/api/settings/:key', async (req, res) => {
     .from('settings')
     .select('value')
     .eq('key', req.params.key)
-    .single();
-  if (error) return res.status(404).json({ error: error.message });
-  res.json({ key: req.params.key, value: data.value });
+    .maybeSingle();
+  if (error) {
+    console.error('[Supabase] settings GET error:', error);
+    return res.status(500).json({ error: error.message });
+  }
+  res.json({ key: req.params.key, value: data?.value ?? null });
 });
 
 // ── Instagram comment scraper ─────────────────────────────────
@@ -211,10 +225,12 @@ function extractShortcode(input) {
 }
 
 app.post('/api/comments/scrape', async (req, res) => {
-  const { url, shortcode: scIn, sessionid, csrftoken, dsUserId } = req.body || {};
+  const { url, shortcode: scIn, csrftoken, dsUserId } = req.body || {};
+  let { sessionid } = req.body || {};
   const shortcode = extractShortcode(url || scIn);
   if (!shortcode) return res.status(400).json({ error: 'Invalid Instagram URL or shortcode' });
   if (!sessionid) return res.status(400).json({ error: 'sessionid cookie required' });
+  if (sessionid.includes('%3A')) sessionid = decodeURIComponent(sessionid);
 
   let mediaId;
   try { mediaId = shortcodeToMediaId(shortcode); }
@@ -246,9 +262,9 @@ app.post('/api/comments/scrape', async (req, res) => {
 
       const r = await fetch(apiUrl, { headers, redirect: 'manual' });
       if (r.status >= 300 && r.status < 400)
-        return res.status(401).json({ error: `IG redirected (${r.status}) — sessionid likely invalid/expired`, usernames: [...usernames], pages });
+        return res.status(502).json({ error: `IG redirected (${r.status}) — sessionid likely invalid/expired`, usernames: [...usernames], pages });
       if (r.status === 401 || r.status === 403)
-        return res.status(401).json({ error: 'IG auth failed — sessionid invalid or expired', usernames: [...usernames], pages });
+        return res.status(502).json({ error: 'IG auth failed — sessionid invalid or expired', usernames: [...usernames], pages });
       if (r.status === 429)
         return res.status(429).json({ error: 'IG rate-limited — try again later', usernames: [...usernames], pages });
       if (!r.ok) {
@@ -274,9 +290,11 @@ app.post('/api/comments/scrape', async (req, res) => {
 // ── Followers list scraper ────────────────────────────────────
 
 app.post('/api/followers/scrape', async (req, res) => {
-  const { username, sessionid, csrftoken, dsUserId } = req.body || {};
+  const { username, csrftoken, dsUserId } = req.body || {};
+  let { sessionid } = req.body || {};
   if (!username) return res.status(400).json({ error: 'username required' });
   if (!sessionid) return res.status(400).json({ error: 'sessionid cookie required' });
+  if (sessionid.includes('%3A')) sessionid = decodeURIComponent(sessionid);
 
   const cookieParts = [`sessionid=${sessionid}`];
   if (csrftoken) cookieParts.push(`csrftoken=${csrftoken}`);
@@ -285,9 +303,15 @@ app.post('/api/followers/scrape', async (req, res) => {
   const headers = {
     'Cookie': cookieParts.join('; '),
     'X-IG-App-ID': '936619743392459',
+    'X-ASBD-ID': '198387',
     'Accept': '*/*',
-    'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1',
+    'Accept-Language': 'en-US,en;q=0.9',
+    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+    'Sec-Fetch-Site': 'same-origin',
+    'Sec-Fetch-Mode': 'cors',
+    'Sec-Fetch-Dest': 'empty',
     'Referer': `https://www.instagram.com/${username}/`,
+    'Origin': 'https://www.instagram.com',
     ...(csrftoken ? { 'X-CSRFToken': csrftoken } : {}),
   };
 
@@ -296,8 +320,20 @@ app.post('/api/followers/scrape', async (req, res) => {
   try {
     const profileUrl = `https://www.instagram.com/api/v1/users/web_profile_info/?username=${encodeURIComponent(username)}`;
     const r = await fetch(profileUrl, { headers, redirect: 'manual' });
+    if (r.status >= 300 && r.status < 400) {
+      console.error('[IG profile lookup 3xx]', {
+        status: r.status,
+        location: r.headers.get('location'),
+        setCookie: r.headers.get('set-cookie'),
+        wwwClaim: r.headers.get('x-ig-set-www-claim'),
+        sessionidPreview: sessionid.slice(0, 12) + '...' + sessionid.slice(-6),
+        sessionidLen: sessionid.length,
+        sessionidHasColon: sessionid.includes(':'),
+      });
+      return res.status(502).json({ error: `IG redirected (${r.status}) on profile lookup — sessionid likely invalid/expired` });
+    }
     if (r.status === 401 || r.status === 403)
-      return res.status(401).json({ error: 'IG auth failed on profile lookup — sessionid invalid or expired' });
+      return res.status(502).json({ error: 'IG auth failed on profile lookup — sessionid invalid or expired' });
     if (!r.ok)
       return res.status(502).json({ error: `Profile lookup failed: HTTP ${r.status}` });
     const data = await r.json();
@@ -324,9 +360,9 @@ app.post('/api/followers/scrape', async (req, res) => {
 
       const r = await fetch(apiUrl, { headers, redirect: 'manual' });
       if (r.status >= 300 && r.status < 400)
-        return res.status(401).json({ error: `IG redirected (${r.status}) — sessionid likely invalid/expired`, followers, pages, totalCount, userId });
+        return res.status(502).json({ error: `IG redirected (${r.status}) — sessionid likely invalid/expired`, followers, pages, totalCount, userId });
       if (r.status === 401 || r.status === 403)
-        return res.status(401).json({ error: 'IG auth failed — sessionid invalid or expired', followers, pages, totalCount, userId });
+        return res.status(502).json({ error: 'IG auth failed — sessionid invalid or expired', followers, pages, totalCount, userId });
       if (r.status === 429)
         return res.status(429).json({ error: 'IG rate-limited — try again later', followers, pages, totalCount, userId });
       if (!r.ok) {
