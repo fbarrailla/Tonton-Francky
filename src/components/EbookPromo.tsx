@@ -25,7 +25,7 @@ const PAYPAL_URLS: Record<EbookChoice, string> = {
 };
 
 const PAYPAL_PROMO_URLS: Record<EbookChoice, string> = {
-  claude: 'https://www.paypal.com/ncp/payment/6PA3DPBZBZS8A',
+  claude: 'https://www.paypal.com/ncp/payment/R7ZQ2BSCC6ZEG',
   ai: 'https://www.paypal.com/ncp/payment/JBKRH44BDQS3Q', // TODO: replace with $4.99 AI promo link
   vietnam: 'https://www.paypal.com/ncp/payment/A6LQKRNC6TXHW',
   bundle: 'https://www.paypal.com/ncp/payment/X2MVQVN7NEWPG',
