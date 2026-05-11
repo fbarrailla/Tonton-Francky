@@ -21,6 +21,20 @@ interface ReplayPost {
 
 const replays: ReplayPost[] = [
   {
+    id: 12,
+    title: 'Créer un site web gratuit',
+    titleEn: 'Building a free website',
+    date: 'Lundi 11 Mai 2026',
+    youtubeId: '1GaaImzpGHg',
+  },
+  {
+    id: 11,
+    title: 'Introduction à mes e-books',
+    titleEn: 'Introduction to my ebooks',
+    date: 'Lundi 11 Mai 2026',
+    youtubeId: '_kwvwX8pM14',
+  },
+  {
     id: 10,
     title: 'Giveaways',
     titleEn: 'Giveaways',
