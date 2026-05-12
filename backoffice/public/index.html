@@ -711,6 +711,7 @@
       await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
         subject,
         email: html,
+        message: html,
         bcc: subscribersCache.map(s => s.email).join(','),
       });
       toast(`Newsletter sent to ${subscribersCache.length} subscribers!`, 'success');
