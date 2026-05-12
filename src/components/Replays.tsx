@@ -21,6 +21,13 @@ interface ReplayPost {
 
 const replays: ReplayPost[] = [
   {
+    id: 14,
+    title: 'Live Twitch surprise giveaway',
+    titleEn: 'Live Twitch surprise giveaway',
+    date: 'Mardi 12 Mai 2026',
+    youtubeId: 'eMuk3C8Ks6M',
+  },
+  {
     id: 13,
     title: 'Créer un site web gratuit avec Claude Code',
     titleEn: 'Building a free website with Claude Code',
