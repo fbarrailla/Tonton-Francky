@@ -21,6 +21,20 @@ interface ReplayPost {
 
 const replays: ReplayPost[] = [
   {
+    id: 16,
+    title: 'Mise à jour du site + rencontre viewers + giveaways',
+    titleEn: 'Updating a website + Viewers meeting + Giveaways',
+    date: 'Mercredi 13 Mai 2026',
+    youtubeId: 'nMJXJdyvZa8',
+  },
+  {
+    id: 15,
+    title: 'Créer un site web pour une ONG',
+    titleEn: 'Creating a website for an NGO',
+    date: 'Mardi 12 Mai 2026',
+    youtubeId: 'qag3TpIPhP8',
+  },
+  {
     id: 14,
     title: 'Live Twitch surprise giveaway',
     titleEn: 'Live Twitch surprise giveaway',
