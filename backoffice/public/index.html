@@ -206,6 +206,14 @@
         </tbody>
       </table>
     </div>
+
+    <div class="compose-card" style="margin-top:28px">
+      <div class="toolbar">
+        <h2 id="buyer-names-title">Buyer names</h2>
+        <button class="copy-btn" onclick="copyBuyerNames()">⎘ Copy</button>
+      </div>
+      <textarea id="buyer-names" readonly style="width:100%; min-height:120px; padding:12px; border:1px solid var(--border); border-radius:8px; font-family:ui-monospace,Menlo,monospace; font-size:.85rem; background:var(--bg); resize:vertical"></textarea>
+    </div>
   </div>
 
   <!-- Newsletter tab -->
@@ -575,6 +583,7 @@
       .order('date', { ascending: false });
     if (error) { console.error('[Supabase]', error.message); return; }
     ordersCache = orders;
+    renderBuyerNames();
     const tbody = document.getElementById('orders-body');
     if (!orders.length) {
       tbody.innerHTML = '<tr><td colspan="6" class="empty">No orders yet.</td></tr>';
@@ -728,6 +737,19 @@
     if (!subscribersCache.length) { toast('No emails to copy.', 'error'); return; }
     navigator.clipboard.writeText(subscribersCache.map(s => s.email).join(','));
     toast(`${subscribersCache.length} emails copied!`, 'success');
+  }
+
+  function renderBuyerNames() {
+    const names = ordersCache.map(o => o.customer).filter(Boolean);
+    document.getElementById('buyer-names-title').textContent = `Buyer names (${names.length})`;
+    document.getElementById('buyer-names').value = names.join(', ');
+  }
+
+  function copyBuyerNames() {
+    if (!ordersCache.length) { toast('No buyers to copy.', 'error'); return; }
+    const names = ordersCache.map(o => o.customer).filter(Boolean);
+    navigator.clipboard.writeText(names.join(', '));
+    toast(`${names.length} buyer names copied!`, 'success');
   }
 
   // ── Delete (shared) ───────────────────────────────────────────
