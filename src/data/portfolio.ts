@@ -20,6 +20,12 @@ const pigtokenVideo = '/portfolio/pigtoken.mov';
 const asyncVideo = '/portfolio/async.mov';
 const mentalSchemesVideo = '/portfolio/mental-schemes.mov';
 const blendHumanVideo = '/portfolio/blendhuman.mov';
+const revolutionOfCivilizationVideo = '/portfolio/revolution-of-civilization.mov';
+const sarungTanganKiperVideo = '/portfolio/sarung-tangan-kiper.mov';
+const annaYuriskaVideo = '/portfolio/anna-yuriska.mov';
+const douzeLandVideo = '/portfolio/douze-land.mov';
+const paulBoardGamesVideo = '/portfolio/paul-board-games.mov';
+const xlSatuWifiVideo = '/portfolio/xl-satu-wifi.mov';
 
 export interface Project {
   slug: string;
@@ -37,6 +43,84 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: 'revolution-of-civilization',
+    title: 'Revolution of Civilization',
+    descFr: "Site pour une association caritative — les dons soutiennent les orphelins, les besoins éducatifs, les nécessités quotidiennes et l'attention portée aux plus démunis.",
+    descEn: 'Charity website — donations support orphans, educational needs, daily necessities, and compassion and care.',
+    clientFr: 'Revolution of Civilization',
+    clientEn: 'Revolution of Civilization',
+    media: revolutionOfCivilizationVideo,
+    mediaType: 'video',
+    tags: ['React', 'Tailwind CSS', 'Vite'],
+    year: '2026',
+    liveUrl: 'http://revolution-of-civilization.com',
+  },
+  {
+    slug: 'sarung-tangan-kiper',
+    title: 'Sarung Tangan Kiper',
+    descFr: 'Boutique en ligne de gants de gardien de but — catalogue produits, pages de détail et achat en ligne.',
+    descEn: 'Online shop for football goalkeeper gloves — product catalog, detail pages, and online checkout.',
+    clientFr: 'Sarung Tangan Kiper',
+    clientEn: 'Sarung Tangan Kiper',
+    media: sarungTanganKiperVideo,
+    mediaType: 'video',
+    tags: ['React', 'Tailwind CSS', 'Vite'],
+    year: '2026',
+    liveUrl: 'http://sarung-tangan-kiper.com',
+  },
+  {
+    slug: 'anna-yuriska',
+    title: 'Anna Yuriska',
+    descFr: "Carnet de voyage d'Anna — treize images d'un même voyage : rizières vertes en après-midi, rivière filant entre les cocotiers et nuit passée dans un jardin entièrement fait de lumière.",
+    descEn: "Anna's travel journal — thirteen frames from a single trip: green rice paddies in the afternoon, a river hurrying past coconut palms, and a night walking through a garden made entirely of light.",
+    clientFr: 'Anna Yuriska',
+    clientEn: 'Anna Yuriska',
+    media: annaYuriskaVideo,
+    mediaType: 'video',
+    tags: ['React', 'Tailwind CSS', 'Vite'],
+    year: '2026',
+    liveUrl: 'https://anna-yuriska.com',
+  },
+  {
+    slug: 'douze-land',
+    title: 'Douze Land',
+    descFr: 'Site personnel du photographe Thomas Douze — une galerie de soixante-quinze photographies autour des amis, du sport et de la vie quotidienne.',
+    descEn: 'Personal website for photographer Thomas Douze — a gallery of seventy-five photographs covering friends, sport, fun and more.',
+    clientFr: 'Thomas Douze',
+    clientEn: 'Thomas Douze',
+    media: douzeLandVideo,
+    mediaType: 'video',
+    tags: ['React', 'Tailwind CSS', 'Vite'],
+    year: '2026',
+    liveUrl: 'https://douze-land.com',
+  },
+  {
+    slug: 'paul-board-games',
+    title: "Paul's Board Games",
+    descFr: 'Collection de jeux de société — recherche et filtres sur 140 jeux, avec pages de détail contenant photos, descriptions, notes et commentaires.',
+    descEn: 'Board games collection — search and filter across 140 games, with detail pages including photos, descriptions, ratings and comments.',
+    clientFr: 'Paul',
+    clientEn: 'Paul',
+    media: paulBoardGamesVideo,
+    mediaType: 'video',
+    tags: ['React', 'Tailwind CSS', 'Vite'],
+    year: '2026',
+    liveUrl: 'http://paul-board-games.com',
+  },
+  {
+    slug: 'xl-satu-wifi',
+    title: 'XL Satu Wifi',
+    descFr: "Page d'accueil pour XL SATU, le Wi-Fi domestique pour les familles indonésiennes — internet sans fil jusqu'à 300 Mbps, box Android TV offerte, 20+ chaînes et bonus de vitesse doublée.",
+    descEn: 'Landing page for XL SATU home Wi-Fi for Indonesian families — wireless internet up to 300 Mbps, free Android TV box, 20+ channels and double-speed bonus.',
+    clientFr: 'XL Satu',
+    clientEn: 'XL Satu',
+    media: xlSatuWifiVideo,
+    mediaType: 'video',
+    tags: ['React', 'Tailwind CSS', 'Vite'],
+    year: '2026',
+    liveUrl: 'https://xl-satu-wifi.com',
+  },
   {
     slug: 'ds-one',
     title: 'DS-One',
