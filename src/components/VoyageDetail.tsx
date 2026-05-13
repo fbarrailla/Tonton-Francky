@@ -27,6 +27,16 @@ import daNang02 from '../assets/da-nang-02.jpg';
 import daNang03 from '../assets/da-nang-03.jpg';
 import daNang04 from '../assets/da-nang-04.jpg';
 import daNang05 from '../assets/da-nang-05.jpg';
+import daNang06 from '../assets/da-nang-06.jpg';
+import daNang07 from '../assets/da-nang-07.jpg';
+import daNang08 from '../assets/da-nang-08.jpg';
+import daNang09 from '../assets/da-nang-09.jpg';
+import daNang10 from '../assets/da-nang-10.jpg';
+import daNang11 from '../assets/da-nang-11.jpg';
+import daNang12 from '../assets/da-nang-12.jpg';
+import daNang13 from '../assets/da-nang-13.jpg';
+import daNang14 from '../assets/da-nang-14.jpg';
+import daNang15 from '../assets/da-nang-15.jpg';
 
 import haLong01 from '../assets/ha-long-01.jpg';
 import haLong02 from '../assets/ha-long-02.jpg';
@@ -57,12 +67,20 @@ import canTho02 from '../assets/can-tho-02.jpg';
 import canTho03 from '../assets/can-tho-03.jpg';
 import canTho04 from '../assets/can-tho-04.jpg';
 import canTho05 from '../assets/can-tho-05.jpg';
+import canTho06 from '../assets/can-tho-06.jpg';
+import canTho07 from '../assets/can-tho-07.jpg';
+import canTho08 from '../assets/can-tho-08.jpg';
+import canTho09 from '../assets/can-tho-09.jpg';
+import canTho10 from '../assets/can-tho-10.jpg';
 
 import conDao01 from '../assets/con-dao-01.jpg';
 import conDao02 from '../assets/con-dao-02.jpg';
 import conDao03 from '../assets/con-dao-03.jpg';
 import conDao04 from '../assets/con-dao-04.jpg';
 import conDao05 from '../assets/con-dao-05.jpg';
+import conDao06 from '../assets/con-dao-06.jpg';
+import conDao07 from '../assets/con-dao-07.jpg';
+import conDao08 from '../assets/con-dao-08.jpg';
 
 import dakLak01 from '../assets/dak-lak-01.jpg';
 import dakLak02 from '../assets/dak-lak-02.jpg';
@@ -165,6 +183,12 @@ import kualaLumpur05 from '../assets/kuala-lumpur-05.jpg';
 import kualaLumpur06 from '../assets/kuala-lumpur-06.jpg';
 import kualaLumpur07 from '../assets/kuala-lumpur-07.jpg';
 
+import phuQuoc01 from '../assets/phu-quoc-01.jpg';
+import phuQuoc02 from '../assets/phu-quoc-02.jpg';
+import phuQuoc03 from '../assets/phu-quoc-03.jpg';
+import phuQuoc04 from '../assets/phu-quoc-04.jpg';
+import phuQuoc05 from '../assets/phu-quoc-05.jpg';
+
 interface VoyageData {
   name: string;
   country: string;
@@ -197,7 +221,7 @@ const voyagesData: Record<string, VoyageData> = {
     date: '2025',
     description: 'Plages superbes et pont du Dragon, entre mer et montagne.',
     descriptionEn: 'Stunning beaches and the Dragon Bridge, between sea and mountains.',
-    photos: [daNang01, daNang02, daNang03, daNang04, daNang05],
+    photos: [daNang01, daNang02, daNang03, daNang04, daNang05, daNang06, daNang07, daNang08, daNang09, daNang10, daNang11, daNang12, daNang13, daNang14, daNang15],
   },
   'ha-long': {
     name: 'Hạ Long',
@@ -237,7 +261,7 @@ const voyagesData: Record<string, VoyageData> = {
     date: '2025',
     description: 'Le cœur du delta du Mékong et ses marchés flottants.',
     descriptionEn: 'The heart of the Mekong Delta and its floating markets.',
-    photos: [canTho01, canTho02, canTho03, canTho04, canTho05],
+    photos: [canTho01, canTho02, canTho03, canTho04, canTho05, canTho06, canTho07, canTho08, canTho09, canTho10],
   },
   'con-dao': {
     name: 'Côn Đảo',
@@ -245,7 +269,7 @@ const voyagesData: Record<string, VoyageData> = {
     date: '2025',
     description: 'Un archipel préservé, plages désertes et nature sauvage.',
     descriptionEn: 'A preserved archipelago, deserted beaches and wild nature.',
-    photos: [conDao01, conDao02, conDao03, conDao04, conDao05],
+    photos: [conDao01, conDao02, conDao03, conDao04, conDao05, conDao06, conDao07, conDao08],
   },
   'dak-lak': {
     name: 'Đắk Lắk',
@@ -366,6 +390,14 @@ const voyagesData: Record<string, VoyageData> = {
     description: 'La capitale aux Petronas, jungle urbaine et carrefour des cultures asiatiques.',
     descriptionEn: 'The Petronas capital, urban jungle and crossroads of Asian cultures.',
     photos: [kualaLumpur01, kualaLumpur02, kualaLumpur03, kualaLumpur04, kualaLumpur05, kualaLumpur06, kualaLumpur07],
+  },
+  'phu-quoc': {
+    name: 'Phú Quốc',
+    country: 'Vietnam',
+    date: '2026',
+    description: "L'île émeraude du golfe de Thaïlande, plages de rêve et forêts tropicales.",
+    descriptionEn: 'The emerald island of the Gulf of Thailand, dreamy beaches and tropical forests.',
+    photos: [phuQuoc01, phuQuoc02, phuQuoc03, phuQuoc04, phuQuoc05],
   },
 };
 

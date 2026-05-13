@@ -27,6 +27,7 @@ import thumbTamDao from '../assets/tam-dao-01.jpg';
 import thumbChangMai from '../assets/chang-mai-01.jpg';
 import thumbSiemReap from '../assets/siem-reap-01.jpg';
 import thumbKualaLumpur from '../assets/kuala-lumpur-01.jpg';
+import thumbPhuQuoc from '../assets/phu-quoc-01.jpg';
 
 export interface TravelDestination {
   id: number;
@@ -305,5 +306,16 @@ export const destinations: TravelDestination[] = [
     date: "2026",
     slug: "kuala-lumpur",
     thumbnail: thumbKualaLumpur,
+  },
+  {
+    id: 25,
+    name: "Phú Quốc",
+    country: "Vietnam",
+    coordinates: [10.2270, 103.9610],
+    description: "L'île émeraude du golfe de Thaïlande, plages de rêve et forêts tropicales 🏝️",
+    descriptionEn: "The emerald island of the Gulf of Thailand, dreamy beaches and tropical forests 🏝️",
+    date: "2026",
+    slug: "phu-quoc",
+    thumbnail: thumbPhuQuoc,
   },
 ];
