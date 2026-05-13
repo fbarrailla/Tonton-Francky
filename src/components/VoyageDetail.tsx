@@ -157,6 +157,14 @@ import paris04 from '../assets/paris-04.jpg';
 import paris05 from '../assets/paris-05.jpg';
 import paris06 from '../assets/paris-06.jpg';
 
+import kualaLumpur01 from '../assets/kuala-lumpur-01.jpg';
+import kualaLumpur02 from '../assets/kuala-lumpur-02.jpg';
+import kualaLumpur03 from '../assets/kuala-lumpur-03.jpg';
+import kualaLumpur04 from '../assets/kuala-lumpur-04.jpg';
+import kualaLumpur05 from '../assets/kuala-lumpur-05.jpg';
+import kualaLumpur06 from '../assets/kuala-lumpur-06.jpg';
+import kualaLumpur07 from '../assets/kuala-lumpur-07.jpg';
+
 interface VoyageData {
   name: string;
   country: string;
@@ -350,6 +358,14 @@ const voyagesData: Record<string, VoyageData> = {
     description: "La porte d'Angkor, temples millénaires surgis de la jungle.",
     descriptionEn: 'The gateway to Angkor, thousand-year-old temples rising from the jungle.',
     photos: [siemReap01, siemReap02, siemReap03, siemReap04, siemReap05],
+  },
+  'kuala-lumpur': {
+    name: 'Kuala Lumpur',
+    country: 'Malaisie',
+    date: '2026',
+    description: 'La capitale aux Petronas, jungle urbaine et carrefour des cultures asiatiques.',
+    descriptionEn: 'The Petronas capital, urban jungle and crossroads of Asian cultures.',
+    photos: [kualaLumpur01, kualaLumpur02, kualaLumpur03, kualaLumpur04, kualaLumpur05, kualaLumpur06, kualaLumpur07],
   },
 };
 

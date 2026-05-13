@@ -26,6 +26,7 @@ import thumbPhanThiet from '../assets/phan-thiet-01.jpg';
 import thumbTamDao from '../assets/tam-dao-01.jpg';
 import thumbChangMai from '../assets/chang-mai-01.jpg';
 import thumbSiemReap from '../assets/siem-reap-01.jpg';
+import thumbKualaLumpur from '../assets/kuala-lumpur-01.jpg';
 
 export interface TravelDestination {
   id: number;
@@ -293,5 +294,16 @@ export const destinations: TravelDestination[] = [
     date: "2026",
     slug: "siem-reap",
     thumbnail: thumbSiemReap,
+  },
+  {
+    id: 24,
+    name: "Kuala Lumpur",
+    country: "Malaisie",
+    coordinates: [3.1390, 101.6869],
+    description: "La capitale aux Petronas, jungle urbaine et carrefour des cultures asiatiques 🏙️",
+    descriptionEn: "The Petronas capital, urban jungle and crossroads of Asian cultures 🏙️",
+    date: "2026",
+    slug: "kuala-lumpur",
+    thumbnail: thumbKualaLumpur,
   },
 ];
