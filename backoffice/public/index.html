@@ -182,6 +182,7 @@
   <div class="tabs">
     <button class="tab active" onclick="switchTab('orders')">Orders</button>
     <button class="tab" onclick="switchTab('newsletter')">Newsletter</button>
+    <button class="tab" onclick="switchTab('subscribers')">Subscribers</button>
     <button class="tab" onclick="switchTab('followers')">Followers</button>
     <button class="tab" onclick="switchTab('comments')">Comments</button>
     <button class="tab" onclick="switchTab('followers-list')">Followers list</button>
@@ -252,6 +253,36 @@
           <tr><td colspan="4" class="empty">Loading…</td></tr>
         </tbody>
       </table>
+    </div>
+  </div>
+
+  <!-- Subscribers tab -->
+  <div class="tab-panel" id="tab-subscribers">
+    <div class="toolbar">
+      <h2 id="nls-count-label">Newsletter subscribers</h2>
+      <div style="display:flex;gap:8px">
+        <button class="copy-btn" onclick="copyNlsEmails()">⎘ Copy all emails</button>
+        <button class="btn btn-ghost" onclick="openBatchAdd()">+ Add batch</button>
+        <button class="btn btn-primary" onclick="showAddRowNls()">+ Add email</button>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>#</th><th>Email</th><th>Subscribed on</th><th></th></tr>
+        </thead>
+        <tbody id="nls-body">
+          <tr><td colspan="4" class="empty">Loading…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="compose-card" style="margin-top:28px">
+      <div class="toolbar">
+        <h2 id="nls-emails-title">Emails</h2>
+        <button class="copy-btn" onclick="copyNlsEmails()">⎘ Copy</button>
+      </div>
+      <textarea id="nls-emails" readonly style="width:100%; min-height:120px; padding:12px; border:1px solid var(--border); border-radius:8px; font-family:ui-monospace,Menlo,monospace; font-size:.85rem; background:var(--bg); resize:vertical"></textarea>
     </div>
   </div>
 
@@ -457,6 +488,24 @@
   </div>
 </div>
 
+<!-- Batch add subscribers modal -->
+<div class="modal-backdrop" id="batch-modal">
+  <div class="modal" onclick="event.stopPropagation()" style="max-width:560px">
+    <h3>Add subscribers in batch</h3>
+    <p style="color:var(--muted); font-size:.85rem; margin-bottom:12px">
+      Paste emails separated by commas, spaces or newlines. Duplicates and invalid entries are skipped.
+    </p>
+    <div class="form-group">
+      <label>Emails</label>
+      <textarea id="batch-emails" placeholder="a@example.com, b@example.com&#10;c@example.com" style="width:100%; min-height:180px; padding:12px; border:1px solid var(--border); border-radius:8px; font-family:ui-monospace,Menlo,monospace; font-size:.85rem; background:var(--bg); resize:vertical; outline:none"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal('batch-modal')">Cancel</button>
+      <button class="btn btn-primary" id="batch-submit-btn" onclick="submitBatchEmails()">Add all</button>
+    </div>
+  </div>
+</div>
+
 <!-- Delete confirm modal -->
 <div class="modal-backdrop" id="delete-modal" onclick="closeModal('delete-modal')">
   <div class="modal delete-modal" onclick="event.stopPropagation()">
@@ -653,19 +702,25 @@
     document.getElementById('send-info').textContent =
       subscribersCache.length ? `Will be sent to ${subscribersCache.length} subscriber${subscribersCache.length > 1 ? 's' : ''} via BCC` : '';
 
-    if (!subscribersCache.length) {
-      tbody.innerHTML = '<tr><td colspan="4" class="empty">No subscribers yet.</td></tr>';
-      return;
-    }
-    tbody.innerHTML = subscribersCache.map((s, i) => `
-      <tr>
-        <td style="color:var(--muted);font-size:.8rem">${i + 1}</td>
-        <td>${escHtml(s.email)}</td>
-        <td style="color:var(--muted)">${s.created_at.slice(0, 10)}</td>
-        <td><div class="actions">
-          <button class="btn btn-danger btn-sm" onclick="openDelete('subscriber', ${s.id}, '${escAttr(s.email)}')">Remove</button>
-        </div></td>
-      </tr>`).join('');
+    const rowsHtml = subscribersCache.length
+      ? subscribersCache.map((s, i) => `
+        <tr>
+          <td style="color:var(--muted);font-size:.8rem">${i + 1}</td>
+          <td>${escHtml(s.email)}</td>
+          <td style="color:var(--muted)">${s.created_at.slice(0, 10)}</td>
+          <td><div class="actions">
+            <button class="btn btn-danger btn-sm" onclick="openDelete('subscriber', ${s.id}, '${escAttr(s.email)}')">Remove</button>
+          </div></td>
+        </tr>`).join('')
+      : '<tr><td colspan="4" class="empty">No subscribers yet.</td></tr>';
+    tbody.innerHTML = rowsHtml;
+    document.getElementById('nls-body').innerHTML = rowsHtml;
+
+    document.getElementById('nls-count-label').textContent =
+      `Newsletter subscribers (${subscribersCache.length})`;
+    document.getElementById('nls-emails-title').textContent =
+      `Emails (${subscribersCache.length})`;
+    document.getElementById('nls-emails').value = subscribersCache.map(s => s.email).join(', ');
   }
 
   function showAddRow() {
@@ -689,6 +744,68 @@
 
   function cancelAddRow() {
     document.getElementById('add-email-row')?.remove();
+    document.getElementById('add-email-row-nls')?.remove();
+  }
+
+  function showAddRowNls() {
+    document.getElementById('add-email-row-nls')?.remove();
+    const tbody = document.getElementById('nls-body');
+    const tr = document.createElement('tr');
+    tr.id = 'add-email-row-nls';
+    tr.className = 'add-row';
+    tr.innerHTML = `
+      <td style="color:var(--muted);font-size:.8rem">—</td>
+      <td><input type="email" id="new-email-input" placeholder="email@example.com" onkeydown="if(event.key==='Enter')submitNewEmail();if(event.key==='Escape')cancelAddRow();" /></td>
+      <td style="color:var(--muted)">—</td>
+      <td><div class="actions">
+        <button class="btn btn-primary btn-sm" onclick="submitNewEmail()">Add</button>
+        <button class="btn btn-ghost btn-sm" onclick="cancelAddRow()">Cancel</button>
+      </div></td>`;
+    tbody.prepend(tr);
+    document.getElementById('new-email-input').focus();
+  }
+
+  function copyNlsEmails() {
+    if (!subscribersCache.length) { toast('No emails to copy.', 'error'); return; }
+    navigator.clipboard.writeText(subscribersCache.map(s => s.email).join(', '));
+    toast(`${subscribersCache.length} emails copied!`, 'success');
+  }
+
+  function openBatchAdd() {
+    document.getElementById('batch-emails').value = '';
+    openModal('batch-modal');
+    setTimeout(() => document.getElementById('batch-emails').focus(), 50);
+  }
+
+  async function submitBatchEmails() {
+    const raw = document.getElementById('batch-emails').value;
+    const emails = [...new Set(
+      raw.split(/[\s,;]+/).map(e => e.trim().toLowerCase()).filter(e => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e))
+    )];
+    if (!emails.length) { toast('No valid emails found.', 'error'); return; }
+
+    const btn = document.getElementById('batch-submit-btn');
+    btn.disabled = true;
+    btn.textContent = `Adding 0/${emails.length}…`;
+
+    let added = 0, skipped = 0, invalid = 0;
+    for (let i = 0; i < emails.length; i++) {
+      btn.textContent = `Adding ${i + 1}/${emails.length}…`;
+      const result = await api('POST', '/api/subscribers', { email: emails[i] });
+      if (!result) { btn.disabled = false; return; }
+      if (result.id) added++;
+      else if (result.error === 'Email already subscribed') skipped++;
+      else invalid++;
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'Add all';
+    closeModal('batch-modal');
+    const parts = [`${added} added`];
+    if (skipped) parts.push(`${skipped} duplicate${skipped > 1 ? 's' : ''}`);
+    if (invalid) parts.push(`${invalid} invalid`);
+    toast(parts.join(', ') + '.', added ? 'success' : 'error');
+    loadSubscribers(); loadStats();
   }
 
   async function submitNewEmail() {
@@ -779,6 +896,10 @@
 
   document.getElementById('form-modal').addEventListener('click', function(e) {
     if (e.target === this) closeModal('form-modal');
+  });
+
+  document.getElementById('batch-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal('batch-modal');
   });
 
   // ── Utils ─────────────────────────────────────────────────────
