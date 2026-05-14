@@ -241,6 +241,7 @@
       <h2 id="sub-count-label">Subscribers</h2>
       <div style="display:flex;gap:8px">
         <button class="copy-btn" onclick="copyAllEmails()">⎘ Copy all emails</button>
+        <button class="btn btn-ghost" onclick="openBatchAdd()">+ Add batch</button>
         <button class="btn btn-primary" onclick="showAddRow()">+ Add email</button>
       </div>
     </div>
@@ -820,6 +821,8 @@
   }
 
   // ── Newsletter send ───────────────────────────────────────────
+  const NEWSLETTER_BCC_BATCH_SIZE = 50;
+
   async function sendNewsletter() {
     const subject = document.getElementById('newsletter-subject').value.trim();
     const html = quill.root.innerHTML;
@@ -829,24 +832,41 @@
     if (isEmpty)  { toast('Please write a message.', 'error'); return; }
     if (!subscribersCache.length) { toast('No subscribers to send to.', 'error'); return; }
 
+    const emails = subscribersCache.map(s => s.email);
+    const batches = [];
+    for (let i = 0; i < emails.length; i += NEWSLETTER_BCC_BATCH_SIZE) {
+      batches.push(emails.slice(i, i + NEWSLETTER_BCC_BATCH_SIZE));
+    }
+
     const btn = document.getElementById('send-btn');
     btn.disabled = true;
-    btn.textContent = 'Sending…';
 
-    try {
-      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-        subject,
-        email: html,
-        message: html,
-        bcc: subscribersCache.map(s => s.email).join(','),
-      });
-      toast(`Newsletter sent to ${subscribersCache.length} subscribers!`, 'success');
-    } catch (err) {
-      console.error(err);
-      toast('Failed to send newsletter.', 'error');
-    } finally {
-      btn.disabled = false;
-      btn.textContent = 'Send to all subscribers';
+    let sent = 0, failed = 0;
+    for (let b = 0; b < batches.length; b++) {
+      btn.textContent = `Sending batch ${b + 1}/${batches.length}…`;
+      try {
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          subject,
+          email: html,
+          message: html,
+          bcc: batches[b].join(','),
+        });
+        sent += batches[b].length;
+      } catch (err) {
+        console.error(`Batch ${b + 1} failed:`, err);
+        failed += batches[b].length;
+      }
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'Send to all subscribers';
+
+    if (failed === 0) {
+      toast(`Newsletter sent to ${sent} subscribers (${batches.length} batch${batches.length > 1 ? 'es' : ''}).`, 'success');
+    } else if (sent === 0) {
+      toast(`Failed to send newsletter to all ${failed} subscribers.`, 'error');
+    } else {
+      toast(`Sent to ${sent} subscribers, ${failed} failed.`, 'error');
     }
   }
 
