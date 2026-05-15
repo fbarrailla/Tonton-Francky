@@ -21,6 +21,13 @@ interface ReplayPost {
 
 const replays: ReplayPost[] = [
   {
+    id: 17,
+    title: 'Live in the dark',
+    titleEn: 'Live in the dark',
+    date: 'Vendredi 15 Mai 2026',
+    youtubeId: 'acBi9fz6An8',
+  },
+  {
     id: 16,
     title: 'Mise à jour du site + rencontre viewers + giveaways',
     titleEn: 'Updating a website + Viewers meeting + Giveaways',
