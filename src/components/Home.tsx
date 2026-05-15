@@ -487,7 +487,7 @@ export default function Home() {
             <div className="w-5 h-5 rounded-md bg-gradient-to-br from-pink-500 via-rose-500 to-purple-600 flex items-center justify-center">
               <Instagram size={12} className="text-white" />
             </div>
-            @tonton__francky
+            @franckyfreeze
           </div>
 
           {/* Big number */}
@@ -506,7 +506,7 @@ export default function Home() {
           <motion.a
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
-            href="https://instagram.com/tonton__francky"
+            href="https://instagram.com/franckyfreeze"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-10 inline-flex items-center gap-3 bg-gradient-to-r from-pink-500 via-rose-500 to-purple-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:shadow-pink-200 transition-shadow"
@@ -1004,7 +1004,7 @@ export default function Home() {
               <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                href="https://instagram.com/tonton__francky"
+                href="https://instagram.com/franckyfreeze"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-white text-stone-900 px-10 py-5 rounded-full font-bold text-lg shadow-xl hover:bg-stone-100 transition-colors"

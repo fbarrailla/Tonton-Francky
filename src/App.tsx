@@ -257,7 +257,7 @@ function AppContent() {
 
             {/* Social icons */}
             {[
-              { href: 'https://instagram.com/tonton__francky', label: 'Instagram', icon: <Instagram size={15} /> },
+              { href: 'https://instagram.com/franckyfreeze', label: 'Instagram', icon: <Instagram size={15} /> },
               { href: 'https://www.tiktok.com/@tonton__francky', label: 'TikTok', icon: <TikTokIcon size={15} /> },
               { href: 'https://twitch.tv/tonton__francky', label: 'Twitch', icon: <Twitch size={15} /> },
               { href: 'https://github.com/fbarrailla', label: 'GitHub', icon: <GithubIcon size={15} /> },
@@ -388,7 +388,7 @@ function AppContent() {
 
               <div className="flex gap-1 px-1">
                 {[
-                  { href: 'https://instagram.com/tonton__francky', label: 'Instagram', icon: <Instagram size={17} /> },
+                  { href: 'https://instagram.com/franckyfreeze', label: 'Instagram', icon: <Instagram size={17} /> },
                   { href: 'https://www.tiktok.com/@tonton__francky', label: 'TikTok', icon: <TikTokIcon size={17} /> },
                   { href: 'https://twitch.tv/tonton__francky', label: 'Twitch', icon: <Twitch size={17} /> },
                   { href: 'https://github.com/fbarrailla', label: 'GitHub', icon: <GithubIcon size={17} /> },
@@ -486,7 +486,7 @@ function AppContent() {
             <span className="font-medium">Tonton Francky — {t.footer.tagline}</span>
           </div>
           <div className="flex flex-wrap justify-center gap-6 md:gap-8">
-            <a href="https://instagram.com/tonton__francky" target="_blank" rel="noopener noreferrer" className="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors flex items-center gap-2">
+            <a href="https://instagram.com/franckyfreeze" target="_blank" rel="noopener noreferrer" className="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors flex items-center gap-2">
               <Instagram size={18} />
               <span>Instagram</span>
             </a>

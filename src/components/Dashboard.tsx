@@ -147,7 +147,7 @@ function DashboardContent() {
           icon={<Users size={20} />}
           label="Followers Instagram"
           value={followers ?? '—'}
-          sub="@tonton__francky"
+          sub="@franckyfreeze"
         />
       </div>
 
