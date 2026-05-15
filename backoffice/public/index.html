@@ -233,6 +233,7 @@
       </div>
       <div class="compose-actions">
         <button class="btn btn-primary" id="send-btn" onclick="sendNewsletter()">Send to all subscribers</button>
+        <button class="btn btn-ghost" id="send-test-btn" onclick="sendTestNewsletter()">Send test</button>
         <span class="send-info" id="send-info"></span>
       </div>
     </div>
@@ -822,6 +823,39 @@
 
   // ── Newsletter send ───────────────────────────────────────────
   const NEWSLETTER_BCC_BATCH_SIZE = 50;
+
+  async function sendTestNewsletter() {
+    const subject = document.getElementById('newsletter-subject').value.trim();
+    const html = quill.root.innerHTML;
+    const isEmpty = quill.getText().trim().length === 0;
+
+    if (!subject) { toast('Please enter a subject.', 'error'); return; }
+    if (isEmpty)  { toast('Please write a message.', 'error'); return; }
+
+    const testEmail = (prompt('Send test newsletter to:', 'francois.barrailla@gmail.com') || '').trim();
+    if (!testEmail) return;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(testEmail)) { toast('Invalid email.', 'error'); return; }
+
+    const btn = document.getElementById('send-test-btn');
+    btn.disabled = true;
+    btn.textContent = 'Sending test…';
+
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        subject: `[TEST] ${subject}`,
+        email: html,
+        message: html,
+        bcc: testEmail,
+      });
+      toast(`Test sent to ${testEmail}.`, 'success');
+    } catch (err) {
+      console.error(err);
+      toast('Failed to send test.', 'error');
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send test';
+    }
+  }
 
   async function sendNewsletter() {
     const subject = document.getElementById('newsletter-subject').value.trim();
