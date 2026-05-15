@@ -26,6 +26,7 @@ const annaYuriskaVideo = '/portfolio/anna-yuriska.mov';
 const douzeLandVideo = '/portfolio/douze-land.mov';
 const paulBoardGamesVideo = '/portfolio/paul-board-games.mov';
 const xlSatuWifiVideo = '/portfolio/xl-satu-wifi.mov';
+const indonesianFoodVideo = '/portfolio/indonesian-food.mov';
 
 export interface Project {
   slug: string;
@@ -43,6 +44,19 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    slug: 'indonesian-food',
+    title: 'Indonesian Food',
+    descFr: "Site de recettes de cuisine indonésienne — recettes de plats locaux avec ingrédients, étapes de préparation et photos.",
+    descEn: 'Indonesian cuisine recipes website — recipes for local dishes with ingredients, preparation steps and photos.',
+    clientFr: 'Indonesian Food',
+    clientEn: 'Indonesian Food',
+    media: indonesianFoodVideo,
+    mediaType: 'video',
+    tags: ['React', 'Tailwind CSS', 'Vite'],
+    year: '2026',
+    liveUrl: 'https://indonesian-food.net',
+  },
   {
     slug: 'revolution-of-civilization',
     title: 'Revolution of Civilization',
