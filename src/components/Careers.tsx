@@ -190,7 +190,7 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
 
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        'template_wrf13f9',
+        'template_3yov3hs',
         {
           from_name: form.fullName,
           from_email: form.email,
