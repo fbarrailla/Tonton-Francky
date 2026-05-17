@@ -204,107 +204,76 @@ function AppContent() {
         {/* Subtle amber accent line at top */}
         <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-amber-600/30 to-transparent dark:via-amber-500/20" />
 
-        <div className="max-w-7xl mx-auto px-6 flex justify-between items-center h-[72px]">
+        <div className="max-w-7xl mx-auto px-6">
 
-          {/* Logo */}
-          <Link to="/" aria-label="Tonton Francky" className="shrink-0">
-            <motion.img
-              src={logo}
-              alt="Tonton Francky"
-              className="h-18 w-auto scale-150 pt-2"
-              initial={{ opacity: 0, x: -8 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4 }}
-            />
-          </Link>
+          {/* Row 1 — primary destinations + utilities (desktop), logo + mobile controls (mobile) */}
+          <div className="flex justify-between items-center h-[72px]">
 
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-0.5">
-            {/* Primary links */}
-            {[
-              { to: '/voyages', icon: <MapPin size={13} />, label: t.nav.travels },
-              { to: '/replays', icon: <Twitch size={13} />, label: t.nav.replays },
-              { to: '/cuisine', icon: <UtensilsCrossed size={13} />, label: t.nav.cuisine },
-              { to: '/portfolio', icon: <Code2 size={13} />, label: t.nav.portfolio },
-              { to: '/musique', icon: <Music size={13} />, label: t.nav.music },
-              { to: '/a-propos', icon: <User size={13} />, label: t.nav.about },
-              { to: '/contact', icon: <Mail size={13} />, label: t.nav.contact },
-              { to: '/blog', icon: <Newspaper size={13} />, label: t.nav.blog },
-              { to: '/careers', icon: <Briefcase size={13} />, label: t.nav.careers },
-            ].map(({ to, icon, label }) => (
-              <Link
-                key={to}
-                to={to}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[0.8rem] font-medium transition-all duration-150 ${
-                  isActive(to)
-                    ? 'bg-amber-50 dark:bg-amber-950/50 text-amber-800 dark:text-amber-400 font-semibold'
-                    : 'text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/80 dark:hover:bg-stone-800/50'
-                }`}
-              >
-                {icon}
-                <span>{label}</span>
-              </Link>
-            ))}
-
-            <Link
-              to="/ebook"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-[0.8rem] font-medium text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/80 dark:hover:bg-stone-800/50 transition-all duration-150"
-            >
-              <BookOpen size={13} />
-              <span>{t.nav.ebook}</span>
+            {/* Logo */}
+            <Link to="/" aria-label="Tonton Francky" className="shrink-0">
+              <motion.img
+                src={logo}
+                alt="Tonton Francky"
+                className="h-18 w-auto scale-150 pt-2"
+                initial={{ opacity: 0, x: -8 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.4 }}
+              />
             </Link>
 
-            {/* Divider */}
-            <span className="mx-2 h-5 w-px bg-stone-200 dark:bg-stone-700/80 flex-shrink-0" aria-hidden="true" />
+            {/* Desktop primary nav */}
+            <div className="hidden md:flex items-center gap-0.5">
+              {[
+                { to: '/voyages', icon: <MapPin size={14} />, label: t.nav.travels },
+                { to: '/replays', icon: <Twitch size={14} />, label: t.nav.replays },
+                { to: '/cuisine', icon: <UtensilsCrossed size={14} />, label: t.nav.cuisine },
+                { to: '/portfolio', icon: <Code2 size={14} />, label: t.nav.portfolio },
+                { to: '/musique', icon: <Music size={14} />, label: t.nav.music },
+                { to: '/blog', icon: <Newspaper size={14} />, label: t.nav.blog },
+              ].map(({ to, icon, label }) => (
+                <Link
+                  key={to}
+                  to={to}
+                  className={`flex items-center gap-1.5 px-3.5 py-2 rounded-md text-[0.85rem] font-medium transition-all duration-150 whitespace-nowrap ${
+                    isActive(to)
+                      ? 'bg-amber-50 dark:bg-amber-950/50 text-amber-800 dark:text-amber-400 font-semibold'
+                      : 'text-stone-600 dark:text-stone-300 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/80 dark:hover:bg-stone-800/50'
+                  }`}
+                >
+                  {icon}
+                  <span>{label}</span>
+                </Link>
+              ))}
 
-            {/* Social icons */}
-            {[
-              { href: 'https://instagram.com/franckyfreeze', label: 'Instagram', icon: <Instagram size={15} /> },
-              { href: 'https://www.tiktok.com/@tonton__francky', label: 'TikTok', icon: <TikTokIcon size={15} /> },
-              { href: 'https://twitch.tv/tonton__francky', label: 'Twitch', icon: <Twitch size={15} /> },
-              { href: 'https://github.com/fbarrailla', label: 'GitHub', icon: <GithubIcon size={15} /> },
-            ].map(({ href, label, icon }) => (
-              <a
-                key={href}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
+              {/* Divider */}
+              <span className="mx-2 h-5 w-px bg-stone-200 dark:bg-stone-700/80 flex-shrink-0" aria-hidden="true" />
+
+              {/* Utility: search, theme, lang */}
+              <button
+                onClick={() => setSearchOpen(true)}
+                aria-label="Rechercher"
                 className="p-1.5 rounded-md text-stone-400 dark:text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100/80 dark:hover:bg-stone-800/50 transition-all duration-150"
               >
-                {icon}
-              </a>
-            ))}
-
-            {/* Divider */}
-            <span className="mx-2 h-5 w-px bg-stone-200 dark:bg-stone-700/80 flex-shrink-0" aria-hidden="true" />
-
-            {/* Utility: search, theme, lang */}
-            <button
-              onClick={() => setSearchOpen(true)}
-              aria-label="Rechercher"
-              className="p-1.5 rounded-md text-stone-400 dark:text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100/80 dark:hover:bg-stone-800/50 transition-all duration-150"
-            >
-              <Search size={15} />
-            </button>
-            <button
-              onClick={toggleTheme}
-              aria-label="Changer le thème"
-              className="p-1.5 rounded-md text-stone-400 dark:text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100/80 dark:hover:bg-stone-800/50 transition-all duration-150"
-            >
-              {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
-            </button>
-            <label htmlFor="lang-select" className="sr-only">Langue / Language</label>
-            <select
-              id="lang-select"
-              value={lang}
-              onChange={(e) => setLang(e.target.value as Lang)}
-              className="ml-1 text-[0.78rem] font-semibold bg-transparent border-none outline-none cursor-pointer text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors"
-            >
-              <option value="fr">🇫🇷 FR</option>
-              <option value="en">🇬🇧 EN</option>
-            </select>
-          </div>
+                <Search size={15} />
+              </button>
+              <button
+                onClick={toggleTheme}
+                aria-label="Changer le thème"
+                className="p-1.5 rounded-md text-stone-400 dark:text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100/80 dark:hover:bg-stone-800/50 transition-all duration-150"
+              >
+                {theme === 'dark' ? <Sun size={15} /> : <Moon size={15} />}
+              </button>
+              <label htmlFor="lang-select" className="sr-only">Langue / Language</label>
+              <select
+                id="lang-select"
+                value={lang}
+                onChange={(e) => setLang(e.target.value as Lang)}
+                className="ml-1 text-[0.78rem] font-semibold bg-transparent border-none outline-none cursor-pointer text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-white transition-colors"
+              >
+                <option value="fr">🇫🇷 FR</option>
+                <option value="en">🇬🇧 EN</option>
+              </select>
+            </div>
 
           {/* Mobile controls */}
           <div className="flex md:hidden items-center gap-2">
@@ -344,6 +313,51 @@ function AppContent() {
             >
               {menuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
+          </div>
+          </div>
+
+          {/* Row 2 — secondary nav + socials (desktop only) */}
+          <div className="hidden md:flex justify-between items-center border-t border-amber-950/[0.06] dark:border-stone-800/60 py-1.5">
+            <div className="flex items-center gap-0.5">
+              {[
+                { to: '/a-propos', icon: <User size={12} />, label: t.nav.about },
+                { to: '/contact', icon: <Mail size={12} />, label: t.nav.contact },
+                { to: '/careers', icon: <Briefcase size={12} />, label: t.nav.careers },
+                { to: '/ebook', icon: <BookOpen size={12} />, label: t.nav.ebook },
+              ].map(({ to, icon, label }) => (
+                <Link
+                  key={to}
+                  to={to}
+                  className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[0.75rem] font-medium transition-all duration-150 whitespace-nowrap ${
+                    isActive(to)
+                      ? 'text-amber-800 dark:text-amber-400 font-semibold'
+                      : 'text-stone-500 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/80 dark:hover:bg-stone-800/50'
+                  }`}
+                >
+                  {icon}
+                  <span>{label}</span>
+                </Link>
+              ))}
+            </div>
+            <div className="flex items-center gap-0.5">
+              {[
+                { href: 'https://instagram.com/franckyfreeze', label: 'Instagram', icon: <Instagram size={14} /> },
+                { href: 'https://www.tiktok.com/@tonton__francky', label: 'TikTok', icon: <TikTokIcon size={14} /> },
+                { href: 'https://twitch.tv/tonton__francky', label: 'Twitch', icon: <Twitch size={14} /> },
+                { href: 'https://github.com/fbarrailla', label: 'GitHub', icon: <GithubIcon size={14} /> },
+              ].map(({ href, label, icon }) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="p-1.5 rounded-md text-stone-400 dark:text-stone-500 hover:text-stone-800 dark:hover:text-stone-200 hover:bg-stone-100/80 dark:hover:bg-stone-800/50 transition-all duration-150"
+                >
+                  {icon}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
