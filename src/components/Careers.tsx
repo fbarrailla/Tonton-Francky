@@ -5,7 +5,7 @@
 
 import React, { useCallback, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Briefcase, Download, Send, CheckCircle, AlertCircle, ChevronDown, X, Sparkles, FileText, Upload } from 'lucide-react';
+import { Briefcase, Download, Send, CheckCircle, AlertCircle, ChevronDown, X, Sparkles, FileText, Upload, Calendar, Sun, DollarSign, Gift, ArrowRight } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { GoogleReCaptchaProvider, useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { useLanguage } from '../i18n';
@@ -622,6 +622,36 @@ function CareersInner() {
         </motion.div>
       </section>
 
+      {/* Conditions */}
+      <section className="py-10 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-serif font-bold mb-6 text-stone-800 dark:text-stone-100">{c.conditionsTitle}</h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            {[
+              { icon: Calendar, label: c.conditionWorkingDaysLabel, value: c.conditionWorkingDaysValue },
+              { icon: Sun, label: c.conditionDaysOffLabel, value: c.conditionDaysOffValue },
+              { icon: DollarSign, label: c.conditionSalaryLabel, value: c.conditionSalaryValue },
+              { icon: Gift, label: c.conditionBonusLabel, value: c.conditionBonusValue },
+            ].map(({ icon: Icon, label, value }, i) => (
+              <motion.div
+                key={label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05, duration: 0.4 }}
+                className="bg-white dark:bg-stone-900 border border-stone-200/70 dark:border-stone-800 rounded-2xl p-5 flex flex-col gap-2"
+              >
+                <div className="w-9 h-9 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-400 flex items-center justify-center">
+                  <Icon size={18} />
+                </div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-stone-500 dark:text-stone-400">{label}</p>
+                <p className="font-serif text-lg font-bold text-stone-800 dark:text-stone-100 leading-tight">{value}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Positions */}
       <section className="py-12 px-6">
         <div className="max-w-4xl mx-auto">
@@ -631,6 +661,46 @@ function CareersInner() {
               <PositionCard key={p.id} position={p} index={i} onApply={setApplying} />
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Process */}
+      <section className="py-16 px-6">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-10 text-stone-800 dark:text-stone-100 text-center">{c.processTitle}</h2>
+          <ol className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-2 relative">
+            {[
+              { title: c.processStep1Title, desc: c.processStep1Desc },
+              { title: c.processStep2Title, desc: c.processStep2Desc },
+              { title: c.processStep3Title, desc: c.processStep3Desc },
+              { title: c.processStep4Title, desc: c.processStep4Desc },
+            ].map((step, i, arr) => (
+              <motion.li
+                key={step.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08, duration: 0.5 }}
+                className="relative bg-white dark:bg-stone-900 border border-stone-200/70 dark:border-stone-800 rounded-2xl p-5 flex flex-col gap-3"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="w-9 h-9 rounded-full bg-amber-700 text-white text-sm font-bold flex items-center justify-center shrink-0">
+                    {i + 1}
+                  </span>
+                  <h3 className="font-serif text-lg font-bold text-stone-800 dark:text-stone-100">{step.title}</h3>
+                </div>
+                <p className="text-sm text-stone-600 dark:text-stone-400 leading-relaxed">{step.desc}</p>
+                {i < arr.length - 1 && (
+                  <span
+                    aria-hidden="true"
+                    className="hidden md:flex absolute top-1/2 -right-3 -translate-y-1/2 text-amber-700 dark:text-amber-500 z-10 bg-white dark:bg-stone-950 rounded-full p-0.5"
+                  >
+                    <ArrowRight size={18} />
+                  </span>
+                )}
+              </motion.li>
+            ))}
+          </ol>
         </div>
       </section>
 
