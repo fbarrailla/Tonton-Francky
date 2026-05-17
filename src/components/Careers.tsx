@@ -105,7 +105,7 @@ interface ApplyState {
   email: string;
   countryCode: string;
   phone: string;
-  motivation: File | null;
+  motivation: string;
   cv: File | null;
 }
 
@@ -139,16 +139,15 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
   const [form, setForm] = useState<ApplyState>({
     fullName: '',
     email: '',
-    countryCode: '+33',
+    countryCode: '+62',
     phone: '',
-    motivation: null,
+    motivation: '',
     cv: null,
   });
   const [errors, setErrors] = useState<ApplyErrors>({});
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [errorDetail, setErrorDetail] = useState('');
 
-  const motivationRef = useRef<HTMLInputElement>(null);
   const cvRef = useRef<HTMLInputElement>(null);
 
   const handleField = (name: keyof ApplyState, value: string) => {
@@ -158,14 +157,14 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
     }
   };
 
-  const handleFile = (name: 'motivation' | 'cv', file: File | null) => {
+  const handleCv = (file: File | null) => {
     if (file && file.size > MAX_FILE_SIZE) {
-      setErrors((p) => ({ ...p, [name]: c.fileTooLarge }));
-      setForm((p) => ({ ...p, [name]: null }));
+      setErrors((p) => ({ ...p, cv: c.fileTooLarge }));
+      setForm((p) => ({ ...p, cv: null }));
       return;
     }
-    setForm((p) => ({ ...p, [name]: file }));
-    if (errors[name]) setErrors((p) => ({ ...p, [name]: undefined }));
+    setForm((p) => ({ ...p, cv: file }));
+    if (errors.cv) setErrors((p) => ({ ...p, cv: undefined }));
   };
 
   const validate = (): boolean => {
@@ -174,7 +173,7 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
     if (!form.email.trim()) errs.email = c.required;
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = c.invalidEmail;
     if (!form.phone.trim()) errs.phone = c.required;
-    if (!form.motivation) errs.motivation = c.required;
+    if (!form.motivation.trim()) errs.motivation = c.required;
     if (!form.cv) errs.cv = c.required;
     setErrors(errs);
     return Object.keys(errs).length === 0;
@@ -187,10 +186,7 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
     try {
       if (executeRecaptcha) await executeRecaptcha('careers_form').catch(() => {});
 
-      const [motivationB64, cvB64] = await Promise.all([
-        form.motivation ? fileToBase64(form.motivation) : Promise.resolve(''),
-        form.cv ? fileToBase64(form.cv) : Promise.resolve(''),
-      ]);
+      const cvB64 = form.cv ? await fileToBase64(form.cv) : '';
 
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
@@ -205,18 +201,19 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
             `Email: ${form.email}`,
             `Phone: ${form.countryCode} ${form.phone}`,
             '',
-            `Motivation letter: ${form.motivation?.name ?? '—'} (${form.motivation ? Math.round(form.motivation.size / 1024) + ' KB' : '—'})`,
+            'Motivation letter:',
+            form.motivation.trim(),
+            '',
             `CV: ${form.cv?.name ?? '—'} (${form.cv ? Math.round(form.cv.size / 1024) + ' KB' : '—'})`,
             '',
-            'Files attached as base64 (template variables: motivation_b64, cv_b64; filenames: motivation_filename, cv_filename).',
+            'CV attached as base64 (template variable: cv_b64; filename: cv_filename).',
           ].join('\n'),
           to_email: 'francois.barrailla@gmail.com',
           position: title,
           full_name: form.fullName,
           phone: `${form.countryCode} ${form.phone}`,
-          motivation_filename: form.motivation?.name ?? '',
+          motivation: form.motivation.trim(),
           cv_filename: form.cv?.name ?? '',
-          motivation_b64: motivationB64,
           cv_b64: cvB64,
         },
         { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
@@ -316,17 +313,18 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
             {errors.phone && <p role="alert" className="mt-1 text-sm text-red-500 flex items-center gap-1"><AlertCircle size={14} />{errors.phone}</p>}
           </div>
 
-          <FilePicker
-            id="ap-motivation"
-            label={c.formMotivation}
-            file={form.motivation}
-            error={errors.motivation}
-            pickLabel={c.formFilePick}
-            chosenLabel={c.formFileChosen}
-            inputRef={motivationRef}
-            onPick={(f) => handleFile('motivation', f)}
-            accept=".pdf,.doc,.docx,.txt"
-          />
+          <div>
+            <label htmlFor="ap-motivation" className="block text-sm font-semibold text-stone-700 dark:text-stone-200 mb-2">{c.formMotivation}</label>
+            <textarea
+              id="ap-motivation"
+              rows={6}
+              value={form.motivation}
+              onChange={(e) => handleField('motivation', e.target.value)}
+              placeholder="…"
+              className={`${inputClass(errors.motivation)} resize-y min-h-[140px]`}
+            />
+            {errors.motivation && <p role="alert" className="mt-1 text-sm text-red-500 flex items-center gap-1"><AlertCircle size={14} />{errors.motivation}</p>}
+          </div>
 
           <FilePicker
             id="ap-cv"
@@ -336,7 +334,7 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
             pickLabel={c.formFilePick}
             chosenLabel={c.formFileChosen}
             inputRef={cvRef}
-            onPick={(f) => handleFile('cv', f)}
+            onPick={handleCv}
             accept=".pdf,.doc,.docx"
           />
 
