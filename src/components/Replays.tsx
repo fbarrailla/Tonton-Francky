@@ -21,6 +21,13 @@ interface ReplayPost {
 
 const replays: ReplayPost[] = [
   {
+    id: 20,
+    title: 'Session live Twitch du matin',
+    titleEn: 'Live Twitch morning session',
+    date: 'Dimanche 17 Mai 2026',
+    youtubeId: 'RNvrejc3DGA',
+  },
+  {
     id: 19,
     title: 'Créer un site web pour vendre du porridge de riz',
     titleEn: 'Making a website to sell rice porridge',
