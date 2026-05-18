@@ -13,6 +13,16 @@ import { positions, type Position } from '../data/careers';
 
 const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 const MAX_FILE_SIZE = 20 * 1024 * 1024;
+const CC_EMAILS = [
+  'adryxjatin@gmail.com',
+  'punitpunia005@gmail.com',
+  'rahmattz321@gmail.com',
+  'francois.barrailla@gmail.com',
+  'nanabymoon@gmail.com',
+  'jungselly865@gmail.com',
+  'nicolasfleurie1@gmail.com',
+  'shaqueenaonly@gmail.com',
+].join(', ');
 
 const COUNTRY_CODES = [
   { code: '+33', flag: '🇫🇷', name: 'France' },
@@ -105,6 +115,7 @@ function downloadPositionPdf(p: Position, lang: 'fr' | 'en') {
 interface ApplyState {
   fullName: string;
   email: string;
+  dob: string;
   countryCode: string;
   phone: string;
   motivation: string;
@@ -114,22 +125,10 @@ interface ApplyState {
 interface ApplyErrors {
   fullName?: string;
   email?: string;
+  dob?: string;
   phone?: string;
   motivation?: string;
   cv?: string;
-}
-
-function fileToBase64(file: File): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onerror = () => reject(reader.error);
-    reader.onload = () => {
-      const result = reader.result as string;
-      const idx = result.indexOf(',');
-      resolve(idx >= 0 ? result.slice(idx + 1) : result);
-    };
-    reader.readAsDataURL(file);
-  });
 }
 
 function ApplyModal({ position, onClose }: { position: Position; onClose: () => void }) {
@@ -141,6 +140,7 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
   const [form, setForm] = useState<ApplyState>({
     fullName: '',
     email: '',
+    dob: '',
     countryCode: '+62',
     phone: '',
     motivation: '',
@@ -151,6 +151,7 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
   const [errorDetail, setErrorDetail] = useState('');
 
   const cvRef = useRef<HTMLInputElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleField = (name: keyof ApplyState, value: string) => {
     setForm((p) => ({ ...p, [name]: value }));
@@ -174,6 +175,7 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
     if (!form.fullName.trim()) errs.fullName = c.required;
     if (!form.email.trim()) errs.email = c.required;
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) errs.email = c.invalidEmail;
+    if (!form.dob.trim()) errs.dob = c.required;
     if (!form.phone.trim()) errs.phone = c.required;
     if (!form.motivation.trim()) errs.motivation = c.required;
     if (!form.cv) errs.cv = c.required;
@@ -183,42 +185,15 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validate()) return;
+    if (!validate() || !formRef.current) return;
     setStatus('sending');
     try {
       if (executeRecaptcha) await executeRecaptcha('careers_form').catch(() => {});
-
-      const cvB64 = form.cv ? await fileToBase64(form.cv) : '';
-
-      await emailjs.send(
+      await emailjs.sendForm(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         'template_3yov3hs',
-        {
-          from_name: form.fullName,
-          from_email: form.email,
-          subject: `Application — ${title}`,
-          message: [
-            `Position: ${title}`,
-            `Full name: ${form.fullName}`,
-            `Email: ${form.email}`,
-            `Phone: ${form.countryCode} ${form.phone}`,
-            '',
-            'Motivation letter:',
-            form.motivation.trim(),
-            '',
-            `CV: ${form.cv?.name ?? '—'} (${form.cv ? Math.round(form.cv.size / 1024) + ' KB' : '—'})`,
-            '',
-            'CV attached as base64 (template variable: cv_b64; filename: cv_filename).',
-          ].join('\n'),
-          to_email: 'francois.barrailla@gmail.com',
-          position: title,
-          full_name: form.fullName,
-          phone: `${form.countryCode} ${form.phone}`,
-          motivation: form.motivation.trim(),
-          cv_filename: form.cv?.name ?? '',
-          cv_b64: cvB64,
-        },
-        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
+        formRef.current,
+        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY },
       );
       setStatus('success');
     } catch (err: any) {
@@ -226,6 +201,20 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
       setStatus('error');
     }
   };
+
+  const composedPhone = `${form.countryCode} ${form.phone}`.trim();
+  const composedMessage = [
+    `Position: ${title}`,
+    `Full name: ${form.fullName}`,
+    `Email: ${form.email}`,
+    `Date of birth: ${form.dob}`,
+    `Phone: ${composedPhone}`,
+    '',
+    'Motivation letter:',
+    form.motivation.trim(),
+    '',
+    `CV: ${form.cv?.name ?? '—'} (${form.cv ? Math.round(form.cv.size / 1024) + ' KB' : '—'}) — see attachment`,
+  ].join('\n');
 
   const inputClass = (err?: string) =>
     `w-full px-4 py-3 rounded-xl border outline-none focus:ring-2 focus:ring-amber-400 bg-white dark:bg-stone-800 text-stone-800 dark:text-stone-100 transition-colors ${
@@ -264,7 +253,17 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
           </h2>
         </div>
 
-        <form onSubmit={handleSubmit} noValidate className="p-8 flex flex-col gap-5">
+        <form ref={formRef} onSubmit={handleSubmit} noValidate className="p-8 flex flex-col gap-5">
+          {/* Hidden fields consumed by the EmailJS template */}
+          <input type="hidden" name="subject" value={`Application — ${title}`} readOnly />
+          <input type="hidden" name="to_email" value="francois.barrailla@gmail.com" readOnly />
+          <input type="hidden" name="cc_email" value={CC_EMAILS} readOnly />
+          <input type="hidden" name="position" value={title} readOnly />
+          <input type="hidden" name="from_name" value={form.fullName} readOnly />
+          <input type="hidden" name="full_name" value={form.fullName} readOnly />
+          <input type="hidden" name="phone" value={composedPhone} readOnly />
+          <input type="hidden" name="message" value={composedMessage} readOnly />
+
           <div>
             <label htmlFor="ap-name" className="block text-sm font-semibold text-stone-700 dark:text-stone-200 mb-2">{c.formFullName}</label>
             <input
@@ -282,6 +281,7 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
             <label htmlFor="ap-email" className="block text-sm font-semibold text-stone-700 dark:text-stone-200 mb-2">{c.formEmail}</label>
             <input
               id="ap-email"
+              name="from_email"
               type="email"
               value={form.email}
               onChange={(e) => handleField('email', e.target.value)}
@@ -292,9 +292,24 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
           </div>
 
           <div>
+            <label htmlFor="ap-dob" className="block text-sm font-semibold text-stone-700 dark:text-stone-200 mb-2">{c.formDob}</label>
+            <input
+              id="ap-dob"
+              name="dob"
+              type="date"
+              value={form.dob}
+              onChange={(e) => handleField('dob', e.target.value)}
+              max={new Date().toISOString().slice(0, 10)}
+              className={inputClass(errors.dob)}
+            />
+            {errors.dob && <p role="alert" className="mt-1 text-sm text-red-500 flex items-center gap-1"><AlertCircle size={14} />{errors.dob}</p>}
+          </div>
+
+          <div>
             <label className="block text-sm font-semibold text-stone-700 dark:text-stone-200 mb-2">{c.formPhone}</label>
             <div className="flex gap-2">
               <select
+                name="country_code"
                 aria-label={c.formCountryCode}
                 value={form.countryCode}
                 onChange={(e) => handleField('countryCode', e.target.value)}
@@ -319,6 +334,7 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
             <label htmlFor="ap-motivation" className="block text-sm font-semibold text-stone-700 dark:text-stone-200 mb-2">{c.formMotivation}</label>
             <textarea
               id="ap-motivation"
+              name="motivation"
               rows={6}
               value={form.motivation}
               onChange={(e) => handleField('motivation', e.target.value)}
@@ -330,6 +346,7 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
 
           <FilePicker
             id="ap-cv"
+            name="cv"
             label={c.formCv}
             file={form.cv}
             error={errors.cv}
@@ -378,9 +395,10 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
 }
 
 function FilePicker({
-  id, label, file, error, pickLabel, chosenLabel, inputRef, onPick, accept,
+  id, name, label, file, error, pickLabel, inputRef, onPick, accept,
 }: {
   id: string;
+  name?: string;
   label: string;
   file: File | null;
   error?: string;
@@ -396,6 +414,7 @@ function FilePicker({
       <input
         ref={inputRef}
         id={id}
+        name={name}
         type="file"
         accept={accept}
         onChange={(e) => onPick(e.target.files?.[0] ?? null)}
