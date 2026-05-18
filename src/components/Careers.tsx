@@ -12,7 +12,7 @@ import { useLanguage } from '../i18n';
 import { positions, type Position } from '../data/careers';
 
 const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
-const MAX_FILE_SIZE = 5 * 1024 * 1024;
+const MAX_FILE_SIZE = 20 * 1024 * 1024;
 
 const COUNTRY_CODES = [
   { code: '+33', flag: '🇫🇷', name: 'France' },
@@ -60,9 +60,10 @@ function downloadPositionPdf(p: Position, lang: 'fr' | 'en') {
   const mission = lang === 'fr' ? p.missionFr : p.missionEn;
   const resp = lang === 'fr' ? p.responsibilitiesFr : p.responsibilitiesEn;
   const skills = lang === 'fr' ? p.skillsFr : p.skillsEn;
+  const applicationNote = lang === 'fr' ? p.applicationNoteFr : p.applicationNoteEn;
   const labels = lang === 'fr'
-    ? { mission: 'Mission', resp: 'Responsabilités', skills: 'Compétences', open: 'Tonton Francky — Postes ouverts', tip: 'Astuce : utilisez « Enregistrer en PDF » dans la boîte de dialogue d\'impression.' }
-    : { mission: 'Mission', resp: 'Responsibilities', skills: 'Skills', open: 'Tonton Francky — Open Positions', tip: 'Tip: pick "Save as PDF" in the print dialog.' };
+    ? { mission: 'Mission', resp: 'Responsabilités', skills: 'Compétences', note: 'Note importante', open: 'Tonton Francky — Postes ouverts', tip: 'Astuce : utilisez « Enregistrer en PDF » dans la boîte de dialogue d\'impression.' }
+    : { mission: 'Mission', resp: 'Responsibilities', skills: 'Skills', note: 'Important note', open: 'Tonton Francky — Open Positions', tip: 'Tip: pick "Save as PDF" in the print dialog.' };
 
   const html = `<!doctype html>
 <html lang="${lang}"><head><meta charset="utf-8">
@@ -89,6 +90,7 @@ function downloadPositionPdf(p: Position, lang: 'fr' | 'en') {
   <ul>${resp.map(r => `<li>${escapeHtml(r)}</li>`).join('')}</ul>
   <h2>${labels.skills}</h2>
   <ul>${skills.map(s => `<li>${escapeHtml(s)}</li>`).join('')}</ul>
+  ${applicationNote ? `<h2>${labels.note}</h2><p style="padding:10px 14px;background:#fffbeb;border-left:3px solid #f59e0b;color:#78350f">${escapeHtml(applicationNote)}</p>` : ''}
   <div class="tip">${escapeHtml(labels.tip)}</div>
   <script>window.onload = function () { setTimeout(function(){ window.print(); }, 200); };<\/script>
 </body></html>`;
@@ -429,6 +431,7 @@ function PositionCard({ position, index, onApply }: { position: Position; index:
   const mission = lang === 'fr' ? position.missionFr : position.missionEn;
   const resp = lang === 'fr' ? position.responsibilitiesFr : position.responsibilitiesEn;
   const skills = lang === 'fr' ? position.skillsFr : position.skillsEn;
+  const applicationNote = lang === 'fr' ? position.applicationNoteFr : position.applicationNoteEn;
 
   return (
     <motion.article
@@ -494,6 +497,13 @@ function PositionCard({ position, index, onApply }: { position: Position; index:
                   ))}
                 </ul>
               </Section>
+
+              {applicationNote && (
+                <div className="mt-5 flex items-start gap-3 rounded-xl border border-amber-300 dark:border-amber-700/60 bg-amber-50 dark:bg-amber-950/30 px-4 py-3">
+                  <AlertCircle size={18} className="text-amber-700 dark:text-amber-400 shrink-0 mt-0.5" />
+                  <p className="text-sm text-amber-900 dark:text-amber-200 leading-relaxed">{applicationNote}</p>
+                </div>
+              )}
 
               <div className="flex flex-col sm:flex-row gap-3 mt-6">
                 <motion.button

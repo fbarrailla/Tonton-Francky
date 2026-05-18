@@ -9,6 +9,8 @@ export interface Position {
   responsibilitiesEn: string[];
   skillsFr: string[];
   skillsEn: string[];
+  applicationNoteFr?: string;
+  applicationNoteEn?: string;
 }
 
 export const positions: Position[] = [
@@ -227,6 +229,8 @@ export const positions: Position[] = [
       'Eye for branding and visual identity',
       'Portfolio of previous work',
     ],
+    applicationNoteFr: 'Tu dois envoyer ton portfolio avec ta candidature.',
+    applicationNoteEn: 'You must send your portfolio with your application.',
   },
   {
     id: 'marketing-specialist',
