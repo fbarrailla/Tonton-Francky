@@ -21,6 +21,34 @@ interface ReplayPost {
 
 const replays: ReplayPost[] = [
   {
+    id: 24,
+    title: 'Live Twitch — Entretiens d\'embauche partie IV',
+    titleEn: 'Live Twitch — Job interviews part IV',
+    date: 'Mardi 19 Mai 2026',
+    youtubeId: 'DMMHHUDc6l4',
+  },
+  {
+    id: 23,
+    title: 'Live Twitch — Entretiens d\'embauche partie III',
+    titleEn: 'Live Twitch — Job interviews part III',
+    date: 'Mardi 19 Mai 2026',
+    youtubeId: '-0E6n_KcOJI',
+  },
+  {
+    id: 22,
+    title: 'Live Twitch — Entretiens d\'embauche partie II',
+    titleEn: 'Live Twitch — Job interviews part II',
+    date: 'Mardi 19 Mai 2026',
+    youtubeId: 'QMcPS_UJxPk',
+  },
+  {
+    id: 21,
+    title: 'Live Twitch — Entretiens d\'embauche partie I',
+    titleEn: 'Live Twitch — Job interviews part I',
+    date: 'Mardi 19 Mai 2026',
+    youtubeId: 'PfWAvuuIENw',
+  },
+  {
     id: 20,
     title: 'Session live Twitch du matin',
     titleEn: 'Live Twitch morning session',
