@@ -11,11 +11,16 @@ export interface Position {
   skillsEn: string[];
   applicationNoteFr?: string;
   applicationNoteEn?: string;
+  /** Whether the role is currently hiring. Defaults to true when omitted. */
+  open?: boolean;
+  /** Number of seats still to fill. Defaults to 1 when omitted. */
+  openings?: number;
 }
 
 export const positions: Position[] = [
   {
     id: 'account-administrator',
+    open: false,
     emoji: '🗂️',
     titleFr: 'Administrateur de compte',
     titleEn: 'Account Administrator',
@@ -52,6 +57,7 @@ export const positions: Position[] = [
   },
   {
     id: 'twitch-moderator',
+    open: false,
     emoji: '🎮',
     titleFr: 'Modérateur Twitch',
     titleEn: 'Twitch Moderator',
@@ -88,6 +94,7 @@ export const positions: Position[] = [
   },
   {
     id: 'webmaster',
+    open: false,
     emoji: '💻',
     titleFr: 'Webmaster',
     titleEn: 'Webmaster',
@@ -124,6 +131,7 @@ export const positions: Position[] = [
   },
   {
     id: 'copywriter',
+    open: false,
     emoji: '✍️',
     titleFr: 'Rédacteur(trice)',
     titleEn: 'Copywriter',
@@ -160,6 +168,7 @@ export const positions: Position[] = [
   },
   {
     id: 'video-maker',
+    open: false,
     emoji: '🎥',
     titleFr: 'Vidéaste',
     titleEn: 'Video Maker',
@@ -196,6 +205,7 @@ export const positions: Position[] = [
   },
   {
     id: 'graphic-designer',
+    open: false,
     emoji: '🎨',
     titleFr: 'Graphiste',
     titleEn: 'Graphic Designer',
@@ -234,6 +244,7 @@ export const positions: Position[] = [
   },
   {
     id: 'marketing-specialist',
+    open: false,
     emoji: '📈',
     titleFr: 'Spécialiste marketing',
     titleEn: 'Marketing Specialist',
@@ -270,6 +281,7 @@ export const positions: Position[] = [
   },
   {
     id: 'hr-staff',
+    openings: 2,
     emoji: '🤝',
     titleFr: 'Chargé(e) RH',
     titleEn: 'HR Staff',
@@ -306,6 +318,7 @@ export const positions: Position[] = [
   },
   {
     id: 'community-manager',
+    open: false,
     emoji: '👥',
     titleFr: 'Community Manager',
     titleEn: 'Community Manager',
@@ -342,6 +355,7 @@ export const positions: Position[] = [
   },
   {
     id: 'intern',
+    openings: 3,
     emoji: '🌱',
     titleFr: 'Stagiaire',
     titleEn: 'Intern',

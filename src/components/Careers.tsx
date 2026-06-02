@@ -13,16 +13,7 @@ import { positions, type Position } from '../data/careers';
 
 const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 const MAX_FILE_SIZE = 20 * 1024 * 1024;
-const CC_EMAILS = [
-  'adryxjatin@gmail.com',
-  'punitpunia005@gmail.com',
-  'rahmattz321@gmail.com',
-  'francois.barrailla@gmail.com',
-  'nanabymoon@gmail.com',
-  'jungselly865@gmail.com',
-  'nicolasfleurie1@gmail.com',
-  'shaqueenaonly@gmail.com',
-].join(', ');
+const CC_EMAILS = 'francois.barrailla@gmail.com';
 
 const COUNTRY_CODES = [
   { code: '+33', flag: '🇫🇷', name: 'France' },
@@ -256,7 +247,7 @@ function ApplyModal({ position, onClose }: { position: Position; onClose: () => 
         <form ref={formRef} onSubmit={handleSubmit} noValidate className="p-8 flex flex-col gap-5">
           {/* Hidden fields consumed by the EmailJS template */}
           <input type="hidden" name="subject" value={`Application — ${title}`} readOnly />
-          <input type="hidden" name="to_email" value="francois.barrailla@gmail.com" readOnly />
+          <input type="hidden" name="to_email" value="punitpunia005@gmail.com" readOnly />
           <input type="hidden" name="cc_email" value={CC_EMAILS} readOnly />
           <input type="hidden" name="position" value={title} readOnly />
           <input type="hidden" name="from_name" value={form.fullName} readOnly />
@@ -446,6 +437,7 @@ function PositionCard({ position, index, onApply }: { position: Position; index:
   const { lang, t } = useLanguage();
   const c = t.careers;
   const [open, setOpen] = useState(false);
+  const isClosed = position.open === false;
   const title = lang === 'fr' ? position.titleFr : position.titleEn;
   const mission = lang === 'fr' ? position.missionFr : position.missionEn;
   const resp = lang === 'fr' ? position.responsibilitiesFr : position.responsibilitiesEn;
@@ -458,19 +450,36 @@ function PositionCard({ position, index, onApply }: { position: Position; index:
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ delay: Math.min(index * 0.05, 0.4), duration: 0.5 }}
-      className="bg-white dark:bg-stone-900 rounded-2xl shadow-sm hover:shadow-lg border border-stone-200/70 dark:border-stone-800 overflow-hidden transition-shadow"
+      className={`bg-white dark:bg-stone-900 rounded-2xl shadow-sm hover:shadow-lg border border-stone-200/70 dark:border-stone-800 overflow-hidden transition-shadow ${
+        isClosed ? 'opacity-75' : ''
+      }`}
     >
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        className="w-full text-left px-6 py-5 flex items-center gap-4 hover:bg-amber-50/40 dark:hover:bg-amber-950/10 transition-colors"
+        className={`w-full text-left px-6 py-5 flex items-center gap-4 transition-colors ${
+          isClosed
+            ? 'hover:bg-stone-50 dark:hover:bg-stone-800/40'
+            : 'hover:bg-amber-50/40 dark:hover:bg-amber-950/10'
+        }`}
       >
-        <span className="text-3xl select-none" aria-hidden="true">{position.emoji}</span>
+        <span className={`text-3xl select-none ${isClosed ? 'grayscale' : ''}`} aria-hidden="true">{position.emoji}</span>
         <div className="flex-1 min-w-0">
-          <h3 className="text-xl font-serif font-bold text-stone-800 dark:text-stone-100">{title}</h3>
+          <h3 className={`text-xl font-serif font-bold ${isClosed ? 'text-stone-500 dark:text-stone-400' : 'text-stone-800 dark:text-stone-100'}`}>{title}</h3>
           <p className="text-sm text-stone-600 dark:text-stone-400 mt-1 line-clamp-2">{mission}</p>
         </div>
+        {isClosed ? (
+          <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-500 dark:text-stone-400 text-xs font-semibold px-3 py-1 ring-1 ring-stone-200 dark:ring-stone-700 shrink-0">
+            <span className="size-1.5 rounded-full bg-stone-400" />
+            {c.closedLabel}
+          </span>
+        ) : (
+          <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-400 text-xs font-semibold px-3 py-1 ring-1 ring-emerald-200 dark:ring-emerald-900/50 shrink-0">
+            <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            {position.openings ?? 1} {c.openingsLabel}
+          </span>
+        )}
         <motion.span
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.2 }}
@@ -524,17 +533,26 @@ function PositionCard({ position, index, onApply }: { position: Position; index:
                 </div>
               )}
 
+              {isClosed && (
+                <div className="mt-5 flex items-start gap-3 rounded-xl border border-stone-200 dark:border-stone-700 bg-stone-50 dark:bg-stone-800/40 px-4 py-3">
+                  <AlertCircle size={18} className="text-stone-500 dark:text-stone-400 shrink-0 mt-0.5" />
+                  <p className="text-sm text-stone-700 dark:text-stone-300 leading-relaxed">{c.closedNotice}</p>
+                </div>
+              )}
+
               <div className="flex flex-col sm:flex-row gap-3 mt-6">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  type="button"
-                  onClick={() => onApply(position)}
-                  className="inline-flex items-center justify-center gap-2 bg-amber-700 hover:bg-amber-800 text-white px-5 py-2.5 rounded-xl font-semibold shadow-md transition-colors"
-                >
-                  <Send size={16} />
-                  {c.apply}
-                </motion.button>
+                {!isClosed && (
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    type="button"
+                    onClick={() => onApply(position)}
+                    className="inline-flex items-center justify-center gap-2 bg-amber-700 hover:bg-amber-800 text-white px-5 py-2.5 rounded-xl font-semibold shadow-md transition-colors"
+                  >
+                    <Send size={16} />
+                    {c.apply}
+                  </motion.button>
+                )}
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -568,6 +586,9 @@ function CareersInner() {
   const c = t.careers;
   const [applying, setApplying] = useState<Position | null>(null);
 
+  const openPositions = positions.filter((p) => p.open !== false);
+  const totalOpenings = openPositions.reduce((sum, p) => sum + (p.openings ?? 1), 0);
+
   return (
     <main className="flex-grow pt-24">
       {/* Hero */}
@@ -585,7 +606,7 @@ function CareersInner() {
             <p className="text-xl text-amber-100">{c.subtitle}</p>
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mt-6 text-sm text-amber-100">
               <Sparkles size={14} className="text-amber-300" />
-              <span>{positions.length} {c.openPositions.toLowerCase()}</span>
+              <span>{totalOpenings} {c.openPositions.toLowerCase()}</span>
             </div>
           </motion.div>
         </div>
@@ -686,7 +707,7 @@ function CareersInner() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-serif font-bold mb-8 text-stone-800 dark:text-stone-100">{c.openPositions}</h2>
           <div className="flex flex-col gap-4">
-            {positions.map((p, i) => (
+            {[...positions].sort((a, b) => Number(b.open !== false) - Number(a.open !== false)).map((p, i) => (
               <PositionCard key={p.id} position={p} index={i} onApply={setApplying} />
             ))}
           </div>

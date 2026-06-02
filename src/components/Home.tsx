@@ -29,6 +29,11 @@ import {
   CheckCircle,
   Copy,
   Sparkles,
+  Globe2,
+  Rocket,
+  Wand2,
+  ShieldCheck,
+  Lock,
 } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useLanguage } from '../i18n';
@@ -515,6 +520,96 @@ export default function Home() {
             {h.ctaBtn}
           </motion.a>
         </motion.div>
+      </section>
+
+      {/* Website Offer Section */}
+      <section className="relative py-20 md:py-28 px-6 bg-gradient-to-br from-blue-950 via-blue-900 to-stone-950 overflow-hidden">
+        {/* Soft glow accents */}
+        <div className="absolute -top-32 -left-32 w-[420px] h-[420px] rounded-full bg-blue-500/20 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-40 -right-32 w-[480px] h-[480px] rounded-full bg-sky-400/15 blur-3xl pointer-events-none" />
+
+        <div className="relative max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          {/* Promo image */}
+          <motion.a
+            href="https://www.paypal.com/ncp/payment/6NDWNAX4MHWDC"
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.99 }}
+            className="block aspect-square rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/10 order-2 lg:order-1"
+            aria-label={h.websiteOffer.cta}
+          >
+            <picture>
+              <source srcSet="/website-offer.webp" type="image/webp" />
+              <img
+                src="/website-offer.jpg"
+                alt={`${h.websiteOffer.title} ${h.websiteOffer.titleHighlight}`}
+                loading="lazy"
+                width={1200}
+                height={1200}
+                className="w-full h-full object-cover"
+              />
+            </picture>
+          </motion.a>
+
+          {/* Copy + CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="order-1 lg:order-2 text-white"
+          >
+            <div className="inline-flex items-center gap-2 rounded-full bg-blue-500/15 ring-1 ring-blue-300/30 px-3 py-1 text-xs font-bold uppercase tracking-widest text-blue-200 mb-5">
+              <Sparkles size={12} /> {h.websiteOffer.badge}
+            </div>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold leading-tight">
+              {h.websiteOffer.title}{' '}
+              <span className="block bg-gradient-to-r from-blue-300 via-sky-300 to-cyan-300 bg-clip-text text-transparent">
+                {h.websiteOffer.titleHighlight}
+              </span>
+            </h2>
+            <p className="mt-5 text-lg text-blue-100/80 leading-relaxed max-w-xl">
+              {h.websiteOffer.desc}
+            </p>
+
+            <ul className="mt-6 grid grid-cols-2 gap-3 max-w-xl">
+              {[
+                { icon: Globe2, label: h.websiteOffer.feature1 },
+                { icon: Rocket, label: h.websiteOffer.feature2 },
+                { icon: Wand2, label: h.websiteOffer.feature3 },
+                { icon: ShieldCheck, label: h.websiteOffer.feature4 },
+              ].map(({ icon: Icon, label }) => (
+                <li key={label} className="flex items-center gap-2.5 text-sm text-blue-100">
+                  <span className="w-8 h-8 rounded-lg bg-blue-500/15 ring-1 ring-blue-300/30 flex items-center justify-center text-blue-300">
+                    <Icon size={16} />
+                  </span>
+                  <span>{label}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+              <motion.a
+                href="https://www.paypal.com/ncp/payment/6NDWNAX4MHWDC"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2 bg-white text-blue-900 px-7 py-3.5 rounded-full font-bold text-base shadow-xl hover:shadow-blue-300/40 transition-shadow"
+              >
+                ✦ {h.websiteOffer.cta}
+              </motion.a>
+              <span className="inline-flex items-center gap-1.5 text-xs text-blue-200/80">
+                <Lock size={12} /> {h.websiteOffer.secure}
+              </span>
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* E-book Section */}
