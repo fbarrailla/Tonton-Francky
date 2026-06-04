@@ -9801,7 +9801,7 @@ const posts: BlogPost[] = [
     readTime: 6,
     category: 'Tech & IA',
     categoryEn: 'Tech & AI',
-    thumbnail: '/blog/sovereign-website.png',
+    thumbnail: '/blog/sovereign-website.webp',
     ebookCta: true,
     ebookType: 'claude',
     content: [
@@ -9907,7 +9907,7 @@ const posts: BlogPost[] = [
     readTime: 5,
     category: 'Tech & IA',
     categoryEn: 'Tech & AI',
-    thumbnail: '/blog/drag-drop-freedom.png',
+    thumbnail: '/blog/drag-drop-freedom.jpg',
     ebookCta: true,
     ebookType: 'claude',
     content: [
@@ -9997,7 +9997,7 @@ const posts: BlogPost[] = [
     readTime: 8,
     category: 'Tech & IA',
     categoryEn: 'Tech & AI',
-    thumbnail: '/blog/inbox-todo.png',
+    thumbnail: '/blog/inbox-todo.avif',
     content: [
       {
         type: 'paragraph',
@@ -10355,7 +10355,7 @@ const posts: BlogPost[] = [
     readTime: 7,
     category: 'Tech & IA',
     categoryEn: 'Tech & AI',
-    thumbnail: '/blog/wifi-remote-work.png',
+    thumbnail: '/blog/wifi-remote-work.webp',
     content: [
       {
         type: 'paragraph',
