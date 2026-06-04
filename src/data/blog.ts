@@ -8679,7 +8679,7 @@ const posts: BlogPost[] = [
   readTime: 7,
   category: 'Mode & Style',
   categoryEn: 'Fashion & Style',
-  thumbnail: '/blog/future-of-fashion.png',
+  thumbnail: '/blog/future-of-fashion.jpg',
   content: [
     {
       type: 'paragraph',
@@ -8851,7 +8851,7 @@ const posts: BlogPost[] = [
   readTime: 6,
   category: 'Finance & Crypto',
   categoryEn: 'Finance & Crypto',
-  thumbnail: '/blog/safe-crypto-investing.png',
+  thumbnail: '/blog/safe-crypto-investing.jpg',
   content: [
     {
       type: 'paragraph',
@@ -9055,7 +9055,7 @@ const posts: BlogPost[] = [
   readTime: 8,
   category: 'Voyage & Lifestyle',
   categoryEn: 'Travel & Lifestyle',
-  thumbnail: '/blog/family-vs-friends-travel.png',
+  thumbnail: '/blog/family-vs-friends-travel.jpg',
   content: [
     {
       type: 'paragraph',
@@ -9191,7 +9191,7 @@ const posts: BlogPost[] = [
   readTime: 7,
   category: 'Tech & IA',
   categoryEn: 'Tech & AI',
-  thumbnail: '/blog/instagram-growth.png',
+  thumbnail: '/blog/instagram-growth.jpg',
   content: [
     {
       type: 'paragraph',
@@ -9427,7 +9427,7 @@ const posts: BlogPost[] = [
   readTime: 6,
   category: 'Tech & IA',
   categoryEn: 'Tech & AI',
-  thumbnail: '/blog/protect-phone-hackers.png',
+  thumbnail: '/blog/protect-phone-hackers.jpg',
   content: [
     {
       type: 'paragraph',
@@ -9984,6 +9984,544 @@ const posts: BlogPost[] = [
       {
         type: 'paragraph',
         text: "At Tonton Francky, we build the bridge to your future self. Our premium digital playbook, \"From Command Line to Live Production: The Master Guide to Claude Code for Beginners,\" provides an infallible roadmap to take your project from a blank screen to a world-class live URL with absolute confidence. Stop clicking buttons. Start engineering your digital legacy today.",
+      },
+    ],
+  },
+  {
+    slug: 'inbox-not-todo-list',
+    title: "Ta boîte mail n'est pas une to-do list. Arrête de la traiter comme telle.",
+    titleEn: "Your Inbox Is Not a To-Do List. Stop Treating It Like One.",
+    excerpt: "Des millions de personnes gèrent toute leur vie professionnelle depuis leur boîte mail. Voici pourquoi ça détruit silencieusement leur concentration — et ce qu'il faut construire à la place.",
+    excerptEn: "Millions of people manage their entire work life from their email inbox. Here's why that's quietly destroying their focus — and what to build instead.",
+    date: '2026-06-04',
+    readTime: 8,
+    category: 'Tech & IA',
+    categoryEn: 'Tech & AI',
+    thumbnail: '/blog/inbox-todo.png',
+    content: [
+      {
+        type: 'paragraph',
+        text: "Voilà une situation que beaucoup reconnaissent : tu ouvres ton email le matin pour \"vérifier rapidement\" ce qui est arrivé. Quarante minutes plus tard, tu as répondu à sept messages, démarré deux tâches que tu n'avais pas prévu, oublié la seule chose que tu devais vraiment faire — et ton café est froid.",
+      },
+      {
+        type: 'paragraph',
+        text: "Ce n'est pas un problème de discipline. C'est un problème de système. Et tout commence par une seule erreur très répandue : utiliser sa boîte mail comme l'endroit où le travail se passe, plutôt que comme l'endroit où les demandes arrivent.",
+      },
+      {
+        type: 'heading',
+        text: "Les chiffres derrière le gouffre",
+      },
+      {
+        type: 'paragraph',
+        text: "La recherche sur ce sujet est cohérente depuis des années : 28 % de la semaine moyenne d'un travailleur de la connaissance est consacrée à lire et répondre à des emails (McKinsey). Il faut en moyenne 23 minutes pour retrouver une concentration totale après une interruption par email (Université de Californie, Irvine). Les travailleurs consultent leur boîte en moyenne 11 fois par heure pendant la journée de travail (Adobe). La boîte mail est optimisée pour une seule chose : faciliter la tâche aux autres pour alourdir votre charge de travail.",
+      },
+      {
+        type: 'heading',
+        text: "Pourquoi la boîte mail donne l'impression de travailler (mais n'est pas du travail)",
+      },
+      {
+        type: 'paragraph',
+        text: "L'email crée une illusion convaincante de productivité. Chaque réponse envoyée donne l'impression d'avoir accompli quelque chose. Chaque message lu donne l'impression de rester au courant. Mais presque rien de tout cela ne correspond à un vrai progrès sur ce qui compte. Le problème plus profond est qu'une boîte mail traite tous les inputs comme égaux. Une newsletter, une escalade client, une invitation à une réunion — ils arrivent tous dans le même format, au même endroit, exigeant le même type d'attention.",
+      },
+      {
+        type: 'quote',
+        text: "Je n'étais pas mauvais dans mon travail. J'étais mauvais dans mon système. Le moment où j'ai arrêté d'utiliser ma boîte mail comme liste de tâches, j'ai récupéré trois heures par semaine. — Nadia K., product manager, Singapour",
+      },
+      {
+        type: 'heading',
+        text: "Ce qu'il faut construire à la place : le système à trois couches",
+      },
+      {
+        type: 'heading',
+        text: "Couche 1 : Capturer",
+      },
+      {
+        type: 'paragraph',
+        text: "Chaque élément actionnable qui arrive dans ta boîte mail est déplacé — immédiatement — vers un système de tâches dédié. Pas des \"étoiles\" ou des \"drapeaux\" dans l'email. Un outil séparé : un gestionnaire de tâches, une liste simple, une page Notion, n'importe quoi qui vit en dehors de la boîte mail. La règle : si ça nécessite une action, ça quitte la boîte mail.",
+      },
+      {
+        type: 'heading',
+        text: "Couche 2 : Des espaces séparés pour des réflexions séparées",
+      },
+      {
+        type: 'paragraph',
+        text: "L'email, c'est pour la communication. Les tâches, c'est pour l'exécution. Ces deux choses doivent être dans des endroits différents, ouvertes à des moments différents. Essaie ceci pendant une semaine : consulte l'email seulement à trois horaires fixes par jour — matin, midi et fin de journée. Entre ces créneaux, ferme l'onglet. Complètement. La plupart des gens découvrent que la chose urgente qu'ils craignaient de manquer n'était pas urgente.",
+      },
+      {
+        type: 'heading',
+        text: "Couche 3 : Une revue hebdomadaire",
+      },
+      {
+        type: 'paragraph',
+        text: "Une fois par semaine, passe vingt minutes à parcourir ta liste de tâches avec une seule question : est-ce que ça compte encore ? Supprime ce qui ne compte pas. Priorise ce qui compte. La boîte mail se vide plus vite quand tu ne l'utilises plus pour te souvenir des choses.",
+      },
+      {
+        type: 'heading',
+        text: "La configuration pratique",
+      },
+      {
+        type: 'list',
+        items: [
+          "Gestionnaire de tâches : Todoist, Things 3, ou même les Rappels Apple. L'outil spécifique importe moins que de l'utiliser de manière cohérente.",
+          "Client email avec envoi différé : Superhuman, Hey, ou l'envoi programmé de Gmail. Empêche d'envoyer à toute heure et d'attendre des réponses en temps réel.",
+          "Un dossier ou label \"En attente\" : pour les emails où tu attends une réponse. Vérifie-le une fois par semaine.",
+          "Se désabonner agressivement : chaque newsletter que tu ne lis pas dans les 48 heures suivant son arrivée devrait être désabonnée. Fais-le une fois, bénéficie-en indéfiniment.",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Le défi de cette semaine",
+      },
+      {
+        type: 'list',
+        items: [
+          "Ouvre ta boîte mail seulement trois fois : 9h, 13h et 17h.",
+          "Chaque email nécessitant une action se transforme en une tâche d'une ligne quelque part en dehors de ta boîte mail avant de l'archiver.",
+          "À la fin de la journée, compte combien de tâches tu as accomplies depuis ta liste vs. combien tu as accompli en réagissant à l'email.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "La plupart des gens qui essaient cela pour la première fois sont surpris par deux choses : à quel point ils ont peu manqué, et à quel point ils ont accompli davantage. L'objectif n'est pas inbox zero. L'objectif est l'inbox irrelevance — un état où ce qui est dans ta boîte mail n'a aucun pouvoir sur ce sur quoi tu travailles ensuite.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "Here is a situation most people recognize: you open your email in the morning to \"quickly check\" what's come in. Forty minutes later, you've replied to seven messages, started two tasks you didn't plan to start, forgotten the one thing you actually needed to do, and your coffee is cold.",
+      },
+      {
+        type: 'paragraph',
+        text: "This isn't a discipline problem. It's a system problem. And it starts with a single, widespread mistake: using your inbox as the place where work happens, instead of the place where requests arrive.",
+      },
+      {
+        type: 'heading',
+        text: "The Numbers Behind the Drain",
+      },
+      {
+        type: 'paragraph',
+        text: "The research here is consistent and has been for years: 28% of the average knowledge worker's week is spent reading and answering email (McKinsey). It takes 23 minutes to regain full focus after an email interruption (University of California Irvine). Workers check their inbox on average 11 times per hour during the workday (Adobe). The inbox is optimized for one thing: making it easy for other people to add to your workload.",
+      },
+      {
+        type: 'heading',
+        text: "Why the Inbox Feels Like Work (But Isn't)",
+      },
+      {
+        type: 'paragraph',
+        text: "Email creates a convincing illusion of productivity. Every reply sent feels like a task completed. Every message read feels like staying on top of things. But almost none of that maps to actual progress on the things that matter. The deeper problem is that an inbox treats all inputs as equal. A newsletter, a client escalation, a meeting invite, a \"just checking in\" from a colleague — they all arrive in the same format, in the same place, demanding the same kind of attention.",
+      },
+      {
+        type: 'quote',
+        text: "I wasn't bad at my job. I was bad at my system. The moment I stopped using my inbox as a task list, I got three hours back every week. — Nadia K., product manager, Singapore",
+      },
+      {
+        type: 'heading',
+        text: "What to Build Instead: The Three-Layer System",
+      },
+      {
+        type: 'heading',
+        text: "Layer 1: Capture",
+      },
+      {
+        type: 'paragraph',
+        text: "Every actionable item that arrives in your inbox gets moved — immediately — to a dedicated task system. Not \"stars\" or \"flags\" inside email. A separate tool: a task manager, a simple list, a Notion page, anything that lives outside the inbox. The rule: if it requires action, it leaves the inbox.",
+      },
+      {
+        type: 'heading',
+        text: "Layer 2: Separate Spaces for Separate Thinking",
+      },
+      {
+        type: 'paragraph',
+        text: "Email is for communication. Tasks are for execution. These need to be in different places, open at different times, with different intentions. Try this for one week: check email at three fixed times per day only — morning, midday, and end of day. Between those windows, close the tab. Fully. Most people discover the urgent thing they were worried about missing… wasn't urgent.",
+      },
+      {
+        type: 'heading',
+        text: "Layer 3: A Weekly Review",
+      },
+      {
+        type: 'paragraph',
+        text: "Once a week, spend twenty minutes going through your task list with one question: does this still matter? Delete what doesn't. Prioritize what does. The inbox empties faster when you're no longer using it to remember things.",
+      },
+      {
+        type: 'heading',
+        text: "The Practical Setup (Tools That Actually Help)",
+      },
+      {
+        type: 'list',
+        items: [
+          "Task manager: Todoist, Things 3, or even Apple Reminders. The specific tool matters less than using one consistently.",
+          "Email client with batch-send or scheduling: Superhuman, Hey, or Gmail's scheduled send. Stops you from sending at all hours and expecting real-time replies.",
+          "A \"waiting for\" folder or label: for emails where you're waiting on someone else. Review it once a week. Nothing stays invisible.",
+          "Unsubscribe aggressively: every newsletter you don't read within 48 hours of arrival should be unsubscribed from. Do it once, benefit indefinitely.",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "This Week's Challenge",
+      },
+      {
+        type: 'list',
+        items: [
+          "Open your inbox only three times: 9 AM, 1 PM, and 5 PM.",
+          "Every email that requires action gets a one-line task written somewhere outside your inbox before you archive or leave the email.",
+          "At the end of the day, count how many tasks you completed from your task list vs. how many you completed by reacting to email.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Most people who try this for the first time are surprised by two things: how little they actually missed, and how much more they got done. The goal isn't inbox zero. The goal is inbox irrelevance — a state where what's in your inbox has no power over what you work on next.",
+      },
+    ],
+  },
+  {
+    slug: 'no-code-build-website-ai',
+    title: "Tu n'as plus besoin de savoir coder pour créer un site web",
+    titleEn: "You Don't Need to Know How to Code to Build a Website Anymore",
+    excerpt: "Des outils IA comme Claude Code suppriment silencieusement la plus grande barrière entre une idée et un site web en ligne — et ce que ça change pour toi.",
+    excerptEn: "How AI tools like Claude Code are quietly removing the biggest barrier between an idea and a live website — and what that means for you.",
+    date: '2026-06-04',
+    readTime: 7,
+    category: 'Tech & IA',
+    categoryEn: 'Tech & AI',
+    thumbnail: '/blog/no-code-website.png',
+    ebookCta: true,
+    ebookType: 'claude',
+    content: [
+      {
+        type: 'paragraph',
+        text: "Il y a un moment que la plupart des créateurs de sites web débutants connaissent bien. Tu as une idée. Peut-être un portfolio, un site pour ton activité, ou une landing page pour quelque chose que tu lances. Tu ouvres un navigateur, tu cherches \"comment créer un site web\", et en trente secondes tu te retrouves face à des tutoriels sur les balises HTML, les sélecteurs CSS et les meilleures pratiques de design responsive.",
+      },
+      {
+        type: 'paragraph',
+        text: "Tu fermes l'onglet. Cet écart — entre avoir une idée et en savoir assez pour l'exécuter — a stoppé plus de projets que n'importe quelle mauvaise idée. Mais quelque chose a changé au cours des dix-huit derniers mois. Les outils ont rattrapé leur retard. Et pas dans le sens \"assez bien\". Dans le sens \"ça marche vraiment\".",
+      },
+      {
+        type: 'heading',
+        text: "Ce qui a changé (et pourquoi ça compte maintenant)",
+      },
+      {
+        type: 'paragraph',
+        text: "Les assistants de codage IA ont existé sous diverses formes pendant des années. La plupart étaient construits pour les développeurs — des outils qui complétaient du code que tu comprenais déjà. Le changement récent est différent. Des outils comme Claude Code sont maintenant capables de prendre des instructions en langage courant — le genre que tu écrirais dans un message à un ami — et de les transformer en sites web fonctionnels. Pas des maquettes. Pas des wireframes. Des pages réelles, déployées, accessibles publiquement.",
+      },
+      {
+        type: 'quote',
+        text: "\"Crée-moi une landing page pour mon activité photographique. Elle doit avoir une section hero avec image, un court paragraphe de présentation, une galerie de six photos et un formulaire de contact. Garde ça minimal et propre.\" Cette instruction, donnée à Claude Code, produit une page web fonctionnelle. En une étape.",
+      },
+      {
+        type: 'paragraph',
+        text: "Ce n'est pas de l'automatisation qui remplace la créativité. C'est de l'automatisation qui supprime les frictions. Tu décides toujours de quoi parle ton site, à quoi il ressemble et à qui il s'adresse. L'outil gère la traduction de l'idée vers le code.",
+      },
+      {
+        type: 'heading',
+        text: "Les trois étapes où la plupart des gens bloquent",
+      },
+      {
+        type: 'list',
+        items: [
+          "Commencer. Écran blanc, aucune idée par où commencer. Chaque tutoriel suppose un contexte que tu n'as pas encore.",
+          "Le faire paraître bien. Tu as construit quelque chose, mais ça a l'air de travers — l'espacement est mauvais, la police ne correspond pas.",
+          "Le publier. La page fonctionne localement mais la mettre en ligne implique des noms de domaine, un hébergement, des paramètres DNS et une douzaine d'autres choses qui n'étaient pas dans le tutoriel.",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Une approche pratique qui fonctionne vraiment",
+      },
+      {
+        type: 'list',
+        items: [
+          "Commence par une description en un paragraphe de ton site. Pas une liste de fonctionnalités — une description, comme tu la donnerais à un ami designer autour d'un café.",
+          "Laisse l'outil générer une première version sans l'interrompre. Ne relance pas de prompt avant de pouvoir voir le résultat complet.",
+          "Puis critique de manière spécifique. \"La police du titre semble trop lourde\" ou \"L'espacement entre les sections a besoin de plus d'espace pour respirer\" — pas \"rends-le mieux\".",
+          "Publie tôt, même si ce n'est pas parfait. Un site en ligne que tu peux partager vaut plus qu'un site parfait qui n'existe pas encore.",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "J'ai publié un jeudi soir après environ cinq jours. La première version semblait brouillon. Au moment de la publier, c'était quelque chose dont j'étais vraiment fier. — Adi R., consultant en marque, a construit son premier site en 5 jours",
+      },
+      {
+        type: 'heading',
+        text: "Ce que ça ne remplace pas",
+      },
+      {
+        type: 'list',
+        items: [
+          "Les fonctionnalités personnalisées complexes — si ton site a besoin de caractéristiques inhabituelles, tu atteindras éventuellement un plafond sans implication technique plus poussée.",
+          "L'optimisation des performances — un site généré peut ne pas être aussi rapide ou efficace qu'un site construit par un développeur expérimenté.",
+          "La maintenance à long terme — si tes besoins grandissent significativement, comprendre ce qui a été construit devient important.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "Mais pour la majorité des personnes qui ont besoin d'un site fonctionnel et professionnel et qui n'ont actuellement rien — ce sont des problèmes de demain. L'objectif pour la plupart des gens n'est pas un site parfait. C'est un site réel.",
+      },
+      {
+        type: 'heading',
+        text: "Par où commencer",
+      },
+      {
+        type: 'paragraph',
+        text: "Si tu lis ceci et que tu repoussais la création de quelque chose, voici le seul prompt dont tu as besoin pour commencer aujourd'hui : \"Crée-moi un site web simple d'une page pour [décris ton projet en une phrase]. Inclure : un titre, un court paragraphe sur ce que c'est, et un moyen pour les gens de me contacter. Garde-le propre et minimal. Utilise un fond blanc et une couleur d'accent.\" Lance ça. Tu auras quelque chose à réagir en moins de deux minutes.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "There's a moment most first-time website builders know well. You've got an idea. Maybe it's a portfolio, a small business site, or a landing page for something you're launching. You open a browser, search \"how to build a website,\" and within thirty seconds you're staring at tutorials about HTML tags, CSS selectors, and \"responsive design best practices.\"",
+      },
+      {
+        type: 'paragraph',
+        text: "You close the tab. That gap — between having an idea and knowing enough to execute it — has stopped more projects than any bad idea ever has. But something shifted in the last eighteen months. The tools caught up. And not in a \"good enough\" way. In a \"actually works\" way.",
+      },
+      {
+        type: 'heading',
+        text: "What Changed (And Why It Matters Now)",
+      },
+      {
+        type: 'paragraph',
+        text: "AI coding assistants have existed in various forms for years. Most of them were built for developers — tools that autocompleted code you already understood. The shift that happened recently is different. Tools like Claude Code are now capable of taking plain language instructions — the kind you'd write in a message to a friend — and turning them into working websites. Not wireframes. Not mockups. Actual, deployed, publicly accessible pages.",
+      },
+      {
+        type: 'quote',
+        text: "\"Make me a landing page for my photography business. It should have a hero image section, a short about paragraph, a gallery of six photos, and a contact form. Keep it minimal and clean.\" That instruction, given to Claude Code, produces a working webpage. In one step.",
+      },
+      {
+        type: 'paragraph',
+        text: "This isn't automation replacing creativity. It's automation removing friction. You still decide what your site is about, what it looks like, and who it's for. The tool handles the translation from idea to code.",
+      },
+      {
+        type: 'heading',
+        text: "The Three Stages Most People Get Stuck",
+      },
+      {
+        type: 'list',
+        items: [
+          "Getting started. Blank screen, no idea where to begin. Every tutorial assumes context you don't have yet.",
+          "Making it look right. You got something built, but it looks off — the spacing is wrong, the font is mismatched, something just doesn't feel professional.",
+          "Publishing it. The page works locally but getting it live involves domain names, hosting, DNS settings, and a dozen other things that weren't in the tutorial.",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "A Practical Approach That Actually Works",
+      },
+      {
+        type: 'list',
+        items: [
+          "Start with a single-paragraph description of your site. Not a list of features — a description, like you'd give to a designer friend over coffee.",
+          "Let the tool generate a first version without interrupting it. Don't prompt again until you can see the full result.",
+          "Then critique specifically. \"The heading font feels too heavy\" or \"The spacing between sections needs more room to breathe\" — not \"make it better.\"",
+          "Publish early, even if it's not perfect. A live site you can share is worth more than a perfect site that doesn't exist yet.",
+        ],
+      },
+      {
+        type: 'quote',
+        text: "I published on a Thursday evening after about five days. The first version looked rough. By the time I published it was something I was genuinely proud of. — Adi R., Brand consultant, built his first site in 5 days",
+      },
+      {
+        type: 'heading',
+        text: "What This Doesn't Replace",
+      },
+      {
+        type: 'list',
+        items: [
+          "Complex custom functionality — if your site needs unusual features, you'll eventually hit a ceiling without deeper technical involvement.",
+          "Performance optimization — a generated site may not be as fast or efficient as one built by an experienced developer from scratch.",
+          "Long-term maintenance — if your needs grow significantly, understanding what was built becomes important.",
+        ],
+      },
+      {
+        type: 'paragraph',
+        text: "But for the majority of people who need a functioning, professional-looking site and currently have nothing — these are tomorrow's problems. The goal for most people isn't a perfect website. It's a real one.",
+      },
+      {
+        type: 'heading',
+        text: "Where to Start",
+      },
+      {
+        type: 'paragraph',
+        text: "If you're reading this and have been putting off building something, here's the only prompt you need to get started today: \"Build me a simple one-page website for [describe your project in one sentence]. Include: a headline, a short paragraph about what it is, and a way for people to contact me. Make it clean and minimal. Use a white background and one accent color.\" That's it. Run that. See what comes back. You'll have something to react to in under two minutes.",
+      },
+    ],
+  },
+  {
+    slug: 'wifi-not-the-problem',
+    title: "Ton Wi-Fi n'est pas le problème. C'est la façon dont tu l'utilises.",
+    titleEn: "Your Wi-Fi Isn't the Problem. How You Use It Is.",
+    excerpt: "Les travailleurs à distance perdent en moyenne 4,5 heures par semaine à cause de problèmes de connectivité. Le vrai coupable n'est pas ta vitesse internet — ce sont quatre habitudes invisibles que la plupart des gens ne songent jamais à corriger.",
+    excerptEn: "Remote workers lose an average of 4.5 hours per week to connectivity issues. The real culprit isn't your internet speed — it's four invisible habits that most people never think to fix.",
+    date: '2026-06-04',
+    readTime: 7,
+    category: 'Tech & IA',
+    categoryEn: 'Tech & AI',
+    thumbnail: '/blog/wifi-remote-work.png',
+    content: [
+      {
+        type: 'paragraph',
+        text: "Tu es en pleine présentation client. L'écran se fige. L'appel se coupe. Tu te reconnectes, tu t'excuses, et tu passes les dix minutes suivantes à récapituler ce qu'ils ont manqué. Le temps que tu retrouves le fil, l'élan est perdu.",
+      },
+      {
+        type: 'paragraph',
+        text: "Si ça t'arrive plus d'une fois par mois, tu as probablement accusé ton fournisseur d'accès internet. Tu as peut-être même payé pour un forfait plus rapide. Mais voici ce que la plupart des gens ne réalisent pas : la vitesse internet est rarement le goulot d'étranglement. Le goulot d'étranglement, c'est presque toujours la façon dont la connexion est utilisée — par toi, par tes appareils, et par les logiciels qui tournent invisiblement en arrière-plan. C'est un problème résolvable. Et la correction ne coûte rien.",
+      },
+      {
+        type: 'heading',
+        text: "Combien ça te coûte vraiment",
+      },
+      {
+        type: 'paragraph',
+        text: "Les défaillances de connectivité en télétravail ne sont pas seulement frustrantes. Elles ont un coût économique mesurable : 4,5 heures perdues par travailleur à distance par semaine à cause d'interruptions liées à la connectivité (Ookla, 2024). 67 % des télétravailleurs déclarent que des problèmes techniques ont provoqué un manque ou une perturbation significative d'une réunion au cours du dernier mois. 4 000 $ de perte de productivité annuelle estimée par employé à distance due à une mauvaise gestion de la connexion (Buffer State of Remote Work).",
+      },
+      {
+        type: 'paragraph',
+        text: "Ces chiffres ne parlent pas d'une mauvaise infrastructure. Ils parlent d'habitudes non gérées superposées à une infrastructure qui n'a jamais été conçue pour la façon dont nous travaillons aujourd'hui. Payer pour plus de vitesse est la dernière chose que tu devrais essayer. C'est généralement la première que les gens font.",
+      },
+      {
+        type: 'heading',
+        text: "Les quatre habitudes qui tuent silencieusement ta connexion",
+      },
+      {
+        type: 'heading',
+        text: "1. La consommation de bande passante par les apps en arrière-plan",
+      },
+      {
+        type: 'paragraph',
+        text: "Les apps de stockage cloud comme Google Drive, Dropbox et OneDrive se synchronisent en continu par défaut. Windows Update, les mises à jour macOS et les mises à jour automatiques des applications tournent quand ils le décident. Pendant une matinée de travail de deux heures, ton ordinateur a peut-être consommé silencieusement des gigaoctets de bande passante que tu croyais disponible pour tes appels. La correction : programme les synchronisations en dehors des heures de travail. Dans chaque grande app cloud, il y a un paramètre pour synchroniser uniquement à des heures précises. Règle-le une fois et oublie-le.",
+      },
+      {
+        type: 'heading',
+        text: "2. L'emplacement du routeur (la variable la plus ignorée)",
+      },
+      {
+        type: 'paragraph',
+        text: "Le signal Wi-Fi se dégrade à travers les murs, les meubles et les appareils. Un routeur placé dans un placard de couloir — où la plupart des gens le mettent, parce que c'est là qu'arrive le câble — perd 30 à 60 % de sa portée effective avant que le signal atteigne ton espace de travail. Le routeur devrait être dans la même pièce que ton espace de travail principal, surélevé du sol, et loin des micro-ondes, moniteurs pour bébés et téléphones sans fil. Si déplacer le routeur n'est pas possible, un répéteur mesh à 25 € placé entre le routeur et ton bureau résout le problème définitivement.",
+      },
+      {
+        type: 'heading',
+        text: "3. Utiliser le 2,4 GHz quand le 5 GHz est disponible",
+      },
+      {
+        type: 'paragraph',
+        text: "La plupart des routeurs modernes diffusent deux réseaux simultanément — une bande 2,4 GHz et une bande 5 GHz. La bande 2,4 GHz a une plus longue portée mais est très encombrée, partagée avec tous les routeurs voisins, micro-ondes et appareils Bluetooth à portée. La bande 5 GHz est plus rapide, moins encombrée et bien plus stable pour les appels vidéo — mais ne fonctionne bien que jusqu'à environ dix mètres du routeur. Vérifie les paramètres de ton appareil et passe manuellement au 5 GHz si disponible. La plupart des gens ne l'ont jamais fait et ignorent que l'option existe.",
+      },
+      {
+        type: 'heading',
+        text: "4. La qualité des appels vidéo réglée sur \"Auto\"",
+      },
+      {
+        type: 'paragraph',
+        text: "Zoom, Google Meet et Microsoft Teams ont tous des paramètres de qualité sur \"ajustement automatique\" par défaut. En pratique, l'ajustement prend plusieurs secondes de retard, ce qui explique pourquoi les appels semblent bien se passer puis se dégradent soudainement au milieu d'une phrase. Régler manuellement ta vidéo sortante à 720p — au lieu de 1080p auto — utilise environ 40 % de moins de bande passante sans différence de qualité visible pour les gens qui te regardent sur un écran d'ordinateur portable.",
+      },
+      {
+        type: 'quote',
+        text: "J'ai amélioré mon forfait internet trois fois en deux ans. Puis j'ai déplacé mon routeur de six mètres et désactivé la synchronisation automatique de OneDrive. Je n'ai plus eu d'appel coupé depuis. — Marcus T., consultant freelance, Berlin",
+      },
+      {
+        type: 'heading',
+        text: "L'audit de 20 minutes qui résout la plupart de ces problèmes",
+      },
+      {
+        type: 'list',
+        items: [
+          "Ouvre tes apps de stockage cloud (Drive, Dropbox, OneDrive). Trouve le paramètre de planification de synchronisation. Règle sur manuel ou en dehors des heures de travail.",
+          "Vérifie ta bande de connexion Wi-Fi. Sur Windows : Paramètres → Réseau → Propriétés → cherche \"5 GHz\". Sur Mac : maintiens Option et clique sur l'icône Wi-Fi. Passe au réseau 5 GHz si disponible.",
+          "Dans Zoom : Paramètres → Vidéo → règle la qualité d'envoi sur 720p. Dans Google Meet : Paramètres → Vidéo → Résolution d'envoi → 720p.",
+          "Vérifie la position de ton routeur. S'il est dans un placard, un couloir ou derrière des meubles, déplace-le. Même un mètre fait une différence.",
+          "Lance un test de vitesse sur speedtest.net avant et après tes changements. La plupart des gens voient une amélioration de 20 à 40 % des performances effectives sans aucun changement matériel.",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "Et encore une chose : le plan de secours que personne ne configure",
+      },
+      {
+        type: 'paragraph',
+        text: "Même une configuration parfaitement optimisée peut tomber en panne. Chaque télétravailleur devrait avoir un accès mobile de secours prêt en moins de trente secondes : la fonction hotspot de ton téléphone activée et testée (avec un ordinateur portable connecté, avant d'en avoir besoin), ton ordinateur qui connaît le nom du réseau hotspot et s'y connecte automatiquement, et le raccourci pour changer de réseau sans ouvrir un navigateur. La configurer prend cinq minutes. L'utiliser quand ta connexion tombe en pleine présentation prend cinq secondes. La connectivité est une infrastructure. Traite-la comme telle.",
+      },
+    ],
+    contentEn: [
+      {
+        type: 'paragraph',
+        text: "You're in the middle of a client presentation. The screen freezes. The call drops. You rejoin, apologize, and spend the next ten minutes recapping what they missed. By the time you're back on track, the momentum is gone.",
+      },
+      {
+        type: 'paragraph',
+        text: "If this happens to you more than once a month, you've probably blamed your internet provider. Maybe you've even paid for a faster plan. But here's what most people don't realise: internet speed is rarely the bottleneck. The bottleneck is almost always how the connection is being used — by you, by your devices, and by the software running invisibly in the background. This is a solvable problem. And the fix costs nothing.",
+      },
+      {
+        type: 'heading',
+        text: "How Much Is This Actually Costing You",
+      },
+      {
+        type: 'paragraph',
+        text: "Remote work connectivity failures aren't just frustrating. They have a measurable economic cost: 4.5 hours lost per remote worker per week due to connectivity-related interruptions (Ookla, 2024). 67% of remote workers report that technical issues have caused them to miss or significantly disrupt a meeting in the past month. $4,000 estimated annual productivity loss per remote employee from poor connection management (Buffer State of Remote Work).",
+      },
+      {
+        type: 'paragraph',
+        text: "These numbers aren't about bad infrastructure. They're about unmanaged habits layered onto infrastructure that was never designed for the way we work today. Paying for more speed is the last thing you should try. It's usually the first thing people do.",
+      },
+      {
+        type: 'heading',
+        text: "The Four Habits Silently Killing Your Connection",
+      },
+      {
+        type: 'heading',
+        text: "1. Background App Bandwidth Drain",
+      },
+      {
+        type: 'paragraph',
+        text: "Cloud storage apps like Google Drive, Dropbox, and OneDrive sync continuously by default. Windows Update, macOS updates, and app auto-updates run whenever they feel like it. During a two-hour workday morning, your computer may have quietly consumed gigabytes of bandwidth you thought was available for your calls. The fix: schedule syncs for off-hours. On every major cloud app, there is a setting to sync only at specific times or only when you manually trigger it. Set it once and forget it.",
+      },
+      {
+        type: 'heading',
+        text: "2. Router Placement (The Most Ignored Variable)",
+      },
+      {
+        type: 'paragraph',
+        text: "Wi-Fi signal degrades through walls, furniture, and appliances. A router placed in a hallway cupboard — which is where most people put them, because that's where the cable comes in — loses 30–60% of its effective range before the signal reaches your workspace. The router should be in the same room as your primary workspace, elevated off the floor, and away from microwaves, baby monitors, and cordless phones. If moving the router isn't possible, a £25 mesh network extender placed between the router and your desk solves the problem permanently.",
+      },
+      {
+        type: 'heading',
+        text: "3. Using 2.4 GHz When 5 GHz Is Available",
+      },
+      {
+        type: 'paragraph',
+        text: "Most modern routers broadcast two networks simultaneously — a 2.4 GHz band and a 5 GHz band. The 2.4 GHz band has longer range but is heavily congested, shared with every neighbour's router, microwave, and Bluetooth device in range. The 5 GHz band is faster, less congested, and far more stable for video calls — but only works reliably within about ten metres of the router. Check your device settings. If you're connected to the 2.4 GHz network and your router is nearby, switch manually to 5 GHz. Most people have never done this and don't know the option exists.",
+      },
+      {
+        type: 'heading',
+        text: "4. Video Call Quality Set to \"Auto\"",
+      },
+      {
+        type: 'paragraph',
+        text: "Zoom, Google Meet, and Microsoft Teams all have quality settings that default to \"auto-adjust.\" In practice, the adjustment lags by several seconds, which is why calls feel fine and then suddenly degrade mid-sentence. Setting your outgoing video to 720p manually — instead of 1080p auto — uses roughly 40% less bandwidth with no visible quality difference to the people watching you on a laptop screen.",
+      },
+      {
+        type: 'quote',
+        text: "I upgraded my internet plan three times in two years. Then I moved my router six metres and turned off OneDrive auto-sync. Haven't had a dropped call since. — Marcus T., freelance consultant, Berlin",
+      },
+      {
+        type: 'heading',
+        text: "The 20-Minute Audit That Fixes Most of This",
+      },
+      {
+        type: 'list',
+        items: [
+          "Open your cloud storage apps (Drive, Dropbox, OneDrive). Find the sync schedule setting. Set to manual or off-hours only.",
+          "Check your Wi-Fi connection band. On Windows: Settings → Network → Properties → look for \"5 GHz\" in the connection details. On Mac: hold Option and click the Wi-Fi icon. Switch to the 5 GHz network if available.",
+          "In Zoom: Settings → Video → set \"Send video quality\" to 720p. In Google Meet: Settings → Video → Send resolution → 720p.",
+          "Check your router position. If it's in a cupboard, hallway, or behind furniture, move it. Even one metre matters.",
+          "Run a speed test at speedtest.net before and after your changes. Most people see a 20–40% improvement in effective performance without any hardware changes.",
+        ],
+      },
+      {
+        type: 'heading',
+        text: "One More Thing: The Backup Plan Nobody Sets Up",
+      },
+      {
+        type: 'paragraph',
+        text: "Even a perfectly optimised setup fails sometimes. Every remote worker should have a mobile data backup ready to go in under thirty seconds. This means your phone's hotspot feature is enabled and tested (not just enabled — tested, with a laptop connected, before you need it), your laptop knows the hotspot network name and password and will connect automatically, and you know the keyboard shortcut or system setting to switch networks on your computer without opening a browser first. Setting this up takes five minutes. Using it when your home connection drops mid-presentation takes five seconds. Connectivity is infrastructure. Treat it like one.",
       },
     ],
   },
