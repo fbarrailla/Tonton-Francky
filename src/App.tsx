@@ -6,7 +6,7 @@
 import React, { lazy, Suspense, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Instagram, Heart, MapPin, Twitch, Menu, X, Code2, UtensilsCrossed, User, Mail, Music, BookOpen, Search, Sun, Moon, Newspaper, Briefcase, Users } from 'lucide-react';
+import { Instagram, Heart, MapPin, Twitch, Menu, X, Code2, UtensilsCrossed, User, Mail, Music, BookOpen, Search, Sun, Moon, Newspaper, Users } from 'lucide-react';
 
 const GithubIcon = ({ size = 20 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -40,7 +40,6 @@ const EbookPromo = lazy(() => import('./components/EbookPromo'));
 const Blog = lazy(() => import('./components/Blog'));
 const BlogDetail = lazy(() => import('./components/BlogDetail'));
 const Dashboard = lazy(() => import('./components/Dashboard'));
-const Careers = lazy(() => import('./components/Careers'));
 const Team = lazy(() => import('./components/Team'));
 import { LanguageProvider, useLanguage, type Lang } from './i18n';
 import { ThemeProvider, useTheme } from './theme';
@@ -324,7 +323,6 @@ function AppContent() {
                 { to: '/a-propos', icon: <User size={12} />, label: t.nav.about },
                 { to: '/contact', icon: <Mail size={12} />, label: t.nav.contact },
                 { to: '/team', icon: <Users size={12} />, label: t.nav.team },
-                { to: '/careers', icon: <Briefcase size={12} />, label: t.nav.careers },
                 { to: '/ebook', icon: <BookOpen size={12} />, label: t.nav.ebook },
               ].map(({ to, icon, label }) => (
                 <Link
@@ -383,7 +381,6 @@ function AppContent() {
                 { to: '/contact', icon: <Mail size={15} />, label: t.nav.contact },
                 { to: '/blog', icon: <Newspaper size={15} />, label: t.nav.blog },
                 { to: '/team', icon: <Users size={15} />, label: t.nav.team },
-                { to: '/careers', icon: <Briefcase size={15} />, label: t.nav.careers },
               ].map(({ to, icon, label }) => (
                 <Link
                   key={to}
@@ -457,7 +454,6 @@ function AppContent() {
               <Route path="/blog/:slug" element={<BlogDetail />} />
               <Route path="/a-propos" element={<About />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/careers" element={<Careers />} />
               <Route path="/team" element={<Team />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="*" element={
