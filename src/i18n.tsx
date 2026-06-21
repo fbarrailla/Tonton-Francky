@@ -19,21 +19,6 @@ const translations = {
       contact: 'Contact',
       ebook: 'E-book',
       blog: 'Blog',
-      team: 'Équipe',
-    },
-    team: {
-      title: 'L\'équipe',
-      subtitle: 'Les visages derrière Tonton Francky 👋',
-      countLabel: 'membres dans l\'équipe',
-      groups: {
-        leadership: 'Direction',
-        tech: 'Tech',
-        marketingContent: 'Marketing & Contenu',
-        community: 'Community',
-        moderation: 'Modération Twitch',
-        operations: 'Opérations',
-        interns: 'Stages',
-      },
     },
     blog: {
       title: 'Blog',
@@ -279,21 +264,6 @@ const translations = {
       contact: 'Contact',
       ebook: 'E-book',
       blog: 'Blog',
-      team: 'Team',
-    },
-    team: {
-      title: 'The team',
-      subtitle: 'The faces behind Tonton Francky 👋',
-      countLabel: 'team members',
-      groups: {
-        leadership: 'Leadership',
-        tech: 'Tech',
-        marketingContent: 'Marketing & Content',
-        community: 'Community',
-        moderation: 'Twitch moderation',
-        operations: 'Operations',
-        interns: 'Interns',
-      },
     },
     blog: {
       title: 'Blog',
